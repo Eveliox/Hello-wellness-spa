@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Hello You Wellness Center">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f7f7"/>
+      <stop offset="1" stop-color="#e8e8e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="72" y="72" width="1056" height="486" rx="36" fill="#ffffff" opacity="0.92"/>
+  <text x="120" y="260" font-family="Georgia, serif" font-size="52" fill="#212020">Hello You Wellness Center</text>
+  <text x="120" y="330" font-family="ui-sans-serif, system-ui" font-size="26" fill="#757575">Miami � Whole-body wellness</text>
+  <text x="120" y="410" font-family="ui-sans-serif, system-ui" font-size="20" fill="#212020">Replace with your branded Open Graph image in /public</text>
+</svg>

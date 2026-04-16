@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/**
+ * Hello You palette (charcoal + cool neutrals) with a modern type system:
+ * Plus Jakarta Sans (UI/body) + Fraunces (display) — not the legacy site stack.
+ */
+:root {
+  --canvas: #f7f7f7;
+  --surface: #ffffff;
+  --ink: #212020;
+  --muted: #757575;
+  --faint: #919191;
+  --accent: #212020;
+  --accent-2: #5c5c5c;
+  --accent-soft: #e8e8e8;
+  --line: #dbdbdb;
+  --chrome: #161616;
+  --on-chrome: #ffffff;
+  --chrome-muted: rgba(255, 255, 255, 0.72);
+  --shadow: 0 16px 48px rgba(22, 22, 22, 0.08);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+  --color-chrome: var(--chrome);
+  --color-on-chrome: var(--on-chrome);
+  --shadow-soft: var(--shadow);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  /* UI chrome (nav labels, buttons) — same family as body for one cohesive rhythm */
+  --font-ui: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--accent-soft) 90%, var(--ink));
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--ink) 55%, white);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-ui {
+    font-family: var(--font-ui);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow);
+  }
+
+  .animate-rise {
+    animation: rise 0.7s ease-out both;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-rise {
+      animation: none;
+    }
+  }
+}
