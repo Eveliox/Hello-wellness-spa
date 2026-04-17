@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
       "I appreciated how transparent they were about what peptides could and could not do. That honesty made it easy to trust the plan.",
     name: "Priya N.",
     detail: "Downtown · Peptide therapy",
-    service: "Peptides",
+    service: "Peptide therapy consultation",
   },
   {
     id: "t5",

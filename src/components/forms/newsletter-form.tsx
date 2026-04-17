@@ -90,7 +90,15 @@ export function NewsletterForm({ tone = "light" }: NewsletterFormProps) {
                 : "border-line bg-surface text-ink focus:border-ink/25 focus:ring-ink/15",
             )}
           />
-          <Button type="submit" variant={dark ? "inverse" : "primary"} disabled={status === "loading"} className="sm:w-40">
+          <Button
+            type="submit"
+            variant={dark ? "inverse" : "primary"}
+            disabled={status === "loading"}
+            className={cn(
+              "sm:w-40",
+              dark && "border-transparent bg-[color:#C0392B] text-white hover:bg-[#C0392B]/90 hover:text-white",
+            )}
+          >
             {status === "loading" ? "Joining…" : "Sign up"}
           </Button>
         </form>

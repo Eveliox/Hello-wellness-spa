@@ -43,7 +43,7 @@ export function ContactForm() {
       return;
     }
     reset();
-    setServerMessage("Thank you. Our concierge team will respond within one business day.");
+    setServerMessage("Thank you. We received your message.");
   }
 
   const inputClass =
@@ -54,7 +54,7 @@ export function ContactForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="text-sm font-medium text-ink" htmlFor="contact-name">
-            Full name
+            Name
           </label>
           <input id="contact-name" className={inputClass} autoComplete="name" {...register("name")} />
           {errors.name ? (
@@ -65,7 +65,7 @@ export function ContactForm() {
         </div>
         <div>
           <label className="text-sm font-medium text-ink" htmlFor="contact-email">
-            Email
+            Email address
           </label>
           <input
             id="contact-email"
@@ -85,20 +85,20 @@ export function ContactForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="text-sm font-medium text-ink" htmlFor="contact-phone">
-            Phone <span className="text-muted font-normal">(optional)</span>
+            Phone number <span className="text-muted font-normal">(optional)</span>
           </label>
           <input id="contact-phone" type="tel" className={inputClass} autoComplete="tel" {...register("phone")} />
         </div>
         <div>
           <label className="text-sm font-medium text-ink" htmlFor="contact-interest">
-            I am interested in
+            Topic
           </label>
           <select id="contact-interest" className={inputClass} {...register("interest")}>
             <option value="general">General question</option>
             <option value="weight-loss">Assisted weight loss</option>
             <option value="aesthetics">Aesthetics & cosmetics</option>
             <option value="iv">IV therapy</option>
-            <option value="peptides">Peptide therapy</option>
+            <option value="peptides">Peptides</option>
             <option value="booking">Booking help</option>
           </select>
           {errors.interest ? (
@@ -116,7 +116,7 @@ export function ContactForm() {
 
       <div>
         <label className="text-sm font-medium text-ink" htmlFor="contact-message">
-          How can we help?
+          Message
         </label>
         <textarea
           id="contact-message"
@@ -132,7 +132,7 @@ export function ContactForm() {
       </div>
 
       <Button type="submit" disabled={isSubmitting} size="lg" className="w-full sm:w-auto">
-        {isSubmitting ? "Sending…" : "Send message"}
+        {isSubmitting ? "Sending…" : "Submit"}
       </Button>
 
       {serverMessage ? (

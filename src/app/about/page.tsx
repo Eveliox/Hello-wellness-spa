@@ -25,11 +25,11 @@ export default function AboutPage() {
         <Container className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">About</p>
           <h1 className="mt-3 font-display text-4xl text-balance text-ink sm:text-5xl">
-            A studio built for modern Miami women—and everyone they care for.
+            A studio built for modern Miami—and everyone who matters to you.
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
-            Hello You Wellness Center exists at the intersection of evidence-informed medicine and approachable
-            hospitality. We believe premium care should feel legible: you always know what is happening, why it
+            Hello You Wellness Center lives at the intersection of evidence-informed medicine and genuine
+            hospitality. We believe premium care should feel human: you always know what's happening, why it
             matters, and what comes next.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -50,8 +50,8 @@ export default function AboutPage() {
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] border border-line shadow-soft">
             <Image
-              src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1400&q=80&auto=format&fit=crop"
-              alt="Bright med spa reception with sculptural florals"
+              src="/images/about/background.webp"
+              alt="Hello You Wellness Center studio interior"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 40vw, 100vw"

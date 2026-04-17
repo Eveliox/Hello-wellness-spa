@@ -7,7 +7,7 @@ import { TrustChip } from "@/components/ui/trust-chip";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden border-b border-line/80 bg-surface">
+    <section id="home-hero" className="relative overflow-hidden border-b border-line/80 bg-surface">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(22,22,22,0.06),_transparent_58%)]" />
       <Container className="relative grid gap-12 py-14 lg:grid-cols-2 lg:items-center lg:py-20">
         <div className="animate-rise space-y-6">
@@ -25,13 +25,25 @@ export function HeroSection() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button href={`tel:${site.phoneTel}`} size="lg">
-              Call {site.phoneDisplay}
+            <Button href={site.bookingUrl} size="lg" className="bg-[#1a1a1a] text-white hover:bg-[#1a1a1a]/90">
+              Book a Free Consultation
             </Button>
             <Button href="/quiz" variant="secondary" size="lg">
               Take the 2-min quiz
             </Button>
           </div>
+          <a
+            href={`tel:${site.phoneTel}`}
+            className="inline-flex items-center gap-2 text-sm text-[#555] underline-offset-2 hover:underline"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6.6 10.8c1.6 3.2 4.2 5.8 7.4 7.4l2.4-2.4c.3-.3.8-.4 1.2-.2 1.1.4 2.3.6 3.6.6.7 0 1.2.5 1.2 1.2V21c0 .7-.5 1.2-1.2 1.2C9.9 22.2 1.8 14.1 1.8 3.2 1.8 2.5 2.3 2 3 2h3.5c.7 0 1.2.5 1.2 1.2 0 1.2.2 2.4.6 3.6.1.4 0 .9-.3 1.2L6.6 10.8Z"
+                fill="currentColor"
+              />
+            </svg>
+            Call {site.phoneDisplay}
+          </a>
           <p className="text-xs text-faint">
             Not sure where to start?{" "}
             <Link href="/quiz" className="font-medium text-ink underline-offset-2 hover:underline">
@@ -44,8 +56,8 @@ export function HeroSection() {
         <div className="relative mx-auto w-full max-w-md lg:max-w-none">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-line bg-surface shadow-soft lg:aspect-[4/5]">
             <Image
-              src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&q=80&auto=format&fit=crop"
-              alt="Soft-lit treatment suite with fresh botanicals"
+              src="/images/home/hero-nad.jpg"
+              alt="Hello You Wellness Center NAD+ product photo"
               fill
               priority
               className="object-cover"
@@ -54,7 +66,7 @@ export function HeroSection() {
             <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-black/10 bg-white/90 p-4 text-sm text-ink shadow-sm backdrop-blur-md">
               <p className="font-ui font-semibold">Reach out anytime</p>
               <p className="mt-1 text-xs text-muted">
-                Call us or message on Instagram—our team will guide you to the right next step.
+                Call {site.phoneDisplay} or message on Instagram—our team will guide you to the right next step.
               </p>
               <a
                 href={site.social.instagram}

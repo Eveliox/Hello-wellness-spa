@@ -1,10 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { site } from "@/content/site";
 import { Button } from "@/components/ui/button";
 
 export function StickyBookCta() {
+  const pathname = usePathname();
+  if (pathname === "/services/peptide-therapy") return null;
+
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-chrome/98 p-3 shadow-[0_-12px_40px_rgba(0,0,0,0.35)] backdrop-blur-md md:hidden">
       <div className="mx-auto flex max-w-lg items-center gap-2 text-on-chrome">

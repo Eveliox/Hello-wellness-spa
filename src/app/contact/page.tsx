@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
-import { ContactForm } from "@/components/forms/contact-form";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = createMetadata({
@@ -19,16 +18,13 @@ export default function ContactPage() {
           <h1 className="font-display text-4xl text-balance text-ink sm:text-5xl">Talk with our concierge team</h1>
           <p className="mt-4 text-base leading-relaxed text-muted">
             For timely answers, include your goal and preferred appointment window. Medical questions are reviewed
-            by a licensed provider. Prefer the widget on our main site?{" "}
-            <a className="font-semibold text-ink underline-offset-2 hover:underline" href={site.contactWidgetUrl}>
-              Open the contact form ↗
-            </a>
+            by a licensed provider.
           </p>
         </Container>
       </section>
 
       <section className="py-16">
-        <Container className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+        <Container className="max-w-3xl">
           <div className="space-y-6 text-sm text-muted">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Phone</p>
@@ -65,13 +61,6 @@ export default function ContactPage() {
               <Button href={site.social.instagram} variant="secondary" size="lg" className="w-full sm:w-auto">
                 Instagram
               </Button>
-            </div>
-          </div>
-          <div className="rounded-[var(--radius-card)] border border-line bg-surface p-6 shadow-sm sm:p-8">
-            <h2 className="font-display text-2xl text-ink">Send a message</h2>
-            <p className="mt-2 text-sm text-muted">We reply within one business day—often sooner.</p>
-            <div className="mt-6">
-              <ContactForm />
             </div>
           </div>
         </Container>

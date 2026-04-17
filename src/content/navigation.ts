@@ -17,7 +17,7 @@ export const mainNav: NavItem[] = [
       { label: "Aesthetics & cosmetics", href: "/services/aesthetics-cosmetics", description: "Injectables, skin, and refinement" },
       { label: "IV therapy", href: "/services/iv-therapy", description: "Hydration, recovery, and vitality" },
       { label: "Build your own IV", href: "/services/build-your-own-iv", description: "Personalized nutrient blends" },
-      { label: "Peptide therapy", href: "/services/peptide-therapy", description: "Targeted protocols with medical oversight" },
+      { label: "Research Peptides", href: "/store?category=Peptides%20(Research%20Use%20Only)", description: "Research-use products and handling standards" },
     ],
   },
   { label: "Quiz", href: "/quiz" },
@@ -33,7 +33,7 @@ export const footerGroups = [
       { label: "Assisted weight loss", href: "/services/assisted-weight-loss" },
       { label: "Aesthetics", href: "/services/aesthetics-cosmetics" },
       { label: "IV therapy", href: "/services/iv-therapy" },
-      { label: "Peptide therapy", href: "/services/peptide-therapy" },
+      { label: "Research Peptides", href: "/store?category=Peptides%20(Research%20Use%20Only)" },
     ],
   },
   {
@@ -41,7 +41,6 @@ export const footerGroups = [
     links: [
       { label: "Testimonials", href: "/testimonials" },
       { label: "FAQ", href: "/faq" },
-      { label: "Contact", href: "/contact" },
     ],
   },
   {

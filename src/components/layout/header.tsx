@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { mainNav } from "@/content/navigation";
 import { site } from "@/content/site";
@@ -15,7 +16,16 @@ const navLinkClass =
 export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [showBookCta, setShowBookCta] = useState(false);
   const menuId = useId();
+  const pathname = usePathname();
+
+  const isPeptidesPage = pathname === "/services/peptide-therapy";
+  const navItems = isPeptidesPage
+    ? mainNav
+        .filter((item) => item.href !== "/services")
+        .filter((item) => item.href !== "/quiz")
+    : mainNav;
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -23,6 +33,30 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  useEffect(() => {
+    if (isPeptidesPage) {
+      setShowBookCta(false);
+      return;
+    }
+
+    const hero = document.getElementById("home-hero");
+    if (!hero) {
+      setShowBookCta(false);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        // Once the hero is mostly out of view, show the booking CTA in the header.
+        setShowBookCta(!entry.isIntersecting);
+      },
+      { threshold: 0.15, rootMargin: "0px 0px 0px 0px" },
+    );
+
+    io.observe(hero);
+    return () => io.disconnect();
+  }, [isPeptidesPage, pathname]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-chrome text-on-chrome">
@@ -49,7 +83,7 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
-          {mainNav.map((item) =>
+          {navItems.map((item) =>
             item.children ? (
               <div
                 key={item.label}
@@ -106,6 +140,11 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
+          {showBookCta ? (
+            <Button href={site.bookingUrl} size="sm" className="bg-[color:#C0392B] text-white hover:bg-[#C0392B]/90">
+              Book Now
+            </Button>
+          ) : null}
           <Button href={`tel:${site.phoneTel}`} variant="inverse" size="sm">
             Call {site.phoneDisplay}
           </Button>
@@ -115,6 +154,11 @@ export function Header() {
           <Button href={`tel:${site.phoneTel}`} variant="inverse" size="sm">
             Call
           </Button>
+          {showBookCta ? (
+            <Button href={site.bookingUrl} size="sm" className="bg-[color:#C0392B] text-white hover:bg-[#C0392B]/90">
+              Book
+            </Button>
+          ) : null}
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white"
@@ -149,7 +193,7 @@ export function Header() {
           >
             Home
           </Link>
-          {mainNav.map((item) =>
+          {navItems.map((item) =>
             item.children ? (
               <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 p-3">
                 <Link

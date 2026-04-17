@@ -1,27 +1,34 @@
 import { HeroSection } from "@/components/home/hero-section";
 import { TrustSection } from "@/components/home/trust-section";
-import { FeaturedServices } from "@/components/home/featured-services";
 import { AboutPreview } from "@/components/home/about-preview";
-import { WhyChooseSection } from "@/components/home/why-choose-section";
 import { TestimonialsHome } from "@/components/home/testimonials-home";
-import { TransformationPlaceholder } from "@/components/home/transformation-placeholder";
 import { FaqPreview } from "@/components/home/faq-preview";
-import { InstagramSection } from "@/components/home/instagram-section";
 import { MapEmbed } from "@/components/location/map-embed";
+import { ServicesPreview } from "@/components/home/services-preview";
+import { Reveal } from "@/components/ui/reveal";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <TrustSection />
-      <FeaturedServices />
-      <AboutPreview />
-      <WhyChooseSection />
-      <TestimonialsHome />
-      <TransformationPlaceholder />
-      <FaqPreview />
-      <InstagramSection />
-      <MapEmbed />
+      <Reveal>
+        <TrustSection />
+      </Reveal>
+      <Reveal delayMs={40}>
+        <ServicesPreview />
+      </Reveal>
+      <Reveal delayMs={80}>
+        <AboutPreview />
+      </Reveal>
+      <Reveal delayMs={120}>
+        <TestimonialsHome />
+      </Reveal>
+      <Reveal delayMs={160}>
+        <FaqPreview />
+      </Reveal>
+      <Reveal delayMs={200}>
+        <MapEmbed />
+      </Reveal>
     </>
   );
 }

@@ -10,7 +10,7 @@ import { TrustChip } from "@/components/ui/trust-chip";
 
 export const metadata: Metadata = createMetadata({
   title: "Services",
-  description: `Explore assisted weight loss, aesthetics, IV therapy, BYO IV, and peptide therapy at ${site.name} in Miami.`,
+  description: `Explore assisted weight loss, aesthetics, IV therapy, BYO IV, and peptides at ${site.name} in Miami.`,
   path: "/services",
 });
 
@@ -46,7 +46,7 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="Full menu"
             title="Medical aesthetics, infusion therapy, and guided weight care"
-            description="Peptide protocols are available for appropriate candidates with prescriber oversight and transparent follow-up."
+            description="Peptides are available in a research-only catalog with clear labeling and handling guidance."
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {services.map((service) => (

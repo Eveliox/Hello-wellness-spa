@@ -28,6 +28,27 @@ export const faqs: FaqItem[] = [
       "Bring a photo ID, insurance card if applicable, a list of medications and supplements, and any recent labs you would like us to review. Wear comfortable clothing for vitals—we will guide you through the rest.",
   },
   {
+    id: "weight-loss-expect",
+    category: "Treatments",
+    question: "How much weight can I expect to lose?",
+    answer:
+      "Results vary by individual, but many of our guests experience 15-20% body weight reduction over the course of their program. Your provider will set realistic, personalized goals during your initial consultation.",
+  },
+  {
+    id: "weight-loss-side-effects",
+    category: "Treatments",
+    question: "What are the potential side effects?",
+    answer:
+      "Common side effects of GLP-1 medications may include mild nausea, which typically subsides within the first few weeks. Your provider will monitor your response and adjust dosing as needed.",
+  },
+  {
+    id: "weight-loss-combine-services",
+    category: "Treatments",
+    question: "Can I combine this with other Hello You Wellness services?",
+    answer:
+      "Absolutely. Many of our guests pair their weight loss program with IV therapy, B12 injections, or nutritional counseling for a comprehensive wellness approach.",
+  },
+  {
     id: "toxin",
     category: "Treatments",
     question: "Will I look frozen after neurotoxin?",
@@ -84,11 +105,25 @@ export const faqs: FaqItem[] = [
       "Coverage varies by service. Some visits may qualify for insurance or HSA/FSA reimbursement depending on your plan. Our team can provide superbills when applicable—ask during booking.",
   },
   {
+    id: "financing",
+    category: "Billing",
+    question: "Do you offer financing or payment plans?",
+    answer:
+      "We accept all major credit cards and are working on adding financing options. For larger treatment plans, ask about our package pricing during your consultation.",
+  },
+  {
+    id: "free-consult",
+    category: "General",
+    question: "Is the initial consultation really free?",
+    answer:
+      "Yes — consultations with our care team are complimentary. We'll discuss your goals, review your options, and only move forward when you're ready. There's never pressure to commit on the spot.",
+  },
+  {
     id: "cancel",
     category: "Booking",
     question: "What is your cancellation policy?",
     answer:
-      "We request notice at least 24 hours before your appointment when possible. Late cancellations or no-shows may incur a fee so we can protect time reserved for you and other guests.",
+      "We ask for 24 hours' notice to cancel or reschedule. Late cancellations may be subject to a fee, which we'll outline at the time of booking.",
   },
 ];
 

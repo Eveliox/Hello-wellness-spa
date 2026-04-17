@@ -1,10 +1,11 @@
-import { faqs } from "@/content/faqs";
+import { faqsByIds } from "@/content/faqs";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { FaqAccordion } from "@/components/faq/faq-accordion";
 import { Button } from "@/components/ui/button";
 
-const preview = faqs.slice(0, 4);
+const previewIds = ["booking", "consult", "payment", "financing", "free-consult", "cancel"];
+const preview = faqsByIds(previewIds);
 
 export function FaqPreview() {
   return (

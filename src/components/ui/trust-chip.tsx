@@ -3,9 +3,11 @@ import { cn } from "@/lib/utils";
 export function TrustChip({
   children,
   className,
+  dotClassName,
 }: {
   children: React.ReactNode;
   className?: string;
+  dotClassName?: string;
 }) {
   return (
     <span
@@ -14,7 +16,7 @@ export function TrustChip({
         className,
       )}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-ink" aria-hidden />
+      <span className={cn("h-1.5 w-1.5 rounded-full bg-ink", dotClassName)} aria-hidden />
       {children}
     </span>
   );

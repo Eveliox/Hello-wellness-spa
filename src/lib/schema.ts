@@ -1,9 +1,19 @@
 import { site } from "@/content/site";
 
 export function localBusinessJsonLd() {
+  const ratingValue = Number.parseFloat(String(site.googleRating));
+  const aggregateRating =
+    Number.isFinite(ratingValue) && site.googleReviewCount
+      ? {
+          "@type": "AggregateRating",
+          ratingValue,
+          reviewCount: site.googleReviewCount,
+        }
+      : undefined;
+
   return {
     "@context": "https://schema.org",
-    "@type": ["MedicalClinic", "HealthAndBeautyBusiness"],
+    "@type": ["MedicalClinic", "HealthAndBeautyBusiness", "LocalBusiness"],
     name: site.name,
     description: site.tagline,
     url: site.url,
@@ -28,8 +38,16 @@ export function localBusinessJsonLd() {
       opens: h.opens,
       closes: h.closes,
     })),
+    ...(aggregateRating ? { aggregateRating } : {}),
+    makesOffer: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Assisted weight loss" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "IV therapy" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Aesthetics & skin care" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hormone therapy" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Research peptides" } },
+    ],
     priceRange: "$$",
     areaServed: { "@type": "City", name: "Miami" },
-    sameAs: Object.values(site.social).filter(Boolean),
+    sameAs: [site.googleReviewsUrl, ...Object.values(site.social)].filter(Boolean),
   };
 }

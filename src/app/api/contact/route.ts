@@ -16,7 +16,7 @@ const interestLabels: Record<string, string> = {
   "weight-loss": "Assisted weight loss",
   aesthetics: "Aesthetics & cosmetics",
   iv: "IV therapy",
-  peptides: "Peptide therapy",
+  peptides: "Peptides",
   booking: "Booking help",
 };
 

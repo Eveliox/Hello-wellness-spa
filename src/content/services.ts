@@ -27,7 +27,7 @@ export const services: ServiceContent[] = [
     eyebrow: "Medical weight management",
     summary:
       "A calm, structured program pairing medication options with nutrition coaching, labs as appropriate, and follow-up you can count on—so progress feels sustainable, not chaotic.",
-    heroImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1600&q=80&auto=format&fit=crop",
+    heroImage: "/images/assisted-weight-loss/glp.webp",
     benefits: [
       "Physician-led eligibility and dosing decisions",
       "Private check-ins that respect your pace and privacy",
@@ -41,7 +41,14 @@ export const services: ServiceContent[] = [
     ],
     sessionNote: "Initial visits include history, goals, and a personalized plan outline.",
     ctaNote: "Same-week consultations often available.",
-    faqIds: ["booking", "weight-consult", "payment"],
+    faqIds: [
+      "booking",
+      "weight-consult",
+      "weight-loss-expect",
+      "weight-loss-side-effects",
+      "weight-loss-combine-services",
+      "payment",
+    ],
   },
   {
     slug: "aesthetics-cosmetics",
@@ -114,25 +121,25 @@ export const services: ServiceContent[] = [
   },
   {
     slug: "peptide-therapy",
-    title: "Peptide therapy",
+    title: "Peptides",
     shortTitle: "Peptides",
-    eyebrow: "Targeted wellness protocols",
+    eyebrow: "In‑vitro research only",
     summary:
-      "Select peptide protocols discussed in the context of your labs, lifestyle, and goals—always with prescriber oversight, informed consent, and conservative dosing philosophy.",
+      "A research-first peptide catalog with clear labeling, lot traceability, and handling guidance. Products are sold strictly for in‑vitro research and laboratory use only.",
     heroImage: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1600&q=80&auto=format&fit=crop",
     benefits: [
-      "Candidacy screening and contraindication review",
-      "Education-forward visits—you understand the why",
-      "Coordination with your existing care team when requested",
-      "Follow-up cadence tuned to response and tolerability",
+      "Clear labeling, storage notes, and research documentation",
+      "Lot traceability for internal recordkeeping",
+      "Packaging designed for lab handling",
+      "Straightforward reorder flow once live",
     ],
     idealFor: [
-      "Clients optimizing recovery, sleep, or metabolic resilience",
-      "Athletes and professionals under physician guidance",
-      "Anyone seeking peptide care with medical accountability",
+      "Researchers and labs requiring research-use peptides",
+      "Teams standardizing internal procurement and documentation",
+      "Organizations that need consistent packaging and labeling",
     ],
-    sessionNote: "Peptide care may require baseline labs prior to initiation.",
-    ctaNote: "Not all peptides are appropriate for every guest—we prioritize safety.",
+    sessionNote: "All peptide products are intended strictly for in‑vitro research and laboratory use only.",
+    ctaNote: "Questions about documentation, lots, or handling? Contact our team.",
     faqIds: ["peptide-safety", "peptide-consult", "payment"],
   },
 ];

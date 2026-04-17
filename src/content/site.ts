@@ -20,6 +20,10 @@ export const site = {
   instagramHandle: "@xlashbyyaneacademy_",
   instagramUrl: "https://www.instagram.com/xlashbyyaneacademy_/",
   youtubeUrl: "https://www.youtube.com/@HelloYouWellnessClinic",
+  googleReviewsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Hello%20You%20Wellness%20Center%209660%20SW%2072nd%20St%2C%20Miami%2C%20FL%2033173",
+  googleRating: "5.0",
+  googleReviewCount: 9,
   address: {
     line1: "9660 SW 72nd St",
     city: "Miami",
@@ -48,10 +52,25 @@ export const site = {
     youtube: "https://www.youtube.com/@HelloYouWellnessClinic",
   },
   trustBadges: [
-    { label: "Licensed providers", detail: "Experienced medical and APRN-led aesthetics care" },
-    { label: "Personalized plans", detail: "Holistic support for your goals—not one-size templates" },
-    { label: "Full-service wellness", detail: "Weight, IV, hormones, skin, and recovery under one roof" },
-    { label: "SW Miami location", detail: "9660 SW 72nd St — easy access from Kendall & surrounding areas" },
+    {
+      label: "Licensed medical providers",
+      detail:
+        "Every treatment is led or supervised by experienced APRNs and medical professionals — never delegated to unlicensed staff.",
+    },
+    {
+      label: "Plans built around you",
+      detail: "Your goals, your history, your pace. We design every program from scratch — nothing is templated.",
+    },
+    {
+      label: "Everything under one roof",
+      detail:
+        "Weight loss, IV therapy, hormone replacement, aesthetics, and skin care — coordinated by a team that knows your full picture.",
+    },
+    {
+      label: "SW Miami — easy to reach",
+      detail:
+        "9660 SW 72nd St, minutes from Kendall, Westchester, and Coral Gables. Same-week appointments often available.",
+    },
   ],
 } as const;
 
