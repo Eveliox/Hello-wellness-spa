@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
+import { bookingUrlForServiceSlug } from "@/lib/booking";
 import { getService, services, type ServiceSlug } from "@/content/services";
 import { faqsByIds } from "@/content/faqs";
 import { testimonials } from "@/content/testimonials";
@@ -13,6 +14,14 @@ import { FaqAccordion } from "@/components/faq/faq-accordion";
 import { TestimonialsSection } from "@/components/testimonials/testimonials-section";
 import { Reveal } from "@/components/ui/reveal";
 import { JsonLd } from "@/components/json-ld";
+import { IVBuilder } from "@/components/services/iv-builder";
+import { WeightLossContent } from "@/components/services/weight-loss-content";
+import { AestheticsContent } from "@/components/services/aesthetics-content";
+import { IvTherapyContent } from "@/components/services/iv-therapy-content";
+import { IvAddOnsSection } from "@/components/services/iv-addons-section";
+import { ByoIvContent } from "@/components/services/byo-iv-content";
+import { PeptideContent } from "@/components/services/peptide-content";
+import { GettingStartedSection } from "@/components/services/getting-started-section";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -24,6 +33,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = getService(slug as ServiceSlug);
   if (!service) return {};
+  if (service.slug === "aesthetics-cosmetics") {
+    return createMetadata({
+      title: "Aesthetics & Cosmetics | Hello You Wellness Miami",
+      description:
+        "Botox, dermal fillers, and Morpheus8 RF microneedling in SW Miami—conservative technique, natural movement, and plans tailored to your anatomy and goals.",
+      path: `/services/${service.slug}`,
+      image: service.heroImage,
+    });
+  }
   return createMetadata({
     title: service.title,
     description: service.summary,
@@ -37,72 +55,19 @@ export default async function ServiceDetailPage({ params }: Props) {
   const service = getService(slug as ServiceSlug);
   if (!service) notFound();
 
+  const serviceBookingUrl = bookingUrlForServiceSlug(service.slug);
+
   const isPeptidesPage = service.slug === "peptide-therapy";
   const isWeightLossPage = service.slug === "assisted-weight-loss";
+  const isAestheticsPage = service.slug === "aesthetics-cosmetics";
+  const isIvTherapyPage = service.slug === "iv-therapy";
+  const isByoIvPage = service.slug === "build-your-own-iv";
 
-  const ivAddOns = [
-    {
-      title: "NAD+",
-      image: "/images/boosters/nad-plus.jpg",
-      note: "Ask your clinician if it’s a fit for your goals.",
-    },
-    {
-      title: "NAD+ (close up)",
-      image: "/images/boosters/nad-plus-closeup.jpeg",
-      note: "A closer look at one of our popular add-ons.",
-    },
-    {
-      title: "Glutathione",
-      image: "/images/boosters/gluta.png",
-      note: "Discuss dosing and timing during intake.",
-    },
-    {
-      title: "L‑Carnitine",
-      image: "/images/boosters/l-carnitine.png",
-      note: "Best selected with clinician guidance.",
-    },
-    {
-      title: "Lipotropic",
-      image: "/images/boosters/lipotropic.png",
-      note: "We’ll confirm appropriateness before adding.",
-    },
-    {
-      title: "IPA",
-      image: "/images/boosters/ipa.png",
-      note: "Available when clinically appropriate.",
-    },
-  ] as const;
-
-  const peptideSpotlight = [
-    {
-      title: "GHK‑Cu",
-      image: "/images/boosters/ghk.png",
-      note: "Peptides are always discussed with screening and oversight.",
-    },
-  ] as const;
-
-  const weightLossGallery = [
-    {
-      title: "Program overview",
-      image: "/images/assisted-weight-loss/weightloss.webp",
-      note: "A calm, structured pathway with clear next steps.",
-      href: "#program-options",
-      startingAt: "$145",
-    },
-    {
-      title: "Medication options",
-      image: "/images/assisted-weight-loss/glp-1.webp",
-      note: "Discussed with your provider and guided by your history and goals.",
-      href: "#program-options",
-      startingAt: "$199",
-    },
-    {
-      title: "GLP collection",
-      image: "/images/assisted-weight-loss/glp.webp",
-      note: "Every plan is individualized—your care stays legible and documented.",
-      href: "#program-options",
-      startingAt: "$299",
-    },
+  const aestheticsSteps = [
+    "Treatment plans tailored to bone structure and skin type",
+    "Conservative technique with meticulous placement",
+    "Photography-friendly lighting for honest before/after review",
+    "Recovery guidance you can follow between visits",
   ] as const;
 
   const weightLossSteps = [
@@ -112,18 +77,26 @@ export default async function ServiceDetailPage({ params }: Props) {
     { title: "Follow-ups", body: service.benefits[3] ?? "" },
   ].filter((s) => s.body);
 
-  const weightLossPricing = [
-    { name: "GLP-1 Program", initial: "$280", sale: "$199" },
-    { name: "GLP-1/GIP Program", initial: "$420", sale: "$299" },
-    { name: "4 Weeks Personalized Program", initial: "$390", sale: "$145" },
-  ] as const;
-
-  const serviceJsonLd =
-    isWeightLossPage
+  const serviceJsonLd = isWeightLossPage
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Assisted weight loss",
+        provider: {
+          "@type": "MedicalClinic",
+          name: site.name,
+          url: site.url,
+          telephone: site.phoneDisplay,
+        },
+        areaServed: { "@type": "City", name: "Miami" },
+        serviceType: "Medical weight management",
+        url: `${site.url}/services/assisted-weight-loss`,
+      }
+    : isAestheticsPage
       ? {
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Assisted weight loss",
+          name: "Aesthetics & cosmetics",
           provider: {
             "@type": "MedicalClinic",
             name: site.name,
@@ -131,8 +104,8 @@ export default async function ServiceDetailPage({ params }: Props) {
             telephone: site.phoneDisplay,
           },
           areaServed: { "@type": "City", name: "Miami" },
-          serviceType: "Medical weight management",
-          url: `${site.url}/services/assisted-weight-loss`,
+          serviceType: "Aesthetics services",
+          url: `${site.url}/services/aesthetics-cosmetics`,
         }
       : null;
 
@@ -175,9 +148,92 @@ export default async function ServiceDetailPage({ params }: Props) {
       ].slice(0, 3)
     : [];
 
+  const aestheticsTestimonials: typeof testimonials = [
+    testimonials.find((t) => t.name === "Camila R.") ?? {
+      id: "aes-1",
+      quote:
+        "The space feels like a private members' lounge, not a clinic. My injector listened more than she talked—and the results look like me on a very good week.",
+      name: "Camila R.",
+      detail: "Kendall · Aesthetics guest",
+      service: "Aesthetics",
+    },
+    {
+      id: "aes-2",
+      quote:
+        "I was nervous about looking overdone. They started conservatively and built up gradually — exactly what I asked for. Three months later, people just say I look rested.",
+      name: "Diana L.",
+      detail: "Westchester · Botox & filler guest",
+      service: "Injectables",
+    },
+    {
+      id: "aes-3",
+      quote:
+        "The Morpheus8 session was more comfortable than I expected. My skin texture improved noticeably within a few weeks. I'm already booked for my next round.",
+      name: "Sophia M.",
+      detail: "Coral Gables · Morpheus8 guest",
+      service: "Skin care",
+    },
+  ];
+
+  const ivTherapyTestimonials: typeof testimonials = [
+    testimonials.find((t) => t.name === "Elena S.") ?? {
+      id: "iv-1",
+      quote:
+        "IVs after long flights used to take me days to recover from. Now I book the hydration blend, work quietly for an hour, and I'm back to baseline.",
+      name: "Elena S.",
+      detail: "Miami Beach · IV therapy",
+      service: "IV therapy",
+    },
+    {
+      id: "iv-2",
+      quote:
+        "I started with a Myers' Cocktail before a work trip and felt noticeably sharper. Now it's part of my monthly routine — the team remembers my blend.",
+      name: "Marcus D.",
+      detail: "Kendall · IV therapy guest",
+      service: "IV therapy",
+    },
+    {
+      id: "iv-3",
+      quote:
+        "The NAD+ drip was a game-changer for my energy levels. The lounge is comfortable, the nurse checked on me regularly, and I left feeling recharged.",
+      name: "Adriana P.",
+      detail: "Coral Gables · NAD+ guest",
+      service: "NAD+ infusion",
+    },
+  ];
+
+  const byoIvTestimonials: typeof testimonials = [
+    testimonials.find((t) => t.name === "Elena S.") ?? {
+      id: "byo-1",
+      quote:
+        "IVs after long flights used to take me days to recover from. Now I book the hydration blend, work quietly for an hour, and I'm back to baseline.",
+      name: "Elena S.",
+      detail: "Miami Beach · IV therapy",
+      service: "IV therapy",
+    },
+    {
+      id: "byo-2",
+      quote:
+        "I love that I can tweak my blend each time. Last month was all about immunity before a trip. This month it's recovery after a marathon. Same clinic, different formula.",
+      name: "Ryan K.",
+      detail: "Kendall · Build Your Own IV guest",
+      service: "Custom IV",
+    },
+    {
+      id: "byo-3",
+      quote:
+        "My wife and I book adjacent chairs and build our own blends. She goes heavy on the beauty add-ons, I load up on NAD+ and B-complex. It's become our monthly reset.",
+      name: "Andre & Lisa M.",
+      detail: "Coral Gables · Couples IV",
+      service: "Couples IV",
+    },
+  ];
+
   return (
     <>
       {serviceJsonLd ? <JsonLd data={serviceJsonLd} /> : null}
+
+      {/* ── Hero ── */}
       <section className="border-b border-line/80 bg-surface">
         <div className={isWeightLossPage ? "relative overflow-hidden" : undefined}>
           {isWeightLossPage ? (
@@ -215,10 +271,10 @@ export default async function ServiceDetailPage({ params }: Props) {
               <p
                 className={[
                   "inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em]",
-                  isWeightLossPage ? "font-medium text-[color:#C0392B]" : "font-semibold text-muted",
+                  isWeightLossPage ? "font-medium text-[#C0392B]" : "font-semibold text-muted",
                 ].join(" ")}
               >
-                {isWeightLossPage ? <span className="h-4 w-[2px] bg-[color:#C0392B]" aria-hidden /> : null}
+                {isWeightLossPage ? <span className="h-4 w-[2px] bg-[#C0392B]" aria-hidden /> : null}
                 {service.eyebrow}
               </p>
 
@@ -243,63 +299,112 @@ export default async function ServiceDetailPage({ params }: Props) {
                 )}
                 <TrustChip
                   className="bg-[#f5f4f2] px-4 py-2 text-xs border-line/90"
-                  dotClassName={isWeightLossPage ? "bg-[color:#C0392B]" : "bg-ink"}
+                  dotClassName={isWeightLossPage ? "bg-[#C0392B]" : "bg-ink"}
                 >
                   SW Miami
                 </TrustChip>
               </div>
 
-              <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:items-center">
-                {isWeightLossPage ? (
-                  <Button
-                    href={site.bookingUrl}
-                    size="md"
-                    className="w-full max-w-none whitespace-nowrap bg-[#1a1a1a] px-5 text-white hover:bg-[#1a1a1a]/90 sm:w-auto sm:max-w-[260px]"
-                  >
-                    Book a Free Consultation
-                  </Button>
+              <div className="mt-7">
+                {isByoIvPage ? (
+                  <>
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                      <Button
+                        href="#iv-builder"
+                        size="md"
+                        className="w-full max-w-none whitespace-nowrap bg-[#1a1a1a] px-5 text-white hover:bg-[#1a1a1a]/90 sm:w-auto sm:max-w-[260px]"
+                      >
+                        Start Building Your IV
+                      </Button>
+                      <Button
+                        href={serviceBookingUrl}
+                        variant="ghost"
+                        size="md"
+                        className="w-full border border-line bg-transparent px-4 text-[#666] shadow-none hover:border-ink/20 hover:bg-black/[0.03] sm:w-auto"
+                      >
+                        Book a Consultation
+                      </Button>
+                    </div>
+                    <a
+                      className="mt-2 inline-block text-sm text-[#333] underline-offset-2 hover:underline"
+                      href={`tel:${site.phoneTel}`}
+                    >
+                      Call {site.phoneDisplay}
+                    </a>
+                  </>
                 ) : (
-                  <Button href={`tel:${site.phoneTel}`} size="lg">
-                    Call {site.phoneDisplay}
-                  </Button>
-                )}
+                  <>
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                      {isWeightLossPage || isAestheticsPage || isIvTherapyPage ? (
+                        <Button
+                          href={serviceBookingUrl}
+                          size="md"
+                          className="w-full max-w-none whitespace-nowrap bg-[#1a1a1a] px-5 text-white hover:bg-[#1a1a1a]/90 sm:w-auto sm:max-w-[260px]"
+                        >
+                          Book a Free Consultation
+                        </Button>
+                      ) : (
+                        <Button href={`tel:${site.phoneTel}`} size="lg">
+                          Call {site.phoneDisplay}
+                        </Button>
+                      )}
 
-                <Button
-                  href={site.social.instagram}
-                  variant="ghost"
-                  size="md"
-                  className="w-full border border-line bg-transparent px-4 text-[#666] shadow-none hover:border-ink/20 hover:bg-black/[0.03] sm:w-auto"
-                >
-                  Instagram
-                </Button>
-                <Button
-                  href="/contact"
-                  variant="ghost"
-                  size="md"
-                  className="w-full border border-line bg-transparent px-4 text-[#666] shadow-none hover:border-ink/20 hover:bg-black/[0.03] sm:w-auto"
-                >
-                  Ask a question
-                </Button>
+                      <Button
+                        href={site.social.instagram}
+                        variant="ghost"
+                        size="md"
+                        className="w-full border border-line bg-transparent px-4 text-[#666] shadow-none hover:border-ink/20 hover:bg-black/[0.03] sm:w-auto"
+                      >
+                        Instagram
+                      </Button>
+                      <Button
+                        href="/contact"
+                        variant="ghost"
+                        size="md"
+                        className="w-full border border-line bg-transparent px-4 text-[#666] shadow-none hover:border-ink/20 hover:bg-black/[0.03] sm:w-auto"
+                      >
+                        Ask a question
+                      </Button>
+                    </div>
+
+                    {isWeightLossPage || isAestheticsPage || isIvTherapyPage ? (
+                      <>
+                        <div className="mt-2 flex items-center gap-2 text-sm font-medium text-ink">
+                          <span className={isIvTherapyPage ? "text-[#27ae60]" : "text-[#27ae60]"} aria-hidden>
+                            {isIvTherapyPage ? "ℹ" : "●"}
+                          </span>
+                          <span>{service.ctaNote}</span>
+                        </div>
+                        <a
+                          className="mt-2 inline-block text-sm text-[#333] underline-offset-2 hover:underline"
+                          href={`tel:${site.phoneTel}`}
+                        >
+                          Call {site.phoneDisplay}
+                        </a>
+                      </>
+                    ) : (
+                      <p className="mt-3 text-xs text-faint">{service.ctaNote}</p>
+                    )}
+                  </>
+                )}
               </div>
 
-              {isWeightLossPage ? (
-                <>
-                  <div className="mt-2 flex items-center gap-2 text-sm font-medium text-ink">
-                    <span className="text-[color:#27ae60]" aria-hidden>
-                      ●
-                    </span>
-                    <span>{service.ctaNote}</span>
-                  </div>
-                  <a
-                    className="mt-2 inline-block text-sm text-[#333] underline-offset-2 hover:underline"
-                    href={`tel:${site.phoneTel}`}
-                  >
-                    Call {site.phoneDisplay}
-                  </a>
-                </>
-              ) : (
-                <p className="mt-3 text-xs text-faint">{service.ctaNote}</p>
-              )}
+              {isByoIvPage ? (
+                <div className="mt-3 flex items-center gap-2 text-sm font-medium text-ink">
+                  <span aria-hidden className="text-ink/80">
+                    <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
+                      <path
+                        d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2Z"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  <span>{service.ctaNote}</span>
+                </div>
+              ) : null}
             </div>
 
             <div
@@ -310,44 +415,49 @@ export default async function ServiceDetailPage({ params }: Props) {
                   : "rounded-[2rem] border border-line shadow-soft",
               ].join(" ")}
             >
-            <Image
-              src={service.heroImage}
-              alt={
-                isWeightLossPage
-                  ? "Hello You Wellness Center GLP program imagery"
-                  : ""
-              }
-              fill
-              priority
-              className={isWeightLossPage ? "bg-white object-contain p-10" : "object-cover"}
-              sizes="(min-width: 1024px) 42vw, 100vw"
-            />
-            {isWeightLossPage ? null : (
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
-            )}
+              <Image
+                src={service.heroImage}
+                alt={
+                  isWeightLossPage
+                    ? "Hello You Wellness Center GLP program imagery"
+                    : isAestheticsPage
+                      ? "Hello You Wellness Center aesthetics & cosmetics hero imagery"
+                      : ""
+                }
+                fill
+                priority
+                className={isWeightLossPage ? "bg-white object-contain p-10" : "object-cover"}
+                sizes="(min-width: 1024px) 42vw, 100vw"
+              />
+              {isWeightLossPage ? null : (
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
+              )}
             </div>
           </Container>
         </div>
       </section>
 
+      {/* ── Service-specific sections ── */}
+      {isByoIvPage ? <IVBuilder /> : null}
+      {isIvTherapyPage ? <IvTherapyContent bookingUrl={serviceBookingUrl} testimonialItems={ivTherapyTestimonials} /> : null}
+      {isAestheticsPage ? <AestheticsContent service={service} bookingUrl={serviceBookingUrl} testimonialItems={aestheticsTestimonials} /> : null}
+
+      {/* ── What you can expect ── */}
       <section className="py-16">
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <Reveal>
             <div className="relative">
               <h2 className="font-display text-3xl text-ink">
-                {isPeptidesPage ? "What’s included" : isWeightLossPage ? "What you can expect" : "What you can expect"}
+                {isPeptidesPage ? "What's included" : "What you can expect"}
               </h2>
               <p className="mt-3 text-sm text-muted">{service.sessionNote}</p>
 
               {isWeightLossPage ? (
                 <div className="mt-8 space-y-4">
                   {weightLossSteps.map((step, idx) => (
-                    <div
-                      key={step.title}
-                      className="relative rounded-3xl border border-line bg-surface p-5 shadow-sm"
-                    >
+                    <div key={step.title} className="relative rounded-3xl border border-line bg-surface p-5 shadow-sm">
                       <div className="flex items-start gap-4">
-                        <div className="shrink-0 text-sm font-semibold" style={{ color: "#C0392B" }}>
+                        <div className="shrink-0 text-sm font-semibold text-[#C0392B]">
                           {String(idx + 1).padStart(2, "0")}
                         </div>
                         <div>
@@ -357,6 +467,57 @@ export default async function ServiceDetailPage({ params }: Props) {
                       </div>
                     </div>
                   ))}
+                </div>
+              ) : isAestheticsPage ? (
+                <div className="mt-8 space-y-4">
+                  {aestheticsSteps.map((title, idx) => (
+                    <div key={title} className="rounded-3xl border border-line bg-surface p-5 shadow-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="shrink-0 text-2xl font-bold text-[#C0392B]">
+                          {String(idx + 1).padStart(2, "0")}
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-ink">{title}</p>
+                          <p className="mt-1 text-sm leading-relaxed text-muted">{service.benefits[idx] ?? ""}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : isIvTherapyPage ? (
+                <div className="mt-8 space-y-4">
+                  {service.benefits.map((b, idx) => (
+                    <div key={b} className="rounded-3xl border border-line bg-surface p-5 shadow-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="shrink-0 text-2xl font-bold text-[#C0392B]">
+                          {String(idx + 1).padStart(2, "0")}
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-ink">{b}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : isByoIvPage ? (
+                <div className="mt-6">
+                  <span className="inline-flex items-center rounded-full border border-line bg-surface px-3 py-1 text-xs font-semibold text-muted">
+                    Allow an extra 10 minutes on your first custom build
+                  </span>
+                  <div className="mt-6 space-y-4">
+                    {service.benefits.map((b, idx) => (
+                      <div key={b} className="rounded-3xl border border-line bg-surface p-5 shadow-sm">
+                        <div className="flex items-start gap-4">
+                          <div className="shrink-0 text-2xl font-bold text-[#C0392B]">
+                            {String(idx + 1).padStart(2, "0")}
+                          </div>
+                          <div>
+                            <p className="text-sm font-semibold text-ink">{b}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ) : isPeptidesPage ? null : (
                 <ul className="mt-6 space-y-3 text-sm text-muted">
@@ -381,6 +542,18 @@ export default async function ServiceDetailPage({ params }: Props) {
                     />
                   </div>
                 </div>
+              ) : isAestheticsPage ? (
+                <div className="pointer-events-none absolute -right-10 top-10 hidden w-[15rem] rotate-2 lg:block">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-line bg-white shadow-soft">
+                    <Image
+                      src="/images/about/background.webp"
+                      alt="Hello You Wellness Center treatment room ambiance"
+                      fill
+                      className="object-cover"
+                      sizes="240px"
+                    />
+                  </div>
+                </div>
               ) : null}
             </div>
           </Reveal>
@@ -389,17 +562,17 @@ export default async function ServiceDetailPage({ params }: Props) {
             <div
               className={[
                 "rounded-[var(--radius-card)] border border-line p-6 shadow-sm",
-                isWeightLossPage ? "bg-[color:#faf8f6] border-l-[3px]" : "bg-surface",
+                isWeightLossPage || isAestheticsPage || isIvTherapyPage
+                  ? "bg-[#faf8f6] border-l-[3px] [border-left-color:#C0392B]"
+                  : "bg-surface",
+                isAestheticsPage || isIvTherapyPage ? "rounded-l-none" : "",
               ].join(" ")}
-              style={isWeightLossPage ? { borderLeftColor: "#C0392B" } : undefined}
             >
               <h3 className="font-display text-2xl text-ink">{isPeptidesPage ? "Designed for" : "Ideal for guests who want…"}</h3>
               <ul className="mt-4 space-y-3 text-sm text-muted">
                 {service.idealFor.map((line) => (
                   <li key={line} className="flex gap-3">
-                    <span className="mt-1 text-ink" aria-hidden>
-                      ✓
-                    </span>
+                    <span className="mt-1 text-ink" aria-hidden>✓</span>
                     {line}
                   </li>
                 ))}
@@ -409,182 +582,33 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <p className="mt-2">
                   Tell us your goals when you call or message—we will route you to the right provider and visit length.
                 </p>
+                {isAestheticsPage || isIvTherapyPage ? (
+                  <div className="mt-4">
+                    <a className="inline-flex text-sm font-semibold text-ink underline-offset-4 hover:underline" href="/quiz">
+                      Take the 2-min quiz <span aria-hidden>→</span>
+                    </a>
+                  </div>
+                ) : null}
               </div>
             </div>
           </Reveal>
         </Container>
       </section>
 
-      {isWeightLossPage ? (
-        <section className="border-y border-line/80 bg-surface py-16">
-          <Container>
-            <h2 className="font-display text-3xl text-ink">A program designed to feel clear</h2>
-            <p className="mt-2 max-w-2xl text-sm text-muted">
-              High-touch support, straightforward language, and a plan you can follow—without the noise.
-            </p>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {weightLossGallery.map((item) => (
-                <a
-                  key={item.title}
-                  href={item.href}
-                  className="group block overflow-hidden rounded-[var(--radius-card)] border border-line bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]"
-                >
-                  <div className="relative aspect-[4/3] bg-white">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-contain p-6"
-                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-xl text-ink">{item.title}</h3>
-                    <p className="mt-1 text-sm font-semibold text-ink/85">Starting at {item.startingAt}</p>
-                    <p className="mt-2 text-sm text-muted">{item.note}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
+      {/* ── Weight loss gallery + pricing ── */}
+      {isWeightLossPage ? <WeightLossContent bookingUrl={serviceBookingUrl} testimonialItems={weightLossTestimonials} /> : null}
 
-      {isWeightLossPage ? (
-        <section id="program-options" className="py-16 scroll-mt-24">
-          <Container>
-            <Reveal>
-              <h2 className="font-display text-3xl text-ink">Program options</h2>
-              <p className="mt-2 text-sm text-muted">Transparent pricing with no hidden fees.</p>
-            </Reveal>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {weightLossPricing.map((p, i) => (
-                <Reveal key={p.name} delayMs={60 + i * 60}>
-                  <div className="flex h-full flex-col rounded-[var(--radius-card)] bg-[#1a1a1a] p-6 text-white shadow-[0_20px_55px_rgba(0,0,0,0.25)]">
-                    <p className="font-display text-xl">{p.name}</p>
-                    <div className="mt-4 flex items-baseline gap-3">
-                      <p className="text-sm text-white/55 line-through">{p.initial}</p>
-                      <p className="text-3xl font-semibold" style={{ color: "#C0392B" }}>
-                        {p.sale}
-                      </p>
-                    </div>
-                    <p className="mt-3 text-sm text-white/70">
-                      Includes an initial visit and a personalized plan with clear next steps.
-                    </p>
-                    <Button href={site.bookingUrl} size="md" className="mt-6 w-full bg-white text-ink hover:bg-white/90">
-                      Get Started
-                    </Button>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
+      {/* ── IV add-ons ── */}
+      {showIvAddOns ? <IvAddOnsSection isByoIvPage={isByoIvPage} serviceSlug={service.slug} /> : null}
 
-      {showIvAddOns ? (
-        <section className="border-y border-line/80 bg-surface py-16">
-          <Container>
-            <h2 className="font-display text-3xl text-ink">Popular add-ons</h2>
-            <p className="mt-2 max-w-2xl text-sm text-muted">
-              Choose what aligns with your goals—we’ll confirm what’s appropriate during intake and keep your blend
-              transparent.
-            </p>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {ivAddOns.map((item) => (
-                <article
-                  key={item.title}
-                  className="overflow-hidden rounded-[var(--radius-card)] border border-line bg-white shadow-sm"
-                >
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-xl text-ink">{item.title}</h3>
-                    <p className="mt-2 text-sm text-muted">{item.note}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
+      {/* ── Peptide catalog ── */}
+      {showPeptides ? <PeptideContent /> : null}
 
-      {showPeptides ? (
-        <section className="border-y border-line/80 bg-surface py-16">
-          <Container>
-            <div className="sticky top-0 z-40 -mx-4 border-b border-line bg-surface/95 px-4 py-4 backdrop-blur sm:-mx-0 sm:rounded-2xl sm:border sm:px-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink">Research-use notice</p>
-              <p className="mt-2 text-sm text-muted">
-                All peptide products sold by Hello You Wellness Center are intended strictly for in-vitro research and laboratory use only. These products are not intended for human or animal consumption, and are not drugs, foods, or cosmetics. They are not to be used for diagnostic, therapeutic, or any form of clinical application. By purchasing from this store, you acknowledge and agree that these products will be used exclusively for legitimate research purposes.
-              </p>
-            </div>
-            <h2 className="mt-10 font-display text-3xl text-ink">Peptide catalog preview</h2>
-            <p className="mt-2 max-w-2xl text-sm text-muted">
-              Example items shown for merchandising and layout only. Product availability, documentation, and checkout flow are configured separately.
-            </p>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {peptideSpotlight.map((item) => (
-                <article
-                  key={item.title}
-                  className="overflow-hidden rounded-[var(--radius-card)] border border-line bg-white shadow-sm"
-                >
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-xl text-ink">{item.title}</h3>
-                    <p className="mt-2 text-sm text-muted">{item.note}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
+      {/* ── BYO IV testimonials ── */}
+      {isByoIvPage ? <ByoIvContent testimonialItems={byoIvTestimonials} /> : null}
 
-      {isWeightLossPage ? (
-        <>
-          <section className="border-y border-line/80 bg-surface py-16">
-            <Container>
-              <h2 className="font-display text-3xl text-ink">What our guests are saying</h2>
-              <div className="mt-8">
-                <div className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:snap-none md:overflow-visible md:px-0 md:pb-0 md:grid-cols-3">
-                  {weightLossTestimonials.map((t) => (
-                    <figure
-                      key={t.id}
-                      className="w-[min(92vw,26rem)] shrink-0 snap-start rounded-3xl border border-line bg-surface p-6 shadow-sm md:w-auto"
-                    >
-                      <div className="mb-3 flex gap-1" aria-label="5 star rating">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <span key={i} className="text-[color:#C0392B]" aria-hidden>
-                            ★
-                          </span>
-                        ))}
-                      </div>
-                      <blockquote className="text-sm leading-relaxed text-muted">“{t.quote}”</blockquote>
-                      <figcaption className="mt-4 text-sm font-semibold text-ink">{t.name}</figcaption>
-                      <p className="text-xs text-faint">{t.detail}</p>
-                    </figure>
-                  ))}
-                </div>
-              </div>
-            </Container>
-          </section>
-        </>
-      ) : isPeptidesPage ? null : (
+      {/* ── Generic testimonials (non-specific service types) ── */}
+      {!isWeightLossPage && !isAestheticsPage && !isIvTherapyPage && !isByoIvPage && !isPeptidesPage ? (
         <section className="border-y border-line/80 bg-surface py-16">
           <Container>
             <h2 className="font-display text-3xl text-ink">Guests who chose this pathway</h2>
@@ -594,8 +618,12 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
           </Container>
         </section>
-      )}
+      ) : null}
 
+      {/* ── Getting Started ── */}
+      <GettingStartedSection steps={service.gettingStartedSteps} cta={service.gettingStartedCta} />
+
+      {/* ── FAQ ── */}
       <section className="py-16">
         <Container className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -611,38 +639,98 @@ export default async function ServiceDetailPage({ params }: Props) {
         </Container>
       </section>
 
+      {/* ── CTA ── */}
       <section className="pb-20">
         <Container>
           <div
             className={[
               "rounded-[2rem] border border-line p-8 text-center shadow-inner sm:p-10",
-              isWeightLossPage ? "bg-[#1a1a1a] text-white" : "bg-[color-mix(in_oklab,var(--accent-soft)_70%,white)]",
+              isWeightLossPage || isAestheticsPage || isIvTherapyPage || isByoIvPage
+                ? "bg-[#1a1a1a] text-white"
+                : "bg-[color-mix(in_oklab,var(--accent-soft)_70%,white)]",
             ].join(" ")}
           >
-            <h2 className={["font-display text-3xl", isWeightLossPage ? "text-white" : "text-ink"].join(" ")}>
-              {isPeptidesPage ? "Questions about research-only peptides?" : `Ready for your ${service.shortTitle.toLowerCase()} visit?`}
+            <h2
+              className={[
+                "font-display text-3xl",
+                isWeightLossPage || isAestheticsPage || isIvTherapyPage || isByoIvPage ? "text-white" : "text-ink",
+              ].join(" ")}
+            >
+              {isPeptidesPage
+                ? "Questions about research-only peptides?"
+                : isByoIvPage
+                  ? "Ready to build your blend?"
+                  : `Ready for your ${service.shortTitle.toLowerCase()} visit?`}
             </h2>
             <p
               className={[
                 "mx-auto mt-3 max-w-xl text-sm",
-                isWeightLossPage ? "text-white/75" : "text-muted",
+                isWeightLossPage || isAestheticsPage || isIvTherapyPage || isByoIvPage ? "text-white/75" : "text-muted",
               ].join(" ")}
             >
               {isPeptidesPage
                 ? "Message us for documentation questions, availability, or store setup details."
                 : isWeightLossPage
                   ? "No commitment required. Our team responds within one business day."
-                  : "Secure a consultation or treatment block—our team confirms details within one business day."}
+                  : isAestheticsPage
+                    ? "No pressure. Consultations are complimentary and we'll never recommend more than you need."
+                    : isIvTherapyPage
+                      ? "Walk-ins welcome when availability allows. Same-week appointments are common."
+                      : isByoIvPage
+                        ? "First-time builders get a complimentary nutrient consultation."
+                        : "Secure a consultation or treatment block—our team confirms details within one business day."}
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               {isWeightLossPage ? (
                 <>
-                  <Button href={site.bookingUrl} size="lg" className="bg-[color:#C0392B] text-white hover:bg-[#C0392B]/90">
+                  <Button href={serviceBookingUrl} size="lg" className="bg-[#C0392B] text-white hover:bg-[#C0392B]/90">
                     Book a Free Consultation
                   </Button>
                   <a className="text-sm font-medium text-white/85 underline-offset-2 hover:underline" href={`tel:${site.phoneTel}`}>
                     Call {site.phoneDisplay}
                   </a>
+                </>
+              ) : isAestheticsPage ? (
+                <>
+                  <Button href={serviceBookingUrl} size="lg" className="bg-[#C0392B] text-white hover:bg-[#C0392B]/90">
+                    Book a Free Consultation
+                  </Button>
+                  <Button
+                    href={`tel:${site.phoneTel}`}
+                    variant="secondary"
+                    size="lg"
+                    className="border border-white/25 bg-white/5 text-white hover:bg-white/10"
+                  >
+                    Call {site.phoneDisplay}
+                  </Button>
+                </>
+              ) : isIvTherapyPage ? (
+                <>
+                  <Button href={serviceBookingUrl} size="lg" className="bg-[#C0392B] text-white hover:bg-[#C0392B]/90">
+                    Book Your IV Session
+                  </Button>
+                  <Button
+                    href={`tel:${site.phoneTel}`}
+                    variant="secondary"
+                    size="lg"
+                    className="border border-white/25 bg-white/5 text-white hover:bg-white/10"
+                  >
+                    Call {site.phoneDisplay}
+                  </Button>
+                </>
+              ) : isByoIvPage ? (
+                <>
+                  <Button href={serviceBookingUrl} size="lg" className="bg-[#C0392B] text-white hover:bg-[#C0392B]/90">
+                    Book Your Custom IV
+                  </Button>
+                  <Button
+                    href={`tel:${site.phoneTel}`}
+                    variant="secondary"
+                    size="lg"
+                    className="border border-white/25 bg-white/5 text-white hover:bg-white/10"
+                  >
+                    Call {site.phoneDisplay}
+                  </Button>
                 </>
               ) : (
                 <>
@@ -659,6 +747,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         </Container>
       </section>
 
+      {/* ── Weight loss disclaimer ── */}
       {isWeightLossPage ? (
         <section className="pb-10">
           <Container className="max-w-3xl">

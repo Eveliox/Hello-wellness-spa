@@ -70,6 +70,27 @@ export const faqs: FaqItem[] = [
       "Many guests return to work the same day for toxin appointments. Filler and certain skin treatments may have social downtime—we will outline what to expect before you commit.",
   },
   {
+    id: "aesthetics-botox-vs-filler",
+    category: "Treatments",
+    question: "How do I know if I need Botox or filler?",
+    answer:
+      "Botox relaxes muscles that cause expression lines (forehead, crow's feet, frown lines). Fillers restore volume in areas that have hollowed or deflated (cheeks, lips, under-eyes, jawline). Many guests benefit from both — your provider will recommend the right combination during your consultation.",
+  },
+  {
+    id: "aesthetics-duration",
+    category: "Treatments",
+    question: "How long do results last?",
+    answer:
+      "Botox typically lasts 3-4 months. Hyaluronic acid fillers last 6-18 months depending on the area and product used. Morpheus8 results are cumulative and can last 1-2 years with maintenance sessions. Your provider will outline a realistic timeline during your visit.",
+  },
+  {
+    id: "aesthetics-brands",
+    category: "Treatments",
+    question: "What brands do you use?",
+    answer:
+      "We use FDA-approved products from trusted manufacturers including Allergan (Botox, Juvederm), Galderma (Restylane), and other premium brands. Your provider selects the best product for your specific goals and anatomy.",
+  },
+  {
     id: "iv-safety",
     category: "Treatments",
     question: "Are IV infusions safe?",
@@ -82,6 +103,55 @@ export const faqs: FaqItem[] = [
     question: "How often can I receive IV therapy?",
     answer:
       "Frequency depends on your goals, labs, and how you respond. Your nurse or provider will suggest an interval that keeps you hydrated without over-treatment.",
+  },
+  {
+    id: "iv-feel",
+    category: "Treatments",
+    question: "What does an IV session feel like?",
+    answer:
+      "Most guests describe it as relaxing. You'll sit in a comfortable lounge chair while the IV drips — many clients read, work on their laptop, or nap. A nurse monitors you throughout. Mild warmth or a cool sensation in the arm is normal.",
+  },
+  {
+    id: "iv-combine",
+    category: "Treatments",
+    question: "Can I combine an IV with other services?",
+    answer:
+      "Yes — many guests pair IV therapy with B-12 injections, weight loss consultations, or aesthetics appointments on the same visit. Let us know when booking and we'll schedule accordingly.",
+  },
+  {
+    id: "iv-prescription",
+    category: "Treatments",
+    question: "Do I need a prescription for IV therapy?",
+    answer:
+      "IV therapy at Hello You Wellness is administered under medical oversight by licensed nurses. During your intake, a provider reviews your health history and goals to confirm the appropriate blend. No outside prescription is needed.",
+  },
+  {
+    id: "byo-change",
+    category: "Treatments",
+    question: "Can I change my blend each visit?",
+    answer:
+      "Absolutely. Your digital formula is saved to your profile, but you can adjust add-ons every time. Many guests experiment until they find their go-to combination, then refine from there.",
+  },
+  {
+    id: "byo-combos",
+    category: "Treatments",
+    question: "Are there combinations you won't allow?",
+    answer:
+      "Yes — your clinician reviews every custom blend for safety before preparation. Certain add-ons may interact or exceed recommended ranges. We'll always explain why and suggest alternatives.",
+  },
+  {
+    id: "byo-duration",
+    category: "Treatments",
+    question: "How long does a custom IV take vs a standard drip?",
+    answer:
+      "Plan for about 60-75 minutes total — roughly 10 minutes for your consultation and blend review, then 45-60 minutes for the infusion itself. First-time builders may take slightly longer.",
+  },
+  {
+    id: "byo-group",
+    category: "Treatments",
+    question: "Can I book a custom IV for a group?",
+    answer:
+      "Yes — we can accommodate couples and small groups with adjacent seating. Each person builds their own blend independently. Call ahead for group availability.",
   },
   {
     id: "peptide-safety",

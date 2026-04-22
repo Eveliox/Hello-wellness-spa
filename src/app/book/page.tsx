@@ -6,15 +6,15 @@ import { Button } from "@/components/ui/button";
 import { TrustChip } from "@/components/ui/trust-chip";
 
 export const metadata: Metadata = createMetadata({
-  title: "Call or message",
-  description: `Reach ${site.name} in Miami by phone or Instagram.`,
+  title: "Book a visit",
+  description: `Book a consultation or treatment at ${site.name} in SW Miami.`,
   path: "/book",
 });
 
 const steps = [
-  "Call the studio or send a DM on Instagram with your goal and a preferred day/time.",
-  "We’ll reply with next steps, pricing context, and what to bring (if anything).",
-  "Arrive with a clear plan—screening and suitability are confirmed before any medical service.",
+  "Book online in under 2 minutes — pick your service and a time that works for you.",
+  "We'll send a confirmation and any intake forms to complete before your visit.",
+  "Arrive with a clear plan — screening and suitability are confirmed before any medical service.",
 ];
 
 export default function BookPage() {
@@ -22,25 +22,40 @@ export default function BookPage() {
     <>
       <section className="border-b border-line/80 bg-surface py-14">
         <Container className="max-w-3xl">
-          <TrustChip>Reach us</TrustChip>
+          <TrustChip>Book a visit</TrustChip>
           <h1 className="mt-4 font-display text-4xl text-balance text-ink sm:text-5xl">
-            Call or message us—we’ll take it from there.
+            Reserve your visit online.
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
-            We’re keeping it simple: phone and socials. Share your goal and we’ll guide you to the right service
-            and timing.
+            Select a service and a time that works for you — most consultations are available same week.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href={`tel:${site.phoneTel}`} size="lg">
+            <Button
+              href={site.bookingUrl}
+              size="lg"
+              className="bg-[#1a1a1a] text-white hover:bg-[#1a1a1a]/90"
+            >
+              Book Online
+            </Button>
+            <Button href={`tel:${site.phoneTel}`} variant="secondary" size="lg">
               Call {site.phoneDisplay}
             </Button>
-            <Button href={site.social.instagram} variant="secondary" size="lg">
-              Message on Instagram
-            </Button>
             <Button href="/contact" variant="ghost" size="lg">
-              Message us
+              Send a message
             </Button>
           </div>
+          <p className="mt-4 text-xs text-faint">
+            Prefer Instagram? DM us at{" "}
+            <a
+              href={site.social.instagram}
+              className="underline underline-offset-2 hover:text-ink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {site.instagramHandle}
+            </a>
+            .
+          </p>
         </Container>
       </section>
 
@@ -53,24 +68,64 @@ export default function BookPage() {
                 <li key={s}>{s}</li>
               ))}
             </ol>
+            <p className="pt-2 text-xs text-faint">
+              Medical services require screening. Booking confirms a time slot — suitability is reviewed before any treatment begins.
+            </p>
           </div>
           <div className="rounded-[var(--radius-card)] border border-line bg-surface p-8 shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Quick links</p>
-            <h3 className="mt-3 font-display text-2xl text-ink">Choose how you want to reach us</h3>
+            <h3 className="mt-3 font-display text-2xl text-ink">Book by service</h3>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <Button href={`tel:${site.phoneTel}`} size="lg" className="w-full">
-                Call {site.phoneDisplay}
+              <Button
+                href="https://cal.com/helloyouwellness/30min"
+                size="lg"
+                className="w-full bg-[#1a1a1a] text-white hover:bg-[#1a1a1a]/90"
+              >
+                Weight Loss
               </Button>
-              <Button href={site.social.instagram} variant="secondary" size="lg" className="w-full">
-                Instagram DMs
+              <Button
+                href="https://cal.com/helloyouwellness/aesthetics-consultation"
+                variant="secondary"
+                size="lg"
+                className="w-full"
+              >
+                Aesthetics
               </Button>
-              <Button href="/contact" variant="secondary" size="lg" className="w-full sm:col-span-2">
-                Contact form
+              <Button
+                href="https://cal.com/helloyouwellness/15min"
+                variant="secondary"
+                size="lg"
+                className="w-full"
+              >
+                IV Therapy
+              </Button>
+              <Button
+                href={site.bookingUrl}
+                variant="secondary"
+                size="lg"
+                className="w-full"
+              >
+                General / Other
               </Button>
             </div>
-            <p className="mt-6 text-xs text-faint">
-              Medical services require screening. Messaging does not book or start treatment.
-            </p>
+            <div className="mt-6 border-t border-line pt-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">New patient?</p>
+              <p className="mt-1.5 text-xs text-muted">Please complete your registration form before your first visit.</p>
+              <Button href="/intake" variant="secondary" size="sm" className="mt-3 w-full">
+                Complete Registration Form
+              </Button>
+            </div>
+            <div className="mt-6 border-t border-line pt-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Prefer to talk first?</p>
+              <div className="mt-3 flex gap-3">
+                <Button href={`tel:${site.phoneTel}`} variant="secondary" size="sm" className="flex-1">
+                  Call us
+                </Button>
+                <Button href={site.social.instagram} variant="ghost" size="sm" className="flex-1">
+                  Instagram DM
+                </Button>
+              </div>
+            </div>
           </div>
         </Container>
       </section>

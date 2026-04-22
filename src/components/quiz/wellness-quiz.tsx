@@ -210,6 +210,20 @@ function ResultView({ service }: { service: ServiceSlug }) {
   if (!match) return null;
   return (
     <div className="space-y-6">
+      <div className="rounded-2xl bg-accent-soft/60 px-5 py-4">
+        <div className="flex items-center gap-3">
+          <span
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm text-white"
+            aria-hidden
+          >
+            ✓
+          </span>
+          <p className="font-ui text-sm font-semibold text-ink">Match found</p>
+        </div>
+        <p className="mt-2 text-xs text-muted">
+          Based on your answers, here’s the service that fits you best.
+        </p>
+      </div>
       <div>
         <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-accent">Your best first step</p>
         <h2 className="mt-2 font-display text-3xl text-ink sm:text-4xl">{match.title}</h2>
@@ -240,7 +254,7 @@ function ResultView({ service }: { service: ServiceSlug }) {
           View my match
         </Button>
         <Button href="/store" variant="secondary" size="lg" className="sm:flex-1">
-          Shop (coming soon)
+          Visit our store
         </Button>
       </div>
       <p className="text-xs text-faint">

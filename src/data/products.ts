@@ -16,6 +16,8 @@ export type Product = {
   originalPrice?: number | null;
   salePrice?: number | null;
   price?: number | null;
+  /** Optional Stripe Payment Link (or other checkout URL) for “buy now” flows */
+  paymentLink?: string;
 };
 
 export const categories: ProductCategory[] = [
@@ -35,10 +37,11 @@ export const products: Product[] = [
       "Personalized GLP-1 weight loss program with medical oversight, initial consultation, and first month of medication.",
     category: "Weight Loss Programs",
     originalPrice: 280,
-    salePrice: 199,
+    salePrice: 199.99,
     onSale: true,
     image: "/images/products/glp-1-program.jpg",
     badge: null,
+    paymentLink: "https://buy.stripe.com/9B6eVc80ddDUdDKbLbaR41X",
   },
   {
     name: "GLP-1 / GIP Program – Initial",
@@ -106,6 +109,7 @@ export const products: Product[] = [
     onSale: false,
     image: "/images/products/ghk-cu.jpg",
     badge: "RESEARCH USE ONLY",
+    paymentLink: "https://buy.stripe.com/5kQdR84O1gQ61V2eXnaR41W",
   },
   {
     name: "NAD+ 1500 with Resveratrol",

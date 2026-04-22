@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
@@ -62,18 +61,10 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-chrome text-on-chrome">
       <Container className="flex h-16 items-center justify-between gap-4 lg:h-[4.25rem]">
         <Link href="/" className="group flex min-w-0 items-center gap-3 leading-tight">
-          <span className="relative h-10 w-10 overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-sm">
-            <Image
-              src="/images/branding/logo.jpeg"
-              alt={`${site.shortBrand} logo`}
-              fill
-              className="object-cover"
-              sizes="40px"
-              priority
-            />
-          </span>
           <span className="flex min-w-0 flex-col">
-            <span className="font-display text-xl tracking-wide text-white sm:text-2xl">
+            <span
+              className="font-script text-2xl leading-none text-white sm:text-3xl"
+            >
               {site.shortBrand}
             </span>
             <span className="font-ui text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-white/55 sm:text-xs">

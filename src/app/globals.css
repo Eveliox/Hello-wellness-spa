@@ -35,6 +35,7 @@
   --shadow-soft: var(--shadow);
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  --font-script: var(--font-alex-brush), ui-serif, Georgia, "Times New Roman", serif;
   /* UI chrome (nav labels, buttons) — same family as body for one cohesive rhythm */
   --font-ui: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --radius-card: 1.25rem;
@@ -79,6 +80,10 @@
 
   .font-ui {
     font-family: var(--font-ui);
+  }
+
+  .font-script {
+    font-family: var(--font-script);
   }
 
   .shadow-soft {

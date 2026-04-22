@@ -16,6 +16,7 @@ type Props = {
 
 export function ProductCard({ product, showResearchBadge }: Props) {
   const isPeptide = product.category === "Peptides (Research Use Only)";
+  const checkoutHref = product.paymentLink;
   const onSale = product.onSale && typeof product.originalPrice === "number" && typeof product.salePrice === "number";
 
   const priceNode = useMemo(() => {
@@ -62,12 +63,22 @@ export function ProductCard({ product, showResearchBadge }: Props) {
           </p>
         ) : null}
 
-        <Button
-          size="md"
-          className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
-        >
-          Add to Cart
-        </Button>
+        {checkoutHref ? (
+          <Button
+            href={checkoutHref}
+            prefetch={false}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="md"
+            className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
+          >
+            Buy now
+          </Button>
+        ) : (
+          <Button type="button" size="md" className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]">
+            Add to Cart
+          </Button>
+        )}
       </div>
     </article>
   );

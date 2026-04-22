@@ -12,11 +12,10 @@ export const site = {
   phoneDisplay: "(305) 640-5351",
   phoneTel: "+13056405351",
   email: "info@helloyouwellness.com",
-  /** Live scheduling (ClientSecure) */
-  bookingUrl: "https://helloyouwellness.clientsecure.me/request",
+  /** Default scheduling (Cal.com) */
+  bookingUrl: "https://cal.com/helloyouwellness/secret",
   portalUrl: "https://helloyouwellness.clientsecure.me",
   contactWidgetUrl: "https://helloyouwellness.clientsecure.me/contact-widget",
-  externalStoreUrl: "https://xlashbyyane.com/hyw-store",
   instagramHandle: "@xlashbyyaneacademy_",
   instagramUrl: "https://www.instagram.com/xlashbyyaneacademy_/",
   youtubeUrl: "https://www.youtube.com/@HelloYouWellnessClinic",

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import { Alex_Brush, Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SkipLink } from "@/components/layout/skip-link";
 import { Header } from "@/components/layout/header";
@@ -21,6 +21,13 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const alexBrush = Alex_Brush({
+  subsets: ["latin"],
+  variable: "--font-alex-brush",
+  weight: "400",
   display: "swap",
 });
 
@@ -47,7 +54,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${fraunces.variable} h-full scroll-smooth antialiased`}
+      className={`${plusJakarta.variable} ${fraunces.variable} ${alexBrush.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-canvas text-ink">
         <JsonLd data={localBusinessJsonLd()} />
