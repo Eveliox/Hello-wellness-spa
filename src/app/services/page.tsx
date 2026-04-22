@@ -6,7 +6,6 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ServiceCard } from "@/components/services/service-card";
 import { Button } from "@/components/ui/button";
-import { TrustChip } from "@/components/ui/trust-chip";
 
 export const metadata: Metadata = createMetadata({
   title: "Services",
@@ -19,9 +18,16 @@ export default function ServicesPage() {
     <>
       <section className="border-b border-line/80 bg-surface py-14">
         <Container className="max-w-3xl">
-          <TrustChip>Services overview</TrustChip>
+          <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E8B4A3]">
+            <span className="h-px w-6 bg-[#E8B4A3]" aria-hidden />
+            Services overview
+          </p>
           <h1 className="mt-4 font-display text-4xl text-balance text-ink sm:text-5xl">
-            Choose a pathway. We handle the choreography.
+            Choose a pathway. We handle the{" "}
+            <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+              choreography
+            </span>
+            .
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
             Every service line shares the same promise: medical credibility, feminine calm, and copy you can

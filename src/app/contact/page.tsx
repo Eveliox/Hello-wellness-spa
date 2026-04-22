@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
@@ -13,10 +14,29 @@ export const metadata: Metadata = createMetadata({
 export default function ContactPage() {
   return (
     <>
-      <section className="border-b border-line/80 bg-surface py-14">
-        <Container className="max-w-3xl">
-          <h1 className="font-display text-4xl text-balance text-ink sm:text-5xl">Talk with our concierge team</h1>
-          <p className="mt-4 text-base leading-relaxed text-muted">
+      <section className="relative overflow-hidden border-b border-line/80">
+        <Image
+          src="/images/connect.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/60" aria-hidden />
+        <Container className="relative max-w-3xl py-24 sm:py-32">
+          <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E8B4A3]">
+            <span className="h-px w-6 bg-[#E8B4A3]" aria-hidden />
+            Contact
+          </p>
+          <h1 className="mt-4 font-display text-4xl text-balance text-white sm:text-5xl">
+            Talk with our{" "}
+            <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+              concierge
+            </span>{" "}
+            team
+          </h1>
+          <p className="mt-5 text-base leading-relaxed text-white/80">
             For timely answers, include your goal and preferred appointment window. Medical questions are reviewed
             by a licensed provider.
           </p>

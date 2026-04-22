@@ -3,7 +3,6 @@ import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { TrustChip } from "@/components/ui/trust-chip";
 
 export const metadata: Metadata = createMetadata({
   title: "Client portal",
@@ -15,28 +14,50 @@ export default function ClientPortalPage() {
   return (
     <section className="py-16">
       <Container className="max-w-3xl">
-        <TrustChip>Secure access</TrustChip>
+        <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E8B4A3]">
+          <span className="h-px w-6 bg-[#E8B4A3]" aria-hidden />
+          Secure access
+        </p>
         <h1 className="mt-4 font-display text-4xl text-balance text-ink sm:text-5xl">
-          Client portal
+          Your client{" "}
+          <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+            portal
+          </span>
         </h1>
         <p className="mt-5 text-base leading-relaxed text-muted">
           Access your intake forms, visit history, invoices, and aftercare instructions — all in one secure place.
         </p>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Button
-            href={site.portalUrl}
-            size="lg"
-            className="bg-[#1a1a1a] text-white hover:bg-[#1a1a1a]/90"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Access Client Portal
-          </Button>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="flex flex-col rounded-[var(--radius-card)] border border-line bg-surface p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">New patient</p>
+            <p className="mt-2 text-base font-semibold text-ink">Start your registration</p>
+            <p className="mt-2 text-sm text-muted">
+              Complete your intake form before your first visit so we can prepare for you.
+            </p>
+            <Button href="/intake" size="lg" className="mt-5">
+              Complete Registration Form
+            </Button>
+          </div>
+
+          <div className="flex flex-col rounded-[var(--radius-card)] border border-line bg-surface p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Returning patient</p>
+            <p className="mt-2 text-base font-semibold text-ink">Access your portal</p>
+            <p className="mt-2 text-sm text-muted">
+              View visit history, invoices, aftercare, and refill requests.
+            </p>
+            <Button
+              href={site.portalUrl}
+              size="lg"
+              variant="secondary"
+              className="mt-5"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Access Client Portal
+            </Button>
+          </div>
         </div>
-        <p className="mt-3 text-xs text-faint">
-          New patient? Your portal account is created after your first visit. Call us if you need help getting set up.
-        </p>
 
         <div className="mt-10 rounded-[var(--radius-card)] border border-line bg-surface p-6 shadow-sm">
           <p className="text-sm font-semibold text-ink">What you can do in the portal</p>

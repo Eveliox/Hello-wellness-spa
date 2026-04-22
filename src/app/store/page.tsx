@@ -4,7 +4,6 @@ import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { TrustChip } from "@/components/ui/trust-chip";
 import { StoreCatalog } from "@/components/store/store-catalog";
 
 export const metadata: Metadata = createMetadata({
@@ -18,8 +17,16 @@ export default function StorePage() {
     <>
       <section className="border-b border-line/80 bg-surface py-14">
         <Container className="max-w-4xl">
-          <TrustChip>Retail</TrustChip>
-          <h1 className="mt-4 font-display text-4xl text-balance text-ink sm:text-5xl">Hello You Wellness Store</h1>
+          <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E8B4A3]">
+            <span className="h-px w-6 bg-[#E8B4A3]" aria-hidden />
+            Retail
+          </p>
+          <h1 className="mt-4 font-display text-4xl text-balance text-ink sm:text-5xl">
+            Our wellness{" "}
+            <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+              essentials
+            </span>
+          </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
             Medical-grade wellness products, weight loss programs, and research peptides — shipped directly to you or
             available for pickup at our SW Miami clinic.

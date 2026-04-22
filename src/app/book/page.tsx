@@ -3,7 +3,6 @@ import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { TrustChip } from "@/components/ui/trust-chip";
 
 export const metadata: Metadata = createMetadata({
   title: "Book a visit",
@@ -22,9 +21,16 @@ export default function BookPage() {
     <>
       <section className="border-b border-line/80 bg-surface py-14">
         <Container className="max-w-3xl">
-          <TrustChip>Book a visit</TrustChip>
+          <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E8B4A3]">
+            <span className="h-px w-6 bg-[#E8B4A3]" aria-hidden />
+            Book a visit
+          </p>
           <h1 className="mt-4 font-display text-4xl text-balance text-ink sm:text-5xl">
-            Reserve your visit online.
+            Reserve your{" "}
+            <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+              visit
+            </span>{" "}
+            online.
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
             Select a service and a time that works for you — most consultations are available same week.

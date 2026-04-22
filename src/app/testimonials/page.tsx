@@ -17,7 +17,12 @@ export default function TestimonialsPage() {
     <>
       <section className="border-b border-line/80 bg-surface py-14">
         <Container className="max-w-3xl">
-          <h1 className="font-display text-4xl text-balance text-ink sm:text-5xl">Stories from our studio guests</h1>
+          <h1 className="font-display text-4xl text-balance text-ink sm:text-5xl">
+            <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+              Stories
+            </span>{" "}
+            from our studio guests
+          </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
             Replace sample quotes with your own verified testimonials. We recommend pairing each quote with city
             neighborhood (not full address) for local SEO warmth.

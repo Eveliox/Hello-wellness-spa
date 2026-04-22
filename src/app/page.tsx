@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/home/hero-section";
+import { ServicesMarquee } from "@/components/home/services-marquee";
 import { TrustSection } from "@/components/home/trust-section";
 import { AboutPreview } from "@/components/home/about-preview";
 import { TestimonialsHome } from "@/components/home/testimonials-home";
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <ServicesMarquee />
       <Reveal>
         <TrustSection />
       </Reveal>

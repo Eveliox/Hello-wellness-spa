@@ -3,38 +3,57 @@ import Link from "next/link";
 import { site } from "@/content/site";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { TrustChip } from "@/components/ui/trust-chip";
 
 export function HeroSection() {
   return (
-    <section id="home-hero" className="relative overflow-hidden border-b border-line/80 bg-surface">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(22,22,22,0.06),_transparent_58%)]" />
-      <Container className="relative grid gap-12 py-14 lg:grid-cols-2 lg:items-center lg:py-20">
-        <div className="animate-rise space-y-6">
-          <div className="flex flex-wrap gap-2">
-            <TrustChip>SW Miami</TrustChip>
-            <TrustChip>Licensed care team</TrustChip>
-          </div>
-          <div className="space-y-4">
-            <h1 className="font-display text-4xl leading-[1.05] text-balance text-ink sm:text-5xl lg:text-[3.15rem]">
-              Whole-body wellness, personalized for you.
-            </h1>
-            <p className="max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              Assisted weight loss, aesthetics, IV therapy, peptides, and more—guided with the same calm,
-              credible approach you expect from a trusted Miami wellness center.
-            </p>
-          </div>
+    <section
+      id="home-hero"
+      className="relative isolate overflow-hidden bg-chrome text-on-chrome"
+    >
+      <Image
+        src="/images/home/hero-nad.jpg"
+        alt=""
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/25"
+        aria-hidden
+      />
+
+      <Container className="relative flex min-h-[82vh] flex-col justify-center py-24 sm:py-28">
+        <div className="max-w-2xl animate-rise space-y-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+            SW Miami · Licensed Care Team
+          </p>
+
+          <h1 className="font-display text-4xl leading-[1.05] text-balance text-white sm:text-5xl lg:text-[3.4rem]">
+            Wellness that{" "}
+            <span className="font-script text-[1.35em] font-normal italic leading-none text-[#E8B4A3]">
+              works
+            </span>{" "}
+            for your whole self.
+          </h1>
+
+          <p className="max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+            Assisted weight loss, aesthetics, IV therapy, peptides, and more — guided with the same calm,
+            credible approach you expect from a trusted Miami wellness center.
+          </p>
+
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button href={site.bookingUrl} size="lg" className="bg-[#1a1a1a] text-white hover:bg-[#1a1a1a]/90">
+            <Button href={site.bookingUrl} size="lg" variant="inverse">
               Book a Free Consultation
             </Button>
-            <Button href="/quiz" variant="secondary" size="lg">
+            <Button href="/quiz" size="lg" variant="ghostInverse">
               Take the 2-min quiz
             </Button>
           </div>
+
           <a
             href={`tel:${site.phoneTel}`}
-            className="inline-flex items-center gap-2 text-sm text-[#555] underline-offset-2 hover:underline"
+            className="inline-flex items-center gap-2 text-sm text-white/75 underline-offset-2 hover:text-white hover:underline"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -44,38 +63,17 @@ export function HeroSection() {
             </svg>
             Call {site.phoneDisplay}
           </a>
-          <p className="text-xs text-faint">
+
+          <p className="text-xs text-white/60">
             Not sure where to start?{" "}
-            <Link href="/quiz" className="font-medium text-ink underline-offset-2 hover:underline">
+            <Link
+              href="/quiz"
+              className="font-medium text-white underline-offset-2 hover:underline"
+            >
               The quiz matches you to a service
             </Link>
             . Medical services require screening.
           </p>
-        </div>
-
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-line bg-surface shadow-soft lg:aspect-[4/5]">
-            <Image
-              src="/images/home/hero-nad.jpg"
-              alt="Hello You Wellness Center NAD+ product photo"
-              fill
-              priority
-              className="object-cover"
-              sizes="(min-width: 1024px) 42vw, 100vw"
-            />
-            <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-black/10 bg-white/90 p-4 text-sm text-ink shadow-sm backdrop-blur-md">
-              <p className="font-ui font-semibold">Reach out anytime</p>
-              <p className="mt-1 text-xs text-muted">
-                Call {site.phoneDisplay} or message on Instagram—our team will guide you to the right next step.
-              </p>
-              <a
-                href={site.social.instagram}
-                className="mt-3 inline-flex font-ui text-xs font-semibold text-ink hover:underline"
-              >
-                Message on Instagram →
-              </a>
-            </div>
-          </div>
         </div>
       </Container>
     </section>

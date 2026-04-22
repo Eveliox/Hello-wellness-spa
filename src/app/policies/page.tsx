@@ -20,7 +20,13 @@ export default function PoliciesPage() {
     <section className="py-16">
       <Container className="max-w-3xl space-y-10">
         <header className="space-y-4">
-          <h1 className="font-display text-4xl text-ink">Policies & legal notices</h1>
+          <h1 className="font-display text-4xl text-ink">
+            Clear,{" "}
+            <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+              honest
+            </span>{" "}
+            policies
+          </h1>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
             Last reviewed · {reviewed}
           </p>

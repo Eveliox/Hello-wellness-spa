@@ -34,7 +34,7 @@ export const services: ServiceContent[] = [
     eyebrow: "Medical weight management",
     summary:
       "A calm, structured program pairing medication options with nutrition coaching, labs as appropriate, and follow-up you can count on—so progress feels sustainable, not chaotic.",
-    heroImage: "/images/assisted-weight-loss/glp.webp",
+    heroImage: "/fitness.jpg",
     benefits: [
       "Physician-led eligibility and dosing decisions",
       "Private check-ins that respect your pace and privacy",
@@ -79,7 +79,7 @@ export const services: ServiceContent[] = [
     eyebrow: "Refined results",
     summary:
       "Subtle enhancement and skin quality upgrades guided by trained injectors and aestheticians who prioritize balance, safety, and a refreshed—not overdone—appearance.",
-    heroImage: "/images/home/hero-nad.jpg",
+    heroImage: "/skin.jpg",
     benefits: [
       "Treatment plans tailored to bone structure and skin type",
       "Conservative technique with meticulous placement",
@@ -124,7 +124,7 @@ export const services: ServiceContent[] = [
     eyebrow: "Hydration & recovery",
     summary:
       "Physician-curated IV blends for hydration, travel recovery, athletic reset, and immune support—delivered in a serene suite with attentive monitoring.",
-    heroImage: "/images/iv/iv-therapy.jpg",
+    heroImage: "/IV infusion.jpg",
     benefits: [
       "Sterile compounding standards and medical-grade supplies",
       "Nurse administration with comfort-forward technique",
@@ -200,7 +200,7 @@ export const services: ServiceContent[] = [
     eyebrow: "In‑vitro research only",
     summary:
       "A research-first peptide catalog with clear labeling, lot traceability, and handling guidance. Products are sold strictly for in‑vitro research and laboratory use only.",
-    heroImage: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1600&q=80&auto=format&fit=crop",
+    heroImage: "/peptides.jpg",
     benefits: [
       "Clear labeling, storage notes, and research documentation",
       "Lot traceability for internal recordkeeping",

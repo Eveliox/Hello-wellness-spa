@@ -20,7 +20,12 @@ export default function FaqPage() {
       <JsonLd data={faqPageJsonLd(faqs)} />
       <section className="border-b border-line/80 bg-surface py-14">
         <Container className="max-w-3xl">
-          <h1 className="font-display text-4xl text-balance text-ink sm:text-5xl">Questions, answered with clarity</h1>
+          <h1 className="font-display text-4xl text-balance text-ink sm:text-5xl">
+            Questions, answered with{" "}
+            <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+              clarity
+            </span>
+          </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
             Still unsure? Our concierge team loves detail-oriented emails—no question is too small before your first
             visit.

@@ -16,11 +16,17 @@ export default function QuizPage() {
     <>
       <section className="border-b border-line/80 bg-surface py-14">
         <Container className="max-w-2xl text-center">
-          <p className="font-ui text-xs font-semibold uppercase tracking-[0.24em] text-muted">
+          <p className="font-ui flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E8B4A3]">
+            <span className="h-px w-6 bg-[#E8B4A3]" aria-hidden />
             2 minutes · No commitment
+            <span className="h-px w-6 bg-[#E8B4A3]" aria-hidden />
           </p>
           <h1 className="mt-3 font-display text-4xl text-balance text-ink sm:text-5xl">
-            Find your best first step.
+            Find your{" "}
+            <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+              best
+            </span>{" "}
+            first step.
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted">
             Five quick questions, then an instant recommendation from our service menu—no email required.

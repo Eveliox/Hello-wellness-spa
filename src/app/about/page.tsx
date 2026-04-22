@@ -97,9 +97,16 @@ export default function AboutPage() {
       <section className="border-b border-line/80 bg-surface py-14">
         <Container className="grid max-w-[1200px] gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">About</p>
+            <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E8B4A3]">
+              <span className="h-px w-6 bg-[#E8B4A3]" aria-hidden />
+              About
+            </p>
             <h1 className="mt-3 font-display text-4xl text-balance text-ink sm:text-5xl">
-              A studio built for modern Miami—and everyone who matters to you.
+              A studio built for modern Miami—and everyone who{" "}
+              <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
+                matters
+              </span>{" "}
+              to you.
             </h1>
             <p className="mt-5 text-base leading-relaxed text-muted">
               Hello You Wellness Center lives at the intersection of evidence-informed medicine and genuine

@@ -18,6 +18,7 @@ export const mainNav: NavItem[] = [
       { label: "IV therapy", href: "/services/iv-therapy", description: "Hydration, recovery, and vitality" },
       { label: "Build your own IV", href: "/services/build-your-own-iv", description: "Personalized nutrient blends" },
       { label: "Research Peptides", href: "/store?category=Peptides%20(Research%20Use%20Only)", description: "Research-use products and handling standards" },
+      { label: "Intake form", href: "/intake", description: "New patient registration" },
     ],
   },
   { label: "Quiz", href: "/quiz" },
