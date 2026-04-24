@@ -1,7 +1,7 @@
 import { intakeSchema } from "@/lib/intake-schema";
 import { escapeHtml, sendEmail } from "@/lib/email";
 import { site } from "@/content/site";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 
 export async function POST(request: Request) {
   try {
@@ -22,6 +22,7 @@ export async function POST(request: Request) {
       return Response.json({ ok: true });
     }
 
+    const supabase = getSupabase();
     const { error: dbError } = await supabase.from("intake_submissions").insert({
       registration_date: data.registrationDate,
       full_name: data.fullName,
