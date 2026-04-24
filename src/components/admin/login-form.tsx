@@ -30,7 +30,7 @@ export function LoginForm() {
   }
 
   const inputCls =
-    "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-ink/15";
+    "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-base text-ink placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-ink/15 sm:text-sm";
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">

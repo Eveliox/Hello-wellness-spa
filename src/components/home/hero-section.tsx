@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/site";
 import { Button } from "@/components/ui/button";
@@ -10,13 +9,16 @@ export function HeroSection() {
       id="home-hero"
       className="relative isolate overflow-hidden bg-chrome text-on-chrome"
     >
-      <Image
-        src="/images/home/hero-nad.jpg"
-        alt=""
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
+      <video
+        src="/hello you.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/images/home/hero-nad.jpg"
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
       />
       <div
         className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/25"
@@ -30,11 +32,11 @@ export function HeroSection() {
           </p>
 
           <h1 className="font-display text-4xl leading-[1.05] text-balance text-white sm:text-5xl lg:text-[3.4rem]">
-            Wellness that{" "}
+            Hello again,{" "}
             <span className="font-script text-[1.35em] font-normal italic leading-none text-[#E8B4A3]">
-              works
-            </span>{" "}
-            for your whole self.
+              you
+            </span>
+            .
           </h1>
 
           <p className="max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">

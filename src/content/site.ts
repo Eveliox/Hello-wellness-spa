@@ -9,8 +9,8 @@ export const site = {
   tagline:
     "Whole-body wellness in Miami—personalized assisted weight loss, aesthetics, IV therapy, and more.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://xlashbyyane.com",
-  phoneDisplay: "(305) 640-5351",
-  phoneTel: "+13056405351",
+  phoneDisplay: "(786) 780-3626",
+  phoneTel: "+17867803626",
   email: "info@helloyouwellness.com",
   /** Default scheduling (Cal.com) */
   bookingUrl: "https://cal.com/helloyouwellness/secret",

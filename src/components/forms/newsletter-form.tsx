@@ -84,7 +84,7 @@ export function NewsletterForm({ tone = "light" }: NewsletterFormProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={cn(
-              "h-11 w-full rounded-full border px-4 text-sm shadow-inner outline-none transition focus:ring-2",
+              "h-11 w-full rounded-full border px-4 text-base shadow-inner outline-none transition focus:ring-2 sm:text-sm",
               dark
                 ? "border-white/15 bg-chrome text-white placeholder:text-white/35 focus:border-white/30 focus:ring-white/15"
                 : "border-line bg-surface text-ink focus:border-ink/25 focus:ring-ink/15",

@@ -1,5 +1,6 @@
 export type ProductCategory =
   | "All Products"
+  | "Programs"
   | "Weight Loss Programs"
   | "Peptides (Research Use Only)"
   | "IV Therapy"
@@ -18,10 +19,15 @@ export type Product = {
   price?: number | null;
   /** Optional Stripe Payment Link (or other checkout URL) for “buy now” flows */
   paymentLink?: string;
+  /** Duration pill shown on program cards (e.g., "8 Weeks"). */
+  duration?: string;
+  /** Detailed checklist shown in the card's expandable "What's included" section. */
+  includes?: string[];
 };
 
 export const categories: ProductCategory[] = [
   "All Products",
+  "Programs",
   "Weight Loss Programs",
   "Peptides (Research Use Only)",
   "IV Therapy",
@@ -30,61 +36,46 @@ export const categories: ProductCategory[] = [
 ];
 
 export const products: Product[] = [
-  // CATEGORY: Weight Loss Programs
+  // CATEGORY: Programs
   {
-    name: "GLP-1 Program – Initial",
+    name: "All-in-One Weight Loss Program — 8 Weeks",
     description:
-      "Personalized GLP-1 weight loss program with medical oversight, initial consultation, and first month of medication.",
-    category: "Weight Loss Programs",
-    originalPrice: 280,
-    salePrice: 199.99,
-    onSale: true,
-    image: "/images/products/glp-1-program.jpg",
-    badge: null,
-    paymentLink: "https://buy.stripe.com/9B6eVc80ddDUdDKbLbaR41X",
+      "Physician-supervised 8-week weight loss program with everything included — no add-ons, no upsells.",
+    category: "Programs",
+    price: 229,
+    onSale: false,
+    image: "",
+    badge: "All Included",
+    duration: "8 Weeks",
+    paymentLink: "https://buy.stripe.com/8x29AScgt8jAaryaH7aR426",
+    includes: [
+      "Sema Plus (Semaglutide)",
+      "Telemedicine Evaluation",
+      "Nutrition Guide & Exercise Plan",
+      "Lipotropics & B12 Injections",
+      "Fat Burner Shots",
+      "Extra Peptides: Sermorelin, NAD+, GHK-Cu",
+    ],
   },
   {
-    name: "GLP-1 / GIP Program – Initial",
+    name: "All-in-One Weight Loss Program — 6 Weeks",
     description:
-      "Dual-action GLP-1/GIP program for enhanced results. Includes consultation, labs as appropriate, and first month supply.",
-    category: "Weight Loss Programs",
-    originalPrice: 420,
-    salePrice: 299,
-    onSale: true,
-    image: "/images/products/glp-1-gip-program.jpg",
-    badge: null,
-  },
-  {
-    name: "4 Weeks Personalized Weight Wellness Program",
-    description:
-      "Comprehensive 4-week program tailored to your goals. Includes medical oversight, nutrition guidance, and medication.",
-    category: "Weight Loss Programs",
-    originalPrice: 390,
-    salePrice: 145,
-    onSale: true,
-    image: "/images/products/4-week-program.jpg",
-    badge: null,
-  },
-  {
-    name: "Christmas Combo",
-    description:
-      "One month of semaglutide treatment, 4 lipotropic/B12/fat burner shots, 4 NAD+ sublingual tablets, and 4 GHK-Cu doses.",
-    category: "Weight Loss Programs",
-    originalPrice: 698,
-    salePrice: 349,
-    onSale: true,
-    image: "/images/products/christmas-combo.jpg",
-    badge: null,
-  },
-  {
-    name: "Tirz Plus BOGO",
-    description: "Buy-one-get-one Tirzepatide program with metabolic support and lipotropic supplementation.",
-    category: "Weight Loss Programs",
-    originalPrice: 579,
-    salePrice: 249,
-    onSale: true,
-    image: "/images/products/tirz-plus.jpg",
-    badge: null,
+      "Physician-supervised 6-week weight loss program at a flat rate — everything included, no add-ons, no upsells.",
+    category: "Programs",
+    price: 189,
+    onSale: false,
+    image: "",
+    badge: "Flat Rate · All Included",
+    duration: "6 Weeks",
+    paymentLink: "https://buy.stripe.com/9B628q0xL0R8dDK8yZaR427",
+    includes: [
+      "Sema Plus (Semaglutide)",
+      "Telemedicine Evaluation",
+      "Nutrition Guide & Exercise Plan",
+      "Lipotropics & B12 Injections",
+      "Fat Burner Shots",
+      "Extra Peptides: Sermorelin, NAD+, GHK-Cu",
+    ],
   },
 
   // CATEGORY: Peptides (Research Use Only)
@@ -96,8 +87,9 @@ export const products: Product[] = [
     salePrice: null,
     price: 59,
     onSale: false,
-    image: "/images/products/bpc-157.jpg",
+    image: "/bpc157.png",
     badge: "RESEARCH USE ONLY",
+    paymentLink: "https://buy.stripe.com/9B6aEW0xLarI1V2aH7aR422",
   },
   {
     name: "GHK-Cu — Research Peptide",
@@ -107,9 +99,21 @@ export const products: Product[] = [
     salePrice: null,
     price: 75,
     onSale: false,
-    image: "/images/products/ghk-cu.jpg",
+    image: "/ghkgpt.png",
     badge: "RESEARCH USE ONLY",
     paymentLink: "https://buy.stripe.com/5kQdR84O1gQ61V2eXnaR41W",
+  },
+  {
+    name: "Ipamorelin — Research Peptide",
+    description: "Growth hormone secretagogue peptide for in-vitro laboratory research. High purity, sealed vial.",
+    category: "Peptides (Research Use Only)",
+    originalPrice: null,
+    salePrice: null,
+    price: 199.99,
+    onSale: false,
+    image: "/ipagpt.png",
+    badge: "RESEARCH USE ONLY",
+    paymentLink: "https://buy.stripe.com/fZu7sK0xL9nE9nu5mNaR425",
   },
   {
     name: "NAD+ 1500 with Resveratrol",
@@ -120,18 +124,10 @@ export const products: Product[] = [
     onSale: true,
     image: "/images/products/nad-resveratrol.jpg",
     badge: "RESEARCH USE ONLY",
+    paymentLink: "https://buy.stripe.com/7sYeVc2FTeHYary6qRaR423",
   },
 
   // CATEGORY: IV Therapy
-  {
-    name: "Myers' Cocktail IV",
-    description: "Classic vitamin and mineral IV infusion. Includes B-vitamins, Vitamin C, magnesium, and calcium.",
-    category: "IV Therapy",
-    price: 199,
-    onSale: false,
-    image: "/images/products/myers-cocktail.jpg",
-    badge: null,
-  },
   {
     name: "NAD+ IV Infusion",
     description: "High-dose NAD+ intravenous therapy. Administered in-clinic by licensed medical professionals.",
@@ -196,8 +192,9 @@ export const products: Product[] = [
     category: "Supplements & Add-ons",
     price: 45,
     onSale: false,
-    image: "/images/products/lipo-shot.jpg",
+    image: "/lipogpt.png",
     badge: null,
+    paymentLink: "https://buy.stripe.com/3cIdR8fsFbvM9nu16xaR424",
   },
 ];
 

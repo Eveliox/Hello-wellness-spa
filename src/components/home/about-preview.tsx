@@ -16,7 +16,7 @@ export function AboutPreview() {
         <div className="relative order-1 lg:order-1">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-line shadow-soft">
             <Image
-              src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1200&q=80&auto=format&fit=crop"
+              src="/medical expertise.jpg"
               alt="Hello You Wellness Center studio"
               fill
               loading="lazy"
@@ -25,7 +25,7 @@ export function AboutPreview() {
             />
           </div>
           <div className="absolute -bottom-6 right-4 w-40 rounded-[var(--radius-card)] bg-[#E8B4A3] p-5 text-ink shadow-soft sm:right-8">
-            <p className="font-display text-4xl leading-none">5+</p>
+            <p className="font-display text-4xl leading-none">10+</p>
             <p className="mt-2 text-xs font-semibold uppercase tracking-[0.15em] text-ink/80">
               Years serving
               <br />

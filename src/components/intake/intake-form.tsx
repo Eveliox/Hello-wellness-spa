@@ -6,7 +6,7 @@ import { useState } from "react";
 import { intakeSchema, type IntakeFormData } from "@/lib/intake-schema";
 
 const inputCls =
-  "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-ink/15 disabled:opacity-50";
+  "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-base text-ink placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-ink/15 disabled:opacity-50 sm:text-sm";
 
 const labelCls = "block text-sm font-semibold text-ink";
 
@@ -68,12 +68,12 @@ function YesNoField({ label, name, register, error }: YesNoProps) {
         {label} <span className="text-[#C0392B]">*</span>
       </p>
       <div className="flex gap-6">
-        <label className="flex cursor-pointer items-center gap-2 text-sm text-ink">
-          <input type="radio" value="yes" {...register(name)} className="accent-ink" />
+        <label className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink">
+          <input type="radio" value="yes" {...register(name)} className="h-5 w-5 accent-ink" />
           Yes / Sí
         </label>
-        <label className="flex cursor-pointer items-center gap-2 text-sm text-ink">
-          <input type="radio" value="no" {...register(name)} className="accent-ink" />
+        <label className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink">
+          <input type="radio" value="no" {...register(name)} className="h-5 w-5 accent-ink" />
           No
         </label>
       </div>
@@ -449,12 +449,15 @@ export function IntakeForm() {
           </p>
           <div className="mt-2 flex flex-wrap gap-5">
             {COVID_OPTIONS.map((opt) => (
-              <label key={opt.value} className="flex cursor-pointer items-center gap-2 text-sm text-ink">
+              <label
+                key={opt.value}
+                className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink"
+              >
                 <input
                   type="radio"
                   value={opt.value}
                   {...register("covidVaccinationStatus")}
-                  className="accent-ink"
+                  className="h-5 w-5 accent-ink"
                 />
                 {opt.label}
               </label>
@@ -495,12 +498,15 @@ export function IntakeForm() {
           </p>
           <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {SERVICES.map((service) => (
-              <label key={service} className="flex cursor-pointer items-center gap-2 text-sm text-ink">
+              <label
+                key={service}
+                className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink"
+              >
                 <input
                   type="checkbox"
                   value={service}
                   {...register("servicesInterested")}
-                  className="accent-ink"
+                  className="h-5 w-5 accent-ink"
                 />
                 {service}
               </label>
@@ -513,10 +519,18 @@ export function IntakeForm() {
           <p className={labelCls}>
             How did you hear about us? / ¿Cómo te enteraste de nosotros? <span className="text-[#C0392B]">*</span>
           </p>
-          <div className="mt-2 flex flex-wrap gap-5">
+          <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
             {HOW_DID_YOU_HEAR.map((opt) => (
-              <label key={opt.value} className="flex cursor-pointer items-center gap-2 text-sm text-ink">
-                <input type="radio" value={opt.value} {...register("howDidYouHear")} className="accent-ink" />
+              <label
+                key={opt.value}
+                className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink"
+              >
+                <input
+                  type="radio"
+                  value={opt.value}
+                  {...register("howDidYouHear")}
+                  className="h-5 w-5 accent-ink"
+                />
                 {opt.label}
               </label>
             ))}

@@ -419,19 +419,17 @@ export default async function ServiceDetailPage({ params }: Props) {
                 src={service.heroImage}
                 alt={
                   isWeightLossPage
-                    ? "Hello You Wellness Center GLP program imagery"
+                    ? "Hello You Wellness Center assisted weight loss"
                     : isAestheticsPage
                       ? "Hello You Wellness Center aesthetics & cosmetics hero imagery"
                       : ""
                 }
                 fill
                 priority
-                className={isWeightLossPage ? "bg-white object-contain p-10" : "object-cover"}
+                className="object-cover"
                 sizes="(min-width: 1024px) 42vw, 100vw"
               />
-              {isWeightLossPage ? null : (
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
-              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
             </div>
           </Container>
         </div>

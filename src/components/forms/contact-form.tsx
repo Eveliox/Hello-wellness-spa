@@ -47,7 +47,7 @@ export function ContactForm() {
   }
 
   const inputClass =
-    "mt-1 w-full rounded-2xl border border-line bg-surface px-4 py-3 text-sm text-ink shadow-inner outline-none transition focus:border-accent/40 focus:ring-2 focus:ring-accent/25";
+    "mt-1 w-full rounded-2xl border border-line bg-surface px-4 py-3 text-base text-ink shadow-inner outline-none transition focus:border-accent/40 focus:ring-2 focus:ring-accent/25 sm:text-sm";
 
   return (
     <form className="space-y-5" onSubmit={handleSubmit(onSubmit)} noValidate>
