@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createMetadata } from "@/lib/seo";
@@ -436,7 +437,11 @@ export default async function ServiceDetailPage({ params }: Props) {
       </section>
 
       {/* ── Service-specific sections ── */}
-      {isByoIvPage ? <IVBuilder /> : null}
+      {isByoIvPage ? (
+        <Suspense fallback={null}>
+          <IVBuilder />
+        </Suspense>
+      ) : null}
       {isIvTherapyPage ? <IvTherapyContent bookingUrl={serviceBookingUrl} testimonialItems={ivTherapyTestimonials} /> : null}
       {isAestheticsPage ? <AestheticsContent service={service} bookingUrl={serviceBookingUrl} testimonialItems={aestheticsTestimonials} /> : null}
 
