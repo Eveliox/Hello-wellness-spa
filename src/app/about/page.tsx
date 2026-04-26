@@ -102,7 +102,7 @@ export default function AboutPage() {
               About
             </p>
             <h1 className="mt-3 font-display text-4xl text-balance text-ink sm:text-5xl">
-              A studio built for modern Miami—and everyone who{" "}
+              A wellness clinic built for modern Miami—and everyone who{" "}
               <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
                 matters
               </span>{" "}
@@ -138,7 +138,7 @@ export default function AboutPage() {
           <div className="relative hidden aspect-[5/4] overflow-hidden rounded-[2rem] border border-line bg-[#f5f4f2] shadow-soft lg:block">
             <Image
               src="/images/about/background.webp"
-              alt="Hello You Wellness Center studio interior"
+              alt="Hello You Wellness Center clinic interior"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 42vw, 100vw"
@@ -154,7 +154,7 @@ export default function AboutPage() {
           <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] border border-line shadow-soft">
             <Image
               src="/images/about/background.webp"
-              alt="Hello You Wellness Center studio interior"
+              alt="Hello You Wellness Center clinic interior"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 40vw, 100vw"

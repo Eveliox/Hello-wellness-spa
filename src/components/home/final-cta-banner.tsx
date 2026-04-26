@@ -12,7 +12,7 @@ export function FinalCtaBanner() {
           <div className="relative mx-auto max-w-2xl space-y-4">
             <TrustChip>Ready when you are</TrustChip>
             <h2 className="font-display text-3xl text-balance text-ink sm:text-4xl">
-              Call the studio. Keep the confidence.
+              Call the clinic. Keep the confidence.
             </h2>
             <p className="text-sm leading-relaxed text-muted">
               Choose a pathway—weight, aesthetics, IV, peptides—and arrive to a team already briefed on your

@@ -64,7 +64,7 @@ export function NewsletterForm({ tone = "light" }: NewsletterFormProps) {
         Get 10% off your first purchase
       </p>
       <p className={cn("mt-2 text-sm", dark ? "text-white/65" : "text-muted")}>
-        Sign up for updates—treatment tips, offers, and Miami studio news.
+        Sign up for updates—treatment tips, offers, and Miami clinic news.
       </p>
       {status === "success" ? (
         <p className={cn("mt-4 text-sm font-medium", dark ? "text-white" : "text-ink")} role="status">

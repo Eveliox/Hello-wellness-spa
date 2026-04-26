@@ -21,7 +21,7 @@ export default function TestimonialsPage() {
             <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
               Stories
             </span>{" "}
-            from our studio guests
+            from our clinic guests
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
             Replace sample quotes with your own verified testimonials. We recommend pairing each quote with city

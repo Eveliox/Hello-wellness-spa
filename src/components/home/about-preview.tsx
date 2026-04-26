@@ -17,7 +17,7 @@ export function AboutPreview() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-line shadow-soft">
             <Image
               src="/medical expertise.jpg"
-              alt="Hello You Wellness Center studio"
+              alt="Hello You Wellness Center clinic"
               fill
               loading="lazy"
               className="object-cover"

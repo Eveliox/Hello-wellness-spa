@@ -85,7 +85,7 @@ export async function POST(request: Request) {
           <h2 style="margin:0 0 8px">Your match: ${escapeHtml(match.title)}</h2>
           <p style="margin:0 0 16px;color:#555">${escapeHtml(match.summary)}</p>
           <p>
-            <a href="tel:${escapeHtml(site.phoneTel)}" style="display:inline-block;padding:10px 18px;border-radius:999px;background:#121212;color:#fff;text-decoration:none">Call the studio</a>
+            <a href="tel:${escapeHtml(site.phoneTel)}" style="display:inline-block;padding:10px 18px;border-radius:999px;background:#121212;color:#fff;text-decoration:none">Call the clinic</a>
             &nbsp;
             <a href="${escapeHtml(site.social.instagram)}" style="display:inline-block;padding:10px 18px;border-radius:999px;border:1px solid #ddd;color:#121212;text-decoration:none">Message on Instagram</a>
             &nbsp;

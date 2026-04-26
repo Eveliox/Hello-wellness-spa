@@ -37,12 +37,11 @@ export const site = {
   hoursLines: [
     "Monday · By appointment",
     "Tuesday–Friday · 9:00a – 5:00p",
-    "Saturday · 10:00a – 3:00p",
+    "Saturday · Closed",
     "Sunday · Closed",
   ],
   hoursSchema: [
     { days: ["Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "17:00" },
-    { days: ["Saturday"], opens: "10:00", closes: "15:00" },
   ],
   social: {
     instagram: "https://www.instagram.com/xlashbyyaneacademy_/",

@@ -7,7 +7,7 @@ const reasons = [
     body: "We favor clear education and informed consent—especially for weight, IV, and peptide pathways—so decisions feel steady, not rushed.",
   },
   {
-    title: "A calm, professional studio",
+    title: "A calm, professional clinic",
     body: "Soft neutrals, attentive staff, and treatment rooms designed for privacy and ease.",
   },
   {

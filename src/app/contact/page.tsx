@@ -59,7 +59,7 @@ export default function ContactPage() {
               </a>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Studio</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Wellness Clinic</p>
               <p className="mt-2">
                 {site.address.line1}
                 <br />

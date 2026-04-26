@@ -1,7 +1,7 @@
 export const policies = {
   lastReviewed: "2026-04-15",
   reviewNotice:
-    "This page contains draft policy language prepared for attorney review. It is not a substitute for counsel-approved documents. Final versions may differ, and intake paperwork you receive in the studio supersedes anything posted here.",
+    "This page contains draft policy language prepared for attorney review. It is not a substitute for counsel-approved documents. Final versions may differ, and intake paperwork you receive in the clinic supersedes anything posted here.",
   intro:
     "The following summarizes how Hello You Wellness Center collects information, obtains consent, schedules and bills for services, and handles photography and marketing. Full notices are provided at intake and on request.",
   sections: [

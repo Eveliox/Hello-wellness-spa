@@ -15,7 +15,7 @@ export function MapEmbed() {
           <div>
             <SectionHeading
               eyebrow="Visit"
-              title="SW Miami studio—easy access from Kendall & beyond"
+              title="SW Miami clinic—easy access from Kendall & beyond"
               description="Parking and arrival notes are confirmed with your appointment so your visit stays simple."
             />
             <div className="mt-6 space-y-2 text-sm text-muted">

@@ -7,9 +7,6 @@ import { Container } from "@/components/ui/container";
 import { cn } from "@/lib/utils";
 import { ProductCard } from "@/components/store/product-card";
 
-const peptideDisclaimer =
-  "All peptide products are sold strictly for in-vitro research and laboratory use only. Not for human or animal consumption. Not FDA approved. Buyer assumes all responsibility for lawful use.";
-
 export function StoreCatalog() {
   const searchParams = useSearchParams();
   const initialCategory = (() => {
@@ -27,8 +24,6 @@ export function StoreCatalog() {
     if (active === "All Products") return products;
     return products.filter((p) => p.category === active);
   }, [active]);
-
-  const peptidesInView = useMemo(() => visible.some((p) => p.category === "Peptides (Research Use Only)"), [visible]);
 
   return (
     <section className="py-14">
@@ -61,14 +56,6 @@ export function StoreCatalog() {
             );
           })}
         </div>
-
-        {peptidesInView ? (
-          <div className="mt-4 rounded-2xl border border-[color:#C0392B]/25 bg-[rgba(192,57,43,0.05)] p-4">
-            <p className="text-[12px] leading-relaxed text-[#7a3b35]" style={{ borderLeft: "3px solid #C0392B", paddingLeft: 12 }}>
-              {peptideDisclaimer}
-            </p>
-          </div>
-        ) : null}
 
         <div key={fadeKey} className={cn("mt-8 transition-opacity duration-200", isFading ? "opacity-0" : "opacity-100")}>
           <div

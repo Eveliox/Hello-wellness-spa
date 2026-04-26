@@ -599,7 +599,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       </section>
 
       {/* ── Weight loss gallery + pricing ── */}
-      {isWeightLossPage ? <WeightLossContent bookingUrl={serviceBookingUrl} testimonialItems={weightLossTestimonials} /> : null}
+      {isWeightLossPage ? <WeightLossContent testimonialItems={weightLossTestimonials} /> : null}
 
       {/* ── IV add-ons ── */}
       {showIvAddOns ? <IvAddOnsSection isByoIvPage={isByoIvPage} serviceSlug={service.slug} /> : null}

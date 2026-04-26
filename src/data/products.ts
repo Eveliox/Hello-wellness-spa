@@ -23,6 +23,10 @@ export type Product = {
   duration?: string;
   /** Detailed checklist shown in the card's expandable "What's included" section. */
   includes?: string[];
+  /** When set, the card image is clickable and a "View full details" link opens a lightbox showing this image full-size. */
+  lightboxImage?: string;
+  /** When set, the CTA becomes "Check if you qualify" and links here (e.g., a Cal.com consultation URL). Takes precedence over paymentLink. */
+  consultUrl?: string;
 };
 
 export const categories: ProductCategory[] = [
@@ -75,6 +79,54 @@ export const products: Product[] = [
       "Lipotropics & B12 Injections",
       "Fat Burner Shots",
       "Extra Peptides: Sermorelin, NAD+, GHK-Cu",
+    ],
+  },
+  {
+    name: "Men's Performance, Vitality & Energy Program",
+    description:
+      "Physician-guided 8-week program designed to support men's vitality, performance, and overall wellness from the inside out.",
+    category: "Programs",
+    price: 450,
+    onSale: false,
+    image: "/mens-program.png",
+    lightboxImage: "/mens-program.png",
+    badge: "Physician-Guided",
+    duration: "8 Weeks",
+    consultUrl: "https://cal.com/helloyouwellness/30min",
+    includes: [
+      "GLP-1 / GIP-Based Therapy",
+      "Sermorelin Therapy",
+      "Lipotropic + MIC Support",
+      "Advanced Peptide Support (if clinically appropriate)",
+      "Medical Evaluation",
+      "Personalized Protocol",
+      "Ongoing Monitoring",
+      "Telehealth Support",
+      "Compounded Medications (if prescribed)",
+    ],
+  },
+  {
+    name: "Women's Total Balance & Glow Program",
+    description:
+      "Physician-guided 8-week program designed to support women's hormonal balance, metabolism, stress, and overall wellness from the inside out.",
+    category: "Programs",
+    price: 450,
+    onSale: false,
+    image: "/womens-program.png",
+    lightboxImage: "/womens-program.png",
+    badge: "Physician-Guided",
+    duration: "8 Weeks",
+    consultUrl: "https://cal.com/helloyouwellness/30min",
+    includes: [
+      "Metabolic & Appetite Support",
+      "Hormonal Recovery & Sleep Support",
+      "Skin, Hair & Anti-Aging Glow",
+      "Fat Burn & Energy Support",
+      "Medical Evaluation",
+      "Personalized Protocol",
+      "Ongoing Monitoring",
+      "Telehealth Support",
+      "Compounded Medications (if prescribed)",
     ],
   },
 
