@@ -27,6 +27,8 @@ export type Product = {
   lightboxImage?: string;
   /** When set, the CTA becomes "Check if you qualify" and links here (e.g., a Cal.com consultation URL). Takes precedence over paymentLink. */
   consultUrl?: string;
+  /** When set, "Start now" routes to /checkout?product={checkoutSlug} instead of directly to Stripe. */
+  checkoutSlug?: string;
 };
 
 export const categories: ProductCategory[] = [
@@ -52,6 +54,7 @@ export const products: Product[] = [
     lightboxImage: "/8weeks.png",
     badge: "All Included",
     duration: "8 Weeks",
+    checkoutSlug: "all-in-one-8-weeks",
     paymentLink: "https://buy.stripe.com/8x29AScgt8jAaryaH7aR426",
     includes: [
       "Sema Plus (Semaglutide)",
@@ -73,6 +76,7 @@ export const products: Product[] = [
     lightboxImage: "/6weeks.png",
     badge: "Flat Rate · All Included",
     duration: "6 Weeks",
+    checkoutSlug: "all-in-one-6-weeks",
     paymentLink: "https://buy.stripe.com/9B628q0xL0R8dDK8yZaR427",
     includes: [
       "Sema Plus (Semaglutide)",
@@ -143,6 +147,7 @@ export const products: Product[] = [
     onSale: false,
     image: "/bpc157.png",
     badge: "RESEARCH USE ONLY",
+    checkoutSlug: "bpc-157",
     paymentLink: "https://buy.stripe.com/9B6aEW0xLarI1V2aH7aR422",
   },
   {
@@ -155,6 +160,7 @@ export const products: Product[] = [
     onSale: false,
     image: "/ghkgpt.png",
     badge: "RESEARCH USE ONLY",
+    checkoutSlug: "ghk-cu",
     paymentLink: "https://buy.stripe.com/5kQdR84O1gQ61V2eXnaR41W",
   },
   {
@@ -167,6 +173,7 @@ export const products: Product[] = [
     onSale: false,
     image: "/ipagpt.png",
     badge: "RESEARCH USE ONLY",
+    checkoutSlug: "ipamorelin",
     paymentLink: "https://buy.stripe.com/fZu7sK0xL9nE9nu5mNaR425",
   },
   {
@@ -178,6 +185,7 @@ export const products: Product[] = [
     onSale: true,
     image: "/images/products/nad-resveratrol.jpg",
     badge: "RESEARCH USE ONLY",
+    checkoutSlug: "nad-1500-resveratrol",
     paymentLink: "https://buy.stripe.com/7sYeVc2FTeHYary6qRaR423",
   },
 
@@ -248,6 +256,7 @@ export const products: Product[] = [
     onSale: false,
     image: "/lipogpt.png",
     badge: null,
+    checkoutSlug: "lipotropic-fat-burner",
     paymentLink: "https://buy.stripe.com/3cIdR8fsFbvM9nu16xaR424",
   },
 ];

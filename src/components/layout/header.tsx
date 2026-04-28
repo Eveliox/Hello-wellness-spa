@@ -19,6 +19,7 @@ export function Header() {
   const menuId = useId();
   const pathname = usePathname();
 
+  const isCheckoutPage = pathname.startsWith("/checkout");
   const isPeptidesPage = pathname === "/services/peptide-therapy";
   const navItems = isPeptidesPage
     ? mainNav
@@ -56,6 +57,8 @@ export function Header() {
     io.observe(hero);
     return () => io.disconnect();
   }, [isPeptidesPage, pathname]);
+
+  if (isCheckoutPage) return null;
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-chrome text-on-chrome">

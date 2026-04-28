@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export function StickyBookCta() {
   const pathname = usePathname();
-  if (pathname === "/services/peptide-therapy") return null;
+  if (pathname === "/services/peptide-therapy" || pathname.startsWith("/checkout")) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-chrome/98 p-3 shadow-[0_-12px_40px_rgba(0,0,0,0.35)] backdrop-blur-md md:hidden">
