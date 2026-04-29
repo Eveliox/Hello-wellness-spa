@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/utils/supabase/client";
 
 export function LoginForm() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,11 +14,14 @@ export function LoginForm() {
     setError("");
     setLoading(true);
 
-    const supabase = createClient();
-    const { error: authError } = await supabase.auth.signInWithPassword({ email, password });
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
 
-    if (authError) {
-      setError("Invalid email or password.");
+    if (!res.ok) {
+      setError("Invalid password.");
       setLoading(false);
       return;
     }
@@ -29,22 +30,8 @@ export function LoginForm() {
     router.refresh();
   }
 
-  const inputCls =
-    "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-base text-ink placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-ink/15 sm:text-sm";
-
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div>
-        <label className="block text-sm font-semibold text-ink">Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@example.com"
-          required
-          className={`mt-1.5 ${inputCls}`}
-        />
-      </div>
       <div>
         <label className="block text-sm font-semibold text-ink">Password</label>
         <input
@@ -53,7 +40,7 @@ export function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="••••••••"
           required
-          className={`mt-1.5 ${inputCls}`}
+          className="mt-1.5 w-full rounded-lg border border-line bg-white px-3 py-2.5 text-base text-ink placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-ink/15 sm:text-sm"
         />
       </div>
 
