@@ -9,6 +9,7 @@ import { NewsletterForm } from "@/components/forms/newsletter-form";
 
 export function Footer() {
   const pathname = usePathname();
+  if (pathname.startsWith("/checkout")) return null;
   const isPeptidesPage = pathname === "/services/peptide-therapy";
 
   const safeFooterGroups = isPeptidesPage ? footerGroups.filter((group) => group.title !== "Care") : footerGroups;

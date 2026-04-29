@@ -135,12 +135,12 @@ export default function AboutPage() {
             </a>
           </div>
 
-          <div className="relative hidden aspect-[5/4] overflow-hidden rounded-[2rem] border border-line bg-[#f5f4f2] shadow-soft lg:block">
+          <div className="relative hidden aspect-[2/3] overflow-hidden rounded-[2rem] border border-line bg-[#f5f4f2] shadow-soft lg:block">
             <Image
-              src="/images/about/background.webp"
+              src="/wellness.jpg"
               alt="Hello You Wellness Center clinic interior"
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="(min-width: 1024px) 42vw, 100vw"
               priority
             />

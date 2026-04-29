@@ -19,7 +19,9 @@ export function ProductCard({ product, showResearchBadge }: Props) {
   const isPeptide = product.category === "Peptides (Research Use Only)";
   const isProgram = product.category === "Programs";
   const consultUrl = product.consultUrl;
-  const checkoutHref = product.paymentLink;
+  const checkoutHref = product.checkoutSlug
+    ? `/checkout?product=${product.checkoutSlug}`
+    : product.paymentLink;
   const onSale = product.onSale && typeof product.originalPrice === "number" && typeof product.salePrice === "number";
   const hasIncludes = Array.isArray(product.includes) && product.includes.length > 0;
   const hasLightbox = Boolean(product.lightboxImage);
@@ -190,8 +192,7 @@ export function ProductCard({ product, showResearchBadge }: Props) {
             <Button
               href={checkoutHref}
               prefetch={false}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(checkoutHref.startsWith("/") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
               size="md"
               className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
             >
