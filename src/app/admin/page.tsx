@@ -19,6 +19,20 @@ export default async function AdminPage() {
     redirect("/admin/login");
   }
 
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!supabaseUrl) {
+    return (
+      <main className="min-h-screen bg-surface py-10">
+        <Container>
+          <p className="text-sm text-[#C0392B]">
+            Database not configured — add <code>NEXT_PUBLIC_SUPABASE_URL</code> and{" "}
+            <code>NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY</code> to your Vercel project environment variables, then redeploy.
+          </p>
+        </Container>
+      </main>
+    );
+  }
+
   const supabase = getSupabase();
   const { data: submissions, error } = await supabase
     .from("intake_submissions")
