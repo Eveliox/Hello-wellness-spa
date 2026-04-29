@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/utils/supabase/client";
 
 type Submission = {
   id: string;
@@ -78,9 +77,9 @@ export function SubmissionsTable({ initialData }: { initialData: Submission[] })
   );
 
   async function handleSignOut() {
-    const supabase = createClient();
-    await supabase.auth.signOut();
+    await fetch("/api/admin/logout", { method: "POST" });
     router.push("/admin/login");
+    router.refresh();
   }
 
   return (

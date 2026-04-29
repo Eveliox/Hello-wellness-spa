@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/server";
+import { getSupabase } from "@/lib/supabase";
 import { Container } from "@/components/ui/container";
 import { SubmissionsTable } from "@/components/admin/submissions-table";
 
@@ -12,14 +12,14 @@ export const metadata: Metadata = {
 
 export default async function AdminPage() {
   const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const session = cookieStore.get("admin_session");
+  const adminPassword = process.env.ADMIN_PASSWORD;
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  if (!adminPassword || !session || session.value !== adminPassword) {
+    redirect("/admin/login");
+  }
 
-  if (!user) redirect("/admin/login");
-
+  const supabase = getSupabase();
   const { data: submissions, error } = await supabase
     .from("intake_submissions")
     .select("*")
