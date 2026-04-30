@@ -22,8 +22,10 @@ export async function POST(request: Request) {
       return Response.json({ ok: true });
     }
 
-    const supabase = getSupabase();
-    const { error: dbError } = await supabase.from("intake_submissions").insert({
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    if (supabaseUrl) {
+      const supabase = getSupabase();
+      const { error: dbError } = await supabase.from("intake_submissions").insert({
       registration_date: data.registrationDate,
       full_name: data.fullName,
       date_of_birth: data.dateOfBirth,
@@ -59,11 +61,11 @@ export async function POST(request: Request) {
       reason_for_visit: data.reasonForVisit,
       services_interested: data.servicesInterested,
       how_did_you_hear: data.howDidYouHear,
-      signature: data.signature,
-    });
-
-    if (dbError) {
-      console.error("[intake] supabase insert error", dbError);
+        signature: data.signature,
+      });
+      if (dbError) {
+        console.error("[intake] supabase insert error", dbError);
+      }
     }
 
     const rows: Array<[string, string]> = [
