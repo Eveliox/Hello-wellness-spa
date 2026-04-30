@@ -11,7 +11,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://xlashbyyane.com",
   phoneDisplay: "(786) 780-3626",
   phoneTel: "+17867803626",
-  email: "info@helloyouwellness.com",
+  email: "helloyouwellnessclinic@gmail.com",
   /** Default scheduling (Cal.com) */
   bookingUrl: "https://cal.com/helloyouwellness/secret",
   portalUrl: "https://helloyouwellness.clientsecure.me",
