@@ -44,6 +44,9 @@ export function ProductCard({ product, showResearchBadge }: Props) {
   }, [lightboxOpen]);
 
   const priceNode = useMemo(() => {
+    if (isPeptide) {
+      return <span className="text-sm font-semibold italic text-muted">Contact for pricing</span>;
+    }
     if (onSale) {
       return (
         <div className="flex items-baseline gap-2">
@@ -54,7 +57,7 @@ export function ProductCard({ product, showResearchBadge }: Props) {
     }
     const p = typeof product.price === "number" ? product.price : product.salePrice ?? product.originalPrice;
     return <span className="text-base font-semibold text-ink">{formatPrice(p as number)}</span>;
-  }, [onSale, product.originalPrice, product.price, product.salePrice]);
+  }, [isPeptide, onSale, product.originalPrice, product.price, product.salePrice]);
 
   const imageContent =
     isProgram && !product.image ? (
@@ -172,12 +175,19 @@ export function ProductCard({ product, showResearchBadge }: Props) {
           ) : null}
 
           {isPeptide ? (
-            <p className="mt-3 text-[11px] leading-relaxed text-[#8a8a8a]">
-              Research use only. Not for human or animal consumption.
-            </p>
-          ) : null}
-
-          {consultUrl ? (
+            <>
+              <p className="mt-3 text-[11px] leading-relaxed text-[#8a8a8a]">
+                Research use only. Not for human or animal consumption.
+              </p>
+              <Button
+                href="/contact"
+                size="md"
+                className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
+              >
+                Contact us for pricing →
+              </Button>
+            </>
+          ) : consultUrl ? (
             <Button
               href={consultUrl}
               prefetch={false}
@@ -188,7 +198,7 @@ export function ProductCard({ product, showResearchBadge }: Props) {
             >
               Check if you qualify
             </Button>
-          ) : checkoutHref ? (
+          ) : checkoutHref && !isPeptide ? (
             <Button
               href={checkoutHref}
               prefetch={false}
