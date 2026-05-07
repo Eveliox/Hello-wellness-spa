@@ -1,16 +1,18 @@
 export type ProductCategory =
   | "All Products"
   | "Programs"
-  | "Weight Loss Programs"
+  | "Hormone Programs"
   | "Peptides (Research Use Only)"
   | "IV Therapy"
+  | "Memberships"
+  | "Screenings & Diagnostics"
   | "Skin Care"
   | "Supplements & Add-ons";
 
 export type Product = {
   name: string;
   description: string;
-  category: Exclude<ProductCategory, "All Products">;
+  category: Exclude<ProductCategory, "All Products" | "Memberships" | "Screenings & Diagnostics">;
   image: string;
   badge: string | null;
   onSale: boolean;
@@ -29,14 +31,26 @@ export type Product = {
   consultUrl?: string;
   /** When set, "Start now" routes to /checkout?product={checkoutSlug} instead of directly to Stripe. */
   checkoutSlug?: string;
+  /** Suffix appended to the price in smaller, lighter text (e.g., "/mo"). Triggers no-decimals price formatting. */
+  priceSuffix?: string;
+  /** Override the default CTA button text (e.g., "Continue your program"). */
+  ctaLabel?: string;
+  /** When true, render a "Call to enroll — (786) 780-3626" note under the CTA. */
+  phoneEnroll?: boolean;
+  /** When true, render a "MOST POPULAR" pill on the top-left of the card image. */
+  mostPopular?: boolean;
+  /** Use the dark "hero" theme: tall image with baked-in title/description, restyled body. Image must be a complete hero asset (e.g., testreplace.png). */
+  heroLayout?: boolean;
 };
 
 export const categories: ProductCategory[] = [
   "All Products",
   "Programs",
-  "Weight Loss Programs",
+  "Hormone Programs",
   "Peptides (Research Use Only)",
   "IV Therapy",
+  "Screenings & Diagnostics",
+  "Memberships",
   "Skin Care",
   "Supplements & Add-ons",
 ];
@@ -53,6 +67,7 @@ export const products: Product[] = [
     image: "/8weeks.png",
     lightboxImage: "/8weeks.png",
     badge: "All Included",
+    mostPopular: true,
     duration: "8 Weeks",
     checkoutSlug: "all-in-one-8-weeks",
     paymentLink: "https://buy.stripe.com/8x29AScgt8jAaryaH7aR426",
@@ -136,55 +151,161 @@ export const products: Product[] = [
     ],
   },
 
+  {
+    name: "GLP-1/GIP Dual Action Program — 8 Weeks",
+    description:
+      "Our most advanced weight loss program using dual-action Tirzepatide for enhanced metabolic results. Physician-supervised with full support.",
+    category: "Programs",
+    price: 399,
+    onSale: false,
+    image: "",
+    badge: "ADVANCED",
+    duration: "8 Weeks",
+    paymentLink: "/book",
+    includes: [
+      "Tirzepatide (GLP-1/GIP dual agonist) — 8 week supply",
+      "Full medical evaluation",
+      "Nutrition guide & exercise plan",
+      "Lipotropics & B-12 injections (6 sessions)",
+      "Fat burner shots (6 sessions)",
+      "NAD+ sublingual tablets",
+      "Ongoing monitoring & dosage adjustments",
+    ],
+  },
+  {
+    name: "GLP-1/GIP Skin Tightening Blend",
+    description:
+      "Strategic fat loss and metabolism boost with added skin tightening support. A 3-component approach: GLP-1/GIP for appetite control, fat burner for metabolic reset, and glow blend for skin firmness.",
+    category: "Programs",
+    price: 449,
+    onSale: false,
+    image: "",
+    badge: "SIGNATURE BLEND",
+    duration: "8 Weeks",
+    paymentLink: "/book",
+    includes: [
+      "GLP-1/GIP — appetite control & insulin sensitivity",
+      "Fat Burner + Metabolic Reset — stored fat breakdown & energy",
+      "Glow + Skin Tightening — skin firmness & collagen production",
+      "Medical evaluation & supervision",
+      "Nutrition & exercise plan",
+      "Ongoing monitoring",
+    ],
+  },
+  {
+    name: "Weight Loss Maintenance — Monthly",
+    description:
+      "For clients who've completed a program and want to maintain results. Stay on track with monthly medication, check-ins, and injection support.",
+    category: "Programs",
+    price: 129,
+    priceSuffix: "/mo",
+    onSale: false,
+    image: "",
+    badge: null,
+    duration: "Monthly",
+    ctaLabel: "Continue your program",
+    phoneEnroll: true,
+    includes: [
+      "Monthly GLP-1 medication refill",
+      "Monthly check-in with provider",
+      "2 B-12 injections per month",
+      "15% off all add-on services",
+    ],
+  },
+
+  // CATEGORY: Hormone Programs
+  {
+    name: "Testosterone Replacement Therapy — 10 Weeks",
+    description:
+      "Physician-supervised testosterone optimization for men experiencing low T. Comprehensive initial program with labs, evaluation, medication, and monitoring.",
+    category: "Hormone Programs",
+    price: 499,
+    onSale: false,
+    image: "/10 weeks.png",
+    lightboxImage: "/10 weeks.png",
+    heroLayout: true,
+    badge: null,
+    duration: "10 Weeks",
+    paymentLink: "https://buy.stripe.com/9B6aEZ9ob8H87AtbgQdEs1f",
+    includes: [
+      "Initial blood work & comprehensive hormone panel",
+      "Medical evaluation with licensed provider",
+      "Testosterone therapy — 10 week protocol",
+      "Dosage optimization & monitoring",
+      "Follow-up labs at week 5 and week 10",
+      "Nutrition & exercise guidance for hormone health",
+    ],
+  },
+  {
+    name: "TRT Maintenance — Monthly",
+    description:
+      "Ongoing testosterone therapy for established patients. Includes monthly medication, monitoring, and quarterly labs.",
+    category: "Hormone Programs",
+    price: 199,
+    priceSuffix: "/mo",
+    onSale: false,
+    image: "",
+    badge: null,
+    duration: "Monthly",
+    ctaLabel: "Continue therapy",
+    phoneEnroll: true,
+    includes: [
+      "Monthly testosterone supply",
+      "Monthly provider check-in",
+      "Quarterly blood work",
+      "Dosage adjustments as needed",
+    ],
+  },
+
   // CATEGORY: Peptides (Research Use Only)
   {
-    name: "BPC-157 — Research Peptide",
-    description: "Lyophilized peptide for in-vitro laboratory research. 5mg, ≥98% purity (HPLC verified).",
+    name: "BPC-157",
+    description: "Lyophilized BPC-157 peptide. 5mg, ≥98% purity (HPLC verified).",
     category: "Peptides (Research Use Only)",
     originalPrice: null,
     salePrice: null,
     price: 59,
     onSale: false,
     image: "/bpc157.png",
-    badge: "RESEARCH USE ONLY",
+    badge: null,
     checkoutSlug: "bpc-157",
     paymentLink: "https://buy.stripe.com/9B6aEW0xLarI1V2aH7aR422",
   },
   {
-    name: "GHK-Cu — Research Peptide",
-    description: "Copper peptide complex for in-vitro research. 50mg lyophilized powder, ≥98% purity.",
+    name: "GHK-Cu",
+    description: "Copper peptide complex. 50mg lyophilized powder, ≥98% purity.",
     category: "Peptides (Research Use Only)",
     originalPrice: null,
     salePrice: null,
     price: 75,
     onSale: false,
     image: "/ghkgpt.png",
-    badge: "RESEARCH USE ONLY",
+    badge: null,
     checkoutSlug: "ghk-cu",
     paymentLink: "https://buy.stripe.com/5kQdR84O1gQ61V2eXnaR41W",
   },
   {
-    name: "Ipamorelin — Research Peptide",
-    description: "Growth hormone secretagogue peptide for in-vitro laboratory research. High purity, sealed vial.",
+    name: "Ipamorelin",
+    description: "Growth hormone secretagogue peptide. High purity, sealed vial.",
     category: "Peptides (Research Use Only)",
     originalPrice: null,
     salePrice: null,
     price: 199.99,
     onSale: false,
     image: "/ipagpt.png",
-    badge: "RESEARCH USE ONLY",
+    badge: null,
     checkoutSlug: "ipamorelin",
     paymentLink: "https://buy.stripe.com/fZu7sK0xL9nE9nu5mNaR425",
   },
   {
     name: "NAD+ 1500 with Resveratrol",
-    description: "NAD+ precursor compound for in-vitro cellular research. High purity, sealed vial.",
+    description: "NAD+ precursor compound with resveratrol. High purity, sealed vial.",
     category: "Peptides (Research Use Only)",
     originalPrice: 59,
     salePrice: 29,
     onSale: true,
-    image: "/images/products/nad-resveratrol.jpg",
-    badge: "RESEARCH USE ONLY",
+    image: "/images/products/nad-iv.jpg",
+    badge: null,
     checkoutSlug: "nad-1500-resveratrol",
     paymentLink: "https://buy.stripe.com/7sYeVc2FTeHYary6qRaR423",
   },
@@ -196,7 +317,7 @@ export const products: Product[] = [
     category: "IV Therapy",
     price: 399,
     onSale: false,
-    image: "/images/products/nad-iv.jpg",
+    image: "/naddd.jpg",
     badge: null,
   },
   {
@@ -214,7 +335,7 @@ export const products: Product[] = [
     category: "IV Therapy",
     price: 149,
     onSale: false,
-    image: "/images/products/custom-iv.jpg",
+    image: "/build your own IV.png",
     badge: "CUSTOMIZE",
   },
 
@@ -225,7 +346,7 @@ export const products: Product[] = [
     category: "Skin Care",
     price: 799,
     onSale: false,
-    image: "/images/products/morpheus8.jpg",
+    image: "/morpheus.png",
     badge: null,
   },
   {
@@ -234,7 +355,7 @@ export const products: Product[] = [
     category: "Skin Care",
     price: 129,
     onSale: false,
-    image: "/images/products/facial.jpg",
+    image: "/facial.jpg",
     badge: null,
   },
 
@@ -245,7 +366,7 @@ export const products: Product[] = [
     category: "Supplements & Add-ons",
     price: 35,
     onSale: false,
-    image: "/images/products/b12.jpg",
+    image: "/b12_new.png",
     badge: null,
   },
   {

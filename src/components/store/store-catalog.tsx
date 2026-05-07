@@ -2,10 +2,44 @@
 
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { categories, products, type ProductCategory } from "@/data/products";
+import { categories, products, type Product, type ProductCategory } from "@/data/products";
 import { Container } from "@/components/ui/container";
 import { cn } from "@/lib/utils";
 import { ProductCard } from "@/components/store/product-card";
+import { MembershipsSection } from "@/components/store/memberships-section";
+import { ScreeningsSection } from "@/components/store/screenings-section";
+
+const SECTION_ORDER: Array<Exclude<ProductCategory, "All Products" | "Memberships" | "Screenings & Diagnostics">> = [
+  "Programs",
+  "Hormone Programs",
+  "Peptides (Research Use Only)",
+  "IV Therapy",
+  "Skin Care",
+  "Supplements & Add-ons",
+];
+
+const GRID_STYLE = {
+  gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+} as const;
+
+function SectionHeader({ title }: { title: string }) {
+  return (
+    <header className="mb-6">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#888]">{title}</p>
+      <hr className="mt-2 border-[#e8e8e8]" />
+    </header>
+  );
+}
+
+function ProductGrid({ items }: { items: Product[] }) {
+  return (
+    <div className="grid gap-6" style={GRID_STYLE}>
+      {items.map((p) => (
+        <ProductCard key={p.name} product={p} />
+      ))}
+    </div>
+  );
+}
 
 export function StoreCatalog() {
   const searchParams = useSearchParams();
@@ -20,10 +54,14 @@ export function StoreCatalog() {
   const [fadeKey, setFadeKey] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
-  const visible = useMemo(() => {
-    if (active === "All Products") return products;
+  const showAll = active === "All Products";
+  const isMemberships = active === "Memberships";
+  const isScreenings = active === "Screenings & Diagnostics";
+
+  const filteredVisible = useMemo(() => {
+    if (showAll || isMemberships || isScreenings) return [];
     return products.filter((p) => p.category === active);
-  }, [active]);
+  }, [active, showAll, isMemberships, isScreenings]);
 
   return (
     <section className="py-14">
@@ -58,20 +96,30 @@ export function StoreCatalog() {
         </div>
 
         <div key={fadeKey} className={cn("mt-8 transition-opacity duration-200", isFading ? "opacity-0" : "opacity-100")}>
-          <div
-            className="grid gap-6"
-            style={{
-              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-            }}
-          >
-            {visible.map((p) => (
-              <ProductCard
-                key={p.name}
-                product={p}
-                showResearchBadge={active === "All Products" || active === "Peptides (Research Use Only)"}
-              />
-            ))}
-          </div>
+          {showAll ? (
+            <>
+              {SECTION_ORDER.map((section, i) => {
+                const items = products.filter((p) => p.category === section);
+                if (items.length === 0) return null;
+                return (
+                  <div key={section} className={i === 0 ? undefined : "mt-14"}>
+                    <SectionHeader title={section} />
+                    <ProductGrid items={items} />
+                  </div>
+                );
+              })}
+              <div className="mt-14">
+                <ScreeningsSection />
+              </div>
+              <MembershipsSection />
+            </>
+          ) : isMemberships ? (
+            <MembershipsSection />
+          ) : isScreenings ? (
+            <ScreeningsSection />
+          ) : (
+            <ProductGrid items={filteredVisible} />
+          )}
         </div>
       </Container>
 
@@ -97,4 +145,3 @@ export function StoreCatalog() {
     </section>
   );
 }
-

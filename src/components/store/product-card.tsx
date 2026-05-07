@@ -6,18 +6,22 @@ import { Button } from "@/components/ui/button";
 import type { Product } from "@/data/products";
 import { ProductImage } from "@/components/store/product-image";
 
-function formatPrice(n: number) {
-  return n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 });
+function formatPrice(n: number, opts?: { noDecimals?: boolean }) {
+  return n.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: opts?.noDecimals ? 0 : 2,
+    maximumFractionDigits: opts?.noDecimals ? 0 : 2,
+  });
 }
 
 type Props = {
   product: Product;
-  showResearchBadge?: boolean;
 };
 
-export function ProductCard({ product, showResearchBadge }: Props) {
+export function ProductCard({ product }: Props) {
   const isPeptide = product.category === "Peptides (Research Use Only)";
-  const isProgram = product.category === "Programs";
+  const isProgram = product.category === "Programs" || product.category === "Hormone Programs";
   const consultUrl = product.consultUrl;
   const checkoutHref = product.checkoutSlug
     ? `/checkout?product=${product.checkoutSlug}`
@@ -56,8 +60,16 @@ export function ProductCard({ product, showResearchBadge }: Props) {
       );
     }
     const p = typeof product.price === "number" ? product.price : product.salePrice ?? product.originalPrice;
-    return <span className="text-base font-semibold text-ink">{formatPrice(p as number)}</span>;
-  }, [isPeptide, onSale, product.originalPrice, product.price, product.salePrice]);
+    const hasSuffix = Boolean(product.priceSuffix);
+    return (
+      <span className="text-base font-semibold text-ink">
+        {formatPrice(p as number, { noDecimals: hasSuffix })}
+        {hasSuffix ? (
+          <span className="ml-0.5 text-[12px] font-normal text-[#999]">{product.priceSuffix}</span>
+        ) : null}
+      </span>
+    );
+  }, [isPeptide, onSale, product.originalPrice, product.price, product.priceSuffix, product.salePrice]);
 
   const imageContent =
     isProgram && !product.image ? (
@@ -78,6 +90,169 @@ export function ProductCard({ product, showResearchBadge }: Props) {
     ) : (
       <ProductImage src={product.image} alt={product.name} className="object-cover" sizes="300px" />
     );
+
+  if (product.heroLayout) {
+    const heroCtaHref = consultUrl ?? checkoutHref ?? "/book";
+    const heroCtaLabel =
+      product.ctaLabel ??
+      (consultUrl ? "Check if you qualify →" : checkoutHref ? "Start program now" : "Book consultation");
+    const heroCtaExternal = /^https?:\/\//.test(heroCtaHref);
+    const heroPrice =
+      typeof product.price === "number" ? product.price : product.salePrice ?? product.originalPrice ?? 0;
+
+    return (
+      <>
+        <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#e8e8e8] bg-white transition duration-200 hover:-translate-y-1 hover:border-[#ccc] hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
+          <div className="relative aspect-[4/5] overflow-hidden bg-[#1a1a1a]">
+            {hasLightbox ? (
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(true)}
+                aria-label={`View full details for ${product.name}`}
+                className="absolute inset-0 h-full w-full cursor-zoom-in"
+              >
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                  className="object-cover object-center"
+                />
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+              </button>
+            ) : (
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                className="object-cover object-center"
+              />
+            )}
+          </div>
+
+          <div className="flex flex-1 flex-col px-6 pb-6 pt-6">
+            <p className="text-[28px] font-semibold leading-none text-ink">{formatPrice(heroPrice as number)}</p>
+
+            {hasIncludes ? (
+              <div className="mt-6 border-y border-[#ececec]">
+                <button
+                  type="button"
+                  onClick={() => setExpanded((v) => !v)}
+                  aria-expanded={expanded}
+                  className="flex w-full items-center justify-between py-4 text-left"
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-ink">
+                      <svg
+                        className="h-3.5 w-3.5 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={3}
+                        aria-hidden
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-[12.5px] font-semibold uppercase tracking-[0.18em] text-ink">
+                      What&apos;s included
+                    </span>
+                  </span>
+                  <span
+                    className={`text-[#bbb] transition-transform ${expanded ? "rotate-180" : ""}`}
+                    aria-hidden
+                  >
+                    ▾
+                  </span>
+                </button>
+                {expanded ? (
+                  <ul className="border-t border-[#ececec]">
+                    {product.includes!.map((item, i) => (
+                      <li
+                        key={item}
+                        className={`flex items-center gap-3 py-3 text-[13px] leading-snug text-[#3a3a3a] ${
+                          i > 0 ? "border-t border-[#f0f0f0]" : ""
+                        }`}
+                      >
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#dcdcdc]">
+                          <svg
+                            className="h-3 w-3 text-[#999]"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2.5}
+                            aria-hidden
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            ) : null}
+
+            <div className="mt-auto pt-6">
+              <Button
+                href={heroCtaHref}
+                prefetch={false}
+                {...(heroCtaExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                size="lg"
+                className="h-14 w-full rounded-lg bg-ink text-[12px] font-semibold uppercase tracking-[0.22em] text-white shadow-none hover:bg-[color:#C0392B]"
+              >
+                {heroCtaLabel}
+              </Button>
+              {product.phoneEnroll ? (
+                <p className="mt-2 text-center text-[11px] text-[#888]">
+                  Call to enroll —{" "}
+                  <a
+                    href="tel:+17867803626"
+                    className="font-semibold text-ink underline-offset-2 hover:text-[color:#C0392B] hover:underline"
+                  >
+                    (786) 780-3626
+                  </a>
+                </p>
+              ) : null}
+            </div>
+          </div>
+        </article>
+
+        {lightboxOpen && product.lightboxImage ? (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${product.name} — full program details`}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm sm:p-8"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setLightboxOpen(false);
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxOpen(false)}
+              aria-label="Close"
+              className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+            >
+              <span aria-hidden className="text-xl leading-none">
+                ✕
+              </span>
+            </button>
+            <div className="relative max-h-full max-w-5xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={product.lightboxImage}
+                alt={`${product.name} — full program details`}
+                className="block max-h-[92vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
+              />
+            </div>
+          </div>
+        ) : null}
+      </>
+    );
+  }
 
   return (
     <>
@@ -107,15 +282,15 @@ export function ProductCard({ product, showResearchBadge }: Props) {
             </span>
           ) : null}
 
-          {showResearchBadge && isPeptide ? (
-            <span className="pointer-events-none absolute left-3 top-3 rounded-full border border-[color:#C0392B] bg-white/85 px-2.5 py-1 text-[0.68rem] font-semibold tracking-wide text-[color:#C0392B]">
-              FOR RESEARCH USE ONLY
-            </span>
-          ) : null}
-
           {isProgram && product.duration ? (
             <span className="pointer-events-none absolute right-3 top-3 rounded-full bg-ink px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-white">
               {product.duration}
+            </span>
+          ) : null}
+
+          {product.mostPopular ? (
+            <span className="pointer-events-none absolute left-3 top-3 rounded-full bg-[color:#C0392B] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-white">
+              Most popular
             </span>
           ) : null}
         </div>
@@ -175,18 +350,13 @@ export function ProductCard({ product, showResearchBadge }: Props) {
           ) : null}
 
           {isPeptide ? (
-            <>
-              <p className="mt-3 text-[11px] leading-relaxed text-[#8a8a8a]">
-                Research use only. Not for human or animal consumption.
-              </p>
-              <Button
-                href="/contact"
-                size="md"
-                className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
-              >
-                Contact us for pricing →
-              </Button>
-            </>
+            <Button
+              href="/contact"
+              size="md"
+              className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
+            >
+              {product.ctaLabel ?? "Contact us for pricing →"}
+            </Button>
           ) : consultUrl ? (
             <Button
               href={consultUrl}
@@ -196,7 +366,7 @@ export function ProductCard({ product, showResearchBadge }: Props) {
               size="md"
               className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
             >
-              Check if you qualify
+              {product.ctaLabel ?? "Check if you qualify →"}
             </Button>
           ) : checkoutHref && !isPeptide ? (
             <Button
@@ -206,7 +376,7 @@ export function ProductCard({ product, showResearchBadge }: Props) {
               size="md"
               className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
             >
-              {isProgram ? "Start program now" : "Start now"}
+              {product.ctaLabel ?? (isProgram ? "Start program now" : "Start now")}
             </Button>
           ) : isProgram ? (
             <Button
@@ -214,13 +384,25 @@ export function ProductCard({ product, showResearchBadge }: Props) {
               size="md"
               className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
             >
-              Book consultation
+              {product.ctaLabel ?? "Book consultation"}
             </Button>
           ) : (
             <Button type="button" size="md" className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]">
-              Add to Cart
+              {product.ctaLabel ?? "Add to Cart"}
             </Button>
           )}
+
+          {product.phoneEnroll ? (
+            <p className="mt-2 text-center text-[11px] text-[#888]">
+              Call to enroll —{" "}
+              <a
+                href="tel:+17867803626"
+                className="font-semibold text-ink underline-offset-2 hover:text-[color:#C0392B] hover:underline"
+              >
+                (786) 780-3626
+              </a>
+            </p>
+          ) : null}
         </div>
       </article>
 
