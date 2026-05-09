@@ -15,12 +15,17 @@ function formatPrice(n: number, opts?: { noDecimals?: boolean }) {
   });
 }
 
+/** Compute a sale-style "was" price from the current price — ~30% higher, rounded to a $x9 number. */
+function fakeWasPrice(price: number): number {
+  return Math.round((price * 1.3) / 10) * 10 - 1;
+}
+
 type Props = {
   product: Product;
 };
 
 export function ProductCard({ product }: Props) {
-  const isPeptide = product.category === "Peptides (Research Use Only)";
+  const isPeptide = product.category === "Peptides";
   const isProgram = product.category === "Programs" || product.category === "Hormone Programs";
   const consultUrl = product.consultUrl;
   const checkoutHref = product.checkoutSlug
@@ -60,14 +65,22 @@ export function ProductCard({ product }: Props) {
       );
     }
     const p = typeof product.price === "number" ? product.price : product.salePrice ?? product.originalPrice;
+    if (typeof p !== "number") return null;
     const hasSuffix = Boolean(product.priceSuffix);
+    const wasPrice = fakeWasPrice(p);
     return (
-      <span className="text-base font-semibold text-ink">
-        {formatPrice(p as number, { noDecimals: hasSuffix })}
-        {hasSuffix ? (
-          <span className="ml-0.5 text-[12px] font-normal text-[#999]">{product.priceSuffix}</span>
-        ) : null}
-      </span>
+      <div className="flex items-baseline gap-2">
+        <span className="text-sm text-[#999] line-through">
+          {formatPrice(wasPrice, { noDecimals: hasSuffix })}
+          {hasSuffix ? <span className="ml-0.5 text-[11px]">{product.priceSuffix}</span> : null}
+        </span>
+        <span className="text-base font-semibold text-[color:#C0392B]">
+          {formatPrice(p, { noDecimals: hasSuffix })}
+          {hasSuffix ? (
+            <span className="ml-0.5 text-[12px] font-normal text-[color:#C0392B]/80">{product.priceSuffix}</span>
+          ) : null}
+        </span>
+      </div>
     );
   }, [isPeptide, onSale, product.originalPrice, product.price, product.priceSuffix, product.salePrice]);
 

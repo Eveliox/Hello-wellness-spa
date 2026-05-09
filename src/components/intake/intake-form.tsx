@@ -19,7 +19,6 @@ const SERVICES = [
   "Take Home Vitamin Kit",
   "Assisted Weight Loss Program",
   "Sexual Wellness",
-  "Morpheus8",
   "Hair Loss",
   "Facials & Skin Care",
 ] as const;

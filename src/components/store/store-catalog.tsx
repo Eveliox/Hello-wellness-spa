@@ -8,11 +8,12 @@ import { cn } from "@/lib/utils";
 import { ProductCard } from "@/components/store/product-card";
 import { MembershipsSection } from "@/components/store/memberships-section";
 import { ScreeningsSection } from "@/components/store/screenings-section";
+import { ProductCardSkeletonGrid } from "@/components/store/product-card-skeleton";
 
 const SECTION_ORDER: Array<Exclude<ProductCategory, "All Products" | "Memberships" | "Screenings & Diagnostics">> = [
   "Programs",
   "Hormone Programs",
-  "Peptides (Research Use Only)",
+  "Peptides",
   "IV Therapy",
   "Skin Care",
   "Supplements & Add-ons",
@@ -80,7 +81,7 @@ export function StoreCatalog() {
                     setActive(c);
                     setFadeKey((k) => k + 1);
                     setIsFading(false);
-                  }, 120);
+                  }, 280);
                 }}
                 className={cn(
                   "shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition",
@@ -95,8 +96,10 @@ export function StoreCatalog() {
           })}
         </div>
 
-        <div key={fadeKey} className={cn("mt-8 transition-opacity duration-200", isFading ? "opacity-0" : "opacity-100")}>
-          {showAll ? (
+        <div key={fadeKey} className="mt-8">
+          {isFading ? (
+            <ProductCardSkeletonGrid count={6} />
+          ) : showAll ? (
             <>
               {SECTION_ORDER.map((section, i) => {
                 const items = products.filter((p) => p.category === section);

@@ -2,7 +2,7 @@ const services = [
   "IV Therapy",
   "Assisted Weight Loss",
   "Aesthetics & Cosmetics",
-  "Research Peptides",
+  "Peptides",
   "Myers' Cocktail",
   "NAD+ IV",
   "GLP-1 Programs",

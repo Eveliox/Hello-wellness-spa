@@ -52,7 +52,7 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="Full menu"
             title="Medical aesthetics, infusion therapy, and guided weight care"
-            description="Peptides are available in a research-only catalog with clear labeling and handling guidance."
+            description="Peptides are available with clear labeling, lot traceability, and handling guidance."
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {services.map((service) => (

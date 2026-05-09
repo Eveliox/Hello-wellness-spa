@@ -162,7 +162,7 @@ export const services: ServiceContent[] = [
     eyebrow: "Personalized infusion design",
     summary:
       "Start with a clinician-approved base, then layer nutrients aligned to your goals—energy, immunity, skin clarity, or athletic bounce-back—within safe, evidence-informed ranges.",
-    heroImage: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1600&q=80&auto=format&fit=crop",
+    heroImage: "/buildIV.png",
     benefits: [
       "Guided menu with clear explanations for each add-on",
       "Medical review before your custom blend is prepared",
@@ -197,32 +197,32 @@ export const services: ServiceContent[] = [
     slug: "peptide-therapy",
     title: "Peptides",
     shortTitle: "Peptides",
-    eyebrow: "In‑vitro research only",
+    eyebrow: "Targeted peptide therapy",
     summary:
-      "A research-first peptide catalog with clear labeling, lot traceability, and handling guidance. Products are sold strictly for in‑vitro research and laboratory use only.",
+      "A curated peptide catalog with clear labeling, lot traceability, and handling guidance. Sourced from accredited suppliers with full purity verification.",
     heroImage: "/peptides.jpg",
     benefits: [
-      "Clear labeling, storage notes, and research documentation",
+      "Clear labeling, storage notes, and lot documentation",
       "Lot traceability for internal recordkeeping",
-      "Packaging designed for lab handling",
+      "Packaging designed for proper handling",
       "Straightforward reorder flow once live",
     ],
     idealFor: [
-      "Researchers and labs requiring research-use peptides",
+      "Patients seeking targeted peptide protocols",
       "Teams standardizing internal procurement and documentation",
       "Organizations that need consistent packaging and labeling",
     ],
-    sessionNote: "All peptide products are intended strictly for in‑vitro research and laboratory use only.",
+    sessionNote: "All peptide products are sourced from accredited suppliers with full lot traceability.",
     ctaNote: "Questions about documentation, lots, or handling? Contact our team.",
     faqIds: ["peptide-safety", "peptide-consult", "payment"],
     gettingStartedSteps: [
       {
         title: "Browse the Catalog",
-        body: "Explore our research peptide lineup. Each product includes purity verification, lot documentation, and clear storage and handling guidance.",
+        body: "Explore our peptide lineup. Each product includes purity verification, lot documentation, and clear storage and handling guidance.",
       },
       {
         title: "Complete Registration",
-        body: "Submit your registration form so we can maintain proper records for your research order before it ships.",
+        body: "Submit your registration form so we can maintain proper records for your order before it ships.",
       },
       {
         title: "Receive Your Order",

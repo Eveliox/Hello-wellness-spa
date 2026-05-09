@@ -33,8 +33,8 @@ export const checkoutProducts: CheckoutProduct[] = [
   },
   {
     slug: "bpc-157",
-    name: "BPC-157 — Research Peptide",
-    category: "Peptides (Research Use Only)",
+    name: "BPC-157",
+    category: "Peptides",
     image: "/bpc157.png",
     priceCents: 5900,
     isPhysical: true,
@@ -43,8 +43,8 @@ export const checkoutProducts: CheckoutProduct[] = [
   },
   {
     slug: "ghk-cu",
-    name: "GHK-Cu — Research Peptide",
-    category: "Peptides (Research Use Only)",
+    name: "GHK-Cu",
+    category: "Peptides",
     image: "/ghkgpt.png",
     priceCents: 7500,
     isPhysical: true,
@@ -53,8 +53,8 @@ export const checkoutProducts: CheckoutProduct[] = [
   },
   {
     slug: "ipamorelin",
-    name: "Ipamorelin — Research Peptide",
-    category: "Peptides (Research Use Only)",
+    name: "Ipamorelin",
+    category: "Peptides",
     image: "/ipagpt.png",
     priceCents: 19999,
     isPhysical: true,
@@ -64,7 +64,7 @@ export const checkoutProducts: CheckoutProduct[] = [
   {
     slug: "nad-1500-resveratrol",
     name: "NAD+ 1500 with Resveratrol",
-    category: "Peptides (Research Use Only)",
+    category: "Peptides",
     image: "/images/products/nad-resveratrol.jpg",
     priceCents: 2900,
     originalPriceCents: 5900,

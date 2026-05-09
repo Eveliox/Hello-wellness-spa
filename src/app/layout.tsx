@@ -5,6 +5,7 @@ import { SkipLink } from "@/components/layout/skip-link";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { StickyBookCta } from "@/components/layout/sticky-book-cta";
+import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
 import { JsonLd } from "@/components/json-ld";
 import { createMetadata } from "@/lib/seo";
 import { localBusinessJsonLd } from "@/lib/schema";
@@ -62,6 +63,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <StickyBookCta />
+        <WhatsAppFab />
       </body>
     </html>
   );

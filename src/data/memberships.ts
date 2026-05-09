@@ -35,7 +35,7 @@ export const memberships: Membership[] = [
       { included: false, text: "No aesthetic services included" },
     ],
     discounts: [
-      { included: true, text: "15% off all services (IV, facials, Morpheus8, programs)" },
+      { included: true, text: "15% off all services (IV, facials, aesthetics, programs)" },
       { included: true, text: "10% off store products and supplements" },
     ],
     perks: [
@@ -91,7 +91,7 @@ export const memberships: Membership[] = [
       { included: true, text: "1 B-12 + 1 lipotropic + 1 glutathione push (all three included)" },
     ],
     discounts: [
-      { included: true, text: "25% off all services (including Morpheus8, injectables, programs)" },
+      { included: true, text: "25% off all services (including aesthetics, injectables, programs)" },
       { included: true, text: "20% off store products and supplements" },
       { included: true, text: "Free shipping on everything" },
       { included: true, text: "VIP pricing on weight loss and hormone programs" },
@@ -99,7 +99,7 @@ export const memberships: Membership[] = [
     perks: [
       { included: true, text: "Same-day appointment availability (when open slots exist)" },
       { included: true, text: "Priority booking — first access to all new slots" },
-      { included: true, text: "Birthday month: free Morpheus8 session ($799 value)" },
+      { included: true, text: "Birthday month: free aesthetic treatment of your choice" },
       { included: true, text: "Rollover: unused credits roll over 1 month" },
       { included: true, text: "Guest pass: bring a friend once per quarter for a free B-12 shot" },
     ],

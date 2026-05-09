@@ -18,7 +18,7 @@ export const mainNav: NavItem[] = [
       { label: "IV therapy", href: "/services/iv-therapy", description: "Hydration, recovery, and vitality" },
       { label: "Build your own IV", href: "/services/build-your-own-iv", description: "Personalized nutrient blends" },
       { label: "Galleri Test", href: "/services/galleri", description: "Multi-cancer early detection screening" },
-      { label: "Research Peptides", href: "/store?category=Peptides%20(Research%20Use%20Only)", description: "Research-use products and handling standards" },
+      { label: "Peptides", href: "/store?category=Peptides", description: "Lot-traceable peptides with handling standards" },
       { label: "Intake form", href: "/intake", description: "New patient registration" },
     ],
   },
@@ -36,7 +36,7 @@ export const footerGroups = [
       { label: "Aesthetics", href: "/services/aesthetics-cosmetics" },
       { label: "IV therapy", href: "/services/iv-therapy" },
       { label: "Galleri Screening", href: "/services/galleri" },
-      { label: "Research Peptides", href: "/store?category=Peptides%20(Research%20Use%20Only)" },
+      { label: "Peptides", href: "/store?category=Peptides" },
     ],
   },
   {

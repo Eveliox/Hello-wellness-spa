@@ -19,22 +19,10 @@ const aestheticsServices = [
     cta: "Learn more",
   },
   {
-    name: "Morpheus8 RF microneedling",
-    description:
-      "Radiofrequency microneedling for skin tightening, texture improvement, and collagen stimulation. Face and body.",
-    startingAt: "$799/session",
-    cta: "Learn more",
-  },
-  {
     name: "Signature facial",
     description: "Customized facial treatment tailored to your skin type, concerns, and goals. 60 minutes of focused care.",
     startingAt: "$129",
     cta: "Learn more",
-  },
-  {
-    name: "Vaginal rejuvenation",
-    description: "Non-surgical feminine wellness treatments. Private consultations in a comfortable, judgment-free setting.",
-    cta: "Schedule a consultation",
   },
 ] as const;
 
@@ -46,10 +34,6 @@ const aestheticsResults = [
   {
     title: "Cheek & midface volume",
     body: "After filler: restored contour and lift without looking puffy or overfilled. Results are immediate with final settling at 2 weeks.",
-  },
-  {
-    title: "Skin texture & tone",
-    body: "After Morpheus8: tighter, smoother skin with reduced pore size and fine lines. Results develop over 4-6 weeks as collagen rebuilds.",
   },
 ] as const;
 

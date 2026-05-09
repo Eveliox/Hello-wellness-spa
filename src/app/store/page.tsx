@@ -8,7 +8,7 @@ import { StoreCatalog } from "@/components/store/store-catalog";
 
 export const metadata: Metadata = createMetadata({
   title: "Store",
-  description: `Medical-grade wellness products, weight loss programs, and research peptides from ${site.name}.`,
+  description: `Medical-grade wellness products, weight loss programs, and peptides from ${site.name}.`,
   path: "/store",
 });
 
@@ -28,7 +28,7 @@ export default function StorePage() {
             </span>
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
-            Medical-grade wellness products, weight loss programs, and research peptides — shipped directly to you or
+            Medical-grade wellness products, weight loss programs, and peptides — shipped directly to you or
             available for pickup at our SW Miami clinic.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">

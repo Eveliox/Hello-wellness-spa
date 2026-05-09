@@ -32,5 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
+  entries.push({
+    url: `${base}/services/galleri`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  });
+
   return entries;
 }

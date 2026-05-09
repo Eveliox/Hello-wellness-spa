@@ -13,17 +13,7 @@ export function PeptideContent() {
   return (
     <section className="border-y border-line/80 bg-surface py-16">
       <Container>
-        <div className="sticky top-0 z-40 -mx-4 border-b border-line bg-surface/95 px-4 py-4 backdrop-blur sm:-mx-0 sm:rounded-2xl sm:border sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink">Research-use notice</p>
-          <p className="mt-2 text-sm text-muted">
-            All peptide products sold by Hello You Wellness Center are intended strictly for in-vitro research and
-            laboratory use only. These products are not intended for human or animal consumption, and are not drugs,
-            foods, or cosmetics. They are not to be used for diagnostic, therapeutic, or any form of clinical
-            application. By purchasing from this store, you acknowledge and agree that these products will be used
-            exclusively for legitimate research purposes.
-          </p>
-        </div>
-        <h2 className="mt-10 font-display text-3xl text-ink">Peptide catalog preview</h2>
+        <h2 className="font-display text-3xl text-ink">Peptide catalog preview</h2>
         <p className="mt-2 max-w-2xl text-sm text-muted">
           Example items shown for merchandising and layout only. Product availability, documentation, and checkout
           flow are configured separately.

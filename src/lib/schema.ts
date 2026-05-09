@@ -44,7 +44,7 @@ export function localBusinessJsonLd() {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "IV therapy" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Aesthetics & skin care" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hormone therapy" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Research peptides" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Peptides" } },
     ],
     priceRange: "$$",
     areaServed: { "@type": "City", name: "Miami" },

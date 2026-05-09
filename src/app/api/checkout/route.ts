@@ -14,7 +14,6 @@ const bodySchema = z.object({
       allergiesNotes: z.string().max(500).optional(),
     })
     .optional(),
-  researchAcknowledgment: z.boolean().optional(),
   orderNotes: z.string().max(1000).optional(),
 });
 
@@ -37,20 +36,12 @@ export async function POST(request: Request) {
       customerPhone,
       fulfillmentMethod,
       intake,
-      researchAcknowledgment,
       orderNotes,
     } = parsed.data;
 
     const product = getCheckoutProduct(productSlug);
     if (!product) {
       return Response.json({ ok: false, message: "Product not found." }, { status: 404 });
-    }
-
-    if (product.isPeptide && !researchAcknowledgment) {
-      return Response.json(
-        { ok: false, message: "Research acknowledgment required for peptide products." },
-        { status: 400 },
-      );
     }
 
     const stripe = new Stripe(secretKey);
@@ -62,7 +53,6 @@ export async function POST(request: Request) {
     };
     if (customerPhone) metadata.phone = customerPhone;
     if (orderNotes) metadata.order_notes = orderNotes.slice(0, 500);
-    if (researchAcknowledgment) metadata.research_ack = "true";
     if (intake?.primaryGoal) metadata.intake_goal = intake.primaryGoal;
     if (intake?.previousGLP1Use) metadata.intake_glp1 = intake.previousGLP1Use;
     if (intake?.allergiesNotes) metadata.intake_allergies = intake.allergiesNotes.slice(0, 500);

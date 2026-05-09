@@ -35,11 +35,11 @@ const items = [
     image: "/hormone.jpg",
   },
   {
-    kicker: "Research Peptides",
+    kicker: "Peptides",
     title: "Peptide Programs",
     description:
-      "GHK-Cu, BPC-157, and more — clearly labeled, properly documented research compounds.",
-    href: "/store?category=Peptides%20(Research%20Use%20Only)",
+      "GHK-Cu, BPC-157, and more — clearly labeled, properly documented compounds.",
+    href: "/store?category=Peptides",
     image: "/peptides.jpg",
   },
 ] as const;

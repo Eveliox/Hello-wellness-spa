@@ -81,7 +81,7 @@ export const faqs: FaqItem[] = [
     category: "Treatments",
     question: "How long do results last?",
     answer:
-      "Botox typically lasts 3-4 months. Hyaluronic acid fillers last 6-18 months depending on the area and product used. Morpheus8 results are cumulative and can last 1-2 years with maintenance sessions. Your provider will outline a realistic timeline during your visit.",
+      "Botox typically lasts 3-4 months. Hyaluronic acid fillers last 6-18 months depending on the area and product used. Your provider will outline a realistic timeline during your visit.",
   },
   {
     id: "aesthetics-brands",

@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return createMetadata({
       title: "Aesthetics & Cosmetics | Hello You Wellness Miami",
       description:
-        "Botox, dermal fillers, and Morpheus8 RF microneedling in SW Miami—conservative technique, natural movement, and plans tailored to your anatomy and goals.",
+        "Botox, dermal fillers, and aesthetic treatments in SW Miami—conservative technique, natural movement, and plans tailored to your anatomy and goals.",
       path: `/services/${service.slug}`,
       image: service.heroImage,
     });
@@ -169,9 +169,9 @@ export default async function ServiceDetailPage({ params }: Props) {
     {
       id: "aes-3",
       quote:
-        "The Morpheus8 session was more comfortable than I expected. My skin texture improved noticeably within a few weeks. I'm already booked for my next round.",
+        "The signature facial was a calm, thoughtful experience. My skin felt brighter and smoother for weeks. I'm already booked for my next visit.",
       name: "Sophia M.",
-      detail: "Coral Gables · Morpheus8 guest",
+      detail: "Coral Gables · Facial guest",
       service: "Skin care",
     },
   ];
@@ -235,38 +235,8 @@ export default async function ServiceDetailPage({ params }: Props) {
       {serviceJsonLd ? <JsonLd data={serviceJsonLd} /> : null}
 
       {/* ── Hero ── */}
-      <section className="border-b border-line/80 bg-surface">
-        <div className={isWeightLossPage ? "relative overflow-hidden" : undefined}>
-          {isWeightLossPage ? (
-            <Image
-              src="/images/assisted-weight-loss/glp.webp"
-              alt="Hello You Wellness Center branded GLP program vials"
-              fill
-              priority
-              className="object-cover opacity-[0.22]"
-              sizes="100vw"
-            />
-          ) : null}
-          {isWeightLossPage ? (
-            <div
-              className="absolute inset-0"
-              aria-hidden
-              style={{
-                background:
-                  "radial-gradient(900px 520px at 92% 6%, rgba(192,57,43,0.04) 0%, rgba(192,57,43,0.0) 65%)",
-              }}
-            />
-          ) : null}
-          {isWeightLossPage ? (
-            <div
-              className="absolute inset-0"
-              aria-hidden
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 38%, rgba(255,255,255,0.0) 72%)",
-              }}
-            />
-          ) : null}
+      <section className={`border-b border-line/80 ${isWeightLossPage ? "bg-white" : "bg-surface"}`}>
+        <div>
           <Container className="relative grid max-w-[1200px] gap-10 pt-20 pb-[100px] lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <p
@@ -288,7 +258,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               <div className="mt-7 flex flex-wrap gap-2">
                 {isPeptidesPage ? (
                   <TrustChip className="bg-[#f5f4f2] px-4 py-2 text-xs border-line/90" dotClassName="bg-ink">
-                    Research use only
+                    Lot-traceable
                   </TrustChip>
                 ) : (
                   <TrustChip
@@ -390,22 +360,6 @@ export default async function ServiceDetailPage({ params }: Props) {
                 )}
               </div>
 
-              {isByoIvPage ? (
-                <div className="mt-3 flex items-center gap-2 text-sm font-medium text-ink">
-                  <span aria-hidden className="text-ink/80">
-                    <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
-                      <path
-                        d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2Z"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                  <span>{service.ctaNote}</span>
-                </div>
-              ) : null}
             </div>
 
             <div
@@ -660,7 +614,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               ].join(" ")}
             >
               {isPeptidesPage
-                ? "Questions about research-only peptides?"
+                ? "Questions about peptides?"
                 : isByoIvPage
                   ? "Ready to build your blend?"
                   : `Ready for your ${service.shortTitle.toLowerCase()} visit?`}

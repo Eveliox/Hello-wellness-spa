@@ -17,7 +17,6 @@ const schema = z.object({
   intakePrimaryGoal: z.string().optional(),
   intakePreviousGLP1: z.string().optional(),
   intakeAllergies: z.string().max(500).optional(),
-  researchAck: z.boolean().optional(),
   orderNotes: z.string().max(1000).optional(),
 });
 type FormValues = z.infer<typeof schema>;
@@ -53,10 +52,9 @@ export function CheckoutClient({ product }: { product: CheckoutProduct }) {
 
   const email = watch("email") ?? "";
   const fulfillment = watch("fulfillmentMethod");
-  const researchAck = watch("researchAck");
 
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const canProceed = emailValid && (!product.isPeptide || !!researchAck);
+  const canProceed = emailValid;
 
   const isOnSale = typeof product.originalPriceCents === "number";
   const savings = isOnSale ? product.originalPriceCents! - product.priceCents : 0;
@@ -82,7 +80,6 @@ export function CheckoutClient({ product }: { product: CheckoutProduct }) {
                 },
               }
             : {}),
-          researchAcknowledgment: values.researchAck ?? false,
           orderNotes: values.orderNotes,
         }),
       });
@@ -290,41 +287,6 @@ export function CheckoutClient({ product }: { product: CheckoutProduct }) {
                       />
                     </Field>
                   </div>
-                </Section>
-              )}
-
-              {/* 4. Research acknowledgment — peptides only */}
-              {product.isPeptide && (
-                <Section title="Research acknowledgment">
-                  <label
-                    className={cn(
-                      "flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition",
-                      researchAck
-                        ? "border-ink bg-accent-soft/40"
-                        : "border-line bg-surface",
-                    )}
-                  >
-                    <input
-                      {...register("researchAck")}
-                      type="checkbox"
-                      className="mt-0.5 h-4 w-4 shrink-0 accent-ink"
-                    />
-                    <p className="text-sm leading-relaxed text-muted">
-                      I confirm that I am at least 18 years of age. I acknowledge that all peptide
-                      products are intended for in‑vitro research and laboratory use only, and are
-                      not for human or animal consumption. I agree to use these products in
-                      compliance with all applicable laws and regulations. I have read and agree to
-                      the{" "}
-                      <Link
-                        href="/policies"
-                        target="_blank"
-                        className="font-semibold text-ink underline underline-offset-2"
-                      >
-                        Terms of Sale
-                      </Link>
-                      .
-                    </p>
-                  </label>
                 </Section>
               )}
 

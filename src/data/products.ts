@@ -2,7 +2,7 @@ export type ProductCategory =
   | "All Products"
   | "Programs"
   | "Hormone Programs"
-  | "Peptides (Research Use Only)"
+  | "Peptides"
   | "IV Therapy"
   | "Memberships"
   | "Screenings & Diagnostics"
@@ -47,7 +47,7 @@ export const categories: ProductCategory[] = [
   "All Products",
   "Programs",
   "Hormone Programs",
-  "Peptides (Research Use Only)",
+  "Peptides",
   "IV Therapy",
   "Screenings & Diagnostics",
   "Memberships",
@@ -260,16 +260,16 @@ export const products: Product[] = [
     ],
   },
 
-  // CATEGORY: Peptides (Research Use Only)
+  // CATEGORY: Peptides
   {
     name: "BPC-157",
     description: "Lyophilized BPC-157 peptide. 5mg, ≥98% purity (HPLC verified).",
-    category: "Peptides (Research Use Only)",
+    category: "Peptides",
     originalPrice: null,
     salePrice: null,
     price: 59,
     onSale: false,
-    image: "/bpc157.png",
+    image: "/bpc-157 right.png",
     badge: null,
     checkoutSlug: "bpc-157",
     paymentLink: "https://buy.stripe.com/9B6aEW0xLarI1V2aH7aR422",
@@ -277,7 +277,7 @@ export const products: Product[] = [
   {
     name: "GHK-Cu",
     description: "Copper peptide complex. 50mg lyophilized powder, ≥98% purity.",
-    category: "Peptides (Research Use Only)",
+    category: "Peptides",
     originalPrice: null,
     salePrice: null,
     price: 75,
@@ -290,7 +290,7 @@ export const products: Product[] = [
   {
     name: "Ipamorelin",
     description: "Growth hormone secretagogue peptide. High purity, sealed vial.",
-    category: "Peptides (Research Use Only)",
+    category: "Peptides",
     originalPrice: null,
     salePrice: null,
     price: 199.99,
@@ -303,7 +303,7 @@ export const products: Product[] = [
   {
     name: "NAD+ 1500 with Resveratrol",
     description: "NAD+ precursor compound with resveratrol. High purity, sealed vial.",
-    category: "Peptides (Research Use Only)",
+    category: "Peptides",
     originalPrice: 59,
     salePrice: 29,
     onSale: true,
@@ -343,15 +343,6 @@ export const products: Product[] = [
   },
 
   // CATEGORY: Skin Care
-  {
-    name: "Morpheus8 — Single Session",
-    description: "RF microneedling treatment for skin tightening and collagen stimulation. Face or body.",
-    category: "Skin Care",
-    price: 799,
-    onSale: false,
-    image: "/morpheus.png",
-    badge: null,
-  },
   {
     name: "Signature Facial",
     description: "Customized facial treatment tailored to your skin type and concerns. 60 minutes.",
