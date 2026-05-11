@@ -323,7 +323,7 @@ export const products: Product[] = [
     category: "IV Therapy",
     price: 399,
     onSale: false,
-    image: "/naddd.jpg",
+    image: "/nad+ ivv.png",
     badge: null,
   },
   {
@@ -332,7 +332,7 @@ export const products: Product[] = [
     category: "IV Therapy",
     price: 99,
     onSale: false,
-    image: "/images/products/glutathione.jpg",
+    image: "/glutathione iv push.png",
     badge: null,
   },
   {
@@ -341,7 +341,7 @@ export const products: Product[] = [
     category: "IV Therapy",
     price: 149,
     onSale: false,
-    image: "/build your own IV.png",
+    image: "/byoiv.png",
     badge: "CUSTOMIZE",
   },
 
