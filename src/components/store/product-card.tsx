@@ -305,6 +305,10 @@ export function ProductCard({ product }: Props) {
             <span className="pointer-events-none absolute left-3 top-3 rounded-full bg-[color:#C0392B] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-white">
               Most popular
             </span>
+          ) : product.badge && !isProgram ? (
+            <span className="pointer-events-none absolute left-3 top-3 rounded-full bg-[color:#C0392B] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-white">
+              {product.badge}
+            </span>
           ) : null}
         </div>
 
@@ -364,11 +368,16 @@ export function ProductCard({ product }: Props) {
 
           {isPeptide ? (
             <Button
-              href="/contact"
+              href={`https://wa.me/17867803626?text=${encodeURIComponent(
+                `Hola Hello You Wellness Center, me gustaría más información sobre ${product.name}.`,
+              )}`}
+              prefetch={false}
+              target="_blank"
+              rel="noopener noreferrer"
               size="md"
-              className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
+              className="mt-5 w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[#25D366]"
             >
-              {product.ctaLabel ?? "Contact us for pricing →"}
+              {product.ctaLabel ?? "Message us on WhatsApp →"}
             </Button>
           ) : consultUrl ? (
             <Button
