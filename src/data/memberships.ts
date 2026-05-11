@@ -20,19 +20,21 @@ export type Membership = {
   valueRows: MembershipValueRow[];
   totalValue: string;
   savings: string;
+  /** Optional Stripe Payment Link. When set, "Enroll now" routes here and the manual-confirmation note is hidden. */
+  paymentLink?: string;
 };
 
 export const memberships: Membership[] = [
   {
     id: "essential",
-    name: "Essential",
+    name: "Refresh",
     price: 79,
     tagline: "The easy yes — maintenance made simple",
     treatments: [
       { included: true, text: "1 B-12 injection or 1 lipotropic fat burner shot (your choice each month)" },
       { included: true, text: "1 complimentary add-on upgrade when booking any IV session" },
       { included: false, text: "No monthly IV included" },
-      { included: false, text: "No aesthetic services included" },
+      { included: false, text: "No aesthetic services included" },    
     ],
     discounts: [
       { included: true, text: "15% off all services (IV, facials, aesthetics, programs)" },
@@ -49,10 +51,11 @@ export const memberships: Membership[] = [
     ],
     totalValue: "~$90–100",
     savings: "~$11–21/month",
+    paymentLink: "https://buy.stripe.com/eVq4gB2ZNe1scUN3OodEs1m",
   },
   {
     id: "premium",
-    name: "Premium",
+    name: "Renew",
     price: 149,
     tagline: "The sweet spot — IV therapy included monthly",
     featured: true,
@@ -79,10 +82,11 @@ export const memberships: Membership[] = [
     ],
     totalValue: "~$319",
     savings: "~$170/month",
+    paymentLink: "https://buy.stripe.com/28E3cxbwj5uW5slet2dEs1n",
   },
   {
     id: "vip",
-    name: "VIP",
+    name: "Revive",
     price: 249,
     tagline: "The inner circle — everything, every month",
     treatments: [
@@ -94,7 +98,7 @@ export const memberships: Membership[] = [
       { included: true, text: "25% off all services (including aesthetics, injectables, programs)" },
       { included: true, text: "20% off store products and supplements" },
       { included: true, text: "Free shipping on everything" },
-      { included: true, text: "VIP pricing on weight loss and hormone programs" },
+      { included: true, text: "Exclusive pricing on weight loss and hormone programs" },
     ],
     perks: [
       { included: true, text: "Same-day appointment availability (when open slots exist)" },
@@ -111,5 +115,6 @@ export const memberships: Membership[] = [
     ],
     totalValue: "~$757",
     savings: "~$508/month",
+    paymentLink: "https://buy.stripe.com/dRm4gBcAn4qSaMFbgQdEs1o",
   },
 ];

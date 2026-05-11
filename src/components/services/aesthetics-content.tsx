@@ -19,10 +19,59 @@ const aestheticsServices = [
     cta: "Learn more",
   },
   {
+    name: "PDO threads",
+    description:
+      "Non-surgical lift and collagen stimulation using dissolvable PDO threads. Subtle definition without downtime.",
+    startingAt: "By consultation",
+    cta: "Learn more",
+  },
+  {
+    name: "Endolift",
+    description:
+      "Laser-fiber treatment for skin tightening, fat reduction, and contour refinement on face, neck, and body.",
+    startingAt: "By consultation",
+    cta: "Learn more",
+  },
+  {
+    name: "Non-surgical BBL",
+    description:
+      "Biostimulator-based contouring for natural-looking lift and definition — no incisions, no recovery.",
+    startingAt: "By consultation",
+    cta: "Learn more",
+  },
+  {
+    name: "Cellulite reduction",
+    description:
+      "Targeted treatments to smooth dimpling and improve skin texture on hips, thighs, and arms.",
+    startingAt: "By consultation",
+    cta: "Learn more",
+  },
+  {
     name: "Signature facial",
     description: "Customized facial treatment tailored to your skin type, concerns, and goals. 60 minutes of focused care.",
     startingAt: "$129",
     cta: "Learn more",
+  },
+  {
+    name: "TRT (Testosterone Replacement Therapy)",
+    description:
+      "Physician-guided testosterone therapy for men experiencing low T. Includes lab work, evaluation, and ongoing oversight.",
+    startingAt: "$499/program",
+    cta: "Check if you qualify",
+  },
+  {
+    name: "Mobile IV therapy",
+    description:
+      "On-site IV hydration and nutrient drips at your home, hotel, or office across Miami-Dade.",
+    startingAt: "By consultation",
+    cta: "Book now",
+  },
+  {
+    name: "Mobile phlebotomy",
+    description:
+      "Licensed blood draws and lab collections at your location — convenient, professional, and discreet.",
+    startingAt: "By consultation",
+    cta: "Book now",
   },
 ] as const;
 
@@ -74,6 +123,38 @@ export function AestheticsContent({ service, bookingUrl, testimonialItems }: Pro
               </Reveal>
             ))}
           </div>
+        </Container>
+      </section>
+
+      <section className="py-12">
+        <Container>
+          <Reveal>
+            <div className="rounded-[var(--radius-card)] border border-line bg-surface p-8 sm:p-10">
+              <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-center">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#C0392B]">
+                    Education & Training
+                  </p>
+                  <h2 className="mt-3 font-display text-2xl text-ink sm:text-3xl">
+                    We teach the next generation of providers
+                  </h2>
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
+                    Through our Academy, our team trains licensed professionals in advanced aesthetic and injection
+                    techniques. The same hands teaching this work are the hands treating you — every appointment is
+                    backed by hours of clinical instruction.
+                  </p>
+                </div>
+                <a
+                  href="https://www.instagram.com/xlashbyyaneacademy_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-ink bg-white px-5 text-sm font-semibold text-ink transition hover:bg-ink hover:text-white"
+                >
+                  Visit the Academy <span aria-hidden className="ml-2">→</span>
+                </a>
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

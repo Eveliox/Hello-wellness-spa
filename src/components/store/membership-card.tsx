@@ -90,15 +90,19 @@ export function MembershipCard({ tier }: { tier: Membership }) {
 
       <div className="mt-auto pt-6">
         <Button
-          href="/contact"
+          href={tier.paymentLink ?? "/contact"}
+          prefetch={false}
+          {...(tier.paymentLink ? { target: "_blank", rel: "noopener noreferrer" } : {})}
           size="md"
           className="w-full rounded-lg bg-[#1a1a1a] text-white shadow-none hover:bg-[color:#C0392B]"
         >
           Enroll now
         </Button>
-        <p className="mt-2 text-center text-[11px] text-[#888]">
-          Our team will confirm your membership within 1 business day.
-        </p>
+        {tier.paymentLink ? null : (
+          <p className="mt-2 text-center text-[11px] text-[#888]">
+            Our team will confirm your membership within 1 business day.
+          </p>
+        )}
       </div>
     </article>
   );
