@@ -64,6 +64,19 @@ export function ProductCard({ product }: Props) {
         </div>
       );
     }
+    if (typeof product.memberPrice === "number" && typeof product.price === "number") {
+      return (
+        <div className="flex flex-col gap-0.5">
+          <div className="flex items-baseline gap-2">
+            <span className="text-sm text-[#999] line-through">{formatPrice(product.price)}</span>
+            <span className="text-base font-semibold text-[color:#C0392B]">{formatPrice(product.memberPrice)}</span>
+          </div>
+          {product.memberPriceLabel ? (
+            <span className="text-[11px] font-medium text-[#777]">{product.memberPriceLabel}</span>
+          ) : null}
+        </div>
+      );
+    }
     const p = typeof product.price === "number" ? product.price : product.salePrice ?? product.originalPrice;
     if (typeof p !== "number") return null;
     const hasSuffix = Boolean(product.priceSuffix);
@@ -82,7 +95,16 @@ export function ProductCard({ product }: Props) {
         </span>
       </div>
     );
-  }, [isPeptide, onSale, product.originalPrice, product.price, product.priceSuffix, product.salePrice]);
+  }, [
+    isPeptide,
+    onSale,
+    product.memberPrice,
+    product.memberPriceLabel,
+    product.originalPrice,
+    product.price,
+    product.priceSuffix,
+    product.salePrice,
+  ]);
 
   const imageContent =
     isProgram && !product.image ? (

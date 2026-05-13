@@ -41,6 +41,10 @@ export type Product = {
   mostPopular?: boolean;
   /** Use the dark "hero" theme: tall image with baked-in title/description, restyled body. Image must be a complete hero asset (e.g., testreplace.png). */
   heroLayout?: boolean;
+  /** Discounted price unlocked by membership. When set, card displays both regular price (crossed out) and this member price prominently. */
+  memberPrice?: number;
+  /** Caption shown under the member price (e.g., "Member Price (with Refresh+)"). Required when memberPrice is set. */
+  memberPriceLabel?: string;
 };
 
 export const categories: ProductCategory[] = [
@@ -192,6 +196,29 @@ export const products: Product[] = [
       "Medical evaluation & supervision",
       "Nutrition & exercise plan",
       "Ongoing monitoring",
+    ],
+  },
+  {
+    name: "Microdose Advance Program — 5 Weeks",
+    description:
+      "A 5-week GLP-1 + GIP wellness support program built for hormone balance, energy, and long-term wellness. Designed for new patients and ongoing maintenance with personalized provider oversight.",
+    category: "Programs",
+    price: 299,
+    memberPrice: 149,
+    memberPriceLabel: "Member Price (with Refresh+)",
+    onSale: false,
+    image: "/microdose.png",
+    lightboxImage: "/microdose.png",
+    badge: "NEW PATIENT SPECIAL",
+    duration: "5 Weeks",
+    paymentLink: "/book",
+    includes: [
+      "GLP-1 + GIP wellness support approach",
+      "Provider wellness consultation",
+      "Personalized support throughout 5 weeks",
+      "Wellness kit included",
+      "Shipping included",
+      "Eligibility review required",
     ],
   },
   {
