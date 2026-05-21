@@ -5,13 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { CheckoutProduct, CheckoutProductVariant } from "@/lib/checkout-products";
-import {
-  CURRENT_DOSE_OPTIONS,
-  DOSE_PREFERENCE_OPTIONS,
-  type GLP1IntakeData as GLP1Intake,
-} from "@/lib/glp1-intake-schema";
+import { CURRENT_DOSE_OPTIONS, DOSE_PREFERENCE_OPTIONS } from "@/lib/glp1-intake-schema";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
+
+type GLP1Intake = {
+  currentlyOnGLP1: "yes" | "no";
+  currentDose?: string;
+  dosePreference?: "stay" | "increase" | "decrease";
+  sideEffects?: "yes" | "no";
+  sideEffectsDetails?: string;
+  medicationOnHand?: "yes" | "no";
+};
 
 type StepKey =
   | "variant"
