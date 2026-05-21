@@ -45,9 +45,7 @@ export const glp1IntakeSchema = z
     weight: z.string().min(1, "Required").max(40),
 
     // Weight loss goals
-    weightLossGoal: z.enum(["5-20", "21-50", "51+", "unsure"], {
-      required_error: "Please select a goal",
-    }),
+    weightLossGoal: z.enum(["5-20", "21-50", "51+", "unsure"], "Please select a goal"),
     previousWeightLossAttempts: z.string().max(500).optional(),
 
     // Current GLP-1 status
