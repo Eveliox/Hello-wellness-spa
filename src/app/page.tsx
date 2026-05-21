@@ -6,6 +6,7 @@ import { TestimonialsHome } from "@/components/home/testimonials-home";
 import { FaqPreview } from "@/components/home/faq-preview";
 import { MapEmbed } from "@/components/location/map-embed";
 import { ServicesPreview } from "@/components/home/services-preview";
+import { HowItWorks } from "@/components/home/how-it-works";
 import { Reveal } from "@/components/ui/reveal";
 
 export default function HomePage() {
@@ -18,6 +19,9 @@ export default function HomePage() {
       </Reveal>
       <Reveal delayMs={40}>
         <ServicesPreview />
+      </Reveal>
+      <Reveal delayMs={60}>
+        <HowItWorks />
       </Reveal>
       <Reveal delayMs={80}>
         <AboutPreview />
