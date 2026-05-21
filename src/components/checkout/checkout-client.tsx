@@ -9,6 +9,7 @@ import { z } from "zod";
 import type { CheckoutProduct } from "@/lib/checkout-products";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
+import { CheckoutStepper } from "./checkout-stepper";
 
 const schema = z.object({
   email: z.string().email("Please enter a valid email address."),
@@ -35,6 +36,13 @@ const inputNormal = cn(inputBase, "border-[#d0d0d0] focus:ring-ink/15");
 const inputErr = cn(inputBase, "border-[#C0392B] focus:ring-[#C0392B]/20");
 
 export function CheckoutClient({ product }: { product: CheckoutProduct }) {
+  if (product.isWeightLossProgram) {
+    return <CheckoutStepper product={product} />;
+  }
+  return <CheckoutClientLegacy product={product} />;
+}
+
+function CheckoutClientLegacy({ product }: { product: CheckoutProduct }) {
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState("");
 

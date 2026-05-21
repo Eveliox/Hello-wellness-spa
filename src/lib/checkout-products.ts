@@ -1,3 +1,11 @@
+export type CheckoutProductVariant = {
+  slug: string;
+  label: string;
+  description?: string;
+  priceCents: number;
+  originalPriceCents?: number;
+};
+
 export type CheckoutProduct = {
   slug: string;
   name: string;
@@ -8,6 +16,7 @@ export type CheckoutProduct = {
   isPhysical: boolean;
   isWeightLossProgram: boolean;
   isPeptide: boolean;
+  variants?: CheckoutProductVariant[];
 };
 
 export const checkoutProducts: CheckoutProduct[] = [
@@ -20,6 +29,20 @@ export const checkoutProducts: CheckoutProduct[] = [
     isPhysical: false,
     isWeightLossProgram: true,
     isPeptide: false,
+    variants: [
+      {
+        slug: "semaglutide-8w",
+        label: "Semaglutide — 8 weeks",
+        description: "Standard titration schedule",
+        priceCents: 22900,
+      },
+      {
+        slug: "tirzepatide-8w",
+        label: "Tirzepatide — 8 weeks",
+        description: "Pricing TBD — update before launch",
+        priceCents: 22900,
+      },
+    ],
   },
   {
     slug: "all-in-one-6-weeks",
@@ -30,6 +53,20 @@ export const checkoutProducts: CheckoutProduct[] = [
     isPhysical: false,
     isWeightLossProgram: true,
     isPeptide: false,
+    variants: [
+      {
+        slug: "semaglutide-6w",
+        label: "Semaglutide — 6 weeks",
+        description: "Standard titration schedule",
+        priceCents: 18900,
+      },
+      {
+        slug: "tirzepatide-6w",
+        label: "Tirzepatide — 6 weeks",
+        description: "Pricing TBD — update before launch",
+        priceCents: 18900,
+      },
+    ],
   },
   {
     slug: "bpc-157",
