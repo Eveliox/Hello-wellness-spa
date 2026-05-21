@@ -8,7 +8,7 @@ import type { CheckoutProduct, CheckoutProductVariant } from "@/lib/checkout-pro
 import {
   CURRENT_DOSE_OPTIONS,
   DOSE_PREFERENCE_OPTIONS,
-  type GLP1Intake,
+  type GLP1IntakeData as GLP1Intake,
 } from "@/lib/glp1-intake-schema";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
