@@ -125,5 +125,40 @@ export async function POST(request: Request) {
     console.error("[glp1-intake] email threw", err);
   }
 
+  // Patient confirmation email (best-effort)
+  try {
+    const firstName = data.fullName.trim().split(/\s+/)[0] || "there";
+    const html = `
+      <div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;color:#121212;line-height:1.6">
+        <p style="margin:0 0 16px;font-size:16px">Hi ${escapeHtml(firstName)},</p>
+        <p style="margin:0 0 16px">
+          Thanks for completing your weight loss intake with ${escapeHtml(site.name)}. We've received your information.
+        </p>
+        <p style="margin:0 0 16px">
+          <strong>What happens next:</strong> A licensed medical provider will review your intake and reach out
+          within 1 business day to confirm your next step. You won't be charged unless a provider determines
+          that treatment is right for you.
+        </p>
+        <p style="margin:0 0 16px">
+          If anything urgent comes up before then, call us at
+          <a href="tel:${escapeHtml(site.phoneTel)}" style="color:#121212;font-weight:600;text-decoration:none">${escapeHtml(site.phoneDisplay)}</a>.
+        </p>
+        <p style="margin:24px 0 0;color:#777;font-size:12px;line-height:1.5">
+          ${escapeHtml(site.name)}<br/>
+          ${escapeHtml(site.address.line1)}, ${escapeHtml(site.address.city)}, ${escapeHtml(site.address.state)} ${escapeHtml(site.address.zip)}<br/>
+          <a href="${escapeHtml(site.url)}" style="color:#777">${escapeHtml(site.url)}</a>
+        </p>
+      </div>
+    `;
+
+    await sendEmail({
+      to: data.email,
+      subject: `We received your weight loss intake · ${site.shortBrand}`,
+      html,
+    });
+  } catch (err) {
+    console.error("[glp1-intake] patient confirmation threw", err);
+  }
+
   return Response.json({ ok: true });
 }

@@ -138,5 +138,38 @@ export async function POST(request: Request) {
     // continue — don't fail the request
   }
 
+  // Step 4: send patient confirmation email (optional — never crashes the request)
+  try {
+    const firstName = data.fullName.trim().split(/\s+/)[0] || "there";
+    const html = `
+      <div style="font-family:system-ui,-apple-system,sans-serif;max-width:560px;color:#121212;line-height:1.6">
+        <p style="margin:0 0 16px;font-size:16px">Hi ${escapeHtml(firstName)},</p>
+        <p style="margin:0 0 16px">
+          Thanks for completing your intake with ${escapeHtml(site.name)}. We've received your information,
+          and a member of our team will reach out within 1 business day to schedule your next step.
+        </p>
+        <p style="margin:0 0 16px">
+          If anything urgent comes up before then, you can reach us at
+          <a href="tel:${escapeHtml(site.phoneTel)}" style="color:#121212;font-weight:600;text-decoration:none">${escapeHtml(site.phoneDisplay)}</a>
+          or simply reply to this email.
+        </p>
+        <p style="margin:24px 0 0;color:#777;font-size:12px;line-height:1.5">
+          ${escapeHtml(site.name)}<br/>
+          ${escapeHtml(site.address.line1)}, ${escapeHtml(site.address.city)}, ${escapeHtml(site.address.state)} ${escapeHtml(site.address.zip)}<br/>
+          <a href="${escapeHtml(site.url)}" style="color:#777">${escapeHtml(site.url)}</a>
+        </p>
+      </div>
+    `;
+
+    await sendEmail({
+      to: data.email,
+      subject: `We received your intake · ${site.shortBrand}`,
+      html,
+    });
+  } catch (err) {
+    console.error("[intake] patient confirmation threw", err);
+    // continue — don't fail the request
+  }
+
   return Response.json({ ok: true });
 }
