@@ -4,6 +4,7 @@ import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { ContactForm } from "@/components/forms/contact-form";
 
 export const metadata: Metadata = createMetadata({
   title: "Contact",
@@ -40,6 +41,18 @@ export default function ContactPage() {
             For timely answers, include your goal and preferred appointment window. Medical questions are reviewed
             by a licensed provider.
           </p>
+        </Container>
+      </section>
+
+      <section className="border-b border-line/60 py-16">
+        <Container className="max-w-3xl">
+          <h2 className="font-display text-2xl text-ink sm:text-3xl">Send us a message</h2>
+          <p className="mt-2 text-sm text-muted">
+            We typically respond within 1 business day. For urgent questions, call the clinic.
+          </p>
+          <div className="mt-8">
+            <ContactForm />
+          </div>
         </Container>
       </section>
 
