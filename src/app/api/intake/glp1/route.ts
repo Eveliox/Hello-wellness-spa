@@ -1,8 +1,12 @@
 import { glp1IntakeSchema } from "@/lib/glp1-intake-schema";
-import { escapeHtml, sendEmail } from "@/lib/email";
+import { emailFallbackPayload, escapeHtml, sendEmail } from "@/lib/email";
+import { checkRateLimit, rateLimitResponse } from "@/lib/rate-limit";
 import { site } from "@/content/site";
 
 export async function POST(request: Request) {
+  const rl = await checkRateLimit(request, "glp1Intake");
+  if (!rl.allowed) return rateLimitResponse(rl);
+
   let data;
 
   try {
@@ -17,10 +21,13 @@ export async function POST(request: Request) {
   }
 
   // Save to Supabase (optional — never crashes the request)
+  let dbFailure: string | null = null;
   try {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-    if (supabaseUrl && supabaseKey) {
+    if (!supabaseUrl || !supabaseKey) {
+      dbFailure = "Supabase env vars not configured";
+    } else {
       const { createClient } = await import("@supabase/supabase-js");
       const supabase = createClient(supabaseUrl, supabaseKey);
       const { error: dbError } = await supabase.from("glp1_intake_submissions").insert({
@@ -54,10 +61,22 @@ export async function POST(request: Request) {
         how_did_you_hear: data.howDidYouHear,
         signature: data.signature,
       });
-      if (dbError) console.error("[glp1-intake] db error", dbError);
+      if (dbError) {
+        console.error("[glp1-intake] db error", dbError);
+        dbFailure = `Supabase insert error: ${dbError.message}`;
+      }
     }
   } catch (err) {
     console.error("[glp1-intake] supabase threw", err);
+    dbFailure = `Supabase client threw: ${err instanceof Error ? err.message : String(err)}`;
+  }
+
+  if (dbFailure) {
+    await emailFallbackPayload({
+      routeName: "glp1-intake",
+      reason: dbFailure,
+      payload: data,
+    });
   }
 
   // Send email notification (optional — never crashes the request)

@@ -1,11 +1,15 @@
 import { z } from "zod";
 import { escapeHtml, sendEmail } from "@/lib/email";
+import { checkRateLimit, rateLimitResponse } from "@/lib/rate-limit";
 
 const bodySchema = z.object({
   email: z.string().email().max(200),
 });
 
 export async function POST(request: Request) {
+  const rl = await checkRateLimit(request, "newsletter");
+  if (!rl.allowed) return rateLimitResponse(rl);
+
   try {
     const json: unknown = await request.json();
     const parsed = bodySchema.safeParse(json);

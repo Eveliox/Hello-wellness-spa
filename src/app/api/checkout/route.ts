@@ -1,6 +1,8 @@
 import Stripe from "stripe";
 import { z } from "zod";
 import { getCheckoutProduct } from "@/lib/checkout-products";
+import { emailFallbackPayload } from "@/lib/email";
+import { checkRateLimit, rateLimitResponse } from "@/lib/rate-limit";
 
 const bodySchema = z.object({
   productSlug: z.string().min(1).max(100),
@@ -29,6 +31,9 @@ const bodySchema = z.object({
 });
 
 export async function POST(request: Request) {
+  const rl = await checkRateLimit(request, "checkout");
+  if (!rl.allowed) return rateLimitResponse(rl);
+
   const secretKey = process.env.STRIPE_SECRET_KEY;
   if (!secretKey) {
     return Response.json({ ok: false, message: "Payment not configured." }, { status: 503 });
@@ -155,23 +160,42 @@ async function persistGlp1Intake(args: {
     medicationOnHand?: "yes" | "no";
   };
 }) {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-  if (!supabaseUrl || !supabaseKey) return;
+  let dbFailure: string | null = null;
+  try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+    if (!supabaseUrl || !supabaseKey) {
+      dbFailure = "Supabase env vars not configured";
+    } else {
+      const { createClient } = await import("@supabase/supabase-js");
+      const supabase = createClient(supabaseUrl, supabaseKey);
+      const { error } = await supabase.from("glp1_intake_submissions").insert({
+        product_slug: args.productSlug,
+        variant_slug: args.variantSlug ?? null,
+        customer_email: args.customerEmail,
+        customer_phone: args.customerPhone ?? null,
+        currently_on_glp1: args.intake.currentlyOnGLP1,
+        current_dose: args.intake.currentDose ?? null,
+        dose_preference: args.intake.dosePreference ?? null,
+        side_effects: args.intake.sideEffects ?? null,
+        side_effects_details: args.intake.sideEffectsDetails ?? null,
+        medication_on_hand: args.intake.medicationOnHand ?? null,
+      });
+      if (error) {
+        console.error("[checkout] glp1 db error", error);
+        dbFailure = `Supabase insert error: ${error.message}`;
+      }
+    }
+  } catch (err) {
+    console.error("[checkout] glp1 supabase threw", err);
+    dbFailure = `Supabase client threw: ${err instanceof Error ? err.message : String(err)}`;
+  }
 
-  const { createClient } = await import("@supabase/supabase-js");
-  const supabase = createClient(supabaseUrl, supabaseKey);
-  const { error } = await supabase.from("glp1_intake_submissions").insert({
-    product_slug: args.productSlug,
-    variant_slug: args.variantSlug ?? null,
-    customer_email: args.customerEmail,
-    customer_phone: args.customerPhone ?? null,
-    currently_on_glp1: args.intake.currentlyOnGLP1,
-    current_dose: args.intake.currentDose ?? null,
-    dose_preference: args.intake.dosePreference ?? null,
-    side_effects: args.intake.sideEffects ?? null,
-    side_effects_details: args.intake.sideEffectsDetails ?? null,
-    medication_on_hand: args.intake.medicationOnHand ?? null,
-  });
-  if (error) console.error("[checkout] glp1 db error", error);
+  if (dbFailure) {
+    await emailFallbackPayload({
+      routeName: "checkout-glp1",
+      reason: dbFailure,
+      payload: args,
+    });
+  }
 }

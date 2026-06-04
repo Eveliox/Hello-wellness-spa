@@ -54,3 +54,48 @@ export function escapeHtml(value: string): string {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 }
+
+/**
+ * Send the raw form payload to the admin inbox when a primary persistence
+ * path fails (e.g. Supabase insert errored). This is the fallback of last
+ * resort so submissions are recoverable even when the DB is down.
+ */
+export async function emailFallbackPayload(args: {
+  routeName: string;
+  reason: string;
+  payload: unknown;
+}): Promise<void> {
+  try {
+    const notify = process.env.CONTACT_NOTIFICATION_EMAIL;
+    if (!notify) {
+      console.warn(
+        `[${args.routeName}] DB fallback skipped — CONTACT_NOTIFICATION_EMAIL not set`,
+      );
+      return;
+    }
+
+    const serialized = JSON.stringify(args.payload, null, 2);
+    const html = `
+      <div style="font-family:system-ui,-apple-system,sans-serif;max-width:640px">
+        <h2 style="margin:0 0 8px;color:#C0392B">⚠️ Database insert failed</h2>
+        <p style="margin:0 0 6px"><strong>Route:</strong> ${escapeHtml(args.routeName)}</p>
+        <p style="margin:0 0 6px"><strong>Reason:</strong> ${escapeHtml(args.reason)}</p>
+        <p style="margin:0 0 6px"><strong>When:</strong> ${escapeHtml(new Date().toISOString())}</p>
+        <p style="margin:0 0 16px;color:#555;font-size:13px">
+          The submission below was not persisted. Add it manually so the patient isn't lost.
+        </p>
+        <h3 style="margin:16px 0 8px">Raw payload</h3>
+        <pre style="background:#f5f5f5;padding:12px;border-radius:4px;overflow:auto;font-size:11px;white-space:pre-wrap;word-break:break-word">${escapeHtml(serialized)}</pre>
+      </div>
+    `;
+
+    await sendEmail({
+      to: notify,
+      subject: `[ALERT] DB insert failed — ${args.routeName}`,
+      html,
+    });
+  } catch (err) {
+    // Last resort — even the fallback failed. All we can do is log.
+    console.error(`[${args.routeName}] fallback email itself threw`, err);
+  }
+}

@@ -1,8 +1,13 @@
 import { intakeSchema } from "@/lib/intake-schema";
-import { escapeHtml, sendEmail } from "@/lib/email";
+import { emailFallbackPayload, escapeHtml, sendEmail } from "@/lib/email";
+import { checkRateLimit, rateLimitResponse } from "@/lib/rate-limit";
 import { site } from "@/content/site";
 
 export async function POST(request: Request) {
+  // Step 0: rate limit before doing any work
+  const rl = await checkRateLimit(request, "intake");
+  if (!rl.allowed) return rateLimitResponse(rl);
+
   let data;
 
   // Step 1: parse and validate
@@ -18,10 +23,13 @@ export async function POST(request: Request) {
   }
 
   // Step 2: save to Supabase (optional — never crashes the request)
+  let dbFailure: string | null = null;
   try {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-    if (supabaseUrl && supabaseKey) {
+    if (!supabaseUrl || !supabaseKey) {
+      dbFailure = "Supabase env vars not configured";
+    } else {
       const { createClient } = await import("@supabase/supabase-js");
       const supabase = createClient(supabaseUrl, supabaseKey);
       const { error: dbError } = await supabase.from("intake_submissions").insert({
@@ -62,11 +70,24 @@ export async function POST(request: Request) {
         how_did_you_hear: data.howDidYouHear,
         signature: data.signature,
       });
-      if (dbError) console.error("[intake] db error", dbError);
+      if (dbError) {
+        console.error("[intake] db error", dbError);
+        dbFailure = `Supabase insert error: ${dbError.message}`;
+      }
     }
   } catch (err) {
     console.error("[intake] supabase threw", err);
+    dbFailure = `Supabase client threw: ${err instanceof Error ? err.message : String(err)}`;
     // continue — don't fail the request
+  }
+
+  // Step 2b: if DB save failed, email the raw payload so it's recoverable
+  if (dbFailure) {
+    await emailFallbackPayload({
+      routeName: "intake",
+      reason: dbFailure,
+      payload: data,
+    });
   }
 
   // Step 3: send email notification (optional — never crashes the request)
