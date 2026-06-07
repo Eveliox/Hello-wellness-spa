@@ -7,7 +7,38 @@ export const metadata: Metadata = {
   description: "Complete your new patient intake registration form before your visit.",
 };
 
-export default function IntakePage() {
+const SERVICE_LABEL: Record<string, { label: string; intakeService?: string }> = {
+  "assisted-weight-loss": {
+    label: "Assisted Weight Loss",
+    intakeService: "Assisted Weight Loss Program",
+  },
+  "aesthetics-cosmetics": { label: "Aesthetics & Cosmetics" },
+  "iv-therapy": { label: "IV Therapy", intakeService: "IV Therapy" },
+  general: { label: "General consultation" },
+};
+
+type SearchParams = Promise<{ booked?: string; service?: string; at?: string }>;
+
+function formatBookingTime(iso: string | undefined): string | null {
+  if (!iso) return null;
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return null;
+  return date.toLocaleString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZoneName: "short",
+  });
+}
+
+export default async function IntakePage({ searchParams }: { searchParams: SearchParams }) {
+  const { booked, service, at } = await searchParams;
+  const isFromBooking = booked === "1";
+  const serviceInfo = service ? SERVICE_LABEL[service] : undefined;
+  const formattedTime = formatBookingTime(at);
+
   return (
     <main className="py-16">
       <Container>
@@ -26,8 +57,29 @@ export default function IntakePage() {
             Please complete this form before your first visit. All information is kept confidential and used solely to
             provide you with the best care.
           </p>
+
+          {isFromBooking && (
+            <div className="mt-6 rounded-[var(--radius-card)] border border-[#1a1a1a] bg-[#1a1a1a] p-5 text-white">
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-xs font-semibold text-[#1a1a1a]">
+                  ✓
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Booking confirmed</p>
+                  <p className="mt-1 text-sm text-white/80">
+                    {serviceInfo
+                      ? `We've reserved your ${serviceInfo.label.toLowerCase()} appointment`
+                      : "We've reserved your appointment"}
+                    {formattedTime ? ` for ${formattedTime}` : ""}. Please finish the short form below so your
+                    provider has the full picture before your visit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className="mt-10">
-            <IntakeForm />
+            <IntakeForm prefilledService={serviceInfo?.intakeService} />
           </div>
         </div>
       </Container>

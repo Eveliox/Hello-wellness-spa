@@ -81,11 +81,24 @@ function YesNoField({ label, name, register, error }: YesNoProps) {
   );
 }
 
-export function IntakeForm() {
+type IntakeFormProps = {
+  /**
+   * If the patient arrived from /book, the service slug they booked is mapped to
+   * the matching SERVICES label and pre-checked here so they don't re-enter it.
+   */
+  prefilledService?: string;
+};
+
+export function IntakeForm({ prefilledService }: IntakeFormProps = {}) {
   const [serverError, setServerError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
   const today = new Date().toISOString().split("T")[0];
+
+  const prefilledServices =
+    prefilledService && (SERVICES as readonly string[]).includes(prefilledService)
+      ? [prefilledService]
+      : [];
 
   const {
     register,
@@ -96,7 +109,7 @@ export function IntakeForm() {
     resolver: zodResolver(intakeSchema),
     defaultValues: {
       registrationDate: today,
-      servicesInterested: [],
+      servicesInterested: prefilledServices,
     },
   });
 

@@ -3,6 +3,7 @@ import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { BookingPicker } from "@/components/booking/booking-picker";
 
 export const metadata: Metadata = createMetadata({
   title: "Book a visit",
@@ -11,12 +12,16 @@ export const metadata: Metadata = createMetadata({
 });
 
 const steps = [
-  "Book online in under 2 minutes — pick your service and a time that works for you.",
-  "We'll send a confirmation and any intake forms to complete before your visit.",
+  "Pick a service and a time that works for you — most consultations are available same week.",
+  "Right after you confirm, we'll guide you to a short intake form so we can prepare for your visit.",
   "Arrive with a clear plan — screening and suitability are confirmed before any medical service.",
 ];
 
-export default function BookPage() {
+type SearchParams = Promise<{ service?: string }>;
+
+export default async function BookPage({ searchParams }: { searchParams: SearchParams }) {
+  const { service } = await searchParams;
+
   return (
     <>
       <section className="border-b border-line/80 bg-surface py-14">
@@ -33,25 +38,15 @@ export default function BookPage() {
             online.
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
-            Select a service and a time that works for you — most consultations are available same week.
+            Pick the service that fits and grab a time below. After you confirm, we&apos;ll guide you through a
+            short intake so your provider has the full picture before your visit.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button
-              href={site.bookingUrl}
-              size="lg"
-              className="bg-[#1a1a1a] text-white hover:bg-[#1a1a1a]/90"
-            >
-              Book Online
-            </Button>
-            <Button href={`tel:${site.phoneTel}`} variant="secondary" size="lg">
-              Call {site.phoneDisplay}
-            </Button>
-            <Button href="/contact" variant="ghost" size="lg">
-              Send a message
-            </Button>
-          </div>
           <p className="mt-4 text-xs text-faint">
-            Prefer Instagram? DM us at{" "}
+            Prefer to talk first? Call{" "}
+            <a href={`tel:${site.phoneTel}`} className="underline underline-offset-2 hover:text-ink">
+              {site.phoneDisplay}
+            </a>{" "}
+            or DM us at{" "}
             <a
               href={site.social.instagram}
               className="underline underline-offset-2 hover:text-ink"
@@ -65,74 +60,48 @@ export default function BookPage() {
         </Container>
       </section>
 
-      <section className="py-16">
-        <Container className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="space-y-4 text-sm text-muted">
-            <h2 className="font-display text-3xl text-ink">What happens next</h2>
-            <ol className="list-decimal space-y-3 pl-5">
-              {steps.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ol>
-            <p className="pt-2 text-xs text-faint">
-              Medical services require screening. Booking confirms a time slot — suitability is reviewed before any treatment begins.
-            </p>
+      <section className="py-12">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_320px]">
+          <div>
+            <BookingPicker initialSlug={service} />
           </div>
-          <div className="rounded-[var(--radius-card)] border border-line bg-surface p-8 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Quick links</p>
-            <h3 className="mt-3 font-display text-2xl text-ink">Book by service</h3>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <Button
-                href="https://cal.com/helloyouwellness/30min"
-                size="lg"
-                className="w-full bg-[#1a1a1a] text-white hover:bg-[#1a1a1a]/90"
-              >
-                Weight Loss
-              </Button>
-              <Button
-                href="https://cal.com/helloyouwellness/aesthetics-consultation"
-                variant="secondary"
-                size="lg"
-                className="w-full"
-              >
-                Aesthetics
-              </Button>
-              <Button
-                href="https://cal.com/helloyouwellness/15min"
-                variant="secondary"
-                size="lg"
-                className="w-full"
-              >
-                IV Therapy
-              </Button>
-              <Button
-                href={site.bookingUrl}
-                variant="secondary"
-                size="lg"
-                className="w-full"
-              >
-                General / Other
-              </Button>
+
+          <aside className="space-y-6">
+            <div className="rounded-[var(--radius-card)] border border-line bg-surface p-6 shadow-sm">
+              <h2 className="font-display text-xl text-ink">What happens next</h2>
+              <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm text-muted">
+                {steps.map((s) => (
+                  <li key={s}>{s}</li>
+                ))}
+              </ol>
+              <p className="mt-4 text-xs text-faint">
+                Medical services require screening. Booking confirms a time slot — suitability is reviewed
+                before any treatment begins.
+              </p>
             </div>
-            <div className="mt-6 border-t border-line pt-6">
+
+            <div className="rounded-[var(--radius-card)] border border-line bg-surface p-6 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">New patient?</p>
-              <p className="mt-1.5 text-xs text-muted">Please complete your registration form before your first visit.</p>
+              <p className="mt-1.5 text-sm text-muted">
+                You can start your registration form anytime — we&apos;ll attach it to your booking.
+              </p>
               <Button href="/intake" variant="secondary" size="sm" className="mt-3 w-full">
-                Complete Registration Form
+                Start registration form
               </Button>
             </div>
-            <div className="mt-6 border-t border-line pt-6">
+
+            <div className="rounded-[var(--radius-card)] border border-line bg-surface p-6 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Prefer to talk first?</p>
-              <div className="mt-3 flex gap-3">
-                <Button href={`tel:${site.phoneTel}`} variant="secondary" size="sm" className="flex-1">
-                  Call us
+              <div className="mt-3 flex flex-col gap-2">
+                <Button href={`tel:${site.phoneTel}`} variant="secondary" size="sm">
+                  Call {site.phoneDisplay}
                 </Button>
-                <Button href={site.social.instagram} variant="ghost" size="sm" className="flex-1">
+                <Button href={site.social.instagram} variant="ghost" size="sm">
                   Instagram DM
                 </Button>
               </div>
             </div>
-          </div>
+          </aside>
         </Container>
       </section>
     </>
