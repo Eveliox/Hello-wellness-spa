@@ -42,7 +42,6 @@ export const footerGroups = [
   {
     title: "Experience",
     links: [
-      { label: "Testimonials", href: "/testimonials" },
       { label: "FAQ", href: "/faq" },
     ],
   },

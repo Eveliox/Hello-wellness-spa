@@ -1,5 +1,4 @@
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
 
 export function TransformationPlaceholder() {
   return (
@@ -14,9 +13,6 @@ export function TransformationPlaceholder() {
             We are curating photography with guest consent to showcase realistic timelines. Until then, preview
             this layout as a premium gallery block: two portrait frames with soft shadows and generous whitespace.
           </p>
-          <Button href="/testimonials" variant="secondary" size="md">
-            Read verified testimonials
-          </Button>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="aspect-[3/4] rounded-[1.75rem] border border-dashed border-ink/20 bg-surface/70 p-4 text-xs text-muted shadow-inner">
