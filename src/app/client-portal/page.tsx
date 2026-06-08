@@ -42,20 +42,20 @@ export default function ClientPortalPage() {
 
           <div className="flex flex-col rounded-[var(--radius-card)] border border-line bg-surface p-6 shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Returning patient</p>
-            <p className="mt-2 text-base font-semibold text-ink">Access your portal</p>
+            <p className="mt-2 text-base font-semibold text-ink">Sign in to your portal</p>
             <p className="mt-2 text-sm text-muted">
-              View visit history, invoices, aftercare, and refill requests.
+              View your intake history, manage your profile, and rebook with one click.
             </p>
-            <Button
-              href={site.portalUrl}
-              size="lg"
-              variant="secondary"
-              className="mt-5"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Access Client Portal
+            <Button href="/portal/login" size="lg" variant="secondary" className="mt-5">
+              Sign in
             </Button>
+            <p className="mt-3 text-xs text-faint">
+              New here?{" "}
+              <a href="/portal/signup" className="underline-offset-2 hover:underline">
+                Create an account
+              </a>
+              .
+            </p>
           </div>
         </div>
 
@@ -64,19 +64,19 @@ export default function ClientPortalPage() {
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-ink" aria-hidden>✓</span>
-              Complete intake and consent forms before arrival
+              View every intake form you&apos;ve submitted, anytime
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-ink" aria-hidden>✓</span>
-              Review treatment plans and aftercare instructions
+              Update your contact info and password
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-ink" aria-hidden>✓</span>
-              Pay balances and download receipts for HSA/FSA records
+              Book your next visit in two clicks
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-ink" aria-hidden>✓</span>
-              Request prescription refills when clinically appropriate
+              Coming soon: upcoming appointments, invoices, refill requests
             </li>
           </ul>
         </div>
