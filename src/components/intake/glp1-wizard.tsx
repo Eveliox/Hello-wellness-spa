@@ -13,34 +13,7 @@ import {
   WEIGHT_LOSS_GOAL_OPTIONS,
   HOW_DID_YOU_HEAR_OPTIONS,
 } from "@/lib/glp1-intake-schema";
-
-// ─── Plan tiers ────────────────────────────────────────────────────────────────
-
-const PLANS = {
-  starter: {
-    name: "Semaglutide + B12",
-    label: "Starter",
-    months: "Month 1–2",
-    dose: "2.5mg → 5mg",
-    price: 199,
-  },
-  active: {
-    name: "Semaglutide + B12",
-    label: "Active",
-    months: "Month 3–4",
-    dose: "7.5mg → 10mg",
-    price: 249,
-  },
-  maintenance: {
-    name: "Semaglutide + B12",
-    label: "Maintenance",
-    months: "Month 5–6",
-    dose: "12.5mg → 15mg",
-    price: 299,
-  },
-} as const;
-
-type Plan = (typeof PLANS)[keyof typeof PLANS];
+import { recommendGLP1Plan, type GLP1Plan as Plan } from "@/content/glp1-plans";
 
 // ─── Step config ───────────────────────────────────────────────────────────────
 
@@ -94,10 +67,9 @@ function checkEligibility(data: Partial<GLP1IntakeData>): { eligible: boolean; r
 function getRecommendedPlan(data: Partial<GLP1IntakeData>): Plan {
   if (data.currentlyOnGLP1 === "yes" && data.currentDose) {
     const monthNum = parseInt(data.currentDose.split("-")[1] ?? "1");
-    if (monthNum >= 5) return PLANS.maintenance;
-    if (monthNum >= 3) return PLANS.active;
+    return recommendGLP1Plan(monthNum);
   }
-  return PLANS.starter;
+  return recommendGLP1Plan();
 }
 
 // ─── Shared UI primitives ──────────────────────────────────────────────────────

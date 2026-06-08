@@ -10,6 +10,15 @@ export type GettingStartedStep = {
   body: string;
 };
 
+/**
+ * Starting price shown on the services overview card.
+ * - `{ amount, suffix }` renders "$X{suffix}" (e.g. "$199/mo", "$99/session")
+ * - `{ label }` renders the label verbatim (e.g. "Free consultation")
+ */
+export type StartingPrice =
+  | { amount: number; suffix?: string }
+  | { label: string };
+
 export type ServiceContent = {
   slug: ServiceSlug;
   title: string;
@@ -17,6 +26,7 @@ export type ServiceContent = {
   eyebrow: string;
   summary: string;
   heroImage: string;
+  startingAt: StartingPrice;
   benefits: string[];
   idealFor: string[];
   sessionNote: string;
@@ -35,6 +45,7 @@ export const services: ServiceContent[] = [
     summary:
       "A calm, structured program pairing medication options with nutrition coaching, labs as appropriate, and follow-up you can count on—so progress feels sustainable, not chaotic.",
     heroImage: "/fitness.jpg",
+    startingAt: { amount: 199, suffix: "/mo" },
     benefits: [
       "Physician-led eligibility and dosing decisions",
       "Private check-ins that respect your pace and privacy",
@@ -80,6 +91,7 @@ export const services: ServiceContent[] = [
     summary:
       "Subtle enhancement and skin quality upgrades guided by trained injectors and aestheticians who prioritize balance, safety, and a refreshed—not overdone—appearance.",
     heroImage: "/skin.jpg",
+    startingAt: { label: "Free consultation" },
     benefits: [
       "Treatment plans tailored to bone structure and skin type",
       "Conservative technique with meticulous placement",
@@ -125,6 +137,7 @@ export const services: ServiceContent[] = [
     summary:
       "Physician-curated IV blends for hydration, travel recovery, athletic reset, and immune support—delivered in a serene suite with attentive monitoring.",
     heroImage: "/IV infusion.jpg",
+    startingAt: { amount: 99, suffix: "/session" },
     benefits: [
       "Sterile compounding standards and medical-grade supplies",
       "Nurse administration with comfort-forward technique",
@@ -163,6 +176,7 @@ export const services: ServiceContent[] = [
     summary:
       "Start with a clinician-approved base, then layer nutrients aligned to your goals—energy, immunity, skin clarity, or athletic bounce-back—within safe, evidence-informed ranges.",
     heroImage: "/buildIV.png",
+    startingAt: { label: "Custom · built with you" },
     benefits: [
       "Guided menu with clear explanations for each add-on",
       "Medical review before your custom blend is prepared",
@@ -201,6 +215,7 @@ export const services: ServiceContent[] = [
     summary:
       "A curated peptide catalog with clear labeling, lot traceability, and handling guidance. Sourced from accredited suppliers with full purity verification.",
     heroImage: "/peptides.jpg",
+    startingAt: { amount: 59 },
     benefits: [
       "Clear labeling, storage notes, and lot documentation",
       "Lot traceability for internal recordkeeping",

@@ -1,16 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { ServiceContent } from "@/content/services";
+import type { ServiceContent, StartingPrice } from "@/content/services";
 import { site } from "@/content/site";
 import { Button } from "@/components/ui/button";
 import { TrustChip } from "@/components/ui/trust-chip";
 import { cn } from "@/lib/utils";
 
+function StartingAt({ startingAt }: { startingAt: StartingPrice }) {
+  if ("amount" in startingAt) {
+    return (
+      <div className="flex items-baseline gap-1">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
+          From
+        </span>
+        <span className="font-display text-xl text-ink">${startingAt.amount}</span>
+        {startingAt.suffix ? (
+          <span className="text-xs text-muted">{startingAt.suffix}</span>
+        ) : null}
+      </div>
+    );
+  }
+  return (
+    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#C0392B]">
+      {startingAt.label}
+    </span>
+  );
+}
+
 export function ServiceCard({
   service,
   className,
 }: {
-  service: Pick<ServiceContent, "slug" | "title" | "summary" | "heroImage" | "shortTitle">;
+  service: Pick<ServiceContent, "slug" | "title" | "summary" | "heroImage" | "shortTitle" | "startingAt">;
   className?: string;
 }) {
   return (
@@ -34,11 +55,16 @@ export function ServiceCard({
         </div>
       </Link>
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-2xl text-ink">
-          <Link href={`/services/${service.slug}`} className="hover:underline">
-            {service.title}
-          </Link>
-        </h3>
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="font-display text-2xl text-ink">
+            <Link href={`/services/${service.slug}`} className="hover:underline">
+              {service.title}
+            </Link>
+          </h3>
+          <div className="shrink-0 pt-1.5">
+            <StartingAt startingAt={service.startingAt} />
+          </div>
+        </div>
         <p className="mt-3 text-sm leading-relaxed text-muted">{service.summary}</p>
         <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
           <Button href={`/services/${service.slug}`} variant="secondary" size="sm">

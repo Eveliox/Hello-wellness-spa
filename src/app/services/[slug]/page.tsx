@@ -17,6 +17,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { JsonLd } from "@/components/json-ld";
 import { IVBuilder } from "@/components/services/iv-builder";
 import { WeightLossContent } from "@/components/services/weight-loss-content";
+import { WeightLossPlans } from "@/components/services/weight-loss-plans";
 import { AestheticsContent } from "@/components/services/aesthetics-content";
 import { IvTherapyContent } from "@/components/services/iv-therapy-content";
 import { IvAddOnsSection } from "@/components/services/iv-addons-section";
@@ -551,6 +552,9 @@ export default async function ServiceDetailPage({ params }: Props) {
           </Reveal>
         </Container>
       </section>
+
+      {/* ── Weight loss plan comparison ── */}
+      {isWeightLossPage ? <WeightLossPlans /> : null}
 
       {/* ── Weight loss gallery + pricing ── */}
       {isWeightLossPage ? <WeightLossContent testimonialItems={weightLossTestimonials} /> : null}
