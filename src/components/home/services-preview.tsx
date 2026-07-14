@@ -31,7 +31,7 @@ const items = [
     kicker: "Hormone Health",
     title: "Hormone Therapy",
     description: "Coordinated hormone care aligned with your broader wellness plan.",
-    href: "/services",
+    href: "/services/hormone-therapy",
     image: "/hormone.jpg",
   },
   {

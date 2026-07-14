@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 const WHATSAPP_URL =
   "https://wa.me/17867803626?text=Hola+Hello+You+Wellness+Center%2C+me+gustar%C3%ADa+m%C3%A1s+informaci%C3%B3n.";
@@ -15,6 +16,7 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
+      onClick={() => trackEvent("click_whatsapp", { link_location: "fab" })}
       className="group fixed right-4 bottom-24 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,0.45)] transition hover:scale-105 hover:bg-[#1ebd5b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/30 md:right-6 md:bottom-6 md:h-[60px] md:w-[60px]"
     >
       <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

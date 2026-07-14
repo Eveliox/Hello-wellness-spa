@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useRouter } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 const CAL_BASE = "https://cal.com/";
 
@@ -59,6 +60,12 @@ export function CalEmbed({ calLink, bookedServiceSlug, namespace }: Props) {
         callback: (e) => {
           const detail = (e as CustomEvent<{ data?: { startTime?: string } }>).detail;
           const startTime = detail?.data?.startTime ?? "";
+          // Push BEFORE router.push — the redirect will unmount this component
+          // and any queued microtask work here will be discarded.
+          trackEvent("book_appointment", {
+            booking_service: bookedServiceSlug,
+            event_type_slug: path,
+          });
           const params = new URLSearchParams({
             booked: "1",
             service: bookedServiceSlug,

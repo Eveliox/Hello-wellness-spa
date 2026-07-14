@@ -111,6 +111,29 @@ export async function POST(request: Request) {
       ? `${baseUrl}${product.image}`
       : product.image;
 
+    // TODO(analytics): Wire GA4 Measurement Protocol `purchase` event from a
+    // Stripe webhook (does not yet exist — create /api/stripe/webhook and
+    // subscribe to `checkout.session.completed`). Do NOT fire `purchase` from
+    // the client-side /checkout/success page — Stripe redirects are unreliable
+    // (users close tabs, ad-blockers strip params) and firing both client +
+    // server risks double-counting without event_id dedup.
+    //
+    // Envelope shape when implementing (send to https://www.google-analytics.com/mp/collect):
+    //   {
+    //     client_id: <cid from _ga cookie or falls back to session.id>,
+    //     events: [{
+    //       name: "purchase",
+    //       params: {
+    //         transaction_id: session.id,
+    //         value: session.amount_total / 100,
+    //         currency: session.currency,
+    //         items: [{ item_id: productSlug, item_name: effectiveName,
+    //                   price: effectivePriceCents / 100, quantity: 1 }]
+    //       }
+    //     }]
+    //   }
+    // Requires GA4 Measurement Protocol API secret (Admin → Data Streams →
+    // Measurement Protocol API secrets) stored as GA_MP_API_SECRET.
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       customer_email: customerEmail,

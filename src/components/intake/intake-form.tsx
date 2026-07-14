@@ -2,8 +2,9 @@
 
 import { useForm, type UseFormRegister } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { intakeSchema, type IntakeFormData } from "@/lib/intake-schema";
+import { trackEvent, leadValueFor } from "@/lib/analytics";
 
 const inputCls =
   "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-base text-ink placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-ink/15 disabled:opacity-50 sm:text-sm";
@@ -87,11 +88,20 @@ type IntakeFormProps = {
    * the matching SERVICES label and pre-checked here so they don't re-enter it.
    */
   prefilledService?: string;
+  /**
+   * Whether the patient landed here from a completed Cal booking (i.e. the
+   * page had ?booked=1). Passed straight into the analytics events so we can
+   * measure "booked-then-intake" completion separately from "intake-only".
+   */
+  hasBooking?: boolean;
 };
 
-export function IntakeForm({ prefilledService }: IntakeFormProps = {}) {
+export function IntakeForm({ prefilledService, hasBooking = false }: IntakeFormProps = {}) {
   const [serverError, setServerError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  // Guard so `intake_start` only fires once per form mount. See PHI note in
+  // src/lib/analytics.ts — we never push the focused field's name or value.
+  const startFiredRef = useRef(false);
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -130,10 +140,35 @@ export function IntakeForm({ prefilledService }: IntakeFormProps = {}) {
         setServerError(json.message ?? "Something went wrong. Please try again.");
         return;
       }
+      // PHI-safe lead event: only the FIRST selected service (or empty
+      // string) is pushed — never names, emails, DOB, conditions, etc.
+      const primaryService = data.servicesInterested?.[0] ?? prefilledService ?? "general";
+      trackEvent("generate_lead", {
+        intake_type: "general",
+        service: primaryService,
+        has_booking: hasBooking,
+        value: leadValueFor(primaryService),
+        currency: "USD",
+      });
       setIsSuccess(true);
     } catch {
       setServerError("Network error. Please check your connection and try again.");
     }
+  }
+
+  /**
+   * First-interaction hook. `onFocusCapture` fires when ANY field inside the
+   * form receives focus; the ref-guard ensures we only push once per mount.
+   * We deliberately do NOT read `e.target` here — see PHI guardrail in
+   * src/lib/analytics.ts.
+   */
+  function handleFirstInteraction() {
+    if (startFiredRef.current) return;
+    startFiredRef.current = true;
+    trackEvent("intake_start", {
+      intake_type: "general",
+      has_booking: hasBooking,
+    });
   }
 
   if (isSuccess) {
@@ -152,7 +187,7 @@ export function IntakeForm({ prefilledService }: IntakeFormProps = {}) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} onFocusCapture={handleFirstInteraction} noValidate>
       <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
 
         {/* Personal Information */}

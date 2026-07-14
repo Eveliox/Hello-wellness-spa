@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/content/site";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 
 type CtaConfig = {
@@ -65,10 +66,27 @@ function getCtaForPath(pathname: string): CtaConfig | null {
   };
 }
 
+/**
+ * Guess a booking_service bucket from a CTA href so downstream analytics can
+ * segment which service a sticky-CTA click originated against. Falls back to
+ * "general" for /book, /quiz, and other non-service destinations.
+ */
+function bookingServiceFromHref(href: string): string {
+  if (href.includes("assisted-weight-loss") || href.includes("glp1")) return "weight";
+  if (href.includes("aesthetics-cosmetics")) return "aesthetics";
+  if (href.includes("iv-therapy")) return "iv";
+  return "general";
+}
+
 export function StickyBookCta() {
   const pathname = usePathname();
   const cta = getCtaForPath(pathname);
   if (!cta) return null;
+
+  const primaryService = bookingServiceFromHref(cta.primary.href);
+  const secondaryService = bookingServiceFromHref(cta.secondary.href);
+  const isPrimaryBooking = cta.primary.href.startsWith("/book") || cta.primary.href.startsWith("/intake");
+  const isSecondaryBooking = cta.secondary.href.startsWith("/book") || cta.secondary.href.startsWith("/intake");
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-chrome/98 p-3 shadow-[0_-12px_40px_rgba(0,0,0,0.35)] backdrop-blur-md md:hidden">
@@ -77,6 +95,7 @@ export function StickyBookCta() {
           href={`tel:${site.phoneTel}`}
           className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 text-xs font-semibold text-white"
           aria-label={`Call ${site.phoneDisplay}`}
+          onClick={() => trackEvent("click_to_call", { link_location: "sticky_cta" })}
         >
           Call
         </Link>
@@ -85,10 +104,23 @@ export function StickyBookCta() {
           variant="ghostInverse"
           size="md"
           className="flex-1 border border-white/20"
+          onClick={() =>
+            isSecondaryBooking &&
+            trackEvent("book_click", { cta_location: "sticky_cta_secondary", booking_service: secondaryService })
+          }
         >
           {cta.secondary.label}
         </Button>
-        <Button href={cta.primary.href} variant="inverse" size="md" className="flex-1">
+        <Button
+          href={cta.primary.href}
+          variant="inverse"
+          size="md"
+          className="flex-1"
+          onClick={() =>
+            isPrimaryBooking &&
+            trackEvent("book_click", { cta_location: "sticky_cta_primary", booking_service: primaryService })
+          }
+        >
           {cta.primary.label}
         </Button>
       </div>

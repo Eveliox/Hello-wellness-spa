@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { footerGroups } from "@/content/navigation";
 import { site } from "@/content/site";
+import { trackEvent } from "@/lib/analytics";
 import { Container } from "@/components/ui/container";
 import { NewsletterForm } from "@/components/forms/newsletter-form";
 
@@ -34,7 +35,11 @@ export function Footer() {
               </ul>
             </div>
             <div className="flex flex-wrap gap-3 text-sm">
-              <a className="font-medium text-white hover:underline" href={`tel:${site.phoneTel}`}>
+              <a
+                className="font-medium text-white hover:underline"
+                href={`tel:${site.phoneTel}`}
+                onClick={() => trackEvent("click_to_call", { link_location: "footer" })}
+              >
                 {site.phoneDisplay}
               </a>
               <span className="text-white/25">|</span>

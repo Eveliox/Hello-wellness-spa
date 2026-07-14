@@ -15,6 +15,7 @@ import { FaqAccordion } from "@/components/faq/faq-accordion";
 import { TestimonialsSection } from "@/components/testimonials/testimonials-section";
 import { Reveal } from "@/components/ui/reveal";
 import { JsonLd } from "@/components/json-ld";
+import { faqPageJsonLd } from "@/lib/faq-schema";
 import { IVBuilder } from "@/components/services/iv-builder";
 import { WeightLossContent } from "@/components/services/weight-loss-content";
 import { WeightLossPlans } from "@/components/services/weight-loss-plans";
@@ -23,6 +24,7 @@ import { IvTherapyContent } from "@/components/services/iv-therapy-content";
 import { IvAddOnsSection } from "@/components/services/iv-addons-section";
 import { ByoIvContent } from "@/components/services/byo-iv-content";
 import { PeptideContent } from "@/components/services/peptide-content";
+import { HormoneTherapyContent } from "@/components/services/hormone-therapy-content";
 import { GettingStartedSection } from "@/components/services/getting-started-section";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -64,6 +66,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   const isAestheticsPage = service.slug === "aesthetics-cosmetics";
   const isIvTherapyPage = service.slug === "iv-therapy";
   const isByoIvPage = service.slug === "build-your-own-iv";
+  const isHormoneTherapyPage = service.slug === "hormone-therapy";
 
   const aestheticsSteps = [
     "Treatment plans tailored to bone structure and skin type",
@@ -109,7 +112,22 @@ export default async function ServiceDetailPage({ params }: Props) {
           serviceType: "Aesthetics services",
           url: `${site.url}/services/aesthetics-cosmetics`,
         }
-      : null;
+      : isHormoneTherapyPage
+        ? {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Hormone therapy",
+            provider: {
+              "@type": "MedicalClinic",
+              name: site.name,
+              url: site.url,
+              telephone: site.phoneDisplay,
+            },
+            areaServed: { "@type": "City", name: "Miami" },
+            serviceType: "Hormone replacement therapy",
+            url: `${site.url}/services/hormone-therapy`,
+          }
+        : null;
 
   const keyword =
     service.slug === "peptide-therapy"
@@ -127,6 +145,8 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   const showIvAddOns = service.slug === "iv-therapy" || service.slug === "build-your-own-iv";
   const showPeptides = service.slug === "peptide-therapy";
+
+  const serviceFaqs = faqsByIds(service.faqIds);
 
   const weightLossTestimonials = isWeightLossPage
     ? [
@@ -399,6 +419,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       ) : null}
       {isIvTherapyPage ? <IvTherapyContent bookingUrl={serviceBookingUrl} testimonialItems={ivTherapyTestimonials} /> : null}
       {isAestheticsPage ? <AestheticsContent service={service} bookingUrl={serviceBookingUrl} testimonialItems={aestheticsTestimonials} /> : null}
+      {isHormoneTherapyPage ? <HormoneTherapyContent bookingUrl={serviceBookingUrl} /> : null}
 
       {/* ── What you can expect ── */}
       <section className="py-16">
@@ -569,7 +590,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       {isByoIvPage ? <ByoIvContent testimonialItems={byoIvTestimonials} /> : null}
 
       {/* ── Generic testimonials (non-specific service types) ── */}
-      {!isWeightLossPage && !isAestheticsPage && !isIvTherapyPage && !isByoIvPage && !isPeptidesPage ? (
+      {!isWeightLossPage && !isAestheticsPage && !isIvTherapyPage && !isByoIvPage && !isPeptidesPage && !isHormoneTherapyPage ? (
         <section className="border-y border-line/80 bg-surface py-16">
           <Container>
             <h2 className="font-display text-3xl text-ink">Guests who chose this pathway</h2>
@@ -582,7 +603,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       ) : null}
 
       {/* ── Getting Started ── */}
-      <GettingStartedSection steps={service.gettingStartedSteps} cta={service.gettingStartedCta} />
+      <GettingStartedSection steps={service.gettingStartedSteps} cta={service.gettingStartedCta} serviceSlug={service.slug} />
 
       {/* ── FAQ ── */}
       <section className="py-16">
@@ -596,7 +617,10 @@ export default async function ServiceDetailPage({ params }: Props) {
               Full FAQ library
             </Button>
           </div>
-          <FaqAccordion items={faqsByIds(service.faqIds)} />
+          <div>
+            {serviceFaqs.length > 0 ? <JsonLd data={faqPageJsonLd(serviceFaqs)} /> : null}
+            <FaqAccordion items={serviceFaqs} />
+          </div>
         </Container>
       </section>
 

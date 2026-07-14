@@ -3,7 +3,8 @@ export type ServiceSlug =
   | "aesthetics-cosmetics"
   | "iv-therapy"
   | "build-your-own-iv"
-  | "peptide-therapy";
+  | "peptide-therapy"
+  | "hormone-therapy";
 
 export type GettingStartedStep = {
   title: string;
@@ -245,6 +246,53 @@ export const services: ServiceContent[] = [
       },
     ],
     gettingStartedCta: { label: "Complete Registration", href: "/intake" },
+  },
+  {
+    slug: "hormone-therapy",
+    title: "Hormone therapy",
+    shortTitle: "Hormone therapy",
+    eyebrow: "HRT, BHRT & Testosterone",
+    summary:
+      "In-person, physician-supervised hormone replacement for men with clinically low testosterone and women navigating perimenopause and menopause—dosed from your labs and your symptoms, monitored on a defined cadence, framed around quality of life.",
+    heroImage: "/hormone.jpg",
+    startingAt: { amount: 499, suffix: "/program" },
+    benefits: [
+      "Physician-supervised protocols dosed from labs and symptoms",
+      "Defined monitoring cadence—not fire-and-forget prescribing",
+      "In-clinic labs and follow-ups you can actually walk into",
+      "Honest framing: symptom management and quality of life, not disease prevention",
+    ],
+    idealFor: [
+      "Men over ~35 with fatigue, low libido, mood flatness, or new central weight gain",
+      "Women navigating perimenopause or menopause—vasomotor symptoms, sleep, mood, or GSM",
+      "Anyone who wants in-person hormone care over a telehealth-only model",
+    ],
+    sessionNote: "Initial consults are approximately 45-60 minutes—symptom review, history, and goals.",
+    ctaNote: "Program pricing quoted in full before you commit—no silent recurring charges.",
+    faqIds: [
+      "hrt-candidate",
+      "hrt-trt-vs-hrt",
+      "hrt-cost",
+      "hrt-pellet-vs-injection",
+      "hrt-bhrt-safer",
+      "hrt-women-when",
+      "hrt-labs",
+    ],
+    gettingStartedSteps: [
+      {
+        title: "Consult",
+        body: "Symptom review, health history, and goals conversation. About 45-60 minutes. No pressure to start therapy the same day.",
+      },
+      {
+        title: "Comprehensive labs",
+        body: "Drawn in-clinic or at partnered lab. Results typically available within several business days, then reviewed by your physician against your symptom picture.",
+      },
+      {
+        title: "Protocol and monitoring",
+        body: "If HRT is appropriate, we discuss delivery options and start a defined protocol. Follow-ups at 6 weeks, 3 months, then a rotating schedule appropriate to your therapy.",
+      },
+    ],
+    gettingStartedCta: { label: "Book a Consultation", href: "https://cal.com/helloyouwellness/30min" },
   },
 ];
 

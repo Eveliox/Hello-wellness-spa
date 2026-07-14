@@ -6,6 +6,7 @@ import { useEffect, useId, useState } from "react";
 import { mainNav } from "@/content/navigation";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 
@@ -135,21 +136,41 @@ export function Header() {
 
         <div className="hidden items-center gap-2 lg:flex">
           {showBookCta ? (
-            <Button href={site.bookingUrl} size="sm" className="bg-[color:#C0392B] text-white hover:bg-[#C0392B]/90">
+            <Button
+              href={site.bookingUrl}
+              size="sm"
+              className="bg-[color:#C0392B] text-white hover:bg-[#C0392B]/90"
+              onClick={() => trackEvent("book_click", { cta_location: "header_desktop", booking_service: "general" })}
+            >
               Book Now
             </Button>
           ) : null}
-          <Button href={`tel:${site.phoneTel}`} variant="inverse" size="sm">
+          <Button
+            href={`tel:${site.phoneTel}`}
+            variant="inverse"
+            size="sm"
+            onClick={() => trackEvent("click_to_call", { link_location: "header_desktop" })}
+          >
             Call {site.phoneDisplay}
           </Button>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <Button href={`tel:${site.phoneTel}`} variant="inverse" size="sm">
+          <Button
+            href={`tel:${site.phoneTel}`}
+            variant="inverse"
+            size="sm"
+            onClick={() => trackEvent("click_to_call", { link_location: "header_mobile" })}
+          >
             Call
           </Button>
           {showBookCta ? (
-            <Button href={site.bookingUrl} size="sm" className="bg-[color:#C0392B] text-white hover:bg-[#C0392B]/90">
+            <Button
+              href={site.bookingUrl}
+              size="sm"
+              className="bg-[color:#C0392B] text-white hover:bg-[#C0392B]/90"
+              onClick={() => trackEvent("book_click", { cta_location: "header_mobile", booking_service: "general" })}
+            >
               Book
             </Button>
           ) : null}
@@ -222,11 +243,20 @@ export function Header() {
             ),
           )}
           <div className="pt-2">
-            <Button href={`tel:${site.phoneTel}`} variant="inverse" className="w-full">
+            <Button
+              href={`tel:${site.phoneTel}`}
+              variant="inverse"
+              className="w-full"
+              onClick={() => trackEvent("click_to_call", { link_location: "header_mobile_menu" })}
+            >
               Call
             </Button>
           </div>
-          <a href={`tel:${site.phoneTel}`} className="text-center text-sm font-medium text-white/80 hover:text-white">
+          <a
+            href={`tel:${site.phoneTel}`}
+            className="text-center text-sm font-medium text-white/80 hover:text-white"
+            onClick={() => trackEvent("click_to_call", { link_location: "header_mobile_menu_text" })}
+          >
             Call {site.phoneDisplay}
           </a>
         </div>

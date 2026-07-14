@@ -168,6 +168,55 @@ export const faqs: FaqItem[] = [
       "We review goals, contraindications, and any relevant labs. You will leave with a written plan, pricing transparency, and next steps—never pressure to proceed the same day.",
   },
   {
+    id: "hrt-candidate",
+    category: "Treatments",
+    question: "Am I a candidate for testosterone therapy?",
+    answer:
+      "Possibly — and the only way to know is with labs and a physician evaluation. Symptoms alone do not diagnose low T, and low T alone (without symptoms) does not always warrant treatment. The right answer for you comes from combining both.",
+  },
+  {
+    id: "hrt-trt-vs-hrt",
+    category: "Treatments",
+    question: "What's the difference between HRT and BHRT?",
+    answer:
+      "HRT (hormone replacement therapy) is the umbrella term. BHRT (bioidentical hormone replacement therapy) refers specifically to hormones that share the same molecular structure as those your body produces. BHRT can be FDA-approved (many are) or compounded. \"Bioidentical\" describes chemistry, not safety.",
+  },
+  {
+    id: "hrt-cost",
+    category: "Billing",
+    question: "How much does testosterone therapy cost in Miami?",
+    answer:
+      "Our TRT programs start at $499/program. That is a program price, not a per-visit price. Program pricing includes physician evaluation and defined ongoing oversight; medication and lab costs may be quoted separately depending on your protocol. We quote the full amount before you commit.",
+  },
+  {
+    id: "hrt-pellet-vs-injection",
+    category: "Treatments",
+    question: "Pellet vs injection: which is right for me?",
+    answer:
+      "Neither is universally better. Injections offer dose flexibility and lower per-cycle cost but require ongoing administration. Pellets offer 3-6 months of steady release with no weekly routine but less mid-cycle adjustability. Your labs, lifestyle, and preferences drive the choice—we discuss both at consult.",
+  },
+  {
+    id: "hrt-bhrt-safer",
+    category: "Treatments",
+    question: "Is bioidentical hormone therapy safer than conventional HRT?",
+    answer:
+      "No — that is a marketing claim, not a clinical finding. Bioidentical hormones share molecular structure with endogenous hormones, but that does not translate to reduced risk. FDA-approved products (many of which are already bioidentical) have the benefit of standardized dosing and formal safety review. Compounded formulations do not. We discuss the trade-offs candidly in consult.",
+  },
+  {
+    id: "hrt-women-when",
+    category: "Treatments",
+    question: "When should women consider HRT?",
+    answer:
+      "When symptoms of perimenopause or menopause are affecting quality of life and other causes have been considered. Onset varies widely—some patients present in their late 30s, most in their 40s or 50s. There is no single \"right age.\" What matters is symptoms, labs, and a real risk/benefit conversation with your physician.",
+  },
+  {
+    id: "hrt-labs",
+    category: "Treatments",
+    question: "How often do I need labs on HRT?",
+    answer:
+      "Men on TRT: at 6 weeks, 3 months, then quarterly rotating panels. Women on HRT: at 6-12 weeks after initiation or dose change, then 6 months, then annually—with immediate re-evaluation for any concerning symptom (new breast changes, unexpected vaginal bleeding, leg pain or swelling).",
+  },
+  {
     id: "payment",
     category: "Billing",
     question: "Do you accept insurance?",

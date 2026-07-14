@@ -2,7 +2,7 @@
 
 import { useForm, type UseFormRegister } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   glp1IntakeSchema,
   type GLP1IntakeData,
@@ -11,6 +11,7 @@ import {
   WEIGHT_LOSS_GOAL_OPTIONS,
   HOW_DID_YOU_HEAR_OPTIONS,
 } from "@/lib/glp1-intake-schema";
+import { trackEvent, LEAD_VALUE_USD } from "@/lib/analytics";
 
 const inputCls =
   "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-base text-ink placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-ink/15 disabled:opacity-50 sm:text-sm";
@@ -62,6 +63,9 @@ function YesNoField({ label, name, register, error, required = true }: YesNoProp
 export function GLP1IntakeForm() {
   const [serverError, setServerError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  // See PHI guardrail note in src/lib/analytics.ts. This form is currently
+  // unused by any route, but the events are wired for the day it goes live.
+  const startFiredRef = useRef(false);
 
   const {
     register,
@@ -90,10 +94,28 @@ export function GLP1IntakeForm() {
         setServerError(json.message ?? "Something went wrong. Please try again.");
         return;
       }
+      trackEvent("generate_lead", {
+        intake_type: "glp1",
+        service: "glp1",
+        has_booking: false,
+        value: LEAD_VALUE_USD.glp1,
+        currency: "USD",
+      });
       setIsSuccess(true);
     } catch {
       setServerError("Network error. Please check your connection and try again.");
     }
+    // Data param is referenced by react-hook-form contract; we don't push any of it.
+    void data;
+  }
+
+  function handleFirstInteraction() {
+    if (startFiredRef.current) return;
+    startFiredRef.current = true;
+    trackEvent("intake_start", {
+      intake_type: "glp1",
+      has_booking: false,
+    });
   }
 
   if (isSuccess) {
@@ -112,7 +134,7 @@ export function GLP1IntakeForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} onFocusCapture={handleFirstInteraction} noValidate>
       <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
 
         {/* Personal Information */}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CalEmbed } from "./cal-embed";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 type Service = {
   slug: string;
@@ -61,7 +62,15 @@ export function BookingPicker({ initialSlug }: Props) {
               role="tab"
               type="button"
               aria-selected={isActive}
-              onClick={() => setActive(s)}
+              onClick={() => {
+                setActive(s);
+                // Fires the pre-load booking intent so we still capture data
+                // if the Cal iframe never confirms (drop-off, close before submit).
+                trackEvent("book_click", {
+                  cta_location: "booking_picker_tab",
+                  booking_service: s.slug,
+                });
+              }}
               className={cn(
                 "rounded-full border px-4 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-ink/15",
                 isActive

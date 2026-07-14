@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { IntakeForm } from "@/components/intake/intake-form";
+import { BookingConfirmedPixel } from "@/components/analytics/booking-confirmed-pixel";
 
 export const metadata: Metadata = {
   title: "Patient Registration | Hello You Wellness Center",
@@ -58,6 +59,8 @@ export default async function IntakePage({ searchParams }: { searchParams: Searc
             provide you with the best care.
           </p>
 
+          {isFromBooking && <BookingConfirmedPixel bookingService={service} />}
+
           {isFromBooking && (
             <div className="mt-6 rounded-[var(--radius-card)] border border-[#1a1a1a] bg-[#1a1a1a] p-5 text-white">
               <div className="flex items-start gap-3">
@@ -79,7 +82,7 @@ export default async function IntakePage({ searchParams }: { searchParams: Searc
           )}
 
           <div className="mt-10">
-            <IntakeForm prefilledService={serviceInfo?.intakeService} />
+            <IntakeForm prefilledService={serviceInfo?.intakeService} hasBooking={isFromBooking} />
           </div>
         </div>
       </Container>

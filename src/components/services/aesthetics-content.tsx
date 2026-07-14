@@ -53,13 +53,6 @@ const aestheticsServices = [
     cta: "Learn more",
   },
   {
-    name: "TRT (Testosterone Replacement Therapy)",
-    description:
-      "Physician-guided testosterone therapy for men experiencing low T. Includes lab work, evaluation, and ongoing oversight.",
-    startingAt: "$499/program",
-    cta: "Check if you qualify",
-  },
-  {
     name: "Mobile IV therapy",
     description:
       "On-site IV hydration and nutrient drips at your home, hotel, or office across Miami-Dade.",
@@ -123,6 +116,22 @@ export function AestheticsContent({ service, bookingUrl, testimonialItems }: Pro
               </Reveal>
             ))}
           </div>
+
+          <Reveal delayMs={120}>
+            <div className="mt-8 rounded-[var(--radius-card)] border border-line bg-surface p-5 text-sm text-muted sm:p-6">
+              <p className="leading-relaxed">
+                <span className="font-semibold text-ink">Looking for testosterone replacement therapy (TRT)?</span>{" "}
+                TRT is now covered on our{" "}
+                <a
+                  href="/services/hormone-therapy"
+                  className="font-semibold text-ink underline-offset-4 hover:underline"
+                >
+                  Hormone Therapy page
+                </a>
+                , alongside women's HRT and BHRT.
+              </p>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

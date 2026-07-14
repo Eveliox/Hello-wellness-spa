@@ -2,9 +2,10 @@
 
 import { useForm, type UseFormRegister } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { site } from "@/content/site";
+import { trackEvent, LEAD_VALUE_USD } from "@/lib/analytics";
 import {
   glp1IntakeSchema,
   type GLP1IntakeData,
@@ -125,6 +126,10 @@ export function GLP1Wizard() {
   const [step, setStep] = useState(0);
   const [serverError, setServerError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  // One-shot guard so `intake_start` fires only on the FIRST user interaction
+  // in this wizard mount. See PHI note in src/lib/analytics.ts — we never
+  // read or push field values, only the fact of interaction.
+  const startFiredRef = useRef(false);
 
   const {
     register,
@@ -178,10 +183,28 @@ export function GLP1Wizard() {
         setServerError(json.message ?? "Something went wrong. Please try again.");
         return;
       }
+      // PHI-safe lead event. `service` is a hard-coded bucket ("glp1"), NOT
+      // a user-entered field. `value` is the LTV bucket for GLP-1 — no PII.
+      trackEvent("generate_lead", {
+        intake_type: "glp1",
+        service: "glp1",
+        has_booking: false,
+        value: LEAD_VALUE_USD.glp1,
+        currency: "USD",
+      });
       setSubmitted(true);
     } catch {
       setServerError("Network error. Please check your connection and try again.");
     }
+  }
+
+  function handleFirstInteraction() {
+    if (startFiredRef.current) return;
+    startFiredRef.current = true;
+    trackEvent("intake_start", {
+      intake_type: "glp1",
+      has_booking: false,
+    });
   }
 
   // ── Success screen ──────────────────────────────────────────────────────────
@@ -231,7 +254,7 @@ export function GLP1Wizard() {
       </p>
       <h2 className="mb-6 font-display text-2xl text-ink sm:text-3xl">{STEP_TITLES[step]}</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} onFocusCapture={handleFirstInteraction} noValidate>
 
         {/* ── Step 0: Goal ─────────────────────────────────────────────────── */}
         {step === 0 && (
