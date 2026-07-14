@@ -24,15 +24,27 @@ geo_modifiers:
   - Coral Gables
   - SW Miami
   - cerca de Dadeland
-review_status: draft
+review_status: draft-v2
 provider_byline_placeholder: true
+changes_applied:
+  - "A2: Split semaglutide vs tirzepatide pregnancy discontinuation framing"
+  - "A2: Added Zepbound oral contraceptive interaction warning (4wk barrier / non-oral rule)"
+  - "A2: Added diabetic retinopathy ophthalmology coordination requirement"
+  - "A2: Corrected nausea peak timing (1-3wk of new dose, not 48-72h post-increase)"
+  - "A2: Reworded active/recent pancreatitis to history-of framing"
+  - "A2: Added ileus and gastroparesis to red-flag escalation list"
+  - "A2: Added STEP 4 / SURMOUNT-4 rebound-regain honesty to off-ramp"
+  - "A6: Added first-mention ® markers on Wegovy, Ozempic, Zepbound, Mounjaro"
+  - "A6: Added Trademarks footer section"
+  - "B1: Removed compounded GLP-1 promotional framing; replaced with consult-only single sentence"
+  - "B5: Reworked visible [VERIFY WITH CLINIC] inline placeholder in pricing copy"
 ---
 
 # Semaglutida y perdida de peso con GLP-1 en Miami
 
 *Revisado medicamente por [PROVIDER_NAME, CREDENTIALS] · Ultima revision 2026-07*
 
-Hello You Wellness Center es una practica de manejo de peso dirigida por medico, aqui en el SW de Miami. Ofrecemos terapia con agonistas del receptor GLP-1 — semaglutida (la misma molecula que se encuentra en Wegovy y Ozempic) y tirzepatida (el agonista dual GIP/GLP-1 que se encuentra en Zepbound y Mounjaro) — dentro de un programa estructurado, con seguimiento mensual real, expectativas honestas, y citas la misma semana cuando la agenda lo permite. Estamos a dos minutos de Dadeland y con acceso comodo desde Kendall, Westchester y Coral Gables. Aqui nada es de plantilla. Si un medicamento no es lo mejor para usted, se lo decimos.
+Hello You Wellness Center es una practica de manejo de peso dirigida por medico, aqui en el SW de Miami. Ofrecemos terapia con agonistas del receptor GLP-1 — semaglutida (la misma molecula que se encuentra en Wegovy® y Ozempic®) y tirzepatida (el agonista dual GIP/GLP-1 que se encuentra en Zepbound® y Mounjaro®) — dentro de un programa estructurado, con seguimiento mensual real, expectativas honestas, y citas la misma semana cuando la agenda lo permite. Estamos a dos minutos de Dadeland y con acceso comodo desde Kendall, Westchester y Coral Gables. Aqui nada es de plantilla. Si un medicamento no es lo mejor para usted, se lo decimos.
 
 ## Que ofrecemos
 
@@ -41,7 +53,7 @@ Recetamos dos categorias de medicamentos para el manejo del peso, segun candidat
 - **Semaglutida** — un agonista del receptor GLP-1, una inyeccion semanal. Aprobada por la FDA para manejo cronico del peso bajo la marca Wegovy en dosis de 2.4 mg semanales, y aprobada por separado para diabetes tipo 2 bajo la marca Ozempic. `[CLINICAL REVIEW: confirmar dosificacion actual usada en la clinica]`
 - **Tirzepatida** — un agonista dual GIP y GLP-1, una inyeccion semanal. Aprobada por la FDA para manejo cronico del peso bajo la marca Zepbound, y para diabetes tipo 2 bajo la marca Mounjaro. `[CLINICAL REVIEW: confirmar esquema de titulacion]`
 
-Si el suministro de las marcas comerciales esta limitado, podemos conversar sobre semaglutida compuesta o tirzepatida compuesta, formuladas por una farmacia estadounidense licenciada bajo la Seccion 503A. Los GLP-1 compuestos no son productos aprobados por la FDA, y la elegibilidad depende de la guia regulatoria federal y estatal vigente, que ha estado cambiando desde 2024. `[LEGAL REVIEW: 503A framing]` `[CLINICAL REVIEW: verificar disponibilidad de compuestos y encuadre 503A ante la FDA]` `[VERIFY WITH CLINIC: cual es la farmacia de compuestos que usamos, si aplica]`
+Las formulaciones compuestas pueden considerarse solo en circunstancias clinicas estrechas y especificas al paciente durante la consulta, segun la guia actual de la FDA. Nuestra terapia por defecto es Wegovy®, Ozempic®, Zepbound® o Mounjaro® aprobados por la FDA.
 
 El medicamento es solo una parte del programa. El resto — laboratorios cuando corresponden, guia nutricional, chequeos mensuales, ajustes de dosis, y un clinico que le contesta las preguntas en espanol claro — es lo que realmente mantiene a la gente en el camino.
 
@@ -68,11 +80,11 @@ El ritmo es deliberado. Se ve asi:
 4. **Receta y dosis inicial.** Empezamos bajo y titulamos despacio. Esta es la palanca mas grande para que usted tolere bien el medicamento.
 5. **Chequeos mensuales.** Peso, efectos secundarios, adherencia, decisiones de dosis. En persona o por telesalud segura cuando aplica. `[VERIFY WITH CLINIC: politica de telesalud]`
 6. **Titulacion y mantenimiento.** Los cambios de dosis se guian por respuesta y tolerancia, no por un calendario.
-7. **Plan de salida.** Cuando alcance su meta, conversamos con franqueza sobre dosis de mantenimiento, como bajar la dosis, y como se ve el largo plazo.
+7. **Plan de salida.** Cuando alcance su meta, conversamos con franqueza sobre dosis de mantenimiento, como bajar la dosis, y como se ve el largo plazo. Los ensayos STEP 4 (semaglutida) y SURMOUNT-4 (tirzepatida) demostraron una recuperacion de peso importante despues de suspender el medicamento. Ese es un patron biologico real, no una falla de voluntad, y cualquier plan de salida tiene que tomarlo en cuenta. Para muchos pacientes, "plan de salida" significa una dosis de mantenimiento en vez de una fecha de suspension.
 
 ## Transparencia de precios
 
-Nuestro programa GLP-1 **empieza en $199 al mes**. Esa cuota cubre el programa clinico: la cadencia de visitas con el medico, los chequeos mensuales, el manejo de dosis, y el acceso a mensajes entre citas. `[VERIFY WITH CLINIC: inclusiones exactas]`
+Nuestro programa GLP-1 **empieza en $199 al mes**. Esa cuota cubre el programa clinico: la cadencia de visitas con el medico, los chequeos mensuales, el manejo de dosis, y el acceso a mensajes entre citas. Las inclusiones exactas se confirman en su consulta y por escrito antes de que usted se comprometa.
 
 **El costo del medicamento es aparte y varia** segun:
 
@@ -85,7 +97,7 @@ Le damos un total mensual realista durante la consulta. Si otra clinica de Miami
 
 ### Cuanto cuesta la semaglutida en Miami
 
-El costo en efectivo en Miami varia bastante. La Wegovy de marca sin seguro tipicamente cuesta desde varios cientos hasta mas de mil dolares al mes en las farmacias comerciales. La semaglutida compuesta, donde este ofrecida y sea legalmente disponible, generalmente es mas economica — pero el precio depende de la dosis y de la farmacia. `[VERIFY WITH CLINIC: rango actual en efectivo que cotizamos]`
+El costo en efectivo en Miami varia bastante. La Wegovy® de marca sin seguro tipicamente cuesta desde varios cientos hasta mas de mil dolares al mes en las farmacias comerciales. El precio depende de la dosis, de la farmacia, y cambia con frecuencia — le damos un rango realista actual en la consulta en vez de comprometer un numero en el texto que se puede desactualizar.
 
 ### Wegovy vs Zepbound: precio en Miami
 
@@ -112,7 +124,7 @@ Honestidad por delante: la mayoria de la gente se siente peor por un tiempo ante
 
 **Rankeados por frecuencia (experiencia tipica del paciente):**
 
-1. **Nausea** — el efecto mas comun. Generalmente leve o moderada, peor en las primeras 48 a 72 horas despues de subir la dosis, y mejora con el tiempo. `[CLINICAL REVIEW]`
+1. **Nausea** — el efecto mas comun. Generalmente leve o moderada, mas pronunciada en las primeras una a tres semanas de una dosis nueva, y mejora con el tiempo.
 2. **Estrenimiento** — muy comun. Hidratacion, fibra, y a veces un ablandador de heces lo resuelven. Avisenos temprano.
 3. **Fatiga** — real, y a menudo por comer menos. Ajustar proteina y electrolitos ayuda.
 4. **Diarrea** — menos frecuente que el estrenimiento, pero pasa.
@@ -128,9 +140,10 @@ Honestidad por delante: la mayoria de la gente se siente peor por un tiempo ante
 
 **Cuando parar y buscar atencion medica** (esto es criterio de escalada — leelo):
 
-- Dolor abdominal severo y persistente que se irradia a la espalda — posible **pancreatitis**, busque emergencia `[CLINICAL REVIEW]`
+- Dolor abdominal severo y persistente que se irradia a la espalda — posible **pancreatitis**, busque emergencia
 - Vomito persistente que no permite retener liquidos
 - Senales de enfermedad de la vesicula (dolor en el cuadrante superior derecho, fiebre, ictericia)
+- Senales de **ileo o gastroparesia severa** — inflamacion persistente, distension abdominal, incapacidad de pasar gases o excremento, o vomitos de comida sin digerir de horas o dias antes (por actualizacion de la etiqueta despues de 2023)
 - Cambios de vision en pacientes con retinopatia diabetica
 - Cualquier reaccion alergica severa
 
@@ -138,14 +151,22 @@ No aguante una senal de alerta por miedo a perder el progreso. Llamenos. Preferi
 
 ## Contraindicaciones — quien no debe tomar estos medicamentos
 
-Los GLP-1 y los GIP/GLP-1 estan contraindicados en pacientes con: `[CLINICAL REVIEW: confirmar el lenguaje actual de la etiqueta]`
+Los GLP-1 y los GIP/GLP-1 estan contraindicados en pacientes con:
 
 - Historial personal o familiar de **carcinoma medular de tiroides (MTC)**
 - **Neoplasia endocrina multiple tipo 2 (MEN 2)**
 - Reaccion previa de hipersensibilidad seria al medicamento
-- **Embarazo** — descontinuar al menos 2 meses antes de un embarazo planeado `[CLINICAL REVIEW]`
-- **Pancreatitis** activa o reciente — caso por caso
-- Gastroparesia severa
+- **Embarazo.** La etiqueta de Wegovy® recomienda descontinuar la semaglutida **al menos 2 meses antes de un embarazo planeado** por su vida media larga. La etiqueta de Zepbound® (tirzepatida) trata el embarazo por separado y no es identica a la ventana de la semaglutida — repasamos el plan especifico en la consulta en vez de mezclar las dos.
+- **Historial de pancreatitis** — generalmente se evita; se requiere revision individual.
+- Gastroparesia severa o historial de ileo
+
+### Zepbound® (tirzepatida) y anticonceptivos orales — nota de consentimiento informado requerida
+
+La tirzepatida puede reducir la eficacia de los anticonceptivos orales. La etiqueta de Zepbound® recomienda que las pacientes que usan pastillas anticonceptivas **cambien a un metodo no oral, o agreguen un metodo de barrera, durante 4 semanas despues de empezar la tirzepatida y 4 semanas despues de cada subida de dosis.** Esto aplica ya sea que el medicamento se recete para manejo de peso o para diabetes tipo 2. Si esto le aplica, avisenos en la consulta para planificar su anticoncepcion antes de empezar.
+
+### Retinopatia diabetica — se requiere coordinacion antes de iniciar
+
+Las pacientes con historial de retinopatia diabetica requieren coordinacion con oftalmologia antes de empezar semaglutida o tirzepatida. El ensayo SUSTAIN-6 identifico una senal de empeoramiento de la retinopatia con mejoria glucemica rapida bajo semaglutida, y no iniciamos terapia en esta poblacion sin un chequeo con el especialista y un plan.
 
 Preguntamos sobre todo esto en la evaluacion inicial. No es una cajita para marcar. Es la razon por la que hay un medico involucrado.
 
@@ -153,15 +174,15 @@ Preguntamos sobre todo esto en la evaluacion inicial. No es una cajita para marc
 
 ### Que medicamentos GLP-1 receta Hello You Wellness en Miami
 
-Recetamos **semaglutida** (Wegovy, Ozempic) y **tirzepatida** (Zepbound, Mounjaro), y — cuando esta legalmente disponible y es clinicamente apropiado — versiones compuestas formuladas por una farmacia estadounidense licenciada bajo 503A. `[LEGAL REVIEW: 503A framing]`
+Recetamos **semaglutida** (Wegovy®, Ozempic®) y **tirzepatida** (Zepbound®, Mounjaro®) como terapia por defecto. Las formulaciones compuestas pueden considerarse solo en circunstancias clinicas estrechas y especificas al paciente durante la consulta, segun la guia actual de la FDA.
 
 El medicamento que recomendamos depende de su IMC, condiciones asociadas, historial previo de perdida de peso, perfil de tolerancia y presupuesto. Ambas moleculas se recetan como inyeccion subcutanea semanal. No empujamos una sobre otra por razones de margen; la recomendacion es clinica.
 
 ### Cuanto cuesta un programa de GLP-1 en Miami
 
-**Nuestra cuota de programa empieza en $199 al mes.** El medicamento se cobra aparte y varia segun molecula, dosis, formulacion y estado de seguro. `[VERIFY WITH CLINIC]`
+**Nuestra cuota de programa empieza en $199 al mes.** El medicamento se cobra aparte y varia segun molecula, dosis, formulacion y estado de seguro.
 
-Espere un total mensual realista — programa mas medicamento — durante su consulta. Los medicamentos de marca en efectivo salen mas altos; las opciones compuestas, donde esten disponibles, generalmente son mas economicas. La cobertura del seguro para manejo cronico del peso (Wegovy, Zepbound) es inconsistente en los planes comerciales de Florida y tipicamente requiere autorizacion previa.
+Espere un total mensual realista — programa mas medicamento — durante su consulta. Los medicamentos de marca en efectivo salen mas altos. La cobertura del seguro para manejo cronico del peso (Wegovy®, Zepbound®) es inconsistente en los planes comerciales de Florida y tipicamente requiere autorizacion previa.
 
 ### Quien es buen candidato para semaglutida o tirzepatida
 
@@ -204,44 +225,45 @@ La consulta de 30 minutos es gratis. Repasamos sus metas, revisamos si es candid
 
 ---
 
+## Marcas registradas
+
+Wegovy® y Ozempic® son marcas registradas de Novo Nordisk. Zepbound® y Mounjaro® son marcas registradas de Eli Lilly and Company. Todas las demas marcas mencionadas en esta pagina son propiedad de sus respectivos duenos. El uso de estos nombres en esta pagina es unicamente para identificacion y no implica respaldo ni afiliacion con los titulares de las marcas.
+
+---
+
 ## Review checklist
 
-**Clinical Evidence Agent — verificar las siguientes etiquetas inline:**
+### APLICADO (esta sesion, draft-v2)
+- Se separo el encuadre de descontinuacion por embarazo entre semaglutida (Wegovy® ≥2 meses antes) y tirzepatida (Zepbound® tratada por separado en consulta)
+- Se agrego la advertencia de interaccion de Zepbound® tirzepatida con anticonceptivos orales (barrera / metodo no oral por 4 semanas al iniciar y despues de cada subida) como subseccion propia
+- Se agrego el requisito de coordinacion con oftalmologia para retinopatia diabetica (senal SUSTAIN-6)
+- Se corrigio el momento pico de nausea a las primeras una a tres semanas de una nueva dosis (antes decia "48–72 horas despues de subir la dosis")
+- Se cambio el bullet de pancreatitis de "activa o reciente" a "historial de" (revision individual)
+- Se agrego ileo y gastroparesia severa a la lista de senales de alerta (actualizacion de etiqueta despues de 2023)
+- Se agrego la honestidad de recuperacion de peso post-suspension (STEP 4 / SURMOUNT-4) al plan de salida
+- Se agrego `®` en la primera mencion de Wegovy, Ozempic, Zepbound, Mounjaro
+- Se agrego seccion `## Marcas registradas` al pie
+- Se reformularon los placeholders `[VERIFY WITH CLINIC]` visibles en la seccion de precios y en la FAQ #2 a lenguaje suave
 
-- `[CLINICAL REVIEW: confirmar dosificacion actual usada en la clinica]` — *Que ofrecemos, bullet de semaglutida*
-- `[CLINICAL REVIEW: confirmar esquema de titulacion]` — *Que ofrecemos, bullet de tirzepatida*
-- `[CLINICAL REVIEW: verificar disponibilidad de compuestos y encuadre 503A ante la FDA]` — *Que ofrecemos, parrafo de compuestos*
-- `[CLINICAL REVIEW: confirmar si seguimos los umbrales de IMC de la etiqueta o criterios mas amplios]` — *Quien es buen candidato*
-- `[CLINICAL REVIEW: confirmar panel estandar]` — *Como funciona el programa, paso 3*
-- `[CLINICAL REVIEW]` en las filas de titulacion (semaglutida y tirzepatida) — *Tabla comparativa*
-- `[CLINICAL REVIEW: citar Wilding et al. NEJM 2021]` — *Tabla comparativa, perdida de peso promedio con semaglutida*
-- `[CLINICAL REVIEW: citar Jastreboff et al. NEJM 2022]` — *Tabla comparativa, perdida de peso promedio con tirzepatida*
-- `[CLINICAL REVIEW]` en nausea — *Efectos secundarios, item 1*
-- `[CLINICAL REVIEW]` en escalada de pancreatitis — *Efectos secundarios, senales de alerta*
-- `[CLINICAL REVIEW: confirmar el lenguaje actual de la etiqueta]` — *Contraindicaciones, intro*
-- `[CLINICAL REVIEW]` en momento de descontinuar por embarazo — *Contraindicaciones*
-- `[CLINICAL REVIEW]` en pregunta frecuente #3, umbrales de IMC
-- `[CLINICAL REVIEW]` en pregunta frecuente #4, ranking de efectos secundarios
-- `[CLINICAL REVIEW]` en pregunta frecuente #5, promedios de los ensayos STEP 1 / SURMOUNT-1
+### RETIRADO (esta sesion)
+- Se retiro el encuadre promocional de GLP-1 compuestos del parrafo de Que ofrecemos y de la FAQ #1 (por recomendacion conjunta Legal + Clinica, resolucion de la lista de escasez de la FDA de octubre 2024). Se reemplazo con una sola oracion que apunta a discusion solo en consulta.
 
-**Legal Reviewer — verificar las siguientes etiquetas inline:**
+### PENDIENTE — visto bueno de la clinica
+- Esquema de dosificacion de semaglutida (titulacion en tabla)
+- Esquema de titulacion de tirzepatida
+- Umbrales de IMC de candidatura (etiqueta vs criterios mas amplios)
+- Panel de laboratorio base (en clinica vs ordenado afuera)
+- Politica de telesalud para chequeos mensuales
+- Inclusiones exactas del programa a $199/mes
+- Rango actual en efectivo para la FAQ de semaglutida
+- Sustentacion de disponibilidad de citas la misma semana
 
-- `[LEGAL REVIEW: 503A framing]` — *Que ofrecemos, parrafo de compuestos*
-- `[LEGAL REVIEW: 503A framing]` — *Pregunta frecuente #1, referencia a compuestos*
+### PENDIENTE — abogado externo
+- Cualquier discusion residual de formulaciones compuestas (debe quedarse solo en consulta segun revision Legal)
+- "Consulta gratis de 30 minutos" — confirmar que realmente sea gratis sin condiciones en todo el sitio
+- "Empieza en $199/mes" — divulgacion de inclusiones a golpe de vista en cada uso
+- Pagina de Divulgaciones de Telesalud bajo Fla. Stat. §456.47 antes de que se publique cualquier mencion de telesalud
+- Reconocimiento de marcas registradas en pie de pagina de todo el sitio (esta pagina tiene su propio pie; falta el pie del sitio completo)
 
-**Operaciones de la clinica — verificar las siguientes etiquetas inline:**
-
-- `[VERIFY WITH CLINIC: cual es la farmacia de compuestos que usamos, si aplica]` — *Que ofrecemos*
-- `[VERIFY WITH CLINIC: cuales laboratorios se hacen en la clinica y cuales se ordenan afuera]` — *Como funciona el programa, paso 2*
-- `[VERIFY WITH CLINIC: politica de telesalud]` — *Como funciona el programa, paso 5*
-- `[VERIFY WITH CLINIC: inclusiones exactas]` — *Transparencia de precios, $199/mes*
-- `[VERIFY: la situacion del seguro es individual y no la prometemos]` — *Transparencia de precios*
-- `[VERIFY WITH CLINIC: rango actual en efectivo que cotizamos]` — *Cuanto cuesta la semaglutida*
-- `[VERIFY: los precios cambian frecuentemente — no comprometer un numero especifico en el texto]` — *Wegovy vs Zepbound*
-- `[VERIFY]` en fila de categoria de costo — *Tabla comparativa*
-- `[VERIFY WITH CLINIC]` — *Pregunta frecuente #2, precio del programa*
-- `[VERIFY WITH CLINIC: disponibilidad actual de la misma semana]` — *Seccion Sirviendo a Kendall*
-
-**Byline del proveedor:**
-
+### Byline del proveedor
 - Reemplazar `[PROVIDER_NAME, CREDENTIALS]` en el bloque de byline una vez que se confirme el medico o APRN responsable.

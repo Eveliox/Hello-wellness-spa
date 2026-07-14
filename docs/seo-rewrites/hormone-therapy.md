@@ -15,9 +15,21 @@ target_keywords:
   - pellet vs injection testosterone therapy
   - estrogen therapy Miami
   - am I a candidate for testosterone therapy
-review_status: draft
+review_status: draft-v2
 provider_byline_placeholder: true
 new_page: true
+changes_applied:
+  - "A3: Added 'no FDA-approved testosterone product for women in the U.S.' fact"
+  - "A3: Added explicit VTE risk statement for estrogen therapy"
+  - "A3: Added fertility preservation discussion for men considering TRT"
+  - "A3: Added WHI-consistent breast cancer risk framing for combined estrogen-progestogen HRT"
+  - "A3: Added cardiovascular timing hypothesis for HRT initiation"
+  - "A3: Added TRAVERSE (2023) reassurance for TRT cardiovascular safety in men"
+  - "A3: Strengthened transdermal testosterone gel transference to FDA boxed-warning language"
+  - "A3: Split pellet duration: men 3–4 months, women 3–6 months"
+  - "A6: Added Trademarks footer section"
+  - "B4: Reworked women's testosterone off-label marketing to consult-only framing (kept the informed-consent fact)"
+  - "B5: Reworked visible [VERIFY WITH CLINIC] pricing placeholder for women's HRT"
 ---
 
 # Hormone Replacement Therapy in SW Miami: HRT, BHRT & Testosterone
@@ -65,10 +77,14 @@ Before we discuss any therapy, we run a baseline panel. Typical labs include:
 There is no single "best" delivery method — the right choice depends on your labs, your lifestyle, and how your body responds. We discuss all three at consult.
 
 - **Injection (testosterone cypionate or testosterone enanthate)** — most common. Weekly or twice-weekly intramuscular or subcutaneous injection. Steady, adjustable, cost-effective. Requires either self-administration at home or in-clinic visits.
-- **Pellet implants** — subcutaneous pellets placed in-office, typically providing 3–6 months of steady release. Convenient; less dose flexibility mid-cycle.
-- **Topical gel** — daily application. Non-injection option; requires care to avoid transfer to partners or children.
+- **Pellet implants** — subcutaneous pellets placed in-office, typically providing **3–4 months** of steady release for men. Convenient; less dose flexibility mid-cycle.
+- **Topical gel** — daily application. Non-injection option. **FDA boxed warning:** transdermal testosterone gels carry a boxed warning for secondary exposure to women and children through skin-to-skin contact — with documented cases of virilization. Application site must be covered, hands must be washed thoroughly after application, and skin-to-skin contact at the application site is avoided until the site is washed. If you have young children or a partner at home, we discuss whether gel is the right delivery method for you.
 
 `[CLINICAL REVIEW: confirm all three delivery methods offered at clinic]`
+
+### Fertility preservation for men considering TRT
+
+Exogenous testosterone therapy suppresses the body's own production of testosterone and, importantly, **suppresses spermatogenesis** — often to the point of infertility while on therapy, and sometimes with delayed recovery after stopping. If you are considering TRT and you may want to father a child in the future, discuss this at consult **before** starting. Alternatives that preserve or stimulate the body's own testosterone production — such as clomiphene, enclomiphene, or hCG — should be part of the conversation, and in some cases sperm banking prior to initiation is appropriate.
 
 ### Monitoring cadence
 
@@ -106,9 +122,17 @@ For women with an intact uterus, unopposed estrogen therapy carries endometrial 
 
 Delivery options we discuss include:
 
-- **Estradiol** — transdermal patch, topical gel, oral tablet, or pellet implant. Transdermal routes have a different risk profile than oral routes and are often preferred in patients with specific cardiovascular considerations. `[CLINICAL REVIEW]`
+- **Estradiol** — transdermal patch, topical gel, oral tablet, or pellet implant (typically 3–6 months for women). Transdermal routes have a different risk profile than oral routes and are often preferred in patients with specific cardiovascular considerations. Any form of estrogen therapy is associated with an **elevated risk of venous thromboembolism (VTE) — deep vein thrombosis and pulmonary embolism.** The magnitude of that risk differs meaningfully by route (transdermal generally lower than oral), by dose, and by individual risk factors, and we walk through this with you before starting. `[CLINICAL REVIEW]`
 - **Progesterone** — oral micronized progesterone or topical formulations, dosed cyclically or continuously depending on your protocol.
-- **Testosterone (women)** — low-dose testosterone is used off-label in some female protocols, most often for persistent low libido after other causes are addressed. This is a nuanced conversation and requires ongoing lab monitoring. `[CLINICAL REVIEW]`
+- **Additional hormonal support beyond estrogen and progesterone.** For some women, additional hormonal support may be discussed during consultation as part of an individualized plan. As required informed-consent context: **there is no FDA-approved testosterone product for women in the U.S.** — any prescribing in this space is off-label. Specific indications and options are discussed at consult, not marketed publicly.
+
+### Breast cancer risk on combined estrogen-progestogen HRT
+
+Symmetric to the disease-prevention claims we deliberately avoid, patients deserve the risk side stated plainly: **combined estrogen-progestogen HRT is associated with a modest increase in invasive breast cancer risk with longer-term use, per the Women's Health Initiative (WHI) and subsequent analyses.** This is one of several considerations that goes into whether HRT is right for you, at what dose, by what route, and for how long. We frame this in your risk/benefit conversation — we do not gloss over it.
+
+### Cardiovascular timing hypothesis
+
+Since the original WHI publications, re-analyses and current North American Menopause Society (NAMS) positioning have supported a "timing hypothesis": **HRT initiated within roughly 10 years of menopause has a different cardiovascular risk profile than HRT initiated later.** This is one reason "when" matters as much as "whether." Your age, time since final menstrual period, and cardiovascular history are all part of the decision.
 
 ### Diagnostic labs and screening
 
@@ -167,8 +191,8 @@ For men considering TRT: unaddressed severe sleep apnea, elevated hematocrit, an
 
 ## Pricing transparency
 
-- **Men's TRT programs:** start at **$499 per program** `[VERIFY WITH CLINIC]`. Includes physician evaluation and defined ongoing oversight; medication and lab costs may be quoted separately.
-- **Women's HRT and BHRT programs:** pricing varies by delivery method, whether the formulation is FDA-approved or compounded, and monitoring intensity. `[VERIFY WITH CLINIC: confirm women's HRT pricing structure and starting figure]`
+- **Men's TRT programs:** start at **$499 per program** `[VERIFY WITH CLINIC: current and inclusions]`. Includes physician evaluation and defined ongoing oversight; medication and lab costs may be quoted separately.
+- **Women's HRT and BHRT programs:** pricing varies by delivery method, whether the formulation is FDA-approved or compounded, and monitoring intensity. Program pricing is quoted in writing at consultation before you commit.
 
 You will receive a full quote before you commit. We do not run silent auto-charges.
 
@@ -195,6 +219,9 @@ When symptoms of perimenopause or menopause are affecting quality of life and ot
 **How often do I need labs on HRT?**
 Men on TRT: at 6 weeks, 3 months, then quarterly rotating panels. Women on HRT: at 6–12 weeks after initiation or dose change, then 6 months, then annually — with immediate re-evaluation for any concerning symptom. `[CLINICAL REVIEW]`
 
+**What did the TRAVERSE trial say about TRT and heart risk?**
+The TRAVERSE trial (published 2023) evaluated cardiovascular outcomes in men with hypogonadism and pre-existing cardiovascular disease or high cardiovascular risk who were treated with testosterone. The trial was reassuring: it did not show an increase in major adverse cardiovascular events with TRT compared with placebo in that population. This does not mean TRT is risk-free, and it does not remove the need for monitoring — but it is meaningful, evidence-based context for men who have hesitated to start TRT out of cardiovascular concern.
+
 ## Why in-person hormone care matters
 
 Telehealth HRT and TRT services have expanded access, and for some patients that model works. What we offer is different, not better in every case: in-person consultation, in-clinic labs at a SW Miami location you can drive to, physician follow-ups you can look someone in the eye for, and a chart that stays with a specific practice rather than a rotating national roster. If you value that model — particularly for a therapy that will likely be ongoing — that is what we are built to provide.
@@ -210,24 +237,55 @@ Telehealth HRT and TRT services have expanded access, and for some patients that
 
 ---
 
+## Trademarks
+
+Product names for FDA-approved and compounded hormone formulations mentioned on this page are the property of their respective manufacturers. Any brand-name references (e.g., Estrogel, Divigel, Vivelle-Dot, Estrace, Prometrium, AndroGel, Testim, Depo-Testosterone, and others discussed at consult) are used descriptively for identification only and do not imply endorsement by or affiliation with the trademark holders.
+
+---
+
 ## Review checklist
 
-- **Line ~24 (Lead paragraph):** confirm "symptom management and quality of life" framing is preserved and no disease-prevention claims (heart disease, dementia, cancer) appear anywhere on page. Women's Health Initiative regulatory landmine.
-- **Line ~34 (Men's symptoms):** `[CLINICAL REVIEW]` — confirm symptom list is appropriately hedged.
-- **Line ~46 (Men's baseline labs):** `[CLINICAL REVIEW]` — confirm panel matches clinic protocol; confirm PSA baseline requirement.
-- **Line ~60 (Delivery options):** `[CLINICAL REVIEW]` — confirm clinic offers injection, pellet, and gel; if not all three, remove non-offered methods.
-- **Line ~70 (Monitoring cadence):** `[CLINICAL REVIEW]` — confirm cadence matches clinic protocol.
-- **Line ~76 (Men's TRT pricing):** `[VERIFY WITH CLINIC]` — $499/program pulled from aesthetics-content.tsx:59; confirm current, confirm program inclusions, confirm lab/medication carveouts.
-- **Line ~92 (Women's symptoms):** `[CLINICAL REVIEW]`.
-- **Line ~100 (Progesterone pairing):** `[CLINICAL REVIEW]` — confirm unopposed estrogen / endometrial protection language.
-- **Line ~106 (Estradiol delivery):** `[CLINICAL REVIEW]` — transdermal vs oral risk profile language.
-- **Line ~110 (Women's testosterone off-label):** `[CLINICAL REVIEW]` — confirm clinic offers and confirm off-label framing.
-- **Line ~124 (Women's monitoring):** `[CLINICAL REVIEW]` — confirm cadence and cancer screening framework.
-- **Line ~136 (BHRT framing):** `[LEGAL REVIEW]` — confirm "compounded BHRT lacks FDA approval for most formulations" language is current and accurate; this section deliberately dispels marketing claims and needs legal signoff.
-- **Line ~148 (Contraindications):** `[CLINICAL REVIEW]` — confirm list is complete and matches clinic policy.
-- **Line ~172 (Women's HRT pricing):** `[VERIFY WITH CLINIC]` — need starting figure or explicit "quoted at consult" language.
-- **Line ~184 (BHRT FAQ):** `[LEGAL REVIEW]` — confirm safety framing.
-- **Line ~200 (Cross-link to aesthetics):** action item — reconcile with `src/components/services/aesthetics-content.tsx:56-61` (remove or downgrade TRT entry there, or link out to this page).
-- **Provider byline (top of page):** replace `[PROVIDER_NAME, CREDENTIALS]` before publish.
-- **Route:** `/services/hormone-therapy` does not yet exist. Homepage links land on dead-end (per project notes). Route creation and nav wiring are separate tickets.
-- **General:** confirm no "anti-aging" headline claims; no heart disease / dementia / cancer prevention claims (WHI landmine); no disparagement of telehealth providers.
+### APPLIED (this session, draft-v2)
+- Added "there is no FDA-approved testosterone product for women in the U.S." as required informed-consent fact
+- Added explicit VTE risk statement for estrogen therapy (with route-dependence framing)
+- Added fertility preservation subsection for men considering TRT (spermatogenesis suppression, clomiphene / enclomiphene / hCG alternatives, sperm banking option)
+- Added combined estrogen-progestogen HRT breast cancer risk framing (WHI-consistent), symmetric to correctly-avoided prevention claims
+- Added cardiovascular timing hypothesis for HRT (initiation within ~10 years of menopause; NAMS positioning)
+- Added TRAVERSE (2023) reassurance FAQ for TRT cardiovascular safety in men with pre-existing CV disease
+- Strengthened transdermal testosterone gel language to reflect it as an FDA boxed warning (secondary exposure to women and children)
+- Split pellet duration: men 3–4 months (was conflated 3–6); women pellets called out at 3–6 months in estradiol delivery bullet
+- Reworded visible `[VERIFY WITH CLINIC]` placeholder in women's HRT pricing to "quoted at consultation"
+- Added `## Trademarks` footer section
+
+### STRIPPED (this session)
+- Removed women's testosterone off-label public marketing language ("used off-label in some female protocols, most often for persistent low libido"). Reworked to consult-only framing while preserving the required informed-consent fact that no FDA-approved women's testosterone product exists in the U.S.
+
+### STILL OPEN — clinic sign-off
+- Men's baseline lab panel matches clinic protocol; PSA baseline requirement
+- Whether clinic offers all three TRT delivery methods (injection, pellet, gel) — if not, remove non-offered
+- TRT monitoring cadence
+- $499/program TRT pricing accuracy and program inclusions
+- Women's HRT / BHRT program pricing structure and starting figure
+- Women's HRT monitoring cadence and cancer screening framework
+- Contraindication list matches clinic policy
+- Whether clinic actually offers women's off-label testosterone (separate from marketing decision above; consult-only conversation still requires clinic to decide it participates in this space)
+
+### STILL OPEN — outside counsel
+- BHRT framing that compounded BHRT is not automatically safer than FDA-approved conventional HRT (currently strong; keep as legal-defense asset — confirm current)
+- BHRT FAQ safety framing
+- Physician-supervised APRN language accuracy per FL Board of Medicine
+- WHI landmine final read-through (no drift into disease-prevention claims anywhere)
+- Telehealth Disclosures page under Fla. Stat. §456.47 before publishing any telehealth-adjacent language
+- Cross-link to aesthetics page — reconcile with `src/components/services/aesthetics-content.tsx:56-61` (remove or downgrade TRT entry there or link out)
+- Trademark acknowledgment site-wide footer
+
+### Provider byline
+- Replace `[PROVIDER_NAME, CREDENTIALS]` in the top byline before publish
+
+### Route / infra
+- `/services/hormone-therapy` does not yet exist. Route creation and nav wiring are separate tickets.
+
+### General
+- Confirm no "anti-aging" headline claims
+- No heart disease / dementia / cancer prevention claims (WHI landmine)
+- No disparagement of telehealth providers

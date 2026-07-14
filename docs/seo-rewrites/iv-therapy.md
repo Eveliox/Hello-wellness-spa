@@ -15,8 +15,18 @@ target_keywords:
   - what is in a Myers cocktail
   - is IV therapy safe
   - how long does an NAD+ IV take
-review_status: draft
+review_status: draft-v2
 provider_byline_placeholder: true
+changes_applied:
+  - "A5: Added IV-placement risk consent block (air embolism, thrombophlebitis, extravasation, infection)"
+  - "A5: Added vitamin/thiamine allergy history to screening criteria"
+  - "A5: Added per-blend pregnancy exclusions (NAD+, high-dose vitamin C, glutathione)"
+  - "A5: Renamed Immune IV to 'Nutrient support blend (formerly Immune IV)' with FTC disclaimer"
+  - "A5: Replaced 'longevity' with 'cellular energy metabolism support'"
+  - "A5: Reframed NAD+ 'loading dose' to 'per-session dose'"
+  - "A5: Biotin lab-interference disclosure timing (72h before troponin/TSH/PTH/vitamin D draws)"
+  - "A6: Added Trademarks footer section"
+  - "B5: Reworked visible [VERIFY WITH CLINIC] pricing placeholders"
 ---
 
 # IV Therapy in SW Miami: NAD+, Myers' Cocktail, Glutathione & More
@@ -31,57 +41,57 @@ If you are searching for an IV drip in Kendall, a hydration IV in SW Miami, or a
 
 Every blend below is compounded fresh, administered by a licensed nurse, and preceded by a brief clinical screening. Session times are door-to-door estimates that include intake, IV placement, infusion, and a short observation window.
 
-### Hydration IV — from $99 [VERIFY WITH CLINIC]
+### Hydration IV — from $99
 
 - **Ingredients:** Electrolyte-balanced base (normal saline or lactated ringers, clinician selected) with optional B-complex add-on. [CLINICAL REVIEW]
 - **Session time:** Approximately 30 minutes
 - **Best for:** Day-after replenishment, heat exposure, pre-event freshening, travelers landing at MIA
 - **Notes:** Our most accessible entry point. Straight fluid and electrolyte replacement — no vitamin cocktail unless requested.
 
-### Myers' Cocktail — from $[VERIFY WITH CLINIC]
+### Myers' Cocktail — pricing confirmed at intake
 
 - **Ingredients:** B-complex, vitamin B12, vitamin C, magnesium, calcium — the classic formulation originally developed by Dr. John Myers
 - **Session time:** Approximately 45–60 minutes
 - **Best for:** Guests who want a well-studied, general-wellness blend with a decades-long clinical track record
 - **Notes:** One of the most requested IVs in the country. A Myers' Cocktail is a balanced micronutrient infusion — not a treatment for any specific condition. Magnesium is dose-adjusted for guests with kidney concerns. [CLINICAL REVIEW]
 
-### NAD+ IV — from $[VERIFY WITH CLINIC]
+### NAD+ IV — pricing confirmed at intake
 
 - **Ingredients:** Nicotinamide adenine dinucleotide (NAD+) in a saline base
 - **Session time:** Approximately 2–4 hours depending on dose
-- **Typical dosing:** Loading doses of 250–500 mg, with monthly maintenance schedules for many guests [CLINICAL REVIEW]
-- **Best for:** Guests focused on cellular energy support, longevity protocols, and structured monthly maintenance
-- **Notes:** NAD+ IV is infused slowly by design. Rapid infusion is uncomfortable; a measured drip rate is standard of care. Plan for a longer session, and bring a book, laptop, or headphones — the lounge is set up for it.
+- **Typical dosing:** Per-session doses of 250–500 mg, with monthly maintenance schedules for many guests [CLINICAL REVIEW]
+- **Best for:** Guests focused on cellular energy metabolism support and structured monthly maintenance
+- **Notes:** NAD+ IV is infused slowly by design. Rapid infusion is uncomfortable; a measured drip rate is standard of care. Plan for a longer session, and bring a book, laptop, or headphones — the lounge is set up for it. **Not administered during pregnancy** — safety data is absent.
 
-### Glutathione IV — from $[VERIFY WITH CLINIC]
+### Glutathione IV — pricing confirmed at intake
 
 - **Ingredients:** Glutathione (a naturally occurring antioxidant) in a saline base; often paired with vitamin C
 - **Session time:** Approximately 30–45 minutes
 - **Best for:** Guests interested in antioxidant support and skin-clarity goals
-- **Notes:** Glutathione is popular as a standalone infusion and as an add-on. We frame glutathione honestly: it is an antioxidant with a role in liver-based detoxification pathways your body already runs — not a "detox drip." [CLINICAL REVIEW]
+- **Notes:** Glutathione is popular as a standalone infusion and as an add-on. We frame glutathione honestly: it is an antioxidant with a role in liver-based detoxification pathways your body already runs — not a "detox drip." **Glutathione IV in pregnancy has no safety data and is not offered during pregnancy.** [CLINICAL REVIEW]
 
-### Immune IV — from $[VERIFY WITH CLINIC]
+### Nutrient support blend (formerly "Immune IV") — pricing confirmed at intake
 
 - **Ingredients:** High-dose vitamin C, zinc, B-complex, saline base
 - **Session time:** Approximately 45–60 minutes
 - **Best for:** Guests wanting nutrient support during travel-heavy seasons or high-demand weeks
-- **Notes:** For high-dose vitamin C infusions greater than 25 g, we screen for G6PD deficiency before administration. This is a safety standard, not an optional step. [CLINICAL REVIEW]
+- **Notes:** **This blend is not a treatment or prevention for any infectious disease.** We changed the name because "Immune IV" implies a promise this blend cannot make. For high-dose vitamin C infusions, we screen for G6PD deficiency before administration — this is a safety standard, not an optional step. [CLINICAL REVIEW: confirm the vitamin C dose ceiling this clinic uses and align the G6PD screening threshold]. **High-dose vitamin C is not administered during pregnancy.**
 
-### Recovery / Athletic IV — from $[VERIFY WITH CLINIC]
+### Recovery / Athletic IV — pricing confirmed at intake
 
 - **Ingredients:** Amino acid blend (may include taurine), magnesium, B-complex, vitamin C, saline or lactated ringers base
 - **Session time:** Approximately 45–60 minutes
 - **Best for:** Athletes replenishing after long training blocks, event days, or competition weekends
 - **Notes:** Formulated around structured rehydration and micronutrient replacement. Not a performance-enhancing infusion.
 
-### Jet Lag IV — from $[VERIFY WITH CLINIC]
+### Jet Lag IV — pricing confirmed at intake
 
 - **Ingredients:** Hydration base with B12, B-complex, magnesium, vitamin C, optional glutathione add-on
 - **Session time:** Approximately 45–60 minutes
 - **Best for:** Travelers arriving at Miami International Airport (roughly fifteen minutes from our SW Miami suite) who want to reset before meetings, family, or the rest of a Miami weekend
 - **Notes:** A hydration-forward blend built around what long flights actually do to you: fluid loss and disrupted routine. We book jet lag IVs same-day when the schedule allows during Tue–Fri hours.
 
-### Hangover IV — from $[VERIFY WITH CLINIC]
+### Hangover IV — pricing confirmed at intake
 
 - **Ingredients:** Hydration base, B-complex, B12, magnesium, anti-nausea add-on if clinically appropriate [CLINICAL REVIEW]
 - **Session time:** Approximately 45–60 minutes
@@ -97,12 +107,25 @@ For guests who prefer to receive their IV at home, in a hotel, or in an office, 
 Every IV at Hello You Wellness Center is prepared under sterile compounding standards, administered by a licensed nurse, and overseen by [PROVIDER_NAME, CREDENTIALS]. Before your first infusion, we complete a short intake that screens for the contraindications that matter:
 
 - **Kidney disease** — affects magnesium and fluid load decisions [CLINICAL REVIEW]
-- **G6PD deficiency** — required screening before high-dose vitamin C infusions (>25 g) [CLINICAL REVIEW]
+- **G6PD deficiency** — required screening before high-dose vitamin C infusions [CLINICAL REVIEW: confirm threshold]
 - **Heart failure or significant cardiac history** — affects fluid volume and rate [CLINICAL REVIEW]
-- **Pregnancy or lactation** — many blends are modified or deferred [CLINICAL REVIEW]
+- **Pregnancy or lactation** — many blends are modified or deferred. NAD+, high-dose vitamin C, and glutathione IVs are not offered during pregnancy [CLINICAL REVIEW]
+- **Vitamin or thiamine allergy history** — rare but documented (thiamine anaphylaxis has been reported); a full allergy history is part of intake
 - **Active medications** — including anticoagulants, chemotherapy, and certain psychiatric medications [CLINICAL REVIEW]
 
 If a blend on our menu is not appropriate for your history, we will say so and offer alternatives. This is what physician oversight actually looks like — not a formality, but a real conversation before a needle is placed.
+
+### Risks of IV placement itself
+
+Even in a wellness setting, an IV is still an IV, and informed consent covers the placement itself. Rare but documented risks of any intravenous infusion include:
+
+- **Infiltration or extravasation** — the IV fluid leaking into surrounding tissue rather than the vein, which can cause swelling, discomfort, and (with some agents) tissue irritation
+- **Thrombophlebitis** — inflammation of the vein at the placement site
+- **Infection** at the venipuncture site
+- **Air embolism** — rare, taken seriously; standards for line priming and monitoring are designed around preventing it
+- **Vasovagal reaction** — feeling lightheaded or briefly fainting during placement
+
+Our licensed nurses use single-use, sterile equipment and monitor you throughout the infusion. If you have a history of difficult IV placement, tell us at intake so we can plan.
 
 ## Session Flow: What to Expect
 
@@ -128,7 +151,7 @@ IV therapy administered by licensed clinicians under physician oversight, using 
 Frequency depends on the blend and the goal. Hydration IVs can be repeated as needed. Myers' Cocktail is commonly received every two to four weeks. NAD+ protocols typically follow a loading schedule followed by monthly maintenance. Your provider will recommend a cadence during intake. [CLINICAL REVIEW]
 
 ### What does NAD+ IV therapy do?
-NAD+ (nicotinamide adenine dinucleotide) is a coenzyme involved in cellular energy metabolism. NAD+ IV therapy delivers the coenzyme intravenously as part of longevity, cellular support, and structured maintenance protocols. NAD+ IV therapy is not a treatment for any specific disease.
+NAD+ (nicotinamide adenine dinucleotide) is a coenzyme involved in cellular energy metabolism. NAD+ IV therapy delivers the coenzyme intravenously as part of cellular energy metabolism support and structured maintenance protocols. NAD+ IV therapy is not a treatment for any specific disease.
 
 ### How long does an NAD+ IV take?
 An NAD+ IV at Hello You Wellness Center takes approximately 2 to 4 hours, depending on dose. NAD+ must be infused slowly to remain comfortable — rapid infusion causes chest tightness and flushing, so a measured drip rate is the clinical standard. Plan for a longer session.
@@ -155,21 +178,43 @@ Ready to book? IV appointments start with a fifteen-minute scheduling slot so we
 
 For fully custom formulas, see our [Build Your Own IV](/services/build-your-own-iv) page.
 
+## Trademarks
+
+"Myers' Cocktail" is a commonly used descriptive term for the balanced micronutrient IV formulation originally developed by Dr. John Myers. Product names are used descriptively for identification only. No affiliation with or endorsement by any product or brand mentioned on this page is implied.
+
 ## Review checklist
 
-- Line 3 — [PROVIDER_NAME, CREDENTIALS]: insert supervising physician / nurse practitioner name and license
-- Hydration IV pricing — [VERIFY WITH CLINIC]: confirm $99 is still the starting price and what it includes
-- Myers' Cocktail pricing — [VERIFY WITH CLINIC]: confirm current price
-- NAD+ IV pricing and dosing — [VERIFY WITH CLINIC + CLINICAL REVIEW]: confirm 250–500 mg loading dose and monthly maintenance framing
-- Glutathione IV pricing — [VERIFY WITH CLINIC]
-- Immune IV pricing — [VERIFY WITH CLINIC]
-- Recovery/Athletic IV pricing and amino acid contents — [VERIFY WITH CLINIC]
-- Jet Lag IV pricing and composition — [VERIFY WITH CLINIC]
-- Hangover IV pricing and anti-nausea add-on inclusion — [VERIFY WITH CLINIC + CLINICAL REVIEW]
-- G6PD screening threshold — [CLINICAL REVIEW]: confirm >25 g vitamin C is the correct screening trigger for your protocol
-- Contraindication list — [CLINICAL REVIEW]: confirm kidney/cardiac/pregnancy/medication screening protocol matches actual intake
-- Mobile IV service — [VERIFY]: confirm service area boundaries and any additional fee
-- Myers' Cocktail cadence (every 2–4 weeks) — [CLINICAL REVIEW]: confirm this is the recommendation you give guests
-- NAD+ loading + monthly maintenance framing — [CLINICAL REVIEW]
-- Glutathione language ("antioxidant with a role in liver-based detoxification pathways") — [CLINICAL REVIEW]: verify this framing avoids disease-treatment claims to your standard
-- Provider byline placement — replace `[PROVIDER_NAME, CREDENTIALS]` in two locations (top byline and safety section)
+### APPLIED (this session, draft-v2)
+- Added IV-placement risk consent block (infiltration/extravasation, thrombophlebitis, infection, air embolism, vasovagal)
+- Added vitamin/thiamine allergy history to intake screening list
+- Added per-blend pregnancy exclusions inline (NAD+, high-dose vitamin C, glutathione)
+- Renamed "Immune IV" to "Nutrient support blend (formerly 'Immune IV')" with disclaimer that this is not a treatment or prevention for any infectious disease
+- Replaced "longevity protocols" wording (NAD+ section and FAQ) with "cellular energy metabolism support"
+- Reframed NAD+ "loading doses" language to "per-session doses" (loading dose has specific steady-state pharmacology meaning)
+- Reworded visible `[VERIFY WITH CLINIC]` pricing placeholders on every blend to "pricing confirmed at intake"
+- Added `## Trademarks` footer section
+
+### STRIPPED (this session)
+- Nothing removed from IV pages under Part B; only Part A safe edits and cleanup
+
+### STILL OPEN — clinic sign-off
+- Actual starting price for Hydration IV ($99 assumed)
+- Named-blend prices for Myers' Cocktail, NAD+, Glutathione, Nutrient support blend, Recovery, Jet Lag, Hangover
+- NAD+ per-session dose (250–500 mg range currently in copy)
+- G6PD screening threshold decision (clinical review flagged >25 g as above typical protocol; align to ≥15 g or cap at 25 g — physician decision)
+- Contraindication list per blend
+- Mobile IV service area boundaries + prescriber-of-record disclosure for off-site delivery
+- Myers' Cocktail cadence recommendation
+- Anti-nausea add-on workflow on Hangover IV (prescription-per-visit)
+- Whether in-clinic compounding is done or if a partner 503A pharmacy handles it (USP <797> + Florida pharmacy permit question)
+
+### STILL OPEN — outside counsel
+- Physician-supervised APRN / RN administration model precision under FL Board of Nursing Rule 64B9-3.008
+- Sterile compounding jurisdiction (in-clinic vs partner pharmacy) — Florida pharmacy permit language
+- Mobile IV Florida licensing model for off-address delivery
+- "Same-day IV appointments often available" substantiation
+- Trademark acknowledgment site-wide footer
+- Telehealth Disclosures page under Fla. Stat. §456.47 (if IV workflows ever touch telehealth intake)
+
+### Provider byline
+- Replace `[PROVIDER_NAME, CREDENTIALS]` in two locations (top byline and safety section)

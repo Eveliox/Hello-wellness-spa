@@ -10,9 +10,27 @@ target_keywords:
   - BPC-157 Miami
   - GHK-Cu peptide Miami
   - are peptides legal in Florida
-review_status: draft
+review_status: draft-v2
 provider_byline_placeholder: true
 new_page: false
+changes_applied:
+  - "A4: Applied 'preclinical (animal) research' qualifier where relevant to remaining peptides"
+  - "A4: Corrected sermorelin/Geref history (manufacturer withdrawal, mid-to-late 2000s, commercial reasons)"
+  - "A4: Clarified TB-500 vs thymosin beta-4 distinction (noted in narrowed reference only)"
+  - "A4: Added priapism disclosure for PT-141 (retained indication only)"
+  - "A4: Added melanocyte activation / hyperpigmentation disclosure for PT-141"
+  - "A4: Added injection-site infection / sterile technique guidance for self-injection"
+  - "A4: Added IGF-1 monitoring bullet for growth hormone secretagogues"
+  - "A6: Added Trademarks footer section"
+  - "B2: Removed BPC-157 section entirely (FDA §503A Category 2 as of 2023)"
+  - "B2: Removed TB-500 section entirely (same 2023 FDA flag)"
+  - "B2: Removed 'off-label in men / postmenopausal women' PT-141 marketing sentence"
+  - "B2: Reduced tesamorelin to single-sentence HIV-lipodystrophy-only statement"
+  - "B2: Narrowed CJC-1295/ipamorelin (no public dosing; consult-only framing)"
+  - "B2: Removed GHK-Cu injectable form discussion; kept topical framing only [VERIFY WITH CLINIC]"
+  - "B2: Flagged thymosin alpha-1 with [LEGAL REVIEW: verify current 503A status before publish]"
+  - "B2: Fixed categorical 'Are peptides legal in Florida? yes' answer to nuanced language"
+  - "B5: Reworked visible [VERIFY WITH CLINIC] pricing placeholder"
 ---
 
 # Peptide Therapy in Miami: Physician-Guided Protocols
@@ -35,68 +53,53 @@ Most of the peptides used in clinical wellness settings are prescribed off-label
 
 Below are peptides we most commonly evaluate for patients. Every one requires a prescription, and every protocol is individualized. Where we cite what "research suggests," we are pointing to the current published literature — not making a claim of guaranteed outcome for you.
 
-### BPC-157 (Body Protection Compound-157)
+### A note on peptides not covered on this public page
 
-Research suggests BPC-157 may play a role in soft tissue repair, tendon and ligament recovery, and gut lining integrity in preclinical and early clinical work. Patients typically ask about it after musculoskeletal injury or for gut-related concerns. `[CLINICAL REVIEW]`
+Several peptides that patients frequently ask about — including BPC-157 and TB-500 — sit in a regulatory posture that has shifted meaningfully in 2023–2025 under the FDA's §503A compounding framework. We do not discuss them in detail on a public marketing page. Whether any specific peptide can be legally provided to you today is a conversation for your consult, and our answer will reflect the current FDA and Florida guidance at that moment.
 
-- **Administration:** subcutaneous injection, typically once daily
-- **Typical protocol:** 4–6 week cycles
-- **Regulatory note:** BPC-157 is not FDA-approved and is compounded. `[LEGAL REVIEW: 503A/503B status — FDA compounding guidance for BPC-157 shifted in 2023–2024; verify current standing]`
+### Growth hormone secretagogue peptides (CJC-1295 / ipamorelin)
 
-### TB-500 (thymosin beta-4 fragment)
+Growth hormone secretagogue peptides such as CJC-1295 combined with ipamorelin are sometimes discussed for sleep, recovery, and body composition support. Preclinical research suggests these peptides act on the body's own pulsatile growth hormone axis rather than replacing hormone exogenously.
 
-Research suggests TB-500 may support tissue repair pathways and cellular migration in injury settings. Often discussed alongside BPC-157 for recovery-focused protocols. `[CLINICAL REVIEW]`
-
-- **Administration:** subcutaneous injection, typically 1–2x weekly
-- **Typical protocol:** 4–8 weeks
-- **Regulatory note:** Compounded, off-label. `[LEGAL REVIEW: 503A status]`
-
-### CJC-1295 / ipamorelin
-
-A combination growth hormone secretagogue protocol. Research suggests this pairing may stimulate the body's own pulsatile release of growth hormone rather than replacing it exogenously. Patients typically ask about it for sleep quality, recovery, and body composition support. `[CLINICAL REVIEW]`
-
-- **Administration:** subcutaneous injection, typically nightly
-- **Typical protocol:** 3–6 month cycles with breaks
-- **Regulatory note:** Compounded. Not appropriate for patients with active or hormone-sensitive cancers. Baseline screening required. `[LEGAL REVIEW: 503A status]`
+These peptides may be discussed in consult, subject to current FDA compounding guidance and your baseline screening. They are not appropriate for patients with active or hormone-sensitive cancers, and — because they act on the growth hormone axis — **IGF-1 monitoring is part of any protocol we would consider prescribing.** We do not publish specific dosing on a marketing page. `[LEGAL REVIEW: 503A status]`
 
 ### Sermorelin
 
-Sermorelin is a growth hormone-releasing hormone analog. It historically held FDA approval (as Geref) for pediatric growth hormone deficiency, but that formulation was discontinued in 2008. Current use in adult wellness settings is compounded and off-label. `[CLINICAL REVIEW]` `[LEGAL REVIEW: verify current FDA status and 503A availability]`
+Sermorelin is a growth hormone-releasing hormone analog. It historically held FDA approval as Geref® for pediatric growth hormone deficiency; the manufacturer withdrew Geref from the U.S. market in the mid-to-late 2000s for commercial reasons — not because of a safety action against the molecule. Current use in adult wellness settings is compounded and off-label. `[LEGAL REVIEW: verify current FDA status and 503A availability]`
 
 - **Administration:** subcutaneous injection, typically nightly
-- **Typical protocol:** 3–6 months
-- **Note:** We do not present sermorelin as an "anti-aging" therapy. Research supports specific physiologic effects; long-term outcome data in wellness populations is limited.
+- **Typical protocol:** 3–6 months, with **IGF-1 monitoring** as part of any protocol
+- **Note:** We do not present sermorelin as an "anti-aging" therapy. Preclinical and limited clinical research supports specific physiologic effects on the growth hormone axis; long-term outcome data in wellness populations is limited.
 
 ### Tesamorelin
 
-Tesamorelin (Egrifta) holds FDA approval for one specific indication: reduction of excess abdominal fat in HIV-associated lipodystrophy. Any use outside that indication is off-label. We mention it here for transparency because it appears in peptide conversations, but we prescribe it only when clinically appropriate for the approved indication or under specific physician judgment. `[CLINICAL REVIEW]` `[LEGAL REVIEW]`
+Tesamorelin is FDA-approved only for HIV-associated lipodystrophy and is prescribed only for that indication.
 
 ### PT-141 (bremelanotide)
 
-Bremelanotide holds FDA approval as Vyleesi for hypoactive sexual desire disorder in premenopausal women. Broader use in men and postmenopausal women is off-label. Research suggests it acts on central melanocortin receptors rather than peripheral vascular pathways (unlike PDE5 inhibitors). `[CLINICAL REVIEW]`
+Bremelanotide holds FDA approval as Vyleesi® for **hypoactive sexual desire disorder (HSDD) in premenopausal women** — this is the indication we prescribe it for. Research suggests it acts on central melanocortin receptors rather than peripheral vascular pathways (unlike PDE5 inhibitors). `[CLINICAL REVIEW]`
 
 - **Administration:** subcutaneous injection, on-demand dosing
-- **Regulatory note:** Blood pressure screening required prior to prescribing.
+- **Regulatory note:** Blood pressure screening required prior to prescribing (transient blood pressure elevation is a known effect).
+- **Skin hyperpigmentation.** Because bremelanotide acts on melanocortin receptors, it can activate melanocytes and cause skin hyperpigmentation — including darkening of the face, gums, and breasts. This is especially relevant for our Miami patient population with higher baseline sun exposure, and it can persist after the medication is stopped. We disclose this at consent.
+- **Priapism (documented adverse event in male use).** We note this for transparency because the risk is documented in the medical literature. We do not market or prescribe bremelanotide off-label for male sexual function.
 
-### GHK-Cu (copper peptide)
+### GHK-Cu (copper peptide) — topical only
 
-A copper-binding tripeptide most often used topically in skin and hair applications. Research suggests roles in wound-adjacent repair pathways and dermal signaling. Available in topical and, in some protocols, injectable compounded forms. `[CLINICAL REVIEW]` `[LEGAL REVIEW: injectable 503A status]`
+A copper-binding tripeptide used **topically** in skin and hair applications. Preclinical (animal) research suggests roles in wound-adjacent repair pathways and dermal signaling. We do not discuss injectable GHK-Cu on this public page. `[VERIFY WITH CLINIC: confirm topical GHK-Cu is offered]`
 
-- **Administration:** topical serum most commonly; injectable protocols separately evaluated
-- **Typical protocol:** ongoing topical use; injectable protocols time-limited
+- **Administration:** topical serum
+- **Typical use:** ongoing topical application per product instructions
 
 ### Thymosin alpha-1
 
-Thymosin alpha-1 is used in some countries as an immune-modulating therapy. In the U.S. it is compounded and prescribed off-label. Research suggests roles in T-cell function support. `[CLINICAL REVIEW]` `[LEGAL REVIEW: 503A status]`
-
-- **Administration:** subcutaneous injection
-- **Typical protocol:** varies by clinical goal
+Thymosin alpha-1 is used in some countries as an immune-modulating therapy. In the U.S. it is compounded and prescribed off-label; preclinical (animal) and limited clinical research suggests roles in T-cell function support. Whether we can legally provide this specifically to you is a consult-only conversation, subject to current FDA §503A guidance. `[LEGAL REVIEW: verify current 503A status before publish]`
 
 ## Are peptides legal in Florida?
 
-Short answer: yes, when they are prescribed by a licensed Florida physician and dispensed through a licensed compounding pharmacy operating under FDA 503A or 503B rules. What is not legal is buying "research-only" peptides online for personal injection — those products are sold without clinical oversight, without prescription, and without pharmacy accountability.
+Short answer: **it depends on the specific peptide.** Some peptides may be legally compounded under FDA §503A and prescribed by a licensed Florida physician. Others have restricted status — including entries on the FDA's §503A Interim Bulks List that limit or exclude specific peptides from legal compounding. This landscape has shifted meaningfully in 2023–2025, and it continues to move.
 
-The federal picture on which peptides compounders may legally produce has shifted meaningfully in 2023 and 2024. The FDA's 503A Bulks List and the Outsourcing Facility 503B category both affect which peptides pharmacies can compound and dispense. We work only with pharmacies that stay current with those rules — but the landscape is genuinely moving, and we tell patients that plainly. `[LEGAL REVIEW: verify current FDA 503A Bulks List status and any updated guidance on specific peptides named on this page]`
+We work only with pharmacies operating within current FDA guidance. During your consult we will tell you honestly whether a specific peptide can be legally provided to you today — the answer is not the same for every peptide, and it may not be the same six months from now. What is never legal is buying "research-only" peptides online for personal injection — those products are sold without clinical oversight, without prescription, and without pharmacy accountability. `[LEGAL REVIEW: verify current FDA 503A Bulks List status]`
 
 ## Sourcing, handling, and safety
 
@@ -107,9 +110,19 @@ Where our older materials leaned heavily into procurement language, that vocabul
 - **Lot traceability.** Every dose is traceable to the compounding batch — important if a recall or clinical question ever arises.
 - **Storage guidance.** Most peptides require refrigeration; some require reconstitution before use. You receive written handling instructions at dispensing.
 
+### Self-injection safety at home
+
+For any peptide protocol involving subcutaneous self-injection, we teach and expect the following:
+
+- **Sterile technique.** Wash hands, use single-use alcohol swabs, use a fresh sterile syringe and needle for every injection, and never share needles.
+- **Injection site rotation.** Rotate sites to reduce local tissue reaction, lipohypertrophy, and irritation.
+- **Sharps disposal.** Use a proper sharps container. We provide one at dispensing.
+- **Signs of injection-site infection.** Warmth, spreading redness, tenderness beyond a small local reaction, fever, or drainage warrants a call to us — the same day. Abscess formation is uncommon but documented, and early treatment is easier than late.
+- **Never modify concentration.** Reconstitute exactly as prescribed. If you are unsure, call before you inject.
+
 ## Pricing transparency
 
-Peptide protocols at Hello You Wellness Center start at $59 `[VERIFY WITH CLINIC]`. Total cost depends on the peptide, compounded strength, protocol duration, and required monitoring labs. We quote your program in full — peptide, supplies, monitoring — before you commit.
+Peptide protocols at Hello You Wellness Center start at $59. Total cost depends on the peptide, compounded strength, protocol duration, and required monitoring labs. We quote your program in full — peptide, supplies, monitoring — before you commit.
 
 ## Who is a good candidate — and who is not
 
@@ -119,7 +132,7 @@ We do not prescribe peptides for:
 
 - Minors
 - Patients who are pregnant or lactating
-- Patients with active or recent hormone-sensitive cancers (particularly relevant for growth hormone secretagogue peptides such as CJC-1295/ipamorelin, sermorelin, and tesamorelin) — baseline screening required
+- Patients with active or recent hormone-sensitive cancers (particularly relevant for growth hormone secretagogue peptides such as sermorelin and CJC-1295/ipamorelin) — baseline screening required
 - Competitive athletes subject to WADA (World Anti-Doping Agency) testing — several peptides on this page are on the WADA prohibited list. If you compete under WADA rules, disclose this at your consult before we discuss protocols
 - Patients unwilling or unable to complete baseline labs and follow-up monitoring
 
@@ -127,17 +140,14 @@ We do not prescribe peptides for:
 
 ## Questions patients ask
 
-**What peptides do you offer in Miami?**
-Our current catalog includes BPC-157, TB-500, CJC-1295/ipamorelin, sermorelin, tesamorelin (for approved indication), PT-141, GHK-Cu, and thymosin alpha-1. Availability of specific compounded peptides can change with FDA compounding guidance. `[VERIFY WITH CLINIC]`
+**What peptides do you evaluate for patients in Miami?**
+Peptides we may evaluate depending on candidacy and current FDA guidance include sermorelin, growth hormone secretagogue peptides (CJC-1295/ipamorelin), PT-141 (Vyleesi®) for the FDA-labeled HSDD indication, thymosin alpha-1 (subject to current 503A status), and topical GHK-Cu for skin. Tesamorelin is prescribed only for HIV-associated lipodystrophy. Availability of any specific compounded peptide can change with FDA compounding guidance. `[VERIFY WITH CLINIC]`
 
 **Are peptides legal in Florida?**
-Yes, when prescribed by a licensed physician and dispensed by a licensed compounding pharmacy. Buying peptides labeled "for research use only" for personal injection is not the same thing and is not something we support.
-
-**What does BPC-157 do?**
-Research suggests BPC-157 may support soft tissue repair and gut lining integrity. It is compounded and prescribed off-label. We do not promise outcomes; we design a protocol and monitor your response.
+It depends on the specific peptide. Some may be legally compounded under §503A; others have restricted status that has shifted meaningfully in 2023–2025. We work only with pharmacies operating within current FDA guidance. During your consult we will tell you honestly whether a specific peptide can be legally provided to you today. Buying peptides labeled "for research use only" for personal injection is not the same thing and is not something we support.
 
 **How much does peptide therapy cost?**
-Protocols start at $59 `[VERIFY WITH CLINIC]`. Total cost depends on the peptide and length of your program. We quote in full up front.
+Protocols start at $59. Total cost depends on the peptide and length of your program. We quote in full up front.
 
 **What's the difference between peptides and GLP-1 medications?**
 GLP-1 receptor agonists (semaglutide, tirzepatide) are peptide-class medications with FDA approval for type 2 diabetes and, in specific formulations, chronic weight management. The peptides on this page are largely compounded and off-label, targeting different biological pathways (tissue repair, growth hormone secretion, sexual health, immune signaling). They are not interchangeable, and neither is a substitute for the other. If weight management is your primary goal, GLP-1 therapy is a distinct conversation.
@@ -156,22 +166,58 @@ If you want a real evaluation from a Miami clinic that treats peptides as medici
 
 ---
 
+## Trademarks
+
+Vyleesi® is a registered trademark of Palatin Technologies. Geref® was a registered trademark of Serono/EMD Serono. All other product names referenced on this page are the property of their respective owners. Use of these names is for identification only and does not imply endorsement by or affiliation with the trademark holders.
+
+---
+
 ## Review checklist
 
-- **Line ~7 (Lead paragraph):** `[CLINICAL REVIEW]` — confirm physician oversight and licensed compounding pharmacy language is accurate to current clinic workflow.
-- **Line ~27 (BPC-157 section):** `[CLINICAL REVIEW]` — verify tissue repair / gut lining framing is stated as "research suggests" and free of treatment claims.
-- **Line ~30 (BPC-157 regulatory note):** `[LEGAL REVIEW]` — 503A/503B status for BPC-157 shifted in 2023–2024; confirm current FDA position before publish.
-- **Line ~38 (TB-500 regulatory note):** `[LEGAL REVIEW]` — 503A status.
-- **Line ~46 (CJC-1295/ipamorelin):** `[CLINICAL REVIEW]` — confirm hormone-sensitive cancer screening protocol; `[LEGAL REVIEW]` on 503A.
-- **Line ~52 (Sermorelin):** `[LEGAL REVIEW]` — verify current FDA status (Geref discontinued 2008; current compounded availability under 503A).
-- **Line ~58 (Tesamorelin):** `[CLINICAL REVIEW]` `[LEGAL REVIEW]` — FDA approval limited to HIV lipodystrophy; confirm we are not implying broader indication.
-- **Line ~64 (PT-141):** `[CLINICAL REVIEW]` — confirm BP screening protocol prior to prescribing.
-- **Line ~72 (GHK-Cu):** `[LEGAL REVIEW]` — injectable 503A status; topical is lower risk.
-- **Line ~78 (Thymosin alpha-1):** `[LEGAL REVIEW]` — 503A status; historically restricted category.
-- **Line ~84 ("Are peptides legal in Florida"):** `[LEGAL REVIEW]` — verify current FDA 503A Bulks List status and any 2024–2026 updates for every named peptide.
-- **Line ~92 (Sourcing):** `[VERIFY WITH CLINIC]` — confirm whether pharmacy partners can be named on public page.
-- **Line ~100 (Pricing):** `[VERIFY WITH CLINIC]` — $59 starting price current per services.ts; confirm still accurate.
-- **Line ~110 (Exclusions):** `[CLINICAL REVIEW]` — confirm exclusion criteria list matches clinic intake screening.
-- **Line ~122 (FAQ — peptides offered):** `[VERIFY WITH CLINIC]` — confirm current catalog before publish.
-- **Provider byline (top of page):** replace `[PROVIDER_NAME, CREDENTIALS]` before publish.
-- **General:** confirm no "anti-aging" language used as headline claim; confirm no efficacy claims outside "research suggests" framing; confirm no before/after language.
+### APPLIED (this session, draft-v2)
+- Applied "preclinical (animal) research" qualifier to remaining peptides (GHK-Cu topical, thymosin alpha-1, sermorelin evidence framing)
+- Corrected sermorelin/Geref® history: manufacturer withdrew Geref from U.S. market in mid-to-late 2000s for commercial reasons (was stated as "discontinued in 2008" as neutral event)
+- Added priapism disclosure for PT-141 (transparency; not marketed off-label)
+- Added melanocyte activation / skin hyperpigmentation disclosure for PT-141 (relevant for Miami population)
+- Added IGF-1 monitoring bullet for sermorelin and growth hormone secretagogue peptides
+- Added a full Self-injection safety at home subsection (sterile technique, site rotation, sharps disposal, injection-site infection signs, no self-modification of concentration)
+- Reworded visible `[VERIFY WITH CLINIC]` pricing placeholder in Pricing transparency and FAQ #3 to plain language
+- Added `®` on first mention of Vyleesi and Geref
+- Added `## Trademarks` footer section
+- Rewrote FAQ #1 ("What peptides do you offer") to reflect the narrowed catalog
+- Rewrote FAQ #2 ("Are peptides legal in Florida") to match the new nuanced framing
+- Removed FAQ item on BPC-157 (peptide is no longer discussed on this page)
+
+### STRIPPED (this session)
+- **BPC-157 section removed entirely** (FDA §503A Category 2 as of 2023; marketing exposure per Legal review)
+- **TB-500 section removed entirely** (same 2023 FDA flag)
+- **CJC-1295 / ipamorelin narrowed:** specific dosing removed publicly; reframed as "may be discussed in consult, subject to current FDA compounding guidance"
+- **Tesamorelin reduced to a single sentence** stating it is FDA-approved only for HIV-associated lipodystrophy and prescribed only for that indication
+- **PT-141 "broader use in men and postmenopausal women is off-label" sentence removed** — marketing an off-label use is FDA-actionable
+- **GHK-Cu injectable form removed** from public page (topical only, and pending clinic verification)
+- **Thymosin alpha-1 narrowed** to a single paragraph flagged for legal 503A status verification before publish
+- **"Short answer: yes" fixed** to "it depends on the specific peptide" with 2023–2025 landscape context
+- Added a short "A note on peptides not covered on this public page" paragraph explaining the narrowed scope without naming the removed peptides in a promotional way
+
+### STILL OPEN — clinic sign-off
+- Whether topical GHK-Cu is actually offered (`[VERIFY WITH CLINIC]`)
+- Whether clinic wants to name pharmacy partners on the public page
+- $59 starting price current per services.ts — confirm still accurate
+- Exclusion criteria list matches clinic intake screening
+- Current catalog for public FAQ answer
+
+### STILL OPEN — outside counsel
+- **Thymosin alpha-1 current 503A status** — verify before publish
+- CJC-1295 / ipamorelin — even narrowed, requires legal joint sign-off given 2023 FDA posture
+- Sermorelin current 503A availability
+- Any residual "off-label" marketing language on final read-through
+- Trademark acknowledgment site-wide footer
+- Physician-supervised APRN language accuracy per FL Board of Medicine
+
+### Provider byline
+- Replace `[PROVIDER_NAME, CREDENTIALS]` in the top byline
+
+### General
+- Confirm no "anti-aging" language as headline claim
+- Confirm no efficacy claims outside "preclinical research suggests" framing
+- Confirm no before/after language

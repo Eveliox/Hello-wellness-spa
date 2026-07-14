@@ -16,8 +16,19 @@ target_keywords:
   - first-time Botox Miami what to expect
   - how long is downtime after filler
 geo_modifiers: [Kendall, Coral Gables, Westchester, SW Miami, near Dadeland]
-review_status: draft
+review_status: draft-v2
 provider_byline_placeholder: true
+changes_applied:
+  - "A1: Added vascular occlusion / hyaluronidase reversal / delayed-onset nodule / biostimulator granuloma risk-disclosure subsection"
+  - "A6: Added first-mention ® markers on brand names (Botox, Dysport, Xeomin, Jeuveau, Daxxify, Juvederm, Restylane, RHA, Radiesse, Sculptra, Bellafill, Skinvive)"
+  - "A6: Added Trademarks footer section"
+  - "A7: Added tear-trough off-label filler disclosure"
+  - "A7: Fixed Dysport allergy specification (cow's milk protein) and softened diffusion claim"
+  - "A7: Reframed PDO thread timeline (immediate lift + collagen remodeling)"
+  - "A7: Softened no-lying-flat 4h post-Botox to acknowledge folklore basis"
+  - "A7: Strengthened autoimmune contraindication specificity"
+  - "B3: Removed Non-surgical BBL section entirely (Sculptra/Radiesse not FDA-approved for buttock; off-label marketing risk)"
+  - "B3: Added silicone-BBL public-safety distinguisher paragraph"
 ---
 
 # Botox, Fillers & Aesthetic Treatments in SW Miami
@@ -45,13 +56,13 @@ You will hear us say "we would rather do less" often. That is not marketing — 
 
 Neurotoxins temporarily relax the small muscles responsible for expression lines — the "11s" between your brows (glabella), horizontal forehead lines, and crow's feet at the outer eyes. They can also soften a gummy smile, slim a strong jaw (masseter reduction), lift the brow subtly, and reduce neck bands.
 
-Products in our menu may include Botox (Allergan), Dysport (Galderma), Xeomin (Merz), Jeuveau (Evolus), and Daxxify (Revance) `[VERIFY: which brands stocked]`. Each has a slightly different profile:
+Products in our menu may include Botox® (Allergan), Dysport® (Galderma), Xeomin® (Merz), Jeuveau® (Evolus), and Daxxify® (Revance) `[VERIFY: which brands stocked]`. Each has a slightly different profile:
 
-- **Botox** — the original onabotulinumtoxinA. Predictable, well-studied, onset around 5–7 days, duration roughly 3 months `[CLINICAL REVIEW]`.
-- **Dysport** — abobotulinumtoxinA. Tends to kick in faster (2–3 days) and spread slightly more, which some injectors prefer for forehead work `[CLINICAL REVIEW]`.
-- **Xeomin** — "naked" toxin with no accessory proteins, which may be useful for guests concerned about antibody resistance `[CLINICAL REVIEW]`.
-- **Jeuveau** — prabotulinumtoxinA marketed for cosmetic use; onset and duration similar to Botox `[CLINICAL REVIEW]`.
-- **Daxxify** — daxibotulinumtoxinA with a peptide carrier. Onset as early as 1 day and duration reported up to 6 months in some studies `[CLINICAL REVIEW]`.
+- **Botox®** — the original onabotulinumtoxinA. Predictable, well-studied, onset around 5–7 days, duration roughly 3 months `[CLINICAL REVIEW]`.
+- **Dysport®** — abobotulinumtoxinA. Tends to onset faster (2–3 days). Some injectors prefer it for broader areas like the forehead because of its field-of-effect profile at typical dilutions `[CLINICAL REVIEW]`.
+- **Xeomin®** — "naked" toxin with no accessory proteins, which may be useful for guests concerned about antibody resistance `[CLINICAL REVIEW]`.
+- **Jeuveau®** — prabotulinumtoxinA marketed for cosmetic use; onset and duration similar to Botox `[CLINICAL REVIEW]`.
+- **Daxxify®** — daxibotulinumtoxinA with a peptide carrier. Onset as early as 1 day and duration reported up to 6 months in some studies `[CLINICAL REVIEW]`.
 
 **Botox pricing at Hello You Wellness:** $12 per unit `[VERIFY WITH CLINIC]`. A typical session runs 20–50 units depending on the area treated.
 
@@ -59,19 +70,30 @@ Products in our menu may include Botox (Allergan), Dysport (Galderma), Xeomin (M
 
 Hyaluronic-acid (HA) and biostimulator fillers restore volume that has shifted or been lost, refine contours, and hydrate skin from within. Placement matters far more than product choice — the same syringe can look elegant in one hand and heavy in another.
 
-Products in our menu may include the Juvederm collection (Voluma, Ultra, Vollure, Volbella), the Restylane collection (Kysse, Lyft, Silk, Refyne, Defyne), RHA 2/3/4, Radiesse, Sculptra, and Bellafill `[VERIFY: which brands stocked]`. General placement guidance:
+Products in our menu may include the Juvederm® collection (Voluma, Ultra, Vollure, Volbella), the Restylane® collection (Kysse, Lyft, Silk, Refyne, Defyne), RHA® 2/3/4, Radiesse®, Sculptra®, and Bellafill® `[VERIFY: which brands stocked]`. General placement guidance:
 
 - **Lips** — soft, hydrating HAs such as Restylane Kysse, Juvederm Volbella, or Juvederm Ultra. We size to your existing lip anatomy and philtrum length.
 - **Cheeks and midface** — structured lifters such as Juvederm Voluma or Restylane Lyft to restore projection lost with age.
 - **Jawline and chin** — firmer HAs (Voluma, RHA 4, Restylane Defyne) or Radiesse for definition and a cleaner mandibular border.
-- **Under-eye (tear trough)** — thin, low-hydrophilic HAs such as Restylane-L or Volbella, placed deep, only in appropriate candidates.
-- **Skin quality** — Skinvive microdroplet HA for cheek smoothness and hydration, or Sculptra for gradual collagen stimulation over months.
+- **Under-eye (tear trough)** — thin, low-hydrophilic HAs such as Restylane-L or Volbella, placed deep, only in appropriate candidates. Tear-trough filler is an **off-label use** of HA fillers in the U.S.; candidacy screening is careful because this anatomy has a narrow tolerance for volume, and small errors in placement can produce persistent puffiness or bluish discoloration (the Tyndall effect).
+- **Skin quality** — Skinvive® microdroplet HA for cheek smoothness and hydration, or Sculptra for gradual collagen stimulation over months.
+
+### Injectable-filler risks you should know before consenting
+
+Aesthetic filler is a medical procedure, not a beauty service. Serious complications are rare but real, and informed consent means knowing about them before, not after.
+
+- **Vascular occlusion.** In rare cases filler can enter or compress a facial artery. When that happens the affected skin can lose blood supply and, if not recognized and reversed promptly, tissue can die (skin necrosis). In the highest-risk zones — around the glabella (between the brows), the nose, the forehead, the periorbital area, and the nasolabial folds — occlusion can very rarely lead to vision loss because facial arteries connect to vessels supplying the eye. This is the single most important risk of HA filler.
+- **Hyaluronidase reversal.** Our injectors are trained in early recognition of vascular occlusion and in the emergency use of hyaluronidase — an enzyme that dissolves HA filler and is the standard reversal agent when occlusion is suspected. Hyaluronidase is kept on-site at all times `[VERIFY WITH CLINIC]`. If you are ever concerned about pain that seems out of proportion, sudden skin color change (whitening or dusky discoloration), or vision changes after filler, contact us immediately — same day, not tomorrow.
+- **Delayed-onset nodules.** Firm bumps or swelling can appear at old filler sites weeks or months after an unrelated illness, infection, or vaccination. This is an increasingly recognized phenomenon with HA fillers. It is usually treatable — but only if we know about it.
+- **Nodule and granuloma risk with biostimulators.** Sculptra® (poly-L-lactic acid) and Radiesse® (calcium hydroxylapatite) carry a specific risk of nodules or granulomas — collections of collagen or tissue reaction — beyond what HA fillers carry. Injection technique, dilution, and post-treatment massage protocols reduce but do not eliminate this risk. We discuss the trade-offs in your written plan.
+
+If any of this reads as excessive caution — that is the point. The best injector on the best day still tells you these things.
 
 **Filler pricing at Hello You Wellness:** $650 per syringe `[VERIFY WITH CLINIC]`. Most first-time lip appointments use one syringe; midface and jawline work is often staged across two visits.
 
 ### PDO threads
 
-Polydioxanone (PDO) threads are absorbable sutures placed under the skin to lift tissue and stimulate collagen. Smooth threads are used for skin quality; barbed or cog threads are used for lift along the jawline, cheek, or brow. Results are subtle and evolve over 3–6 months as collagen builds `[CLINICAL REVIEW]`. Threads are best thought of as a complement to filler, not a replacement — the two tools do different jobs. Pricing by consultation.
+Polydioxanone (PDO) threads are absorbable sutures placed under the skin to lift tissue and stimulate collagen. Smooth threads are used for skin quality; barbed or cog threads are used for lift along the jawline, cheek, or brow. The **lifting effect is immediate; collagen remodeling continues over 3–6 months as the threads absorb** `[CLINICAL REVIEW]`. Threads are best thought of as a complement to filler, not a replacement — the two tools do different jobs. Pricing by consultation.
 
 ### Endolift
 
@@ -79,9 +101,9 @@ Endolift is a laser-fiber treatment (typically a 1470 nm diode) that a provider 
 
 **Endolift Miami cost:** case-by-case depending on the number of zones treated; ranges are provided in writing after your consultation `[VERIFY WITH CLINIC]`.
 
-### Non-surgical BBL (biostimulator contouring)
+### A note on gluteal injections and patient safety
 
-A non-surgical BBL uses biostimulator injectables — most often Sculptra (poly-L-lactic acid) or Radiesse (calcium hydroxylapatite) — to add volume and stimulate collagen in the buttock and hip region. It will not replicate the projection of a surgical BBL, and it is not for guests seeking a dramatic size change. It is a strong option if you want a rounder, smoother, more lifted contour without incisions or downtime `[CLINICAL REVIEW]`. Results build across 2–3 sessions spaced weeks apart. Pricing by consultation.
+We do **not** perform non-surgical buttock augmentation with injectable biostimulators, and we do not perform any form of "silicone BBL." Sculptra® and Radiesse® are not FDA-approved for buttock augmentation, and the FDA has issued specific safety communications on the use of biostimulator injectables outside the face. Separately, illegal silicone BBL injections — sold outside licensed medical settings — have caused deaths and permanent injuries in Florida over the past decade. If you are considering gluteal enhancement, please seek out a licensed plastic surgeon for a surgical evaluation; walking away from a clinic that offers the injectable version is a good sign for your safety, not a limitation of your options.
 
 ### Cellulite reduction
 
@@ -104,7 +126,6 @@ We publish what we can and quote the rest in writing after your consultation. No
 | Signature facial | $129 `[VERIFY WITH CLINIC]` | 60 minutes |
 | PDO threads | By consultation | Priced per thread count and area |
 | Endolift | By consultation | Priced per zone |
-| Non-surgical BBL | By consultation | Priced per session; series recommended |
 | Cellulite reduction | By consultation | Depends on modality and area |
 
 ## Unit-count guide (typical ranges)
@@ -145,7 +166,7 @@ Individual results vary based on metabolism, product placement, area treated, an
 
 - No true downtime — you can drive yourself home and return to work.
 - Small pinpoint bumps at injection sites resolve within 15–30 minutes.
-- No lying flat for 4 hours `[CLINICAL REVIEW]`.
+- Avoid lying fully flat and vigorous forward-flexion for approximately 4 hours (this is conventional practice; the evidence base for the specific 4-hour window is limited, but the recommendation carries no downside and we keep it).
 - No strenuous exercise for 24 hours.
 - Avoid rubbing or massaging the treated area for 24 hours.
 
@@ -157,7 +178,7 @@ Individual results vary based on metabolism, product placement, area treated, an
 - Avoid heavy exercise, alcohol, and dental work for 24–48 hours.
 - Final result settles at approximately 2 weeks — resist the urge to judge your lips on day 3.
 
-**PDO threads / Endolift / biostimulator BBL** — aftercare is more involved and is provided in writing with your treatment plan.
+**PDO threads / Endolift** — aftercare is more involved and is provided in writing with your treatment plan.
 
 ## Am I a candidate?
 
@@ -165,9 +186,9 @@ Most healthy adults 18 and older are candidates for injectable aesthetic treatme
 
 - Pregnancy or active breastfeeding (neurotoxins and most fillers are avoided)
 - Active skin infection at the treatment site (cold sore, cellulitis, acne flare)
-- Known allergy to product components (lidocaine, hyaluronic acid, gram-positive bacterial proteins)
+- Known allergy to product components (lidocaine, hyaluronic acid; and specifically **cow's milk protein for Dysport®**, which contains cow's-milk-derived excipients)
 - Neuromuscular disorders such as myasthenia gravis, Lambert-Eaton syndrome, or ALS (contraindication for neurotoxins)
-- Certain autoimmune or connective tissue conditions
+- **Active dermatomyositis, or scleroderma with skin involvement at the treatment site.** Stable, well-controlled autoimmune disease is generally not a contraindication — bring your history and current medications and we will make a specific decision together.
 - Current use of blood thinners (may affect bruising risk — do not stop prescribed medication without your prescribing physician's guidance)
 - Recent or upcoming dental work, facial waxing, or laser treatments
 
@@ -231,20 +252,47 @@ Every plan starts with a free consultation. You will meet your injector, walk th
 
 ---
 
+## Trademarks
+
+Botox® is a registered trademark of Allergan, an AbbVie company. Dysport® is a registered trademark of Ipsen (marketed in the U.S. by Galderma). Xeomin® is a registered trademark of Merz Pharmaceuticals. Jeuveau® is a registered trademark of Evolus, Inc. Daxxify® is a registered trademark of Revance Therapeutics. Juvederm®, Voluma®, Vollure®, Volbella®, and Skinvive® are registered trademarks of Allergan/AbbVie. Restylane®, Kysse®, Lyft®, Silk®, Refyne®, and Defyne® are registered trademarks of Galderma. RHA® is a registered trademark of Revance/Teoxane. Radiesse® is a registered trademark of Merz Aesthetics. Sculptra® is a registered trademark of Galderma. Bellafill® is a registered trademark of Suneva Medical. All other trademarks referenced on this page are the property of their respective owners. Use of these names is for identification only and does not imply endorsement by or affiliation with the trademark holders.
+
+---
+
 ## Review checklist
 
-- Provider byline — fill `[PROVIDER_NAME, APRN]` and `[YYYY-MM]` before publish
-- Treatments menu — `[VERIFY: which brands stocked]` for both neurotoxin and filler product lines (Botox, Dysport, Xeomin, Jeuveau, Daxxify; Juvederm Voluma/Ultra/Vollure/Volbella; Restylane Kysse/Lyft/Silk/Refyne/Defyne; RHA 2/3/4; Radiesse; Sculptra; Bellafill; Skinvive)
-- Treatments menu — chemical peel depths offered (glycolic, salicylic, TCA) — `[VERIFY: which peel depths offered]`
-- Pricing transparency — `[VERIFY WITH CLINIC]`: Botox $12/unit, filler $650/syringe, signature facial $129, TRT $499/program
-- Unit-count guide — `[CLINICAL REVIEW: verify unit ranges]` for glabella 20–25u, forehead 10–20u, crow's feet 10–15u/side, masseter 20–30u/side, brow lift 2–5u/side, lip flip 4–6u, bunny lines 4–8u, mentalis 4–8u
-- Onset/duration table — `[CLINICAL REVIEW]` on every row (Botox, Dysport, Xeomin, Jeuveau, Daxxify, Voluma, Kysse, Lyft, Radiesse, Sculptra)
-- Non-surgical BBL — `[CLINICAL REVIEW]` on positioning that it does not replicate surgical projection
-- PDO threads — `[CLINICAL REVIEW]` on collagen-building timeline (3–6 months)
-- Downtime — `[CLINICAL REVIEW]` on no-lying-flat 4h post-Botox, filler swelling 3–7 days, bruising up to 2 weeks
-- Candidate criteria — `[CLINICAL REVIEW]` on the full screen list (pregnancy, infection, allergy, neuromuscular disorders, autoimmune, blood thinners)
-- Q&A — `[CLINICAL REVIEW]` on Botox vs Dysport duration claim and Daxxify 6-month claim
-- Local block — confirm same-day toxin availability language is acceptable to clinic ops
-- TRT link — confirm `/services/hormone-therapy` route is live before publish (parallel workstream)
-- Domain — confirm final canonical domain (xlashbyyane.com vs. new domain) before final indexation push
-- Legal — remove any language that could read as "best" / "top-rated" as an objective claim (currently avoided but re-scan)
+### APPLIED (this session, draft-v2)
+- Added prominent vascular occlusion / hyaluronidase reversal / vision loss / delayed-onset nodule / biostimulator granuloma risk-disclosure subsection under fillers
+- Added tear-trough off-label filler disclosure inline in placement guidance
+- Fixed Dysport allergy: cow's milk protein (was inaccurate "gram-positive bacterial proteins")
+- Softened Dysport diffusion claim to field-of-effect language
+- Reframed PDO thread timeline: immediate lift + 3–6mo collagen remodeling
+- Softened post-Botox no-lying-flat 4h to acknowledge folklore basis
+- Strengthened autoimmune contraindication: named dermatomyositis, scleroderma with skin involvement at treatment site
+- Added `®` on first mention of Botox, Dysport, Xeomin, Jeuveau, Daxxify, Juvederm, Restylane, RHA, Radiesse, Sculptra, Bellafill, Skinvive
+- Added `## Trademarks` footer section
+
+### STRIPPED (this session)
+- Removed "Non-surgical BBL (biostimulator contouring)" H3 section entirely (Sculptra/Radiesse not FDA-approved for buttock augmentation; off-label marketing risk per Legal review)
+- Removed Non-surgical BBL row from pricing table
+- Removed "biostimulator BBL" reference from aftercare
+- Added a public-safety distinguisher paragraph on silicone-BBL injections (illegal, has caused deaths in Florida) — the clinic explicitly signals it does not offer this
+
+### STILL OPEN — clinic sign-off
+- Which brands are actually stocked in each product line (`[VERIFY: which brands stocked]`)
+- Chemical peel depths offered (glycolic / salicylic / TCA)
+- Pricing verification: Botox $12/unit, filler $650/syringe, signature facial $129, TRT $499/program
+- Unit-count ranges for common areas
+- Onset/duration figures on each product row
+- Same-day toxin availability language
+- Whether hyaluronidase is truly on-site at all times (implied in vascular occlusion consent — must verify)
+- TRT `$499 program` inclusions and disclosure at point of claim
+
+### STILL OPEN — outside counsel
+- APRN-vs-MD delegation model language ("led or supervised") accuracy under FL Board of Medicine / Board of Nursing
+- TRT mention on aesthetics page — either remove or add prescription drug disclosure at point of claim
+- Trademark acknowledgment site-wide footer
+- Any "best" / "top-rated" language on final publish scan
+- Domain decision (canonical) before final indexation
+
+### Provider byline
+- Fill `[PROVIDER_NAME, APRN]` and `[YYYY-MM]` before publish

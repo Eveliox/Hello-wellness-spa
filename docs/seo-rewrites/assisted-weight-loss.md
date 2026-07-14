@@ -20,15 +20,27 @@ geo_modifiers:
   - Coral Gables
   - SW Miami
   - near Dadeland
-review_status: draft
+review_status: draft-v2
 provider_byline_placeholder: true
+changes_applied:
+  - "A2: Split semaglutide vs tirzepatide pregnancy discontinuation framing"
+  - "A2: Added Zepbound oral contraceptive interaction warning (4wk barrier / non-oral rule)"
+  - "A2: Added diabetic retinopathy ophthalmology coordination requirement"
+  - "A2: Corrected nausea peak timing (1-3wk of new dose, not 48-72h post-increase)"
+  - "A2: Reworded active/recent pancreatitis to history-of framing"
+  - "A2: Added ileus and gastroparesis to red-flag escalation list"
+  - "A2: Added STEP 4 / SURMOUNT-4 rebound-regain honesty to off-ramp"
+  - "A6: Added first-mention ® markers on Wegovy, Ozempic, Zepbound, Mounjaro"
+  - "A6: Added Trademarks footer section"
+  - "B1: Removed compounded GLP-1 promotional framing; replaced with consult-only single sentence per Legal + Clinical joint recommendation"
+  - "B5: Reworked visible [VERIFY WITH CLINIC] inline placeholder in pricing copy"
 ---
 
 # Semaglutide & GLP-1 Weight Loss in Miami
 
 *Medically reviewed by [PROVIDER_NAME, CREDENTIALS] · Last reviewed 2026-07*
 
-Hello You Wellness Center is a physician-led weight-management practice in SW Miami offering GLP-1 receptor agonist therapy — semaglutide (the same molecule in Wegovy and Ozempic) and tirzepatide (the GIP/GLP-1 receptor agonist in Zepbound and Mounjaro) — as part of a structured program with real check-ins, honest expectations, and same-week consultations when the schedule allows. We are two minutes from Dadeland and easy to reach from Kendall, Westchester, and Coral Gables. Nothing here is templated. If a medication is not right for you, we will tell you.
+Hello You Wellness Center is a physician-led weight-management practice in SW Miami offering GLP-1 receptor agonist therapy — semaglutide (the same molecule in Wegovy® and Ozempic®) and tirzepatide (the GIP/GLP-1 receptor agonist in Zepbound® and Mounjaro®) — as part of a structured program with real check-ins, honest expectations, and same-week consultations when the schedule allows. We are two minutes from Dadeland and easy to reach from Kendall, Westchester, and Coral Gables. Nothing here is templated. If a medication is not right for you, we will tell you.
 
 ## What we offer
 
@@ -37,7 +49,7 @@ We prescribe two categories of medication for weight management, based on candid
 - **Semaglutide** — a once-weekly GLP-1 receptor agonist. FDA-approved for chronic weight management under the brand Wegovy at 2.4 mg weekly, and separately approved for type 2 diabetes under the brand Ozempic. `[CLINICAL REVIEW: confirm current dosing ladder used in-clinic]`
 - **Tirzepatide** — a once-weekly dual GIP and GLP-1 receptor agonist. FDA-approved for chronic weight management under the brand Zepbound, and for type 2 diabetes under the brand Mounjaro. `[CLINICAL REVIEW: confirm titration schedule]`
 
-If branded supply is constrained, we may discuss compounded semaglutide or compounded tirzepatide sourced from a licensed U.S. pharmacy operating under Section 503A. Compounded GLP-1s are not FDA-approved products, and eligibility depends on current federal and state regulatory guidance, which has been in flux since 2024. `[LEGAL REVIEW: 503A framing]` `[CLINICAL REVIEW: verify compounded availability + FDA 503A framing]` `[VERIFY WITH CLINIC: which compounding pharmacy partner, if any]`
+Compounded formulations may be discussed only in narrow, patient-specific clinical circumstances during consultation, per current FDA guidance. We prescribe FDA-approved Wegovy®, Ozempic®, Zepbound®, or Mounjaro® as the default.
 
 Medication is one part of the program. The other parts — labs where appropriate, nutrition guidance, monthly check-ins, dose adjustments, and a clinician who answers questions in plain language — are what actually keep people on track.
 
@@ -64,11 +76,11 @@ The rhythm is deliberate. It looks like this:
 4. **Prescription and starting dose.** We start low and titrate slowly. This is the single biggest lever for tolerability.
 5. **Monthly check-ins.** Weight, side effects, adherence, dose decisions. In-person or via secure telehealth when appropriate. `[VERIFY WITH CLINIC: telehealth policy]`
 6. **Titration and maintenance.** Dose changes are driven by response and tolerance, not a calendar.
-7. **Off-ramp planning.** When you reach your goal, we discuss maintenance dosing, tapering, and what long-term looks like — candidly.
+7. **Off-ramp planning.** When you reach your goal, we discuss maintenance dosing, tapering, and what long-term looks like — candidly. Both the STEP 4 (semaglutide) and SURMOUNT-4 (tirzepatide) trials showed substantial weight regain after medication discontinuation. That is a real biological pattern, not a failure of willpower, and any off-ramp plan has to account for it. For many patients, "off-ramp" means a maintenance dose rather than a stop date.
 
 ## Pricing transparency
 
-Our GLP-1 program **starts at $199/month**. That fee covers the clinical program: the physician visit cadence, monthly check-ins, dose management, and messaging access between visits. `[VERIFY WITH CLINIC: exact inclusions]`
+Our GLP-1 program **starts at $199/month**. That fee covers the clinical program: the physician visit cadence, monthly check-ins, dose management, and messaging access between visits. Exact inclusions are confirmed at your consultation and in writing before you commit.
 
 **Medication cost is separate and varies** based on:
 
@@ -81,7 +93,7 @@ We will give you a realistic monthly total during the consultation. If a competi
 
 ### How much does semaglutide cost in Miami
 
-Cash-pay costs in Miami vary widely. Branded Wegovy without insurance is typically several hundred to over a thousand dollars per month at retail pharmacies. Compounded semaglutide, where offered and legally available, is generally lower — but pricing is dose-dependent and pharmacy-dependent. `[VERIFY WITH CLINIC: current cash-pay range we quote]`
+Cash-pay costs in Miami vary widely. Branded Wegovy without insurance is typically several hundred to over a thousand dollars per month at retail pharmacies. Pricing is dose-dependent, pharmacy-dependent, and shifts frequently — we give you a realistic current range at consultation rather than committing to a number in copy that may age out.
 
 ### Wegovy vs Zepbound cost in Miami
 
@@ -108,7 +120,7 @@ Front-loaded honesty: most people feel worse for a stretch before they feel bett
 
 **Ranked by frequency (typical patient experience):**
 
-1. **Nausea** — the most common side effect. Usually mild to moderate, worst in the first 48–72 hours after a dose increase, and generally improves with time. `[CLINICAL REVIEW]`
+1. **Nausea** — the most common side effect. Usually mild to moderate, most prominent in the first one to three weeks of a new dose, and generally improves with time.
 2. **Constipation** — very common. Hydration, fiber, and sometimes a stool softener handle it. Ask us early.
 3. **Fatigue** — real, and often driven by lower food intake. Adjusting protein and electrolytes helps.
 4. **Diarrhea** — less common than constipation, but happens.
@@ -124,9 +136,10 @@ Front-loaded honesty: most people feel worse for a stretch before they feel bett
 
 **When to stop and seek care** (this is the escalation criteria — read it):
 
-- Severe, persistent abdominal pain that radiates to the back — possible **pancreatitis**, seek emergency care `[CLINICAL REVIEW]`
+- Severe, persistent abdominal pain that radiates to the back — possible **pancreatitis**, seek emergency care
 - Persistent vomiting with inability to keep liquids down
 - Signs of gallbladder disease (right-upper-quadrant pain, fever, jaundice)
+- Signs of **ileus or severe gastroparesis** — persistent bloating, abdominal distension, inability to pass gas or stool, or vomiting undigested food from meals hours or days prior (per post-2023 label update)
 - Vision changes in patients with diabetic retinopathy
 - Any severe allergic reaction
 
@@ -134,14 +147,22 @@ Do not push through a red flag because you are afraid of losing progress. Call u
 
 ## Contraindications — who should not take these medications
 
-GLP-1 and GIP/GLP-1 medications are contraindicated in patients with: `[CLINICAL REVIEW: confirm current label language]`
+GLP-1 and GIP/GLP-1 medications are contraindicated in patients with:
 
 - Personal or family history of **medullary thyroid carcinoma (MTC)**
 - **Multiple endocrine neoplasia syndrome type 2 (MEN 2)**
 - Prior serious hypersensitivity reaction to the medication
-- **Pregnancy** — discontinue at least 2 months before a planned pregnancy `[CLINICAL REVIEW]`
-- Active or recent **pancreatitis** — case-by-case
-- Severe gastroparesis
+- **Pregnancy.** The Wegovy® label recommends discontinuing semaglutide **at least 2 months before a planned pregnancy** because of its long half-life. The Zepbound® (tirzepatide) label separately addresses pregnancy and is not identical to the semaglutide window — we go over the specific plan at consult rather than conflating the two.
+- **History of pancreatitis** — generally avoided; individual review required.
+- Severe gastroparesis or a history of ileus
+
+### Zepbound® (tirzepatide) and oral contraceptives — required informed-consent note
+
+Tirzepatide can reduce the efficacy of oral contraceptives. The Zepbound® label recommends that patients using oral hormonal birth control **switch to a non-oral contraceptive, or add a barrier method, for 4 weeks after starting tirzepatide and for 4 weeks after each dose escalation.** This applies whether the medication is prescribed for weight management or type 2 diabetes. If this is relevant to you, tell us at consult so we can plan your contraception coverage before you start.
+
+### Diabetic retinopathy — coordination required before initiation
+
+Patients with a history of diabetic retinopathy require ophthalmology coordination before starting semaglutide or tirzepatide. The SUSTAIN-6 trial identified a signal for worsening retinopathy with rapid glycemic improvement on semaglutide, and we do not initiate therapy in this population without an eye-care check-in and a plan.
 
 We ask about all of this during intake. This is not a checkbox exercise. It is the reason a doctor is involved.
 
@@ -149,15 +170,15 @@ We ask about all of this during intake. This is not a checkbox exercise. It is t
 
 ### What GLP-1 medications does Hello You Wellness prescribe in Miami
 
-We prescribe **semaglutide** (Wegovy, Ozempic) and **tirzepatide** (Zepbound, Mounjaro), and — where legally available and clinically appropriate — compounded versions from a licensed U.S. 503A pharmacy. `[LEGAL REVIEW: 503A framing]`
+We prescribe **semaglutide** (Wegovy®, Ozempic®) and **tirzepatide** (Zepbound®, Mounjaro®) as our default therapy. Compounded formulations may be discussed only in narrow, patient-specific clinical circumstances during consultation, per current FDA guidance.
 
 The medication we recommend depends on your BMI, comorbidities, prior weight-loss history, tolerance profile, and budget. Both molecules are prescribed as weekly subcutaneous injections. We do not push one over the other for margin reasons; the recommendation is clinical.
 
 ### How much does a GLP-1 program cost in Miami
 
-**Our program fee starts at $199/month.** Medication is billed separately and varies by molecule, dose, formulation, and insurance status. `[VERIFY WITH CLINIC]`
+**Our program fee starts at $199/month.** Medication is billed separately and varies by molecule, dose, formulation, and insurance status.
 
-Expect a realistic monthly total — program plus medication — during your consultation. Cash-pay branded medications run higher; compounded options, where available, are generally lower. Insurance coverage for chronic weight management indications (Wegovy, Zepbound) is inconsistent across Florida commercial plans and typically requires prior authorization.
+Expect a realistic monthly total — program plus medication — during your consultation. Cash-pay branded medications run higher. Insurance coverage for chronic weight management indications (Wegovy®, Zepbound®) is inconsistent across Florida commercial plans and typically requires prior authorization.
 
 ### Who is a good candidate for semaglutide or tirzepatide
 
@@ -200,44 +221,45 @@ The 30-minute consultation is free. We will walk through your goals, screen for 
 
 ---
 
+## Trademarks
+
+Wegovy® and Ozempic® are registered trademarks of Novo Nordisk. Zepbound® and Mounjaro® are registered trademarks of Eli Lilly and Company. All other trademarks referenced on this page are the property of their respective owners. Use of these names on this page is for identification only and does not imply endorsement by or affiliation with the trademark holders.
+
+---
+
 ## Review checklist
 
-**Clinical Evidence Agent — verify the following inline tags:**
+### APPLIED (this session, draft-v2)
+- Split semaglutide vs tirzepatide pregnancy discontinuation framing (Wegovy® ≥2mo before pregnancy; Zepbound® handled separately at consult)
+- Added Zepbound® tirzepatide oral-contraceptive interaction warning (barrier / non-oral for 4wk after start and 4wk after each escalation) as its own subsection
+- Added diabetic retinopathy ophthalmology-coordination requirement (per SUSTAIN-6 signal)
+- Corrected nausea peak timing to first one to three weeks of a new dose (was "48–72 hours after dose increase")
+- Reworded pancreatitis line from "active or recent" to "history of" (individual review required)
+- Added ileus and severe gastroparesis to red-flag escalation list (post-2023 label update)
+- Added STEP 4 and SURMOUNT-4 rebound-regain honesty to off-ramp step
+- Added `®` on first mention of Wegovy, Ozempic, Zepbound, Mounjaro
+- Added `## Trademarks` footer section
+- Reworked visible `[VERIFY WITH CLINIC]` placeholders in Pricing transparency, Wegovy-vs-Zepbound cost, and FAQ #2 to soft language
 
-- `[CLINICAL REVIEW: confirm current dosing ladder used in-clinic]` — *What we offer, semaglutide bullet*
-- `[CLINICAL REVIEW: confirm titration schedule]` — *What we offer, tirzepatide bullet*
-- `[CLINICAL REVIEW: verify compounded availability + FDA 503A framing]` — *What we offer, compounded paragraph*
-- `[CLINICAL REVIEW: confirm we follow label BMI thresholds vs. broader criteria]` — *Who is a good candidate*
-- `[CLINICAL REVIEW: confirm standard lab panel]` — *How the program works, step 3*
-- `[CLINICAL REVIEW]` on typical titration cells (semaglutide and tirzepatide) — *Comparison table*
-- `[CLINICAL REVIEW: cite Wilding et al. NEJM 2021]` — *Comparison table, semaglutide average weight loss*
-- `[CLINICAL REVIEW: cite Jastreboff et al. NEJM 2022]` — *Comparison table, tirzepatide average weight loss*
-- `[CLINICAL REVIEW]` on nausea (side effects, item 1)
-- `[CLINICAL REVIEW]` on pancreatitis escalation (Side effects, red flags)
-- `[CLINICAL REVIEW: confirm current label language]` — *Contraindications intro*
-- `[CLINICAL REVIEW]` on pregnancy discontinuation timing — *Contraindications*
-- `[CLINICAL REVIEW]` on FAQ #3 BMI thresholds
-- `[CLINICAL REVIEW]` on FAQ #4 side effect ranking
-- `[CLINICAL REVIEW]` on FAQ #5 STEP 1 / SURMOUNT-1 trial averages
+### STRIPPED (this session)
+- Removed promotional compounded-GLP-1 framing from What-we-offer paragraph and FAQ #1 (per Legal + Clinical joint recommendation, post-Oct 2024 FDA shortage-list resolution). Replaced with single sentence pointing to consult-only discussion.
 
-**Legal Reviewer — verify the following inline tags:**
+### STILL OPEN — clinic sign-off
+- Semaglutide dosing ladder (`[CLINICAL REVIEW]` on titration table)
+- Tirzepatide titration schedule
+- BMI candidacy thresholds (label vs broader)
+- Baseline lab panel (in-house vs ordered)
+- Telehealth policy for monthly check-ins
+- Exact program inclusions at $199/mo
+- Current cash-pay range for the semaglutide FAQ answer
+- Same-week appointment availability substantiation
 
-- `[LEGAL REVIEW: 503A framing]` — *What we offer, compounded paragraph*
-- `[LEGAL REVIEW: 503A framing]` — *FAQ #1, compounded reference*
+### STILL OPEN — outside counsel
+- Any residual compounded-formulation discussion (should stay consult-only per Legal review)
+- "Free 30-minute consultation" — confirm truly free with no strings across whole site
+- "Starts at $199/mo" — same-glance inclusion disclosure at every use site
+- Telehealth Disclosures page under Fla. Stat. §456.47 before any telehealth mention publishes
+- Trademark acknowledgment site-wide footer (this page has local footer; site-wide still needed)
 
-**Clinic Operations — verify the following inline tags:**
-
-- `[VERIFY WITH CLINIC: which compounding pharmacy partner, if any]` — *What we offer*
-- `[VERIFY WITH CLINIC: which baseline labs are drawn in-house vs. ordered]` — *How the program works, step 2*
-- `[VERIFY WITH CLINIC: telehealth policy]` — *How the program works, step 5*
-- `[VERIFY WITH CLINIC: exact inclusions]` — *Pricing transparency, $199/mo*
-- `[VERIFY: insurance situation is patient-specific and not something we promise]` — *Pricing transparency*
-- `[VERIFY WITH CLINIC: current cash-pay range we quote]` — *How much does semaglutide cost*
-- `[VERIFY: pricing shifts frequently — do not commit to a specific number in copy]` — *Wegovy vs Zepbound cost*
-- `[VERIFY]` on cost tier row — *Comparison table*
-- `[VERIFY WITH CLINIC]` — *FAQ #2, program pricing*
-- `[VERIFY WITH CLINIC: current same-week availability]` — *Serving Kendall section*
-
-**Provider byline:**
-
+### Provider byline
 - Replace `[PROVIDER_NAME, CREDENTIALS]` in the byline block once the responsible physician / APRN is confirmed.

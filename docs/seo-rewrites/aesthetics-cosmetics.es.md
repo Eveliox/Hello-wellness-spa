@@ -19,8 +19,19 @@ target_keywords:
   - primera vez botox Miami que esperar
   - cuanto dura la recuperacion despues del relleno
 geo_modifiers: [Kendall, Coral Gables, Westchester, SW Miami, cerca de Dadeland]
-review_status: draft
+review_status: draft-v2
 provider_byline_placeholder: true
+changes_applied:
+  - "A1: Added vascular occlusion / hyaluronidase reversal / delayed-onset nodule / biostimulator granuloma risk-disclosure subsection (with plain-language pairing for oclusion vascular)"
+  - "A6: Added first-mention ® markers on brand names"
+  - "A6: Added Marcas registradas footer section"
+  - "A7: Added tear-trough off-label filler disclosure"
+  - "A7: Fixed Dysport allergy specification (cow's milk protein) and softened diffusion claim"
+  - "A7: Reframed PDO thread timeline (immediate lift + collagen remodeling)"
+  - "A7: Softened no-lying-flat 4h post-Botox to acknowledge folklore basis"
+  - "A7: Strengthened autoimmune contraindication specificity"
+  - "B3: Removed BBL sin cirugia section entirely (Sculptra/Radiesse not FDA-approved for buttock; off-label marketing risk)"
+  - "B3: Added silicona-BBL public-safety distinguisher paragraph"
 ---
 
 # Botox, rellenos y tratamientos esteticos en el suroeste de Miami
@@ -48,13 +59,13 @@ Nos vas a escuchar decir "mejor hacemos menos" con frecuencia. Eso no es marketi
 
 Las neurotoxinas relajan temporalmente los pequenos musculos responsables de las lineas de expresion — las "11" entre las cejas (glabela), las lineas horizontales de la frente y las patas de gallo en el borde externo del ojo. Tambien pueden suavizar una sonrisa gingival, adelgazar una mandibula fuerte (reduccion del maseter), levantar sutilmente la ceja y disminuir las bandas del cuello.
 
-En nuestra carta pueden estar Botox (Allergan), Dysport (Galderma), Xeomin (Merz), Jeuveau (Evolus) y Daxxify (Revance) `[VERIFY: which brands stocked]`. Cada uno tiene un perfil distinto:
+En nuestra carta pueden estar Botox® (Allergan), Dysport® (Galderma), Xeomin® (Merz), Jeuveau® (Evolus) y Daxxify® (Revance) `[VERIFY: which brands stocked]`. Cada uno tiene un perfil distinto:
 
-- **Botox** — la onabotulinumtoxinA original. Predecible, bien estudiada, inicia entre 5 y 7 dias, dura aproximadamente 3 meses `[CLINICAL REVIEW]`.
-- **Dysport** — abobotulinumtoxinA. Suele empezar mas rapido (2 a 3 dias) y a difundirse un poco mas, lo que algunos inyectores prefieren para la frente `[CLINICAL REVIEW]`.
-- **Xeomin** — toxina "desnuda", sin proteinas accesorias, util para pacientes preocupados por resistencia por anticuerpos `[CLINICAL REVIEW]`.
-- **Jeuveau** — prabotulinumtoxinA de uso cosmetico; inicio y duracion parecidos al Botox `[CLINICAL REVIEW]`.
-- **Daxxify** — daxibotulinumtoxinA con un peptido portador. Puede empezar en 1 dia y durar hasta 6 meses segun algunos estudios `[CLINICAL REVIEW]`.
+- **Botox®** — la onabotulinumtoxinA original. Predecible, bien estudiada, inicia entre 5 y 7 dias, dura aproximadamente 3 meses `[CLINICAL REVIEW]`.
+- **Dysport®** — abobotulinumtoxinA. Suele empezar mas rapido (2 a 3 dias). Algunos inyectores lo prefieren para areas amplias como la frente por su perfil de "campo de accion" a las diluciones tipicas `[CLINICAL REVIEW]`.
+- **Xeomin®** — toxina "desnuda", sin proteinas accesorias, util para pacientes preocupados por resistencia por anticuerpos `[CLINICAL REVIEW]`.
+- **Jeuveau®** — prabotulinumtoxinA de uso cosmetico; inicio y duracion parecidos al Botox `[CLINICAL REVIEW]`.
+- **Daxxify®** — daxibotulinumtoxinA con un peptido portador. Puede empezar en 1 dia y durar hasta 6 meses segun algunos estudios `[CLINICAL REVIEW]`.
 
 **Precio del Botox en Hello You Wellness:** $12 por unidad `[VERIFY WITH CLINIC]`. Una sesion tipica lleva entre 20 y 50 unidades segun la zona.
 
@@ -62,19 +73,30 @@ En nuestra carta pueden estar Botox (Allergan), Dysport (Galderma), Xeomin (Merz
 
 Los rellenos de acido hialuronico (AH) y los biostimuladores devuelven volumen que se ha desplazado o perdido, definen contornos e hidratan la piel desde adentro. La colocacion importa muchisimo mas que la marca — la misma jeringa puede quedar elegante en una mano y pesada en otra.
 
-En nuestra carta pueden estar la coleccion Juvederm (Voluma, Ultra, Vollure, Volbella), la coleccion Restylane (Kysse, Lyft, Silk, Refyne, Defyne), RHA 2/3/4, Radiesse, Sculptra y Bellafill `[VERIFY: which brands stocked]`. Guia general de colocacion:
+En nuestra carta pueden estar la coleccion Juvederm® (Voluma, Ultra, Vollure, Volbella), la coleccion Restylane® (Kysse, Lyft, Silk, Refyne, Defyne), RHA® 2/3/4, Radiesse®, Sculptra® y Bellafill® `[VERIFY: which brands stocked]`. Guia general de colocacion:
 
 - **Labios** — AH suaves e hidratantes como Restylane Kysse, Juvederm Volbella o Juvederm Ultra. Trabajamos segun la anatomia de tus labios y el largo de tu filtro.
 - **Pomulos y tercio medio** — productos estructurales como Juvederm Voluma o Restylane Lyft para devolver proyeccion perdida con la edad.
 - **Mandibula y menton** — AH mas firmes (Voluma, RHA 4, Restylane Defyne) o Radiesse para definir y limpiar el borde mandibular.
-- **Ojera (surco lagrimal)** — AH finos y poco hidrofilicos como Restylane-L o Volbella, colocados profundos y solo en pacientes apropiadas.
-- **Calidad de piel** — Skinvive (microgota de AH) para suavidad e hidratacion en el pomulo, o Sculptra para estimulacion gradual de colageno a lo largo de meses.
+- **Ojera (surco lagrimal)** — AH finos y poco hidrofilicos como Restylane-L o Volbella, colocados profundos y solo en pacientes apropiadas. El relleno de surco lagrimal es un **uso fuera de etiqueta** ("off-label") de los rellenos de AH en Estados Unidos; la seleccion de candidatas es cuidadosa porque esa anatomia tiene poca tolerancia al volumen, y errores pequenos de colocacion pueden dejar hinchazon persistente o una tonalidad azulada (efecto Tyndall).
+- **Calidad de piel** — Skinvive® (microgota de AH) para suavidad e hidratacion en el pomulo, o Sculptra para estimulacion gradual de colageno a lo largo de meses.
+
+### Riesgos del relleno inyectable que debes saber antes de firmar el consentimiento
+
+El relleno estetico es un procedimiento medico, no un servicio de belleza. Las complicaciones serias son raras pero reales, y consentimiento informado quiere decir saberlas antes, no despues.
+
+- **Oclusion vascular (o sea, cuando el relleno bloquea una arteria de la cara).** En casos raros, el relleno puede entrar o comprimir una arteria facial. Cuando eso pasa, la piel afectada puede quedarse sin sangre y, si no se reconoce y se revierte rapido, el tejido puede morirse (necrosis de piel). En las zonas de mayor riesgo — alrededor de la glabela (entre las cejas), la nariz, la frente, alrededor del ojo, y el surco nasogeniano — la oclusion muy raramente puede llevar a perdida de vision, porque las arterias de la cara se conectan con vasos que van al ojo. Este es el riesgo mas importante del relleno de AH.
+- **Reversion con hialuronidasa.** Nuestros inyectores estan entrenados en reconocer temprano la oclusion vascular y en el uso de emergencia de la hialuronidasa — una enzima que disuelve el relleno de AH y es el agente de reversion estandar cuando se sospecha una oclusion. Mantenemos hialuronidasa en la clinica en todo momento `[VERIFY WITH CLINIC]`. Si alguna vez tienes dolor que parece desproporcionado, cambio subito de color de piel (blancura o tonalidad morada) o cambios de vision despues de un relleno, contactanos de inmediato — el mismo dia, no manana.
+- **Nodulos de aparicion tardia.** Pueden salir bolitas firmes o inflamacion en zonas viejas de relleno, semanas o meses despues de una enfermedad no relacionada, una infeccion o una vacuna. Es un fenomeno cada vez mas reconocido con los rellenos de AH. Normalmente se puede tratar — pero solo si nos avisas.
+- **Riesgo de nodulos y granulomas con biostimuladores.** Sculptra® (acido poli-L-lactico) y Radiesse® (hidroxiapatita de calcio) tienen un riesgo especifico de nodulos o granulomas — acumulaciones de colageno o de reaccion del tejido — mas alla de lo que traen los rellenos de AH. La tecnica de inyeccion, la dilucion y los protocolos de masaje despues del tratamiento reducen ese riesgo pero no lo eliminan. Repasamos los pros y contras en tu plan escrito.
+
+Si algo de esto se lee como cuidado excesivo — ese es el punto. El mejor inyector en el mejor dia igual te tiene que decir estas cosas.
 
 **Precio del relleno en Hello You Wellness:** $650 por jeringa `[VERIFY WITH CLINIC]`. La mayoria de citas de primera vez de labios usan una jeringa; el tercio medio y la mandibula normalmente se trabajan en dos visitas.
 
 ### Hilos PDO
 
-Los hilos de polidioxanona (PDO) son suturas absorbibles que se colocan bajo la piel para levantar tejido y estimular colageno. Los hilos lisos se usan para calidad de piel; los hilos con espiculas o "cog" se usan para lift en mandibula, pomulo o ceja. Los resultados son sutiles y evolucionan de 3 a 6 meses a medida que se forma colageno nuevo `[CLINICAL REVIEW]`. Piensa en los hilos como un complemento al relleno, no como un reemplazo — cada herramienta hace un trabajo distinto. Precio por consulta.
+Los hilos de polidioxanona (PDO) son suturas absorbibles que se colocan bajo la piel para levantar tejido y estimular colageno. Los hilos lisos se usan para calidad de piel; los hilos con espiculas o "cog" se usan para lift en mandibula, pomulo o ceja. El **efecto de lift es inmediato; la remodelacion de colageno continua a lo largo de 3 a 6 meses a medida que los hilos se absorben** `[CLINICAL REVIEW]`. Piensa en los hilos como un complemento al relleno, no como un reemplazo — cada herramienta hace un trabajo distinto. Precio por consulta.
 
 ### Endolift
 
@@ -82,9 +104,9 @@ Endolift es un tratamiento con fibra laser (tipicamente diodo 1470 nm) que el pr
 
 **Endolift Miami precio:** caso por caso segun el numero de zonas tratadas; los rangos se entregan por escrito despues de tu consulta `[VERIFY WITH CLINIC]`.
 
-### BBL sin cirugia (biostimuladores)
+### Sobre las inyecciones en los gluteos y la seguridad de la paciente
 
-El BBL sin cirugia usa inyectables biostimuladores — normalmente Sculptra (acido poli-L-lactico) o Radiesse (hidroxiapatita de calcio) — para agregar volumen y estimular colageno en gluteos y caderas. No va a replicar la proyeccion de un BBL quirurgico y no es para pacientes que buscan un cambio dramatico de tamano. Es una opcion fuerte si lo que quieres es un contorno mas redondo, mas suave y mas levantado, sin incisiones ni recuperacion `[CLINICAL REVIEW]`. Los resultados se construyen a lo largo de 2 a 3 sesiones separadas por semanas. Precio por consulta.
+**No** hacemos aumento de gluteos sin cirugia con biostimuladores inyectables, y no hacemos ninguna forma de "BBL con silicona". Sculptra® y Radiesse® no estan aprobados por la FDA para aumento de gluteos, y la FDA ha emitido comunicaciones de seguridad especificas sobre el uso de biostimuladores inyectables fuera de la cara. Aparte de eso, las inyecciones ilegales de silicona para "BBL" — vendidas fuera de entornos medicos con licencia — han causado muertes y lesiones permanentes en Florida en la ultima decada, y afectan de forma desproporcionada a nuestra comunidad hispanohablante en Miami-Dade. Si estas considerando aumento de gluteos, por favor busca a un cirujano plastico con licencia para una evaluacion quirurgica; que una clinica te diga que no ofrece la version inyectable es una buena senal para tu seguridad, no una limitacion de tus opciones.
 
 ### Reduccion de celulitis
 
@@ -107,7 +129,6 @@ Publicamos lo que podemos y el resto se cotiza por escrito despues de tu consult
 | Facial de la casa | $129 `[VERIFY WITH CLINIC]` | 60 minutos |
 | Hilos PDO | Por consulta | Segun numero de hilos y area |
 | Endolift | Por consulta | Segun zona |
-| BBL sin cirugia | Por consulta | Por sesion; se recomienda serie |
 | Reduccion de celulitis | Por consulta | Segun modalidad y area |
 
 ## Guia de unidades (rangos tipicos)
@@ -148,7 +169,7 @@ Los resultados individuales varian segun metabolismo, colocacion del producto, a
 
 - Sin recuperacion real — puedes manejar tu misma de vuelta a la casa y volver al trabajo.
 - Pequenas ronchitas en los puntos de inyeccion desaparecen en 15–30 minutos.
-- No acostarte plana por 4 horas `[CLINICAL REVIEW]`.
+- Evita acostarte totalmente plana y evita agacharte fuerte hacia adelante por aproximadamente 4 horas (esto es practica convencional; la evidencia especifica para la ventana de 4 horas es limitada, pero la recomendacion no tiene desventaja y la mantenemos).
 - Sin ejercicio fuerte por 24 horas.
 - Evita frotar o masajear la zona por 24 horas.
 
@@ -160,7 +181,7 @@ Los resultados individuales varian segun metabolismo, colocacion del producto, a
 - Evita ejercicio fuerte, alcohol y tratamientos dentales por 24 a 48 horas.
 - El resultado final se asienta alrededor de las 2 semanas — no juzgues tus labios el dia 3.
 
-**Hilos PDO / Endolift / BBL con biostimuladores** — el cuidado posterior es mas extenso y se entrega por escrito con tu plan.
+**Hilos PDO / Endolift** — el cuidado posterior es mas extenso y se entrega por escrito con tu plan.
 
 ## Soy candidata?
 
@@ -168,9 +189,9 @@ La mayoria de los adultos sanos de 18 anos o mas son candidatos para tratamiento
 
 - Embarazo o lactancia activa (se evitan las neurotoxinas y la mayoria de los rellenos)
 - Infeccion activa en la zona (herpes labial, celulitis, brote de acne)
-- Alergia conocida a componentes del producto (lidocaina, acido hialuronico, proteinas bacterianas gram positivas)
+- Alergia conocida a componentes del producto (lidocaina, acido hialuronico; y especificamente **alergia a la proteina de leche de vaca para Dysport®**, que contiene excipientes derivados de la leche de vaca)
 - Trastornos neuromusculares como miastenia gravis, sindrome de Lambert-Eaton o ELA (contraindicacion para neurotoxinas)
-- Ciertas enfermedades autoinmunes o del tejido conectivo
+- **Dermatomiositis activa, o esclerodermia con compromiso de piel en la zona a tratar.** Una enfermedad autoinmune estable y bien controlada generalmente no es contraindicacion — trae tu historial y tus medicamentos actuales y tomamos la decision especifica juntas.
 - Uso actual de anticoagulantes (afecta el riesgo de moretones — no suspendas medicacion sin autorizacion de tu medico que te la receto)
 - Trabajo dental, cera facial o laser reciente o proximo
 
@@ -234,21 +255,48 @@ Cada plan empieza con una consulta gratis. Conoces a tu inyectora, repasan tus m
 
 ---
 
+## Marcas registradas
+
+Botox® es marca registrada de Allergan, una compania de AbbVie. Dysport® es marca registrada de Ipsen (comercializada en EE. UU. por Galderma). Xeomin® es marca registrada de Merz Pharmaceuticals. Jeuveau® es marca registrada de Evolus, Inc. Daxxify® es marca registrada de Revance Therapeutics. Juvederm®, Voluma®, Vollure®, Volbella® y Skinvive® son marcas registradas de Allergan/AbbVie. Restylane®, Kysse®, Lyft®, Silk®, Refyne® y Defyne® son marcas registradas de Galderma. RHA® es marca registrada de Revance/Teoxane. Radiesse® es marca registrada de Merz Aesthetics. Sculptra® es marca registrada de Galderma. Bellafill® es marca registrada de Suneva Medical. Todas las demas marcas mencionadas en esta pagina son propiedad de sus respectivos duenos. El uso de estos nombres es unicamente para identificacion y no implica respaldo ni afiliacion con los titulares de las marcas.
+
+---
+
 ## Review checklist
 
-- Provider byline — llenar `[PROVIDER_NAME, APRN]` y `[YYYY-MM]` antes de publicar
-- Menu de tratamientos — `[VERIFY: which brands stocked]` para ambas lineas de neurotoxinas y de rellenos (Botox, Dysport, Xeomin, Jeuveau, Daxxify; Juvederm Voluma/Ultra/Vollure/Volbella; Restylane Kysse/Lyft/Silk/Refyne/Defyne; RHA 2/3/4; Radiesse; Sculptra; Bellafill; Skinvive)
-- Menu de tratamientos — profundidad de peelings quimicos ofrecidos (glicolico, salicilico, TCA) — `[VERIFY: which peel depths offered]`
-- Transparencia de precios — `[VERIFY WITH CLINIC]`: Botox $12/unidad, relleno $650/jeringa, facial $129, TRT $499/programa
-- Guia de unidades — `[CLINICAL REVIEW: verify unit ranges]` para glabela 20–25u, frente 10–20u, patas de gallo 10–15u/lado, maseter 20–30u/lado, lift de ceja 2–5u/lado, lip flip 4–6u, lineas de conejo 4–8u, mentalis 4–8u
-- Tabla de inicio/duracion — `[CLINICAL REVIEW]` en cada fila (Botox, Dysport, Xeomin, Jeuveau, Daxxify, Voluma, Kysse, Lyft, Radiesse, Sculptra)
-- BBL sin cirugia — `[CLINICAL REVIEW]` sobre el posicionamiento de que no replica la proyeccion quirurgica
-- Hilos PDO — `[CLINICAL REVIEW]` sobre la linea de tiempo de colageno (3–6 meses)
-- Recuperacion — `[CLINICAL REVIEW]` sobre no acostarse plana 4h post-Botox, inflamacion de relleno 3–7 dias, morados hasta 2 semanas
-- Criterios de candidatura — `[CLINICAL REVIEW]` sobre la lista completa de descarte (embarazo, infeccion, alergia, trastornos neuromusculares, autoinmunes, anticoagulantes)
-- Preguntas y respuestas — `[CLINICAL REVIEW]` sobre la duracion de Botox vs Dysport y el reclamo de Daxxify hasta 6 meses
-- Bloque local — confirmar con operaciones que el lenguaje de "citas el mismo dia" es aceptable
-- Enlace TRT — confirmar que la ruta `/services/hormone-therapy` este viva antes de publicar (workstream paralelo)
-- Dominio — confirmar el dominio canonico final (xlashbyyane.com vs. dominio nuevo) antes del empuje final de indexacion
-- Registro cubano-miamense — pase final de un hablante nativo cubano-americano para asegurar naturalidad (evitar sonar a espanol neutro LATAM)
-- Legal — revisar cualquier lenguaje que pueda leerse como "mejor" o "top" como afirmacion objetiva (actualmente evitado pero re-escanear)
+### APLICADO (esta sesion, draft-v2)
+- Se agrego una subseccion prominente de divulgacion de riesgos: oclusion vascular / reversion con hialuronidasa / perdida de vision / nodulos de aparicion tardia / granulomas por biostimuladores, con la terminologia tecnica emparejada con lenguaje llano para el registro cubano-americano de Miami
+- Se agrego la divulgacion de uso "off-label" del relleno de surco lagrimal en la guia de colocacion
+- Se corrigio la alergia de Dysport a proteina de leche de vaca (antes decia "proteinas bacterianas gram positivas", inexacto)
+- Se suavizo la afirmacion de difusion de Dysport a lenguaje de "campo de accion"
+- Se reformulo la linea de tiempo de los hilos PDO: lift inmediato + remodelacion de colageno a 3–6 meses
+- Se suavizo el "no acostarse plana 4h" post-Botox reconociendo su base de convencion
+- Se fortalecio la especificidad de la contraindicacion autoinmune (dermatomiositis activa, esclerodermia con compromiso de piel en el sitio)
+- Se agrego `®` en primera mencion de las marcas
+- Se agrego seccion `## Marcas registradas` al pie
+
+### RETIRADO (esta sesion)
+- Se retiro la seccion H3 "BBL sin cirugia (biostimuladores)" entera (Sculptra/Radiesse no aprobados por FDA para aumento de gluteo; riesgo de marketing off-label segun revision Legal)
+- Se retiro la fila de BBL sin cirugia de la tabla de precios
+- Se retiro la referencia a "BBL con biostimuladores" en el cuidado posterior
+- Se agrego un parrafo distintivo de seguridad publica sobre las inyecciones ilegales de silicona (han causado muertes en Florida y afectan de forma desproporcionada a la comunidad hispanohablante de Miami-Dade) — la clinica senala explicitamente que no las ofrece
+
+### PENDIENTE — visto bueno de la clinica
+- Marcas efectivamente en inventario en cada linea (`[VERIFY: which brands stocked]`)
+- Profundidades de peelings quimicos que ofrece la clinica
+- Verificacion de precios: Botox $12/unidad, relleno $650/jeringa, facial $129, TRT $499/programa
+- Rangos de unidades por zona
+- Datos de inicio/duracion por producto
+- Lenguaje de "citas el mismo dia"
+- Si hialuronidasa esta realmente en la clinica en todo momento (implicado en el consentimiento de oclusion vascular — verificar)
+- Divulgacion de inclusiones del programa TRT de $499 en punto de mencion
+
+### PENDIENTE — abogado externo
+- Precision del modelo APRN vs MD ("liderado o supervisado") bajo Junta de Medicina / Junta de Enfermeria de Florida
+- Mencion de TRT en pagina de estetica — quitar o agregar divulgacion de medicamento con receta en punto de mencion
+- Pie de sitio con reconocimiento de marcas registradas
+- Cualquier lenguaje "mejor" / "top" en revision final
+- Decision de dominio canonico antes de la indexacion final
+- Pase final de hablante nativo cubano-americano para naturalidad
+
+### Byline del proveedor
+- Llenar `[PROVIDER_NAME, APRN]` y `[YYYY-MM]` antes de publicar
