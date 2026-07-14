@@ -74,10 +74,15 @@ export function HowItWorks() {
 
         {/* Phone mockup */}
         <div className="flex justify-center lg:justify-end">
-          <div className="relative w-64 sm:w-72">
-            <div className="overflow-hidden rounded-[2.5rem] border-[7px] border-[#1a1a1a] bg-white shadow-[0_24px_64px_rgba(22,22,22,0.18)]">
+          <div className="relative w-72 sm:w-80">
+            <div className="relative flex min-h-[580px] flex-col overflow-hidden rounded-[3rem] border-[8px] border-[#1a1a1a] bg-white shadow-[0_24px_64px_rgba(22,22,22,0.18)] sm:min-h-[620px]">
+              {/* Dynamic Island */}
+              <div
+                className="absolute left-1/2 top-2 z-10 h-[22px] w-[88px] -translate-x-1/2 rounded-full bg-[#1a1a1a]"
+                aria-hidden
+              />
               {/* Status bar */}
-              <div className="flex items-center justify-between bg-white px-5 pb-1 pt-3 text-[11px] font-semibold text-ink">
+              <div className="flex items-center justify-between bg-white px-6 pb-1.5 pt-3.5 text-[11px] font-semibold text-ink">
                 <span>9:41</span>
                 <div className="flex items-center gap-1.5">
                   <svg width="15" height="11" viewBox="0 0 15 11" aria-hidden="true">
@@ -111,7 +116,7 @@ export function HowItWorks() {
               </div>
 
               {/* App content */}
-              <div className="space-y-5 px-5 pb-7 pt-2">
+              <div className="flex flex-1 flex-col space-y-5 px-5 pb-4 pt-4">
                 <p className="text-center font-display text-[1.35rem] tracking-tight text-ink">
                   hello{" "}
                   <span className="font-script text-[1.3em] font-normal italic leading-none text-[#E8B4A3]">
@@ -139,7 +144,7 @@ export function HowItWorks() {
                   ))}
                 </div>
 
-                <div className="flex gap-3 pt-1">
+                <div className="mt-auto flex gap-3 pt-4">
                   <span className="flex-1 rounded-full border border-line py-2 text-center text-[0.8rem] font-semibold text-ink">
                     Back
                   </span>
@@ -147,6 +152,11 @@ export function HowItWorks() {
                     Next
                   </span>
                 </div>
+              </div>
+
+              {/* Home indicator */}
+              <div className="flex justify-center pb-2">
+                <div className="h-[5px] w-[110px] rounded-full bg-ink/80" aria-hidden />
               </div>
             </div>
 
