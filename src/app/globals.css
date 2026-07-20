@@ -7,14 +7,19 @@
 :root {
   --canvas: #f7f7f7;
   --surface: #ffffff;
+  --surface-warm: #faf8f6;
   --ink: #212020;
   --muted: #757575;
   --faint: #919191;
   --accent: #212020;
   --accent-2: #5c5c5c;
   --accent-soft: #e8e8e8;
+  --accent-brand: #C0392B;
+  --accent-peach: #E8B4A3;
+  --accent-clinical: #4A90D9;
   --line: #dbdbdb;
   --chrome: #161616;
+  --chrome-cta: #1a1a1a;
   --on-chrome: #ffffff;
   --chrome-muted: rgba(255, 255, 255, 0.72);
   --shadow: 0 16px 48px rgba(22, 22, 22, 0.08);
@@ -23,14 +28,19 @@
 @theme inline {
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
+  --color-surface-warm: var(--surface-warm);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-faint: var(--faint);
   --color-accent: var(--accent);
   --color-accent-2: var(--accent-2);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-brand: var(--accent-brand);
+  --color-accent-peach: var(--accent-peach);
+  --color-accent-clinical: var(--accent-clinical);
   --color-line: var(--line);
   --color-chrome: var(--chrome);
+  --color-chrome-cta: var(--chrome-cta);
   --color-on-chrome: var(--on-chrome);
   --shadow-soft: var(--shadow);
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;

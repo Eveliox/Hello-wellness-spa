@@ -250,11 +250,11 @@ function ResultView({ service }: { service: ServiceSlug }) {
         ))}
       </ul>
       <div className="flex flex-col gap-3 pt-2 sm:flex-row">
-        <Button href={`/services/${match.slug}`} size="lg" className="sm:flex-1">
-          View my match
+        <Button href={`/book?service=${match.slug}&source=quiz`} size="lg" className="sm:flex-1">
+          Book a consultation
         </Button>
-        <Button href="/store" variant="secondary" size="lg" className="sm:flex-1">
-          Visit our store
+        <Button href="/memberships" variant="secondary" size="lg" className="sm:flex-1">
+          Explore memberships
         </Button>
       </div>
       <p className="text-xs text-faint">

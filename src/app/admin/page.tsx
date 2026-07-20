@@ -4,6 +4,9 @@ import { redirect } from "next/navigation";
 import { getSupabase } from "@/lib/supabase";
 import { Container } from "@/components/ui/container";
 import { SubmissionsTable } from "@/components/admin/submissions-table";
+import { ReviewRequestForm } from "@/components/admin/review-request-form";
+import { PartnerApplicationsTable } from "@/components/admin/partner-applications-table";
+import type { PartnerApplication } from "@/components/admin/partner-applications-table";
 
 export const metadata: Metadata = {
   title: "Admin | Hello You Wellness",
@@ -34,19 +37,31 @@ export default async function AdminPage() {
   }
 
   const supabase = getSupabase();
-  const { data: submissions, error } = await supabase
-    .from("intake_submissions")
-    .select("*")
-    .order("submitted_at", { ascending: false });
+  const [submissionsRes, applicationsRes] = await Promise.all([
+    supabase.from("intake_submissions").select("*").order("submitted_at", { ascending: false }),
+    supabase
+      .from("partner_applications")
+      .select(
+        "id, created_at, business_type, business_name, owner_name, email, phone, city, website, instagram, client_count_range, motivation, referral_source, status, admin_notes, reviewed_at",
+      )
+      .order("created_at", { ascending: false }),
+  ]);
 
-  if (error) {
-    console.error("[admin] failed to fetch submissions", error);
+  if (submissionsRes.error) {
+    console.error("[admin] failed to fetch submissions", submissionsRes.error);
+  }
+  if (applicationsRes.error) {
+    console.error("[admin] failed to fetch partner applications", applicationsRes.error);
   }
 
   return (
     <main className="min-h-screen bg-surface py-10">
-      <Container>
-        <SubmissionsTable initialData={submissions ?? []} />
+      <Container className="space-y-8">
+        <ReviewRequestForm />
+        <PartnerApplicationsTable
+          initialData={(applicationsRes.data as PartnerApplication[] | null) ?? []}
+        />
+        <SubmissionsTable initialData={submissionsRes.data ?? []} />
       </Container>
     </main>
   );

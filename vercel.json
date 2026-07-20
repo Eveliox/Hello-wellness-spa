@@ -1,0 +1,16 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/weekly-digest",
+      "schedule": "0 13 * * 1"
+    },
+    {
+      "path": "/api/cron/birthday-perk",
+      "schedule": "0 14 * * *"
+    },
+    {
+      "path": "/api/cron/win-back",
+      "schedule": "0 15 * * 5"
+    }
+  ]
+}

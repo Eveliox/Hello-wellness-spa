@@ -24,6 +24,8 @@ const limiters = {
   glp1Intake: makeLimiter(3, "1 h", "rl:glp1intake"),
   checkout: makeLimiter(10, "1 h", "rl:checkout"),
   portalAuth: makeLimiter(10, "10 m", "rl:portalauth"),
+  feedback: makeLimiter(5, "1 h", "rl:feedback"),
+  referral: makeLimiter(5, "1 h", "rl:referral"),
 } as const;
 
 export type RateLimitBucket = keyof typeof limiters;

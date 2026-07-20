@@ -14,11 +14,13 @@ export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": ["MedicalClinic", "HealthAndBeautyBusiness", "LocalBusiness"],
+    "@id": `${site.url}/#localbusiness`,
     name: site.name,
     description: site.tagline,
     url: site.url,
     telephone: site.phoneDisplay,
-    image: `${site.url}/og-placeholder.svg`,
+    image: `${site.url}/medical%20expertise.jpg`,
+    hasMap: site.googleReviewsUrl,
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.line1,

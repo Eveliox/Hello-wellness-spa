@@ -18,12 +18,12 @@ export const mainNav: NavItem[] = [
       { label: "IV therapy", href: "/services/iv-therapy", description: "Hydration, recovery, and vitality" },
       { label: "Build your own IV", href: "/services/build-your-own-iv", description: "Personalized nutrient blends" },
       { label: "Galleri Test", href: "/services/galleri", description: "Multi-cancer early detection screening" },
-      { label: "Peptides", href: "/store?category=Peptides", description: "Lot-traceable peptides with handling standards" },
+      { label: "Peptides", href: "/services/peptide-therapy", description: "Lot-traceable peptides with handling standards" },
       { label: "Intake form", href: "/intake", description: "New patient registration" },
     ],
   },
+  { label: "Memberships", href: "/memberships" },
   { label: "Quiz", href: "/quiz" },
-  { label: "Store", href: "/store" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -36,12 +36,13 @@ export const footerGroups = [
       { label: "Aesthetics", href: "/services/aesthetics-cosmetics" },
       { label: "IV therapy", href: "/services/iv-therapy" },
       { label: "Galleri Screening", href: "/services/galleri" },
-      { label: "Peptides", href: "/store?category=Peptides" },
+      { label: "Peptides", href: "/services/peptide-therapy" },
     ],
   },
   {
     title: "Experience",
     links: [
+      { label: "Memberships", href: "/memberships" },
       { label: "FAQ", href: "/faq" },
     ],
   },
@@ -49,9 +50,9 @@ export const footerGroups = [
     title: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Store", href: "/store" },
       { label: "Policies", href: "/policies" },
       { label: "Contact", href: "/contact" },
+      { label: "Partner with us", href: "/partners" },
     ],
   },
 ];

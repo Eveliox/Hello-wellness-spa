@@ -9,7 +9,7 @@ import type { FaqItem } from "@/content/faqs";
 import { GALLERI_DISCLAIMER, GALLERI_WHATSAPP_URL } from "@/data/screenings";
 
 export const metadata: Metadata = createMetadata({
-  title: "Galleri® Multi-Cancer Early Detection Test",
+  title: "Galleri® Multi-Cancer Early Detection Test in SW Miami",
   description:
     "Provider-guided Galleri® screening at Hello You Wellness Center in SW Miami — a single blood draw designed to detect cancer signals across 50+ cancer types.",
   path: "/services/galleri",

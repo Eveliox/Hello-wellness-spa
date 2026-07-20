@@ -585,6 +585,24 @@ export function IntakeForm({ prefilledService, hasBooking = false }: IntakeFormP
           <FieldError message={errors.howDidYouHear?.message} />
         </div>
 
+        <div className="sm:col-span-2">
+          <label className={labelCls}>
+            Partner referral code (optional) / Código de socio (opcional)
+          </label>
+          <p className="mt-1 text-xs text-muted">
+            Referred by a trainer, gym, or wellness partner? Enter their code (e.g.{" "}
+            PARTNER-YOURGYM-A3F2).
+          </p>
+          <input
+            type="text"
+            placeholder="PARTNER-XXXXXX-XXXX"
+            {...register("partnerReferralCode")}
+            className={inputCls}
+            autoCapitalize="characters"
+          />
+          <FieldError message={errors.partnerReferralCode?.message} />
+        </div>
+
         {/* Signature */}
         <SectionHeading>Signature / Firma</SectionHeading>
 

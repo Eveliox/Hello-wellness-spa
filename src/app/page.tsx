@@ -7,6 +7,7 @@ import { FaqPreview } from "@/components/home/faq-preview";
 import { MapEmbed } from "@/components/location/map-embed";
 import { ServicesPreview } from "@/components/home/services-preview";
 import { HowItWorks } from "@/components/home/how-it-works";
+import { MembershipUpsell } from "@/components/memberships/membership-upsell";
 import { Reveal } from "@/components/ui/reveal";
 
 export default function HomePage() {
@@ -24,15 +25,18 @@ export default function HomePage() {
         <HowItWorks />
       </Reveal>
       <Reveal delayMs={80}>
+        <MembershipUpsell />
+      </Reveal>
+      <Reveal delayMs={100}>
         <AboutPreview />
       </Reveal>
-      <Reveal delayMs={120}>
+      <Reveal delayMs={140}>
         <TestimonialsHome />
       </Reveal>
-      <Reveal delayMs={160}>
+      <Reveal delayMs={180}>
         <FaqPreview />
       </Reveal>
-      <Reveal delayMs={200}>
+      <Reveal delayMs={220}>
         <MapEmbed />
       </Reveal>
     </>

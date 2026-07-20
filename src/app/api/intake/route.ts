@@ -1,6 +1,7 @@
 import { intakeSchema } from "@/lib/intake-schema";
 import { emailFallbackPayload, escapeHtml, sendEmail } from "@/lib/email";
 import { checkRateLimit, rateLimitResponse } from "@/lib/rate-limit";
+import { normalizeReferralCodeInput } from "@/lib/partners";
 import { site } from "@/content/site";
 
 export async function POST(request: Request) {
@@ -32,47 +33,79 @@ export async function POST(request: Request) {
     } else {
       const { createClient } = await import("@supabase/supabase-js");
       const supabase = createClient(supabaseUrl, supabaseKey);
-      const { error: dbError } = await supabase.from("intake_submissions").insert({
-        registration_date: data.registrationDate,
-        full_name: data.fullName,
-        date_of_birth: data.dateOfBirth,
-        address: data.address,
-        phone_number: data.phoneNumber,
-        email: data.email,
-        employment_status: data.employmentStatus,
-        employer: data.employer ?? null,
-        taking_medications: data.takingMedications,
-        medications_list: data.medicationsList ?? null,
-        emergency_contact: data.emergencyContact,
-        height: data.height,
-        weight: data.weight,
-        drinks_alcohol: data.drinksAlcohol,
-        smokes_cigarettes: data.smokesCigarettes,
-        recreational_drugs: data.recreationalDrugs,
-        pre_existing_conditions: data.preExistingConditions,
-        pre_existing_conditions_details: data.preExistingConditionsDetails ?? null,
-        diagnosed_diabetes: data.diagnosedDiabetes,
-        diagnosed_thyroid: data.diagnosedThyroid,
-        diagnosed_pancreatitis: data.diagnosedPancreatitis,
-        medical_conditions_details: data.medicalConditionsDetails ?? null,
-        family_history_illness: data.familyHistoryIllness,
-        family_history_details: data.familyHistoryDetails ?? null,
-        currently_pregnant: data.currentlyPregnant,
-        trying_to_conceive: data.tryingToConceive,
-        currently_breastfeeding: data.currentlyBreastfeeding,
-        last_blood_lab_work: data.lastBloodLabWork,
-        last_blood_pressure_date: data.lastBloodPressureDate,
-        last_blood_pressure_results: data.lastBloodPressureResults,
-        covid_vaccination_status: data.covidVaccinationStatus,
-        under_physician_supervision: data.underPhysicianSupervision,
-        reason_for_visit: data.reasonForVisit,
-        services_interested: data.servicesInterested,
-        how_did_you_hear: data.howDidYouHear,
-        signature: data.signature,
-      });
+      const partnerCode = data.partnerReferralCode
+        ? normalizeReferralCodeInput(data.partnerReferralCode)
+        : null;
+      const { data: inserted, error: dbError } = await supabase
+        .from("intake_submissions")
+        .insert({
+          registration_date: data.registrationDate,
+          full_name: data.fullName,
+          date_of_birth: data.dateOfBirth,
+          address: data.address,
+          phone_number: data.phoneNumber,
+          email: data.email,
+          employment_status: data.employmentStatus,
+          employer: data.employer ?? null,
+          taking_medications: data.takingMedications,
+          medications_list: data.medicationsList ?? null,
+          emergency_contact: data.emergencyContact,
+          height: data.height,
+          weight: data.weight,
+          drinks_alcohol: data.drinksAlcohol,
+          smokes_cigarettes: data.smokesCigarettes,
+          recreational_drugs: data.recreationalDrugs,
+          pre_existing_conditions: data.preExistingConditions,
+          pre_existing_conditions_details: data.preExistingConditionsDetails ?? null,
+          diagnosed_diabetes: data.diagnosedDiabetes,
+          diagnosed_thyroid: data.diagnosedThyroid,
+          diagnosed_pancreatitis: data.diagnosedPancreatitis,
+          medical_conditions_details: data.medicalConditionsDetails ?? null,
+          family_history_illness: data.familyHistoryIllness,
+          family_history_details: data.familyHistoryDetails ?? null,
+          currently_pregnant: data.currentlyPregnant,
+          trying_to_conceive: data.tryingToConceive,
+          currently_breastfeeding: data.currentlyBreastfeeding,
+          last_blood_lab_work: data.lastBloodLabWork,
+          last_blood_pressure_date: data.lastBloodPressureDate,
+          last_blood_pressure_results: data.lastBloodPressureResults,
+          covid_vaccination_status: data.covidVaccinationStatus,
+          under_physician_supervision: data.underPhysicianSupervision,
+          reason_for_visit: data.reasonForVisit,
+          services_interested: data.servicesInterested,
+          how_did_you_hear: data.howDidYouHear,
+          partner_referral_code: partnerCode,
+          signature: data.signature,
+        })
+        .select("id")
+        .single();
       if (dbError) {
         console.error("[intake] db error", dbError);
         dbFailure = `Supabase insert error: ${dbError.message}`;
+      } else if (partnerCode && inserted) {
+        // Best-effort: link this intake to the partner. Errors here don't fail
+        // the intake — admin can always add attribution manually.
+        const { data: partner } = await supabase
+          .from("partners")
+          .select("id")
+          .eq("referral_code", partnerCode)
+          .eq("status", "active")
+          .maybeSingle();
+        if (partner) {
+          const firstName = data.fullName.trim().split(/\s+/)[0] ?? null;
+          const { error: refErr } = await supabase.from("partner_referrals").insert({
+            partner_id: partner.id,
+            referral_code: partnerCode,
+            client_email: data.email,
+            client_phone: data.phoneNumber,
+            client_first_name: firstName,
+            source: "intake",
+            source_ref: inserted.id,
+          });
+          if (refErr) {
+            console.error("[intake] partner_referrals insert failed", refErr);
+          }
+        }
       }
     }
   } catch (err) {

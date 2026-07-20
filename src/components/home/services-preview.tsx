@@ -39,7 +39,7 @@ const items = [
     title: "Peptide Programs",
     description:
       "GHK-Cu, BPC-157, and more — clearly labeled, properly documented compounds.",
-    href: "/store?category=Peptides",
+    href: "/services/peptide-therapy",
     image: "/peptides.jpg",
   },
 ] as const;

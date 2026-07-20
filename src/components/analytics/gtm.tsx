@@ -3,25 +3,24 @@ import Script from "next/script";
 /**
  * Google Tag Manager loader + Consent Mode v2 default-denied bootstrap.
  *
- * Load order (this order is enforced by placing the consent script first in
- * the DOM with `beforeInteractive` — both must sit in the root layout):
+ * Load order (enforced by placing scripts in this order in the root layout):
  *   1. `ConsentDefault` — sets all consent categories to "denied" and
  *      configures Consent Mode v2 defaults BEFORE any GTM/GA code runs.
- *   2. `GtmScript` — injects the standard GTM snippet with the container ID
- *      pulled from `NEXT_PUBLIC_GTM_ID`. Renders nothing if the ID is unset,
- *      so local/preview builds don't ship a broken tag.
- *   3. `GtmNoscript` — <iframe> fallback for JS-disabled visitors (goes at
- *      the top of <body>). Same env guard as GtmScript.
+ *   2. `CookiebotScript` — loads Cookiebot when NEXT_PUBLIC_COOKIEBOT_CBID is
+ *      set. Cookiebot renders the banner and calls `gtag('consent','update')`
+ *      when the visitor accepts. Auto-blocks non-essential tags until then.
+ *   3. `GtmScript` — injects the standard GTM snippet with the container ID
+ *      pulled from `NEXT_PUBLIC_GTM_ID`. Renders nothing if the ID is unset.
+ *   4. `GtmNoscript` — <iframe> fallback for JS-disabled visitors (goes at
+ *      the top of <body>).
  *
- * === Follow-up required BEFORE paid campaign launch ===
- * A real Consent Management Platform (Cookiebot, Osano, Iubenda, etc.) MUST
- * be integrated to call `gtag('consent', 'update', {...})` when the user
- * grants consent. Until that CMP ships, ALL users remain in default-denied
- * state — meaning downstream GA4 / Ads tags never fire and conversion data
- * will not accumulate. This is intentional and the compliant default.
+ * Cookiebot signup: https://www.cookiebot.com/ → create a domain group → copy
+ * the CBID (UUID) into NEXT_PUBLIC_COOKIEBOT_CBID. Free tier covers small
+ * sites (<100 subpages, <5k visits/mo).
  */
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const COOKIEBOT_CBID = process.env.NEXT_PUBLIC_COOKIEBOT_CBID;
 
 /**
  * Consent Mode v2 default-denied. Must load before GTM.
@@ -49,6 +48,30 @@ export function ConsentDefault() {
         gtag('set', 'url_passthrough', true);
       `}
     </Script>
+  );
+}
+
+/**
+ * Cookiebot CMP loader. Must render AFTER ConsentDefault and BEFORE GtmScript
+ * so it can intercept and update consent state before GTM tags evaluate.
+ *
+ * The `data-blockingmode="auto"` attribute enables Cookiebot's automatic
+ * script blocking — any tag with a consent category attribute is blocked
+ * until the visitor accepts.
+ *
+ * `strategy="beforeInteractive"` matches Cookiebot's own documented setup so
+ * the banner renders before third-party scripts fire.
+ */
+export function CookiebotScript() {
+  if (!COOKIEBOT_CBID) return null;
+  return (
+    <Script
+      id="Cookiebot"
+      src="https://consent.cookiebot.com/uc.js"
+      data-cbid={COOKIEBOT_CBID}
+      data-blockingmode="auto"
+      strategy="beforeInteractive"
+    />
   );
 }
 

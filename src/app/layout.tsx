@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { StickyBookCta } from "@/components/layout/sticky-book-cta";
 import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
 import { JsonLd } from "@/components/json-ld";
-import { ConsentDefault, GtmScript, GtmNoscript } from "@/components/analytics/gtm";
+import { ConsentDefault, CookiebotScript, GtmScript, GtmNoscript } from "@/components/analytics/gtm";
 import { createMetadata } from "@/lib/seo";
 import { localBusinessJsonLd } from "@/lib/schema";
 import { site } from "@/content/site";
@@ -63,6 +63,7 @@ export default function RootLayout({
           NEXT_PUBLIC_GTM_ID is unset (dev/preview safe).
         */}
         <ConsentDefault />
+        <CookiebotScript />
         <GtmScript />
       </head>
       <body className="flex min-h-full flex-col bg-canvas text-ink">

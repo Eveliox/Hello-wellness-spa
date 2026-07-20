@@ -10,9 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/services",
     "/contact",
-    "/store",
     "/faq",
     "/policies",
+    "/book",
+    "/quiz",
+    "/memberships",
+    "/refer",
+    "/partners",
   ];
 
   const entries: MetadataRoute.Sitemap = staticRoutes.map((path) => ({
@@ -36,6 +40,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.8,
+  });
+
+  [
+    "/services/endolift-miami",
+    "/services/trt-miami",
+    "/services/pdo-threads-miami",
+    "/services/non-surgical-bbl-miami",
+    "/services/mobile-iv-miami",
+  ].forEach((path) => {
+    entries.push({
+      url: `${base}${path}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    });
   });
 
   return entries;

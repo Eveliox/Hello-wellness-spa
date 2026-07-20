@@ -36,6 +36,11 @@ export const intakeSchema = z.object({
   reasonForVisit: z.string().min(5, "Please describe your reason for visiting").max(2000),
   servicesInterested: z.array(z.string()).min(1, "Please select at least one service"),
   howDidYouHear: z.enum(["google", "instagram", "facebook", "whatsapp", "snapchat", "referral", "walk_in"]),
+  partnerReferralCode: z
+    .string()
+    .max(60)
+    .optional()
+    .or(z.literal("").transform(() => undefined)),
   signature: z.string().min(2, "Required").max(120),
 });
 
