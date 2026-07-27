@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getSupabase } from "@/lib/supabase";
@@ -57,6 +58,20 @@ export default async function AdminPage() {
   return (
     <main className="min-h-screen bg-surface py-10">
       <Container className="space-y-8">
+        <nav className="flex flex-wrap gap-3 rounded-[var(--radius-card)] border border-line bg-canvas p-4 text-sm">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+            Admin tools:
+          </span>
+          <Link href="/admin" className="font-semibold text-ink underline-offset-2 hover:underline">
+            Dashboard
+          </Link>
+          <Link
+            href="/admin/orders"
+            className="font-semibold text-ink underline-offset-2 hover:underline"
+          >
+            Order tracker →
+          </Link>
+        </nav>
         <ReviewRequestForm />
         <PartnerApplicationsTable
           initialData={(applicationsRes.data as PartnerApplication[] | null) ?? []}

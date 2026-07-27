@@ -68,8 +68,108 @@ export default async function PartnerDashboardPage() {
 
   const currentMonthName = new Date().toLocaleDateString("en-US", { month: "long" });
 
+  const hasAnyReferral = referrals.length > 0;
+  const hasCompletedVisit = referrals.some((r) => r.first_purchase_at);
+  const hasBeenPaid = referrals.some((r) => r.commission_status === "paid");
+
+  const onboardingSteps: Array<{ key: string; label: string; done: boolean; hint: string | null }> = [
+    { key: "activated", label: "Account activated", done: true, hint: null },
+    {
+      key: "first-referral",
+      label: "Refer your first client",
+      done: hasAnyReferral,
+      hint: hasAnyReferral
+        ? null
+        : `Share code ${partner.referral_code} with a client this week — text, DM, or in person.`,
+    },
+    {
+      key: "first-visit",
+      label: "Your first client completes a visit",
+      done: hasCompletedVisit,
+      hint: null,
+    },
+    {
+      key: "first-payout",
+      label: "Get your first payout",
+      done: hasBeenPaid,
+      hint: null,
+    },
+  ];
+  const allOnboardingDone = onboardingSteps.every((s) => s.done);
+
+  type MonthBucket = { key: string; label: string; count: number; cents: number };
+  const monthBuckets: MonthBucket[] = [];
+  const chartAnchor = new Date();
+  for (let i = 5; i >= 0; i--) {
+    const d = new Date(chartAnchor.getFullYear(), chartAnchor.getMonth() - i, 1);
+    monthBuckets.push({
+      key: `${d.getFullYear()}-${d.getMonth()}`,
+      label: d.toLocaleDateString("en-US", { month: "short" }),
+      count: 0,
+      cents: 0,
+    });
+  }
+  const bucketByKey = new Map(monthBuckets.map((b) => [b.key, b]));
+  for (const r of referrals) {
+    const eventAt = r.first_purchase_at ? new Date(r.first_purchase_at) : new Date(r.created_at);
+    const key = `${eventAt.getFullYear()}-${eventAt.getMonth()}`;
+    const bucket = bucketByKey.get(key);
+    if (!bucket) continue;
+    bucket.count += 1;
+    if (r.commission_status === "earned" || r.commission_status === "paid") {
+      bucket.cents += r.commission_cents ?? 0;
+    }
+  }
+  const maxBucketCount = Math.max(1, ...monthBuckets.map((b) => b.count));
+  const chartHasData = monthBuckets.some((b) => b.count > 0);
+  const chartTotalCount = monthBuckets.reduce((sum, b) => sum + b.count, 0);
+  const chartTotalCents = monthBuckets.reduce((sum, b) => sum + b.cents, 0);
+
   return (
     <div className="space-y-8">
+      {/* Onboarding checklist — only until the partner is fully off the ground */}
+      {!allOnboardingDone ? (
+        <div className="rounded-[1.5rem] border border-line bg-canvas p-6 sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E8B4A3]">
+            Getting started
+          </p>
+          <h2 className="mt-2 font-display text-xl text-ink">Your first steps</h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted">
+            Work through these to earn your first commission. We&apos;ll check them off as you go.
+          </p>
+          <ul className="mt-5 space-y-3">
+            {onboardingSteps.map((s) => (
+              <li key={s.key} className="flex items-start gap-3">
+                <span
+                  className={
+                    "mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border text-[11px] font-bold " +
+                    (s.done
+                      ? "border-[#27ae60] bg-[#27ae60] text-white"
+                      : "border-line bg-white text-transparent")
+                  }
+                  aria-hidden
+                >
+                  ✓
+                </span>
+                <div className="min-w-0">
+                  <p
+                    className={
+                      "text-sm " + (s.done ? "text-muted line-through" : "text-ink")
+                    }
+                  >
+                    {s.label}
+                    <span className="sr-only">{s.done ? " (completed)" : " (not started)"}</span>
+                  </p>
+                  {s.hint && !s.done ? (
+                    <p className="mt-0.5 text-xs text-muted">{s.hint}</p>
+                  ) : null}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
       {/* Referral code hero */}
       <div className="rounded-[1.5rem] border border-line bg-canvas p-6 sm:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E8B4A3]">
@@ -108,6 +208,44 @@ export default async function PartnerDashboardPage() {
           highlight={pendingPayoutCents > 0}
         />
       </div>
+
+      {/* Last-6-months trend chart */}
+      {chartHasData ? (
+        <div className="rounded-[1.5rem] border border-line bg-white p-6 sm:p-8">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="font-display text-xl text-ink">Last 6 months</h2>
+            <p className="text-xs text-muted">
+              {chartTotalCount} {chartTotalCount === 1 ? "referral" : "referrals"} ·{" "}
+              {formatUsd(chartTotalCents)} earned
+            </p>
+          </div>
+          <div className="mt-6 grid grid-cols-6 items-end gap-3">
+            {monthBuckets.map((b) => {
+              const heightPct = b.count === 0 ? 0 : Math.max(6, (b.count / maxBucketCount) * 100);
+              return (
+                <div
+                  key={b.key}
+                  className="flex flex-col items-center gap-2"
+                  role="img"
+                  aria-label={`${b.count} referrals in ${b.label}`}
+                >
+                  <div className="flex h-28 w-full items-end rounded-lg bg-canvas">
+                    <div
+                      className="w-full rounded-lg bg-[#E8B4A3] transition-all"
+                      style={{ height: `${heightPct}%` }}
+                      aria-hidden
+                    />
+                  </div>
+                  <div className="text-center">
+                    <p className="text-sm font-semibold text-ink">{b.count}</p>
+                    <p className="text-xs uppercase tracking-wide text-muted">{b.label}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
 
       {/* Recent history (anonymized) */}
       <div>

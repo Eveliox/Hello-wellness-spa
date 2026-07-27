@@ -22,6 +22,18 @@ export const mainNav: NavItem[] = [
       { label: "Intake form", href: "/intake", description: "New patient registration" },
     ],
   },
+  {
+    label: "Programs",
+    href: "/programs",
+    children: [
+      { label: "Weight Management", href: "/programs/weight-management", description: "Medical support for sustainable weight loss" },
+      { label: "Longevity & Vitality", href: "/programs/longevity-vitality", description: "Cellular health, peptides, and IV support" },
+      { label: "Skin & Hair", href: "/programs/skin-hair", description: "Aesthetics + peptide-supported skin and hair" },
+      { label: "Hormone Wellness", href: "/programs/hormone-wellness", description: "In-person HRT for men and women" },
+      { label: "Recovery & Performance", href: "/programs/recovery-performance", description: "IV therapy and recovery peptides" },
+      { label: "Immune Support", href: "/programs/immune-support", description: "Physician-curated immune IV blends" },
+    ],
+  },
   { label: "Memberships", href: "/memberships" },
   { label: "Quiz", href: "/quiz" },
   { label: "Contact", href: "/contact" },
@@ -37,6 +49,16 @@ export const footerGroups = [
       { label: "IV therapy", href: "/services/iv-therapy" },
       { label: "Galleri Screening", href: "/services/galleri" },
       { label: "Peptides", href: "/services/peptide-therapy" },
+    ],
+  },
+  {
+    title: "Programs",
+    links: [
+      { label: "Weight Management", href: "/programs/weight-management" },
+      { label: "Longevity & Vitality", href: "/programs/longevity-vitality" },
+      { label: "Hormone Wellness", href: "/programs/hormone-wellness" },
+      { label: "Recovery & Performance", href: "/programs/recovery-performance" },
+      { label: "All programs", href: "/programs" },
     ],
   },
   {

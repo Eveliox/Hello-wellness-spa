@@ -15,7 +15,7 @@ const navLinkClass =
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [showBookCta, setShowBookCta] = useState(false);
   const menuId = useId();
   const pathname = usePathname();
@@ -83,14 +83,14 @@ export function Header() {
               <div
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
+                onMouseEnter={() => setOpenMenu(item.label)}
+                onMouseLeave={() => setOpenMenu((prev) => (prev === item.label ? null : prev))}
               >
                 <div className="flex items-center">
                   <Link
                     href={item.href}
-                    className={cn(navLinkClass, servicesOpen && "text-white")}
-                    onFocus={() => setServicesOpen(true)}
+                    className={cn(navLinkClass, openMenu === item.label && "text-white")}
+                    onFocus={() => setOpenMenu(item.label)}
                   >
                     {item.label}
                   </Link>
@@ -101,7 +101,9 @@ export function Header() {
                 <div
                   className={cn(
                     "absolute left-0 top-full z-50 w-[min(100vw-2rem,22rem)] pt-2 transition",
-                    servicesOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+                    openMenu === item.label
+                      ? "pointer-events-auto opacity-100"
+                      : "pointer-events-none opacity-0",
                   )}
                   role="presentation"
                 >
@@ -115,7 +117,7 @@ export function Header() {
                         href={child.href}
                         role="menuitem"
                         className="block rounded-xl px-3 py-2.5 text-sm hover:bg-accent-soft"
-                        onClick={() => setServicesOpen(false)}
+                        onClick={() => setOpenMenu(null)}
                       >
                         <span className="block font-ui font-semibold text-ink">{child.label}</span>
                         {child.description ? (
