@@ -1,6 +1,7 @@
 import { intakeSchema } from "@/lib/intake-schema";
 import { emailFallbackPayload, escapeHtml, sendEmail } from "@/lib/email";
 import { checkRateLimit, rateLimitResponse } from "@/lib/rate-limit";
+import { looksLikeBot } from "@/lib/bot-heuristics";
 import { normalizeReferralCodeInput } from "@/lib/partners";
 import { site } from "@/content/site";
 
@@ -21,6 +22,15 @@ export async function POST(request: Request) {
     data = parsed.data;
   } catch {
     return Response.json({ ok: false, message: "Invalid request." }, { status: 400 });
+  }
+
+  // Step 1b: bot heuristics — reject spam before it hits the DB or generates
+  // email noise. We deliberately return the same generic 400 the schema path
+  // uses so bots can't fingerprint which rule blocked them.
+  const botCheck = looksLikeBot(data);
+  if (botCheck.bot) {
+    console.warn(`[intake] bot-block: ${botCheck.reason}`);
+    return Response.json({ ok: false, message: "Invalid form data." }, { status: 400 });
   }
 
   // Step 2: save to Supabase (optional — never crashes the request)

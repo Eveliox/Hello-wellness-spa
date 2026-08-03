@@ -42,6 +42,12 @@ export const intakeSchema = z.object({
     .optional()
     .or(z.literal("").transform(() => undefined)),
   signature: z.string().min(2, "Required").max(120),
+  // Anti-bot fields — never rendered as visible inputs and never persisted.
+  // `honeypot` is a hidden decoy input; bots that fill every field trip it.
+  // `formLoadedAt` is a client-side Unix ms timestamp used to reject submissions
+  // that come in faster than a human could plausibly complete the form.
+  honeypot: z.string().max(200).optional(),
+  formLoadedAt: z.number().int().nonnegative().optional(),
 });
 
 export type IntakeFormData = z.infer<typeof intakeSchema>;

@@ -102,6 +102,9 @@ export function IntakeForm({ prefilledService, hasBooking = false }: IntakeFormP
   // Guard so `intake_start` only fires once per form mount. See PHI note in
   // src/lib/analytics.ts — we never push the focused field's name or value.
   const startFiredRef = useRef(false);
+  // Timestamp captured at first render — sent to the server so it can reject
+  // sub-3-second submissions (real humans need longer to fill this form).
+  const formLoadedAtRef = useRef<number>(Date.now());
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -133,7 +136,7 @@ export function IntakeForm({ prefilledService, hasBooking = false }: IntakeFormP
       const res = await fetch("/api/intake", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, formLoadedAt: formLoadedAtRef.current }),
       });
       const json = (await res.json()) as { ok: boolean; message?: string };
       if (!json.ok) {
@@ -188,6 +191,32 @@ export function IntakeForm({ prefilledService, hasBooking = false }: IntakeFormP
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} onFocusCapture={handleFirstInteraction} noValidate>
+      {/*
+        Honeypot: invisible to humans (off-screen + aria-hidden + tabIndex -1),
+        irresistible to naive bots that fill every input. Server rejects the
+        submission whenever this comes back non-empty. Named "website" because
+        that's a field bots recognize and target.
+      */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: "1px",
+          height: "1px",
+          overflow: "hidden",
+        }}
+      >
+        <label htmlFor="hyw-website">Website (leave blank)</label>
+        <input
+          id="hyw-website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register("honeypot")}
+        />
+      </div>
+
       <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
 
         {/* Personal Information */}

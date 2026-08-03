@@ -66,6 +66,8 @@ export function GLP1IntakeForm() {
   // See PHI guardrail note in src/lib/analytics.ts. This form is currently
   // unused by any route, but the events are wired for the day it goes live.
   const startFiredRef = useRef(false);
+  // Timestamp captured at first render — server rejects sub-3-second POSTs.
+  const formLoadedAtRef = useRef<number>(Date.now());
 
   const {
     register,
@@ -87,7 +89,7 @@ export function GLP1IntakeForm() {
       const res = await fetch("/api/intake/glp1", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, formLoadedAt: formLoadedAtRef.current }),
       });
       const json = (await res.json()) as { ok: boolean; message?: string };
       if (!json.ok) {
@@ -135,6 +137,27 @@ export function GLP1IntakeForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} onFocusCapture={handleFirstInteraction} noValidate>
+      {/* Honeypot — invisible to humans, bots fill it. See src/lib/bot-heuristics.ts. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: "1px",
+          height: "1px",
+          overflow: "hidden",
+        }}
+      >
+        <label htmlFor="hyw-glp1-website">Website (leave blank)</label>
+        <input
+          id="hyw-glp1-website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register("honeypot")}
+        />
+      </div>
+
       <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
 
         {/* Personal Information */}

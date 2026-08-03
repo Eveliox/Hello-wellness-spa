@@ -88,6 +88,10 @@ export const glp1IntakeSchema = z
 
     // Signature
     signature: z.string().min(2, "Required").max(120),
+
+    // Anti-bot (see src/lib/bot-heuristics.ts). Never rendered, never persisted.
+    honeypot: z.string().max(200).optional(),
+    formLoadedAt: z.number().int().nonnegative().optional(),
   })
   .superRefine((val, ctx) => {
     if (val.currentlyOnGLP1 === "yes") {
