@@ -69,6 +69,7 @@ export const packages: WellnessPackage[] = [
       "Our foundational weight-loss protocol — a 4-week personalized program with 2 bonus weeks of individual support.",
     originalPrice: 320,
     currentPrice: 189,
+    checkoutUrl: "https://buy.stripe.com/aFaeVc4O1eHY9nu3eFaR432",
     image: "/week6green.png",
     features: [
       "4-week personalized program",
@@ -87,6 +88,7 @@ export const packages: WellnessPackage[] = [
       "The full 12-week weight-loss journey — an 8-week personalized program with 4 bonus weeks and ongoing wellness guidance.",
     originalPrice: 860,
     currentPrice: 289,
+    checkoutUrl: "https://buy.stripe.com/dRmcN480dczQ57eaH7aR431",
     image: "/week12green.png",
     features: [
       "8-week personalized program",
@@ -108,6 +110,7 @@ export const packages: WellnessPackage[] = [
       "For guests who need additional metabolic support beyond the foundational program.",
     originalPrice: 480,
     currentPrice: 210,
+    checkoutUrl: "https://buy.stripe.com/dRm3cu1BP7fwaryaH7aR433",
     image: "/week6blue.png",
     features: [
       "4-week personalized program",
@@ -127,6 +130,7 @@ export const packages: WellnessPackage[] = [
       "Our full-length metabolic support track — 8 weeks of personalized care plus 4 bonus weeks of ongoing metabolic wellness support.",
     originalPrice: 998,
     currentPrice: 389,
+    checkoutUrl: "https://buy.stripe.com/fZufZg1BPczQ1V26qRaR434",
     image: "/week12blue.png",
     features: [
       "8-week personalized program",
@@ -147,6 +151,7 @@ export const packages: WellnessPackage[] = [
       "An advanced-tier protocol for more comprehensive wellness goals over six focused weeks.",
     originalPrice: 620,
     currentPrice: 239,
+    checkoutUrl: "https://buy.stripe.com/dRm7sNfMz1eG081acMdEs2Q",
     image: "/week6purple.png",
     features: [
       "4-week advanced personalized program",
@@ -166,6 +171,7 @@ export const packages: WellnessPackage[] = [
       "Our most comprehensive weight-loss program — 8 weeks of advanced personalized care with 4 bonus weeks of comprehensive wellness support throughout.",
     originalPrice: 1340,
     currentPrice: 490,
+    checkoutUrl: "https://buy.stripe.com/28EaEWfsFgQ6eHOdTjaR435",
     image: "/week12purple.png",
     features: [
       "8-week advanced personalized program",
