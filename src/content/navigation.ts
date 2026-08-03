@@ -32,6 +32,7 @@ export const mainNav: NavItem[] = [
       { label: "Hormone Wellness", href: "/programs/hormone-wellness", description: "In-person HRT for men and women" },
       { label: "Recovery & Performance", href: "/programs/recovery-performance", description: "IV therapy and recovery peptides" },
       { label: "Immune Support", href: "/programs/immune-support", description: "Physician-curated immune IV blends" },
+      { label: "Packages & Pricing", href: "/programs/packages", description: "Ready-to-enroll weight-loss packages with fixed pricing" },
     ],
   },
   { label: "Memberships", href: "/memberships" },
