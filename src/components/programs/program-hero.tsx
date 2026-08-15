@@ -64,7 +64,7 @@ export function ProgramHero({
               <span className="h-px w-8 bg-accent-clinical" aria-hidden />
               {eyebrow}
             </p>
-            <h1 className="mt-6 font-display text-[3rem] leading-[1.02] text-balance text-ink sm:text-6xl lg:text-[4.25rem]">
+            <h1 className="mt-6 font-display text-[clamp(2rem,7vw,4.25rem)] leading-[1.05] text-balance text-ink">
               <HeadlineWithItalic text={title} />
             </h1>
             <div className="mt-6 h-px w-16 bg-accent-clinical" aria-hidden />
@@ -101,7 +101,7 @@ export function ProgramHero({
               <Button
                 href={primaryCta.href}
                 size="lg"
-                className="whitespace-nowrap bg-accent-clinical text-white hover:bg-[color-mix(in_oklab,var(--accent-clinical)_88%,white)]"
+                className="w-full whitespace-nowrap bg-accent-clinical text-white hover:bg-[color-mix(in_oklab,var(--accent-clinical)_88%,white)] sm:w-auto"
               >
                 {primaryCta.label}
               </Button>
@@ -109,7 +109,7 @@ export function ProgramHero({
                 <Button
                   href={secondaryCta.href}
                   size="lg"
-                  className="whitespace-nowrap border border-line bg-transparent text-ink hover:bg-accent-soft"
+                  className="w-full whitespace-nowrap border border-line bg-transparent text-ink hover:bg-accent-soft sm:w-auto"
                 >
                   {secondaryCta.label}
                 </Button>
@@ -119,11 +119,11 @@ export function ProgramHero({
             {ctaNote ? <p className="mt-4 text-xs text-faint">{ctaNote}</p> : null}
           </div>
 
-          {/* Right column — 3:4 portrait, warm grade, inset caption */}
+          {/* Right column — 4:5 portrait on mobile (less tall), 3:4 on desktop */}
           <div className="program-hero-entry program-hero-entry-delayed">
             <figure className="relative">
               <div
-                className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-canvas shadow-soft"
+                className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-canvas shadow-soft sm:aspect-[3/4] sm:rounded-[2rem]"
                 style={{ viewTransitionName }}
               >
                 <Image
@@ -139,7 +139,7 @@ export function ProgramHero({
                 />
               </div>
               {heroCaption ? (
-                <figcaption className="mt-4 flex items-center gap-3 pl-6 font-display text-sm italic text-faint">
+                <figcaption className="mt-4 flex items-center gap-3 pl-4 font-display text-sm italic text-faint sm:pl-6">
                   <span className="h-px w-6 bg-accent-clinical" aria-hidden />
                   {heroCaption}
                 </figcaption>

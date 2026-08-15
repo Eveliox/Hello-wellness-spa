@@ -69,13 +69,13 @@ export function HealthieEmbed({
   const askUrl = `${contactHref}${encodeURIComponent(programTitle)}`;
 
   return (
-    <section id="intake" className="bg-ink py-24 text-white">
+    <section id="intake" className="bg-ink py-16 text-white sm:py-24">
       <Container>
         <div className="max-w-2xl">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-accent-clinical">
             {copy.eyebrow}
           </p>
-          <h2 className="mt-3 font-display text-4xl text-balance text-white sm:text-5xl">
+          <h2 className="mt-3 font-display text-[clamp(1.875rem,6vw,3rem)] leading-[1.08] text-balance text-white">
             {copy.heading}
           </h2>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 text-pretty">
@@ -90,7 +90,7 @@ export function HealthieEmbed({
               <div className="flex items-center gap-2">
                 <span
                   className={
-                    "flex h-6 w-6 items-center justify-center rounded-full font-ui text-[0.68rem] font-semibold " +
+                    "flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-ui text-[0.68rem] font-semibold " +
                     (idx === 0
                       ? "bg-accent-clinical text-white"
                       : "border border-white/25 text-white/60")
@@ -107,7 +107,7 @@ export function HealthieEmbed({
               </div>
               <p
                 className={
-                  "text-[0.72rem] font-semibold uppercase tracking-[0.18em] " +
+                  "truncate text-[0.62rem] font-semibold uppercase tracking-[0.1em] sm:text-[0.72rem] sm:tracking-[0.18em] " +
                   (idx === 0 ? "text-white" : "text-white/50")
                 }
               >
@@ -146,7 +146,7 @@ export function HealthieEmbed({
                 />
               </div>
             ) : (
-              <div className="rounded-[var(--radius-card)] border border-white/15 bg-white/[0.04] p-10 backdrop-blur-sm">
+              <div className="rounded-[var(--radius-card)] border border-white/15 bg-white/[0.04] p-6 backdrop-blur-sm sm:p-10">
                 <p className="font-display text-2xl text-white text-balance">
                   {copy.fallbackHeading}
                 </p>
@@ -157,14 +157,14 @@ export function HealthieEmbed({
                   <Button
                     href={askUrl}
                     size="lg"
-                    className="bg-accent-clinical text-white hover:bg-[color-mix(in_oklab,var(--accent-clinical)_88%,white)]"
+                    className="w-full bg-accent-clinical text-white hover:bg-[color-mix(in_oklab,var(--accent-clinical)_88%,white)] sm:w-auto"
                   >
                     {copy.fallbackAsk}
                   </Button>
                   <Button
                     href={fallbackCtaHref ?? `/intake?program=${programSlug}`}
                     size="lg"
-                    className="border border-white/25 bg-transparent text-white hover:bg-white/10"
+                    className="w-full border border-white/25 bg-transparent text-white hover:bg-white/10 sm:w-auto"
                   >
                     {copy.fallbackFull}
                   </Button>

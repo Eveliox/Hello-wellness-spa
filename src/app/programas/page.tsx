@@ -15,7 +15,7 @@ export const metadata: Metadata = createMetadata({
 export default function ProgramasIndexPage() {
   return (
     <>
-      <section className="bg-surface pt-20 pb-16 sm:pt-28 sm:pb-24">
+      <section className="bg-surface pt-16 pb-12 sm:pt-28 sm:pb-24">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[8fr_4fr] lg:items-end">
             <div>
@@ -23,7 +23,7 @@ export default function ProgramasIndexPage() {
                 <span className="h-px w-8 bg-accent-clinical" aria-hidden />
                 Seis Programas · SW Miami
               </p>
-              <h1 className="mt-6 font-display text-[3rem] leading-[1.02] text-balance text-ink sm:text-[4.5rem] lg:text-[5.5rem]">
+              <h1 className="mt-6 font-display text-[clamp(2.25rem,8vw,5.5rem)] leading-[1.05] text-balance text-ink">
                 Cuidado organizado alrededor del resultado que realmente quieres.
               </h1>
             </div>
@@ -32,7 +32,7 @@ export default function ProgramasIndexPage() {
                 className="absolute right-0 top-0 hidden h-full w-px bg-accent-clinical lg:block"
                 aria-hidden
               />
-              <p className="text-lg leading-[1.55] text-ink/78 text-pretty lg:pr-8">
+              <p className="text-base leading-[1.55] text-ink/78 text-pretty sm:text-lg lg:pr-8">
                 Los programas son cómo entregamos medicina — una secuencia de visitas, decisiones y
                 seguimiento construida alrededor de una meta específica. Elige uno para ver la
                 forma del compromiso.
@@ -117,57 +117,71 @@ export default function ProgramasIndexPage() {
         </Container>
       </section>
 
-      <section className="bg-program-paper py-20 text-program-paper-ink">
+      <section className="bg-program-paper py-16 text-program-paper-ink sm:py-20">
         <Container className="max-w-3xl">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-accent-clinical">
             Programas vs servicios individuales
           </p>
-          <h2 className="mt-3 font-display text-3xl text-balance sm:text-4xl">
+          <h2 className="mt-3 font-display text-[clamp(1.75rem,5.5vw,2.5rem)] leading-[1.15] text-balance">
             Cuándo elegir un programa — y cuándo un servicio individual es suficiente.
           </h2>
 
+          {/* Mobile: stacked comparison cards; Desktop: 3-col grid */}
           <div className="mt-10 overflow-hidden rounded-2xl border border-program-paper-ink/10 bg-surface">
-            <table className="w-full text-sm">
-              <thead className="bg-program-paper-ink/[0.04] text-[0.65rem] font-semibold uppercase tracking-[0.18em]">
-                <tr>
-                  <th className="px-6 py-4 text-left text-program-paper-ink/60">&nbsp;</th>
-                  <th className="px-6 py-4 text-left text-program-paper-ink">Servicio individual</th>
-                  <th className="px-6 py-4 text-left text-accent-clinical">Programa</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-program-paper-ink/10 text-[0.9rem]">
-                {[
-                  {
-                    label: "Duración",
-                    service: "Visita única o curso corto",
-                    program: "3–12 meses, cadencia estructurada",
-                  },
-                  {
-                    label: "Seguimiento",
-                    service: "Opcional, a solicitud",
-                    program: "Cronograma definido, parte del precio",
-                  },
-                  {
-                    label: "Precio",
-                    service: "Por visita",
-                    program: "Cotizado en su totalidad en consulta",
-                  },
-                  {
-                    label: "Mejor cuando",
-                    service: "Sabes qué tratamiento quieres",
-                    program: "Tienes un resultado y quieres el plan construido",
-                  },
-                ].map((row) => (
-                  <tr key={row.label}>
-                    <th className="px-6 py-4 text-left font-display text-base font-normal text-program-paper-ink">
-                      {row.label}
-                    </th>
-                    <td className="px-6 py-4 text-program-paper-ink/78">{row.service}</td>
-                    <td className="px-6 py-4 text-program-paper-ink">{row.program}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="hidden bg-program-paper-ink/[0.04] px-6 py-4 text-[0.65rem] font-semibold uppercase tracking-[0.18em] sm:grid sm:grid-cols-[1fr_1.2fr_1.2fr] sm:gap-4">
+              <span className="text-program-paper-ink/60">&nbsp;</span>
+              <span className="text-program-paper-ink">Servicio individual</span>
+              <span className="text-accent-clinical">Programa</span>
+            </div>
+            <ul className="divide-y divide-program-paper-ink/10 text-[0.9rem]">
+              {[
+                {
+                  label: "Duración",
+                  service: "Visita única o curso corto",
+                  program: "3–12 meses, cadencia estructurada",
+                },
+                {
+                  label: "Seguimiento",
+                  service: "Opcional, a solicitud",
+                  program: "Cronograma definido, parte del precio",
+                },
+                {
+                  label: "Precio",
+                  service: "Por visita",
+                  program: "Cotizado en su totalidad en consulta",
+                },
+                {
+                  label: "Mejor cuando",
+                  service: "Sabes qué tratamiento quieres",
+                  program: "Tienes un resultado y quieres el plan construido",
+                },
+              ].map((row) => (
+                <li key={row.label} className="px-5 py-5 sm:px-6 sm:py-4">
+                  <div className="sm:hidden">
+                    <p className="font-display text-lg text-program-paper-ink">{row.label}</p>
+                    <div className="mt-3 grid gap-3">
+                      <div>
+                        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-program-paper-ink/60">
+                          Servicio individual
+                        </p>
+                        <p className="mt-1 text-program-paper-ink/78">{row.service}</p>
+                      </div>
+                      <div>
+                        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-accent-clinical">
+                          Programa
+                        </p>
+                        <p className="mt-1 text-program-paper-ink">{row.program}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="hidden sm:grid sm:grid-cols-[1fr_1.2fr_1.2fr] sm:items-baseline sm:gap-4">
+                    <p className="font-display text-base text-program-paper-ink">{row.label}</p>
+                    <p className="text-program-paper-ink/78">{row.service}</p>
+                    <p className="text-program-paper-ink">{row.program}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>

@@ -29,21 +29,23 @@ export function ProgramCTABanner({
   showSignature = true,
 }: ProgramCTABannerProps) {
   return (
-    <section className="bg-program-paper py-24 text-program-paper-ink">
+    <section className="bg-program-paper py-16 text-program-paper-ink sm:py-24">
       <Container className="max-w-4xl">
-        <div className="border-l-2 border-accent-clinical pl-8 sm:pl-12">
+        <div className="border-l-2 border-accent-clinical pl-5 sm:pl-12">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-accent-clinical">
             {locale === "es" ? "Comienza tu programa" : "Start your program"}
           </p>
-          <h2 className="mt-3 font-display text-4xl text-balance sm:text-5xl">{heading}</h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-program-paper-ink/78 text-pretty">
+          <h2 className="mt-3 font-display text-[clamp(1.75rem,6vw,3rem)] leading-[1.1] text-balance">
+            {heading}
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-program-paper-ink/78 text-pretty sm:text-lg">
             {body}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button
               href={primaryCta.href}
               size="lg"
-              className="bg-accent-clinical text-white hover:bg-[color-mix(in_oklab,var(--accent-clinical)_88%,white)]"
+              className="w-full bg-accent-clinical text-white hover:bg-[color-mix(in_oklab,var(--accent-clinical)_88%,white)] sm:w-auto"
             >
               {primaryCta.label}
             </Button>
@@ -51,7 +53,7 @@ export function ProgramCTABanner({
               <Button
                 href={secondaryCta.href}
                 size="lg"
-                className="border border-program-paper-ink/20 bg-transparent text-program-paper-ink hover:bg-program-paper-ink/[0.05]"
+                className="w-full border border-program-paper-ink/20 bg-transparent text-program-paper-ink hover:bg-program-paper-ink/[0.05] sm:w-auto"
               >
                 {secondaryCta.label}
               </Button>

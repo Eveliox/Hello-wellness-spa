@@ -29,14 +29,14 @@ export function ProgramExpectation({
   const defaultIdealHeading = locale === "es" ? "Ideal para" : "Ideal for";
 
   return (
-    <section className="bg-canvas py-24">
+    <section className="bg-canvas py-16 sm:py-24">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-accent-clinical">
               {locale === "es" ? "Cómo funciona" : "How it works"}
             </p>
-            <h2 className="mt-3 font-display text-4xl text-balance text-ink sm:text-5xl">
+            <h2 className="mt-3 font-display text-[clamp(1.875rem,6vw,3rem)] leading-[1.1] text-balance text-ink">
               {heading ?? defaultHeading}
             </h2>
             {sessionNote ? (
@@ -49,9 +49,9 @@ export function ProgramExpectation({
           <ol className="space-y-8">
             {steps.map((step, idx) => (
               <Reveal key={step.title} delayMs={idx * 100}>
-                <div className="grid grid-cols-[4rem_1fr] gap-6 border-t border-line pt-6">
+                <div className="grid grid-cols-[3rem_1fr] gap-4 border-t border-line pt-6 sm:grid-cols-[4rem_1fr] sm:gap-6">
                   <span
-                    className="font-display text-[3rem] leading-none text-accent-clinical/85 tabular-nums"
+                    className="font-display text-[2.25rem] leading-none text-accent-clinical/85 tabular-nums sm:text-[3rem]"
                     aria-hidden
                   >
                     {String(idx + 1).padStart(2, "0")}

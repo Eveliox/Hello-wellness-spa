@@ -30,21 +30,23 @@ export function NotForYouIf({ items, locale = "en" }: Props) {
   const copy = COPY[locale];
 
   return (
-    <section className="bg-program-paper py-20 text-program-paper-ink">
+    <section className="bg-program-paper py-16 text-program-paper-ink sm:py-20">
       <Container className="max-w-3xl">
         <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-accent-clinical">
           {copy.eyebrow}
         </p>
-        <h2 className="mt-3 font-display text-4xl text-balance sm:text-5xl">{copy.heading}</h2>
+        <h2 className="mt-3 font-display text-[clamp(1.75rem,6vw,3rem)] leading-[1.1] text-balance">
+          {copy.heading}
+        </h2>
 
         <ul className="mt-10 divide-y divide-black/10 border-y border-black/10">
           {items.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-5 py-5 text-[0.95rem] leading-relaxed text-pretty"
+              className="flex items-start gap-4 py-5 text-[0.95rem] leading-relaxed text-pretty sm:gap-5"
             >
               <span
-                className="mt-2 h-1.5 w-6 shrink-0 bg-accent-clinical"
+                className="mt-2 h-1.5 w-5 shrink-0 bg-accent-clinical sm:w-6"
                 aria-hidden
               />
               {item}
