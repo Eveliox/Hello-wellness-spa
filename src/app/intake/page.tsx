@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
-import { IntakeForm } from "@/components/intake/intake-form";
 import { BookingConfirmedPixel } from "@/components/analytics/booking-confirmed-pixel";
+import { practiceBetterUrlForSlug } from "@/lib/practice-better";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Patient Registration | Hello You Wellness Center",
   description: "Complete your new patient intake registration form before your visit.",
 };
 
-const SERVICE_LABEL: Record<string, { label: string; intakeService?: string }> = {
-  "assisted-weight-loss": {
-    label: "Assisted Weight Loss",
-    intakeService: "Assisted Weight Loss Program",
-  },
+const SERVICE_LABEL: Record<string, { label: string }> = {
+  "assisted-weight-loss": { label: "Assisted Weight Loss" },
   "aesthetics-cosmetics": { label: "Aesthetics & Cosmetics" },
-  "iv-therapy": { label: "IV Therapy", intakeService: "IV Therapy" },
+  "iv-therapy": { label: "IV Therapy" },
   general: { label: "General consultation" },
 };
 
@@ -39,11 +37,25 @@ function formatBookingTime(iso: string | undefined): string | null {
   });
 }
 
+/**
+ * Intake handoff page.
+ *
+ * Practice Better owns the clinical intake — this page no longer collects any
+ * patient information itself. It stays as a real page (rather than a redirect)
+ * for two reasons:
+ *
+ *   1. The URL is already circulating in booking-confirmation emails sent by
+ *      /api/webhooks/cal-com, and is where /components/booking/cal-embed.tsx
+ *      pushes patients after they book.
+ *   2. `?booked=1` fires BookingConfirmedPixel — the booking conversion event.
+ *      A redirect would unmount before that ever ran.
+ */
 export default async function IntakePage({ searchParams }: { searchParams: SearchParams }) {
   const { booked, service, at, program } = await searchParams;
   const isFromBooking = booked === "1";
   const serviceInfo = service ? SERVICE_LABEL[service] : undefined;
   const formattedTime = formatBookingTime(at);
+  const intakeUrl = practiceBetterUrlForSlug(program);
 
   return (
     <main className="py-16">
@@ -60,8 +72,8 @@ export default async function IntakePage({ searchParams }: { searchParams: Searc
             </span>
           </h1>
           <p className="mt-3 text-sm text-muted">
-            Please complete this form before your first visit. All information is kept confidential and used solely to
-            provide you with the best care.
+            Please complete your intake before your first visit. All information is kept
+            confidential and used solely to provide you with the best care.
           </p>
 
           {isFromBooking && <BookingConfirmedPixel bookingService={service} />}
@@ -78,20 +90,67 @@ export default async function IntakePage({ searchParams }: { searchParams: Searc
                     {serviceInfo
                       ? `We've reserved your ${serviceInfo.label.toLowerCase()} appointment`
                       : "We've reserved your appointment"}
-                    {formattedTime ? ` for ${formattedTime}` : ""}. Please finish the short form below so your
-                    provider has the full picture before your visit.
+                    {formattedTime ? ` for ${formattedTime}` : ""}. Please finish your intake below
+                    so your provider has the full picture before your visit.
                   </p>
                 </div>
               </div>
             </div>
           )}
 
-          <div className="mt-10">
-            <IntakeForm
-              prefilledService={serviceInfo?.intakeService}
-              hasBooking={isFromBooking}
-              programSlug={program}
-            />
+          <div className="mt-10 rounded-[var(--radius-card)] border border-line bg-surface p-8">
+            {intakeUrl ? (
+              <>
+                <h2 className="font-display text-2xl text-ink">Complete your intake</h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Your intake opens securely in Practice Better, our clinical platform. It takes
+                  about 5 minutes, and you can save your progress and return to it later.
+                </p>
+
+                <ul className="mt-6 space-y-2 text-sm text-muted">
+                  {[
+                    "Medical history, medications, and current health goals",
+                    "Reviewed by your provider before your visit",
+                    "No payment required to complete",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-ink/40" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8">
+                  <a
+                    href={intakeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-ink px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-ink/90 sm:w-auto"
+                  >
+                    Start my intake →
+                  </a>
+                </div>
+                <p className="mt-4 text-xs text-faint">
+                  Opens in a new tab at Practice Better.
+                </p>
+              </>
+            ) : (
+              /* No Practice Better URL configured — never show a dead button. */
+              <>
+                <h2 className="font-display text-2xl text-ink">Let&apos;s get you started</h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Give us a call and we&apos;ll send your intake form over right away.
+                </p>
+                <div className="mt-6">
+                  <a
+                    href={`tel:${site.phoneTel}`}
+                    className="inline-flex w-full items-center justify-center rounded-full bg-ink px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-ink/90 sm:w-auto"
+                  >
+                    Call {site.phoneDisplay}
+                  </a>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </Container>

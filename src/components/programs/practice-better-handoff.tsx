@@ -20,9 +20,9 @@ const COPY = {
     reassure2Body: "Handled inside Practice Better, our clinical platform.",
     reassure3Title: "No card required",
     reassure3Body: "You'll see program pricing at consult, not before.",
-    cardHeading: "Start with a few quick questions",
+    cardHeading: "Start your intake",
     cardBody:
-      "Takes under a minute. We'll then hand you straight to our secure clinical intake in Practice Better to finish.",
+      "Opens securely in Practice Better, our clinical platform. About 5 minutes — you can save and return to it later.",
     cardCta: "Start intake",
     askHeading: "Not ready yet?",
     askBody: "Ask one question — a clinician replies within one business day. No sales call, no upsell.",
@@ -39,9 +39,9 @@ const COPY = {
     reassure2Body: "Procesado en Practice Better, nuestra plataforma clínica.",
     reassure3Title: "Sin tarjeta requerida",
     reassure3Body: "Verás precios en consulta, no antes.",
-    cardHeading: "Empieza con unas preguntas rápidas",
+    cardHeading: "Inicia tu intake",
     cardBody:
-      "Toma menos de un minuto. Luego te llevamos directo a nuestro intake clínico seguro en Practice Better para terminar.",
+      "Se abre de forma segura en Practice Better, nuestra plataforma clínica. Unos 5 minutos — puedes guardar y regresar después.",
     cardCta: "Iniciar intake",
     askHeading: "¿No estás lista todavía?",
     askBody: "Haz una pregunta — un clínico responde dentro de un día hábil. Sin llamada de venta, sin upsell.",
@@ -53,11 +53,9 @@ const COPY = {
  * The conversion moment on a program detail page. Dark chrome section (the ONE
  * dark section per detail page — reads as gravity).
  *
- * Deliberately does NOT embed the Practice Better form directly. The patient
- * goes to our own short lead form first (/intake?program=<slug>), which is what
- * captures the Supabase row, partner-referral attribution, and notification
- * emails. Practice Better takes over from the lead form's success screen — see
- * the ordering note in src/lib/practice-better.ts.
+ * The CTA hands off directly to the program's Practice Better form, which owns
+ * the clinical intake and creates the client record. When no form URL is
+ * configured it falls back to /intake, which renders its own handoff card.
  */
 export function PracticeBetterHandoff({
   programSlug,
@@ -69,6 +67,9 @@ export function PracticeBetterHandoff({
   const contactHref = locale === "es" ? "/contact?tema=" : "/contact?topic=";
   const askUrl = `${contactHref}${encodeURIComponent(programTitle)}`;
   const startUrl = ctaHref ?? `/intake?program=${programSlug}`;
+  // External (Practice Better) links open in a new tab so the patient doesn't
+  // lose the program page they were reading.
+  const isExternal = startUrl.startsWith("http");
 
   return (
     <section id="intake" className="bg-ink py-16 text-white sm:py-24">
@@ -146,6 +147,7 @@ export function PracticeBetterHandoff({
               <Button
                 href={startUrl}
                 size="lg"
+                {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="w-full bg-accent-clinical text-white hover:bg-[color-mix(in_oklab,var(--accent-clinical)_88%,white)] sm:w-auto"
               >
                 {copy.cardCta}

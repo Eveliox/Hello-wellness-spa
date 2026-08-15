@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { programsEs, getProgramEs } from "@/content/programs.es";
-import { intakeCtaHref } from "@/lib/practice-better";
+import { startIntakeHref } from "@/lib/practice-better";
 import { JsonLd } from "@/components/json-ld";
 import { ProgramHero } from "@/components/programs/program-hero";
 import { ProgramExpectation } from "@/components/programs/program-expectation";
@@ -35,7 +35,7 @@ export default async function ProgramaPage({ params }: Props) {
   const program = getProgramEs(slug);
   if (!program) notFound();
 
-  const ctaHref = intakeCtaHref(program);
+  const ctaHref = startIntakeHref(program);
 
   const jsonLd = {
     "@context": "https://schema.org",

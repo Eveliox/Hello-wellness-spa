@@ -6,11 +6,17 @@
  * link-based: we hand the patient a public Practice Better form URL and let
  * Practice Better create the client record and own the clinical chart.
  *
- * ORDERING MATTERS. Patients reach these URLs *after* submitting the short
- * lead form on this site (POST /api/intake). That first hop is what writes the
- * Supabase row, resolves partner-referral attribution, and fires the admin +
- * patient notification emails. Linking straight to Practice Better from a
- * program page would skip all three, so don't.
+ * Practice Better is the system of record for intake. The site no longer
+ * collects clinical information itself — program CTAs and /intake hand the
+ * patient straight to the Practice Better form, which creates the client
+ * record and owns the chart.
+ *
+ * Consequence worth knowing: because nothing is written to Supabase on this
+ * path, `intake_submissions` receives no new rows. /portal's "My intakes" and
+ * /admin still render historical rows but will not grow, and partner-referral
+ * attribution no longer fires from intake. That was a deliberate trade for
+ * consolidating on Practice Better — see git history for the previous
+ * lead-form flow if it ever needs restoring.
  *
  * Env vars are NEXT_PUBLIC_* because the handoff link renders client-side.
  * Nothing sensitive is exposed — these are public forms the patient is about
@@ -75,9 +81,17 @@ export function practiceBetterConfigured(program: { practiceBetterEnvVar: string
 }
 
 /**
- * Where a program page's "Start intake" CTA should point: always the on-site
- * lead form, never Practice Better directly. See the ordering note above.
+ * Where a program page's "Start intake" CTA points — the program's Practice
+ * Better form directly.
+ *
+ * Falls back to /intake when nothing is configured, so the CTA is never a dead
+ * link: that page renders its own handoff card and degrades to "call us".
  */
-export function intakeCtaHref(program: { slug: string }): string {
-  return `/intake?program=${program.slug}`;
+export function startIntakeHref(program: { slug: string }): string {
+  return practiceBetterUrlForSlug(program.slug) ?? `/intake?program=${program.slug}`;
+}
+
+/** True when the given href leaves our site (i.e. points at Practice Better). */
+export function isExternalIntakeHref(href: string): boolean {
+  return href.startsWith("http");
 }
