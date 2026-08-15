@@ -195,3 +195,33 @@ export function formatPrice(cents: number): string {
     maximumFractionDigits: 0,
   }).format(cents);
 }
+
+/**
+ * Promotional pricing.
+ *
+ * Current prices are a limited-time promo, not standing rates. Set `endsOn` to
+ * an ISO date (e.g. "2026-09-30") to show a deadline in promo copy; leave it
+ * null for open-ended "limited time" framing. Everything reading this is
+ * driven off the constant, so one edit updates the whole site.
+ */
+export const promo = {
+  active: true,
+  endsOn: null as string | null,
+  label: "Limited time",
+} as const;
+
+/** Cheapest current price across all packages — powers "from $X" copy. */
+export const lowestPrice: number = Math.min(...packages.map((p) => p.currentPrice));
+
+/** Cheapest current price within one tier. */
+export function lowestPriceForTier(tier: PackageTier): number {
+  const inTier = getPackagesByTier(tier);
+  return Math.min(...inTier.map((p) => p.currentPrice));
+}
+
+/** Largest percentage saving across all packages, rounded down. */
+export const maxSavingsPercent: number = Math.max(
+  ...packages.map((p) =>
+    Math.floor(((p.originalPrice - p.currentPrice) / p.originalPrice) * 100),
+  ),
+);

@@ -35,6 +35,11 @@ export const mainNav: NavItem[] = [
       { label: "Packages & Pricing", href: "/programs/packages", description: "Ready-to-enroll weight-loss packages with fixed pricing" },
     ],
   },
+  // Top-level rather than buried in the Programs dropdown: this is the only
+  // page on the site a visitor can buy from directly, and "Pricing" is what
+  // people scan the nav for. It stays listed under Programs too — redundancy
+  // is fine for the page we most want found.
+  { label: "Pricing", href: "/programs/packages" },
   { label: "Memberships", href: "/memberships" },
   { label: "Quiz", href: "/quiz" },
   { label: "Contact", href: "/contact" },

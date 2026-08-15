@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "@/content/site";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { formatPrice, lowestPrice } from "@/content/packages";
 
 export function HeroSection() {
   return (
@@ -48,8 +49,14 @@ export function HeroSection() {
             <Button href={site.bookingUrl} size="lg" variant="inverse">
               Book a Free Consultation
             </Button>
-            <Button href="/quiz" size="lg" variant="ghostInverse">
-              Take the 2-min quiz
+            {/*
+              Was "Take the 2-min quiz". Swapped for the packages page — the
+              quiz is a soft lead-gen step, this is a direct purchase path.
+              The quiz stays reachable from the line just below this block and
+              from the top nav, so nothing is orphaned.
+            */}
+            <Button href="/programs/packages" size="lg" variant="ghostInverse">
+              Programs from {formatPrice(lowestPrice)}
             </Button>
           </div>
 

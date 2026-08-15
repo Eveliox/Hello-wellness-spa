@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { services } from "@/content/services";
+import { programs } from "@/content/programs";
+import { programsEs } from "@/content/programs.es";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url.replace(/\/$/, "");
@@ -9,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/services",
+    "/programs",
     "/contact",
     "/faq",
     "/policies",
@@ -55,6 +58,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.85,
     });
+  });
+
+  // Program landing pages (en + es). These were previously absent entirely,
+  // which kept the whole /programs tree out of search results.
+  programs.forEach((p) => {
+    entries.push({
+      url: `${base}/programs/${p.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    });
+  });
+
+  programsEs.forEach((p) => {
+    entries.push({
+      url: `${base}/programas/${p.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    });
+  });
+
+  // Packages & pricing — the only directly purchasable page on the site, so it
+  // outranks everything except the homepage.
+  entries.push({
+    url: `${base}/programs/packages`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.95,
   });
 
   return entries;

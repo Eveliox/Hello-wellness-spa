@@ -6,6 +6,7 @@ import { TestimonialsHome } from "@/components/home/testimonials-home";
 import { FaqPreview } from "@/components/home/faq-preview";
 import { MapEmbed } from "@/components/location/map-embed";
 import { ServicesPreview } from "@/components/home/services-preview";
+import { PackagesPreview } from "@/components/home/packages-preview";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { MembershipUpsell } from "@/components/memberships/membership-upsell";
 import { Reveal } from "@/components/ui/reveal";
@@ -15,10 +16,18 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ServicesMarquee />
+      {/*
+        Packages sits directly under the hero — it's the only purchasable page
+        on the site, so it comes before the trust/services storytelling rather
+        than after it.
+      */}
       <Reveal>
-        <TrustSection />
+        <PackagesPreview />
       </Reveal>
       <Reveal delayMs={40}>
+        <TrustSection />
+      </Reveal>
+      <Reveal delayMs={60}>
         <ServicesPreview />
       </Reveal>
       <Reveal delayMs={60}>
