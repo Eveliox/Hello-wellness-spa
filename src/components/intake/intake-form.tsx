@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRef, useState } from "react";
 import { intakeSchema, type IntakeFormData } from "@/lib/intake-schema";
 import { trackEvent, leadValueFor } from "@/lib/analytics";
+import { practiceBetterUrlForSlug } from "@/lib/practice-better";
 
 const inputCls =
   "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-base text-ink placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-ink/15 disabled:opacity-50 sm:text-sm";
@@ -94,9 +95,19 @@ type IntakeFormProps = {
    * measure "booked-then-intake" completion separately from "intake-only".
    */
   hasBooking?: boolean;
+  /**
+   * Program slug from ?program=<slug>, set when the patient arrived from a
+   * program landing page. Selects which Practice Better form they're handed
+   * off to on the success screen; falls back to the general form when absent.
+   */
+  programSlug?: string;
 };
 
-export function IntakeForm({ prefilledService, hasBooking = false }: IntakeFormProps = {}) {
+export function IntakeForm({
+  prefilledService,
+  hasBooking = false,
+  programSlug,
+}: IntakeFormProps = {}) {
   const [serverError, setServerError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   // Guard so `intake_start` only fires once per form mount. See PHI note in
@@ -175,16 +186,46 @@ export function IntakeForm({ prefilledService, hasBooking = false }: IntakeFormP
   }
 
   if (isSuccess) {
+    // Hand off to Practice Better to complete the clinical intake. This is the
+    // second half of the flow — the POST above is what captured the lead,
+    // referral attribution, and notifications. See src/lib/practice-better.ts.
+    const clinicalFormUrl = practiceBetterUrlForSlug(programSlug);
+
     return (
       <div className="rounded-[var(--radius-card)] border border-line bg-surface p-8 text-center">
         <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-ink text-xl text-white">
           ✓
         </div>
         <h2 className="font-display text-2xl text-ink">Registration received</h2>
-        <p className="mt-3 max-w-sm mx-auto text-sm text-muted">
-          Thank you — we&apos;ve received your intake form and will review it before your visit. We&apos;ll be in touch
-          shortly.
-        </p>
+
+        {clinicalFormUrl ? (
+          <>
+            <p className="mt-3 max-w-md mx-auto text-sm text-muted">
+              One last step — complete your confidential medical history so your provider has the
+              full picture before your visit. It takes about 5 minutes, and you can save and return
+              to it later.
+            </p>
+            <div className="mt-6">
+              <a
+                href={clinicalFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("intake_handoff", { intake_type: "general" })}
+                className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink/90"
+              >
+                Complete my medical history →
+              </a>
+            </div>
+            <p className="mt-4 text-xs text-faint">
+              Opens securely in Practice Better, our clinical platform.
+            </p>
+          </>
+        ) : (
+          <p className="mt-3 max-w-sm mx-auto text-sm text-muted">
+            Thank you — we&apos;ve received your intake form and will review it before your visit.
+            We&apos;ll be in touch shortly.
+          </p>
+        )}
       </div>
     );
   }

@@ -1,13 +1,11 @@
-import { healthieUrl } from "@/lib/healthie";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 
 type Props = {
-  envVarName: string;
   programSlug: string;
   programTitle: string;
   locale?: "en" | "es";
-  fallbackCtaHref?: string;
+  ctaHref?: string;
 };
 
 const COPY = {
@@ -19,14 +17,16 @@ const COPY = {
     reassure1Title: "About 5 minutes",
     reassure1Body: "Save and return later. Nothing charged.",
     reassure2Title: "HIPAA-secure",
-    reassure2Body: "Handled inside Healthie, our clinical platform.",
+    reassure2Body: "Handled inside Practice Better, our clinical platform.",
     reassure3Title: "No card required",
     reassure3Body: "You'll see program pricing at consult, not before.",
-    fallbackHeading: "Not ready for a full intake?",
-    fallbackBody:
-      "Ask one question — a clinician will reply within one business day. No sales call, no upsell.",
-    fallbackAsk: "Ask a question",
-    fallbackFull: "Or open the full intake",
+    cardHeading: "Start with a few quick questions",
+    cardBody:
+      "Takes under a minute. We'll then hand you straight to our secure clinical intake in Practice Better to finish.",
+    cardCta: "Start intake",
+    askHeading: "Not ready yet?",
+    askBody: "Ask one question — a clinician replies within one business day. No sales call, no upsell.",
+    askCta: "Ask a question",
   },
   es: {
     eyebrow: "Iniciar intake",
@@ -36,37 +36,39 @@ const COPY = {
     reassure1Title: "Unos 5 minutos",
     reassure1Body: "Guarda y regresa después. Nada cobrado.",
     reassure2Title: "Seguro HIPAA",
-    reassure2Body: "Procesado en Healthie, nuestra plataforma clínica.",
+    reassure2Body: "Procesado en Practice Better, nuestra plataforma clínica.",
     reassure3Title: "Sin tarjeta requerida",
     reassure3Body: "Verás precios en consulta, no antes.",
-    fallbackHeading: "¿No estás lista para el intake completo?",
-    fallbackBody:
-      "Haz una pregunta — un clínico responde dentro de un día hábil. Sin llamada de venta, sin upsell.",
-    fallbackAsk: "Hacer una pregunta",
-    fallbackFull: "O abrir el intake completo",
+    cardHeading: "Empieza con unas preguntas rápidas",
+    cardBody:
+      "Toma menos de un minuto. Luego te llevamos directo a nuestro intake clínico seguro en Practice Better para terminar.",
+    cardCta: "Iniciar intake",
+    askHeading: "¿No estás lista todavía?",
+    askBody: "Haz una pregunta — un clínico responde dentro de un día hábil. Sin llamada de venta, sin upsell.",
+    askCta: "Hacer una pregunta",
   },
 } as const;
 
 /**
- * The conversion moment. Dark chrome section (the ONE dark section per
- * detail page — reads as gravity) with:
- *   - 4-step intake progress strip (Screen → Consult → Labs → Plan)
- *   - Left rail with 3 reassurances (time / privacy / no card)
- *   - Right side: Healthie iframe OR a lower-commitment fallback ("ask
- *     one question") when the env var isn't set — deliberately NOT the
- *     same full-PHI intake opening in a new tab, per Sofia walkthrough.
+ * The conversion moment on a program detail page. Dark chrome section (the ONE
+ * dark section per detail page — reads as gravity).
+ *
+ * Deliberately does NOT embed the Practice Better form directly. The patient
+ * goes to our own short lead form first (/intake?program=<slug>), which is what
+ * captures the Supabase row, partner-referral attribution, and notification
+ * emails. Practice Better takes over from the lead form's success screen — see
+ * the ordering note in src/lib/practice-better.ts.
  */
-export function HealthieEmbed({
-  envVarName,
+export function PracticeBetterHandoff({
   programSlug,
   programTitle,
   locale = "en",
-  fallbackCtaHref,
+  ctaHref,
 }: Props) {
-  const url = healthieUrl(envVarName);
   const copy = COPY[locale];
   const contactHref = locale === "es" ? "/contact?tema=" : "/contact?topic=";
   const askUrl = `${contactHref}${encodeURIComponent(programTitle)}`;
+  const startUrl = ctaHref ?? `/intake?program=${programSlug}`;
 
   return (
     <section id="intake" className="bg-ink py-16 text-white sm:py-24">
@@ -134,43 +136,37 @@ export function HealthieEmbed({
             ))}
           </aside>
 
-          {/* Right — iframe or honest fallback */}
-          <div>
-            {url ? (
-              <div className="overflow-hidden rounded-[var(--radius-card)] border border-white/10 bg-program-paper shadow-soft">
-                <iframe
-                  src={url}
-                  title={locale === "es" ? "Formulario de intake" : "Intake form"}
-                  className="h-[820px] w-full"
-                  loading="lazy"
-                />
+          {/* Primary CTA into our own lead form */}
+          <div className="rounded-[var(--radius-card)] border border-white/15 bg-white/[0.04] p-6 backdrop-blur-sm sm:p-10">
+            <p className="font-display text-2xl text-white text-balance">{copy.cardHeading}</p>
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-white/75 text-pretty">
+              {copy.cardBody}
+            </p>
+            <div className="mt-8">
+              <Button
+                href={startUrl}
+                size="lg"
+                className="w-full bg-accent-clinical text-white hover:bg-[color-mix(in_oklab,var(--accent-clinical)_88%,white)] sm:w-auto"
+              >
+                {copy.cardCta}
+              </Button>
+            </div>
+
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="text-sm font-semibold text-white">{copy.askHeading}</p>
+              <p className="mt-2 max-w-md text-sm leading-relaxed text-white/70 text-pretty">
+                {copy.askBody}
+              </p>
+              <div className="mt-4">
+                <Button
+                  href={askUrl}
+                  size="lg"
+                  className="w-full border border-white/25 bg-transparent text-white hover:bg-white/10 sm:w-auto"
+                >
+                  {copy.askCta}
+                </Button>
               </div>
-            ) : (
-              <div className="rounded-[var(--radius-card)] border border-white/15 bg-white/[0.04] p-6 backdrop-blur-sm sm:p-10">
-                <p className="font-display text-2xl text-white text-balance">
-                  {copy.fallbackHeading}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-white/75 text-pretty">
-                  {copy.fallbackBody}
-                </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Button
-                    href={askUrl}
-                    size="lg"
-                    className="w-full bg-accent-clinical text-white hover:bg-[color-mix(in_oklab,var(--accent-clinical)_88%,white)] sm:w-auto"
-                  >
-                    {copy.fallbackAsk}
-                  </Button>
-                  <Button
-                    href={fallbackCtaHref ?? `/intake?program=${programSlug}`}
-                    size="lg"
-                    className="w-full border border-white/25 bg-transparent text-white hover:bg-white/10 sm:w-auto"
-                  >
-                    {copy.fallbackFull}
-                  </Button>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </div>
       </Container>

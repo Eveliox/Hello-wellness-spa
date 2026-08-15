@@ -3,7 +3,7 @@ import type { ProgramContent } from "@/content/programs";
 /**
  * Spanish copy for /programas/[slug]. Slugs mirror the English programs
  * (weight-management, longevity-vitality, ...) so that internal references
- * and Healthie env-var lookups stay consistent across locales.
+ * and Practice Better env-var lookups stay consistent across locales.
  *
  * When Spanish SEO becomes a priority, add a slug-translation layer that
  * maps ProgramSlug → URL segment per locale rather than duplicating IDs.
@@ -62,7 +62,7 @@ export const programsEs: ProgramContent[] = [
       },
     ],
     includedServices: ["assisted-weight-loss", "peptide-therapy"],
-    healthieEnvVar: "NEXT_PUBLIC_HEALTHIE_URL_WEIGHT_MANAGEMENT",
+    practiceBetterEnvVar: "NEXT_PUBLIC_PRACTICE_BETTER_URL_WEIGHT_MANAGEMENT",
     finalCtaHeading: "¿Lista para comenzar tu programa de manejo de peso?",
     finalCtaBody:
       "Consultas disponibles en la misma semana. Respondemos dentro de un día hábil — sin llamadas de venta, sin upsells.",
@@ -120,7 +120,7 @@ export const programsEs: ProgramContent[] = [
       },
     ],
     includedServices: ["peptide-therapy", "iv-therapy"],
-    healthieEnvVar: "NEXT_PUBLIC_HEALTHIE_URL_LONGEVITY_VITALITY",
+    practiceBetterEnvVar: "NEXT_PUBLIC_PRACTICE_BETTER_URL_LONGEVITY_VITALITY",
     finalCtaHeading: "Invierte en los próximos 20 años, empezando hoy.",
     finalCtaBody:
       "El trabajo de longevidad se acumula. Una conversación hoy vale más que un tratamiento el próximo año.",
@@ -177,7 +177,7 @@ export const programsEs: ProgramContent[] = [
       },
     ],
     includedServices: ["aesthetics-cosmetics", "peptide-therapy"],
-    healthieEnvVar: "NEXT_PUBLIC_HEALTHIE_URL_SKIN_HAIR",
+    practiceBetterEnvVar: "NEXT_PUBLIC_PRACTICE_BETTER_URL_SKIN_HAIR",
     finalCtaHeading: "Un look refrescado, hecho para durar.",
     finalCtaBody:
       "Priorizamos balance, seguridad y resultados que fotografían honestamente. Citas de toxina el mismo día a veces disponibles.",
@@ -235,7 +235,7 @@ export const programsEs: ProgramContent[] = [
       },
     ],
     includedServices: ["hormone-therapy"],
-    healthieEnvVar: "NEXT_PUBLIC_HEALTHIE_URL_HORMONE_WELLNESS",
+    practiceBetterEnvVar: "NEXT_PUBLIC_PRACTICE_BETTER_URL_HORMONE_WELLNESS",
     finalCtaHeading: "Cuidado hormonal que se presenta en persona.",
     finalCtaBody:
       "Enfoque honesto, monitoreo real y precios que ves por adelantado. Agenda la consulta antes de comprometerte con la terapia.",
@@ -292,7 +292,7 @@ export const programsEs: ProgramContent[] = [
       },
     ],
     includedServices: ["iv-therapy", "build-your-own-iv", "peptide-therapy"],
-    healthieEnvVar: "NEXT_PUBLIC_HEALTHIE_URL_RECOVERY_PERFORMANCE",
+    practiceBetterEnvVar: "NEXT_PUBLIC_PRACTICE_BETTER_URL_RECOVERY_PERFORMANCE",
     finalCtaHeading: "Recupérate como si el trabajo importara.",
     finalCtaBody:
       "Mezclas IV y péptidos de recuperación dosificados por un equipo licenciado — no una checklist de spa.",
@@ -349,7 +349,7 @@ export const programsEs: ProgramContent[] = [
       },
     ],
     includedServices: ["iv-therapy", "build-your-own-iv"],
-    healthieEnvVar: "NEXT_PUBLIC_HEALTHIE_URL_IMMUNE_SUPPORT",
+    practiceBetterEnvVar: "NEXT_PUBLIC_PRACTICE_BETTER_URL_IMMUNE_SUPPORT",
     finalCtaHeading: "Adelántate a lo que anda circulando.",
     finalCtaBody:
       "Ya sea un vuelo la próxima semana o una temporada por delante, la cadencia correcta vence la carrera de último minuto.",

@@ -3,13 +3,13 @@ import { notFound } from "next/navigation";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { programs, getProgram } from "@/content/programs";
-import { healthieCtaHref } from "@/lib/healthie";
+import { intakeCtaHref } from "@/lib/practice-better";
 import { JsonLd } from "@/components/json-ld";
 import { ProgramHero } from "@/components/programs/program-hero";
 import { ProgramExpectation } from "@/components/programs/program-expectation";
 import { NotForYouIf } from "@/components/programs/not-for-you-if";
 import { ProgramServiceLedger } from "@/components/programs/program-service-ledger";
-import { HealthieEmbed } from "@/components/programs/healthie-embed";
+import { PracticeBetterHandoff } from "@/components/programs/practice-better-handoff";
 import { ProgramCTABanner } from "@/components/programs/program-cta-banner";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -35,7 +35,7 @@ export default async function ProgramPage({ params }: Props) {
   const program = getProgram(slug);
   if (!program) notFound();
 
-  const ctaHref = healthieCtaHref(program);
+  const ctaHref = intakeCtaHref(program);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -93,12 +93,11 @@ export default async function ProgramPage({ params }: Props) {
 
       <ProgramServiceLedger serviceSlugs={program.includedServices} locale="en" />
 
-      <HealthieEmbed
-        envVarName={program.healthieEnvVar}
+      <PracticeBetterHandoff
         programSlug={program.slug}
         programTitle={program.title}
         locale="en"
-        fallbackCtaHref={ctaHref}
+        ctaHref={ctaHref}
       />
 
       <ProgramCTABanner

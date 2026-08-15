@@ -18,7 +18,12 @@ const SERVICE_LABEL: Record<string, { label: string; intakeService?: string }> =
   general: { label: "General consultation" },
 };
 
-type SearchParams = Promise<{ booked?: string; service?: string; at?: string }>;
+type SearchParams = Promise<{
+  booked?: string;
+  service?: string;
+  at?: string;
+  program?: string;
+}>;
 
 function formatBookingTime(iso: string | undefined): string | null {
   if (!iso) return null;
@@ -35,7 +40,7 @@ function formatBookingTime(iso: string | undefined): string | null {
 }
 
 export default async function IntakePage({ searchParams }: { searchParams: SearchParams }) {
-  const { booked, service, at } = await searchParams;
+  const { booked, service, at, program } = await searchParams;
   const isFromBooking = booked === "1";
   const serviceInfo = service ? SERVICE_LABEL[service] : undefined;
   const formattedTime = formatBookingTime(at);
@@ -82,7 +87,11 @@ export default async function IntakePage({ searchParams }: { searchParams: Searc
           )}
 
           <div className="mt-10">
-            <IntakeForm prefilledService={serviceInfo?.intakeService} hasBooking={isFromBooking} />
+            <IntakeForm
+              prefilledService={serviceInfo?.intakeService}
+              hasBooking={isFromBooking}
+              programSlug={program}
+            />
           </div>
         </div>
       </Container>
