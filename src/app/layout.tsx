@@ -6,7 +6,6 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { StickyBookCta } from "@/components/layout/sticky-book-cta";
 import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
-import { ChatWidget } from "@/components/chat/chat-widget";
 import { JsonLd } from "@/components/json-ld";
 import { ConsentDefault, CookiebotScript, GtmScript, GtmNoscript } from "@/components/analytics/gtm";
 import { createMetadata } from "@/lib/seo";
@@ -78,7 +77,6 @@ export default function RootLayout({
         <Footer />
         <StickyBookCta />
         <WhatsAppFab />
-        <ChatWidget />
       </body>
     </html>
   );

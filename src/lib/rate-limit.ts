@@ -26,7 +26,6 @@ const limiters = {
   portalAuth: makeLimiter(10, "10 m", "rl:portalauth"),
   feedback: makeLimiter(5, "1 h", "rl:feedback"),
   referral: makeLimiter(5, "1 h", "rl:referral"),
-  chat: makeLimiter(20, "10 m", "rl:chat"),
 } as const;
 
 export type RateLimitBucket = keyof typeof limiters;
