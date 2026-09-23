@@ -26,13 +26,13 @@ export const mainNav: NavItem[] = [
     label: "Programs",
     href: "/programs",
     children: [
+      { label: "Packages & Pricing", href: "/programs/packages", description: "Ready-to-enroll weight-loss packages with fixed pricing" },
       { label: "Weight Management", href: "/programs/weight-management", description: "Medical support for sustainable weight loss" },
       { label: "Longevity & Vitality", href: "/programs/longevity-vitality", description: "Cellular health, peptides, and IV support" },
       { label: "Skin & Hair", href: "/programs/skin-hair", description: "Aesthetics + peptide-supported skin and hair" },
       { label: "Hormone Wellness", href: "/programs/hormone-wellness", description: "In-person HRT for men and women" },
       { label: "Recovery & Performance", href: "/programs/recovery-performance", description: "IV therapy and recovery peptides" },
       { label: "Immune Support", href: "/programs/immune-support", description: "Physician-curated immune IV blends" },
-      { label: "Packages & Pricing", href: "/programs/packages", description: "Ready-to-enroll weight-loss packages with fixed pricing" },
     ],
   },
   // Top-level rather than buried in the Programs dropdown: this is the only
@@ -60,6 +60,7 @@ export const footerGroups = [
   {
     title: "Programs",
     links: [
+      { label: "Packages & Pricing", href: "/programs/packages" },
       { label: "Weight Management", href: "/programs/weight-management" },
       { label: "Longevity & Vitality", href: "/programs/longevity-vitality" },
       { label: "Hormone Wellness", href: "/programs/hormone-wellness" },
@@ -70,6 +71,7 @@ export const footerGroups = [
   {
     title: "Experience",
     links: [
+      { label: "Packages & Pricing", href: "/programs/packages" },
       { label: "Memberships", href: "/memberships" },
       { label: "FAQ", href: "/faq" },
     ],

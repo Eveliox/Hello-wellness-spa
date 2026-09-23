@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { GLP1_PLAN_LIST } from "@/content/glp1-plans";
@@ -82,6 +83,21 @@ export function WeightLossPlans() {
           on your history and goals. A licensed APRN reviews every submission before any medication
           is prescribed.
         </p>
+
+        <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-3 rounded-[var(--radius-card)] border border-line bg-white p-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div>
+            <p className="font-ui text-sm font-semibold text-ink">Prefer a fixed-price package?</p>
+            <p className="mt-1 text-xs leading-relaxed text-muted">
+              6- and 12-week weight-loss packages with everything included and one upfront price.
+            </p>
+          </div>
+          <Link
+            href="/programs/packages"
+            className="shrink-0 text-sm font-semibold text-[#C0392B] underline-offset-4 hover:underline"
+          >
+            See packages &amp; pricing →
+          </Link>
+        </div>
       </Container>
     </section>
   );
