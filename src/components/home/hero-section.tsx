@@ -1,88 +1,39 @@
-import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/content/site";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { formatPrice, lowestPrice } from "@/content/packages";
 
 export function HeroSection() {
   return (
-    <section
-      id="home-hero"
-      className="relative isolate overflow-hidden bg-chrome text-on-chrome"
-    >
-      <video
-        src="/hello you.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster="/images/home/hero-nad.jpg"
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/25"
-        aria-hidden
-      />
-
-      <Container className="relative flex min-h-[82vh] flex-col justify-center py-24 sm:py-28">
-        <div className="max-w-2xl animate-rise space-y-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
-            SW Miami · Licensed Care Team
+    <section id="home-hero" aria-labelledby="home-heading" className="bg-surface-warm">
+      <Container className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:py-20">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/70">
+            Hello You Wellness · SW Miami
           </p>
-
-          <h1 className="font-display text-4xl leading-[1.05] text-balance text-white sm:text-5xl lg:text-[3.4rem]">
-            Hello again,{" "}
-            <span className="font-script text-[1.35em] font-normal italic leading-none text-[#E8B4A3]">
-              you
-            </span>
-            .
+          <h1 id="home-heading" className="mt-5 max-w-xl font-display text-4xl leading-[1.12] text-balance text-ink sm:text-5xl lg:text-6xl">
+            Feel better.<br />Feel like you.
           </h1>
-
-          <p className="max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
-            Assisted weight loss, aesthetics, IV therapy, peptides, and more — guided with the same calm,
-            credible approach you expect from a trusted Miami wellness center.
+          <p className="mt-6 max-w-lg text-base leading-relaxed text-ink/75 sm:text-lg">
+            Medical weight loss, IV therapy, and aesthetics — with a care team to help you choose what’s right for you.
           </p>
-
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button href={site.bookingUrl} size="lg" variant="inverse">
-              Book a Free Consultation
-            </Button>
-            {/*
-              Was "Take the 2-min quiz". Swapped for the packages page — the
-              quiz is a soft lead-gen step, this is a direct purchase path.
-              The quiz stays reachable from the line just below this block and
-              from the top nav, so nothing is orphaned.
-            */}
-            <Button href="/programs/packages" size="lg" variant="ghostInverse">
-              Programs from {formatPrice(lowestPrice)}
-            </Button>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button href={site.bookingUrl} size="lg">Book a free consultation</Button>
+            <Button href="/programs/packages" size="lg" variant="secondary">See packages &amp; pricing</Button>
           </div>
-
-          <a
-            href={`tel:${site.phoneTel}`}
-            className="inline-flex items-center gap-2 text-sm text-white/75 underline-offset-2 hover:text-white hover:underline"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M6.6 10.8c1.6 3.2 4.2 5.8 7.4 7.4l2.4-2.4c.3-.3.8-.4 1.2-.2 1.1.4 2.3.6 3.6.6.7 0 1.2.5 1.2 1.2V21c0 .7-.5 1.2-1.2 1.2C9.9 22.2 1.8 14.1 1.8 3.2 1.8 2.5 2.3 2 3 2h3.5c.7 0 1.2.5 1.2 1.2 0 1.2.2 2.4.6 3.6.1.4 0 .9-.3 1.2L6.6 10.8Z"
-                fill="currentColor"
-              />
-            </svg>
-            Call {site.phoneDisplay}
-          </a>
-
-          <p className="text-xs text-white/60">
-            Not sure where to start?{" "}
-            <Link
-              href="/quiz"
-              className="font-medium text-white underline-offset-2 hover:underline"
-            >
-              The quiz matches you to a service
-            </Link>
-            . Medical services require screening.
+          <p className="mt-5 text-sm text-ink/65">
+            Licensed care team. Medical screening before treatment.
           </p>
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl lg:aspect-[4/5]">
+          <Image
+            src="/images/home/hero-nad.jpg"
+            alt=""
+            fill
+            preload
+            sizes="(min-width: 1024px) 45vw, (min-width: 640px) 90vw, 100vw"
+            className="object-cover"
+          />
         </div>
       </Container>
     </section>

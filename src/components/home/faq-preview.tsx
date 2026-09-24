@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { FaqAccordion } from "@/components/faq/faq-accordion";
 import { Button } from "@/components/ui/button";
 
-const previewIds = ["booking", "consult", "payment", "financing", "free-consult", "cancel"];
+const previewIds = ["booking", "free-consult", "payment"];
 const preview = faqsByIds(previewIds);
 
 export function FaqPreview() {
@@ -14,8 +14,8 @@ export function FaqPreview() {
         <div className="space-y-4">
           <SectionHeading
             eyebrow="FAQ"
-            title="Answers that reduce hesitation before you even call"
-            description="Transparent policies, candidacy expectations, and timing—so booking feels like relief, not risk."
+            title="A few things to know"
+            description="Simple answers before your first visit."
           />
           <Button href="/faq" variant="secondary" size="md">
             View all FAQs

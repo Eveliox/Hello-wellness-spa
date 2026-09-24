@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -6,7 +6,6 @@ import { footerGroups } from "@/content/navigation";
 import { site } from "@/content/site";
 import { trackEvent } from "@/lib/analytics";
 import { Container } from "@/components/ui/container";
-import { NewsletterForm } from "@/components/forms/newsletter-form";
 
 export function Footer() {
   const pathname = usePathname();
@@ -43,8 +42,17 @@ export function Footer() {
                 {site.phoneDisplay}
               </a>
               <span className="text-white/25">|</span>
-              <a className="font-medium text-white hover:underline" href={`mailto:${site.email}`}>
+              <a className="break-all font-medium text-white hover:underline" href={`mailto:${site.email}`}>
                 {site.email}
+              </a>
+              <a
+                href={`https://wa.me/${site.phoneTel.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-white underline underline-offset-4"
+                onClick={() => trackEvent("click_whatsapp", { link_location: "footer" })}
+              >
+                Message us on WhatsApp<span className="sr-only"> (opens in a new tab)</span>
               </a>
             </div>
             <div className="flex gap-3 pt-2">
@@ -121,8 +129,7 @@ export function Footer() {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1">
-            <NewsletterForm tone="dark" />
-            <div className="grid gap-8 sm:col-span-2 sm:grid-cols-3 lg:col-span-1 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-6 sm:col-span-2 sm:grid-cols-3 lg:col-span-1">
               {safeFooterGroups.map((group) => (
                 <div key={group.title}>
                   <p className="font-ui text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
@@ -145,17 +152,6 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {site.legalName}. All rights reserved.</p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
-            <Link href="/policies" className="hover:text-white">
-              Policies
-            </Link>
-            <Link href="/faq" className="hover:text-white">
-              FAQ
-            </Link>
-            <Link href="/contact" className="hover:text-white">
-              Contact
-            </Link>
-          </div>
         </div>
         <p className="mt-6 max-w-3xl text-[11px] leading-relaxed text-white/45">
           Hello You Wellness Center is a licensed medical practice in Miami, FL. All medical services are provided by licensed APRNs under physician supervision.

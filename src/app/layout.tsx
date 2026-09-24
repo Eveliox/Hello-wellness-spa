@@ -4,8 +4,6 @@ import "./globals.css";
 import { SkipLink } from "@/components/layout/skip-link";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { StickyBookCta } from "@/components/layout/sticky-book-cta";
-import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
 import { JsonLd } from "@/components/json-ld";
 import { ConsentDefault, CookiebotScript, GtmScript, GtmNoscript } from "@/components/analytics/gtm";
 import { createMetadata } from "@/lib/seo";
@@ -71,12 +69,10 @@ export default function RootLayout({
         <JsonLd data={localBusinessJsonLd()} />
         <SkipLink />
         <Header />
-        <main id="main-content" className="flex-1 pb-28 md:pb-0">
+        <main id="main-content" className="flex-1">
           {children}
         </main>
         <Footer />
-        <StickyBookCta />
-        <WhatsAppFab />
       </body>
     </html>
   );

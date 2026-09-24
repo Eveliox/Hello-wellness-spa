@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { services, type ServiceContent, type ServiceSlug } from "@/content/services";
@@ -24,7 +25,7 @@ const CATEGORIES: Category[] = [
   {
     id: "wellness",
     eyebrow: "Wellness · IV · Peptides",
-    title: "Feel like yourself, on your schedule.",
+    title: "IV therapy & wellness",
     description:
       "Hydration, recovery, and clinical peptide protocols. Same medical oversight, three ways to receive it.",
     slugs: ["iv-therapy", "build-your-own-iv", "peptide-therapy"],
@@ -32,7 +33,7 @@ const CATEGORIES: Category[] = [
   {
     id: "weight-hormones",
     eyebrow: "Weight & Hormones",
-    title: "Programs, not prescriptions.",
+    title: "Weight management & hormone care",
     description:
       "Physician-led weight management and hormone therapy backed by labs, follow-ups, and monthly check-ins.",
     slugs: ["assisted-weight-loss", "hormone-therapy"],
@@ -40,7 +41,7 @@ const CATEGORIES: Category[] = [
   {
     id: "aesthetics",
     eyebrow: "Aesthetics",
-    title: "Refined, never overdone.",
+    title: "Skin & aesthetics",
     description:
       "Injectables and treatments guided by conservative technique. Consultations are always complimentary.",
     slugs: ["aesthetics-cosmetics"],
@@ -63,22 +64,18 @@ export default function ServicesPage() {
             Services overview
           </p>
           <h1 className="mt-4 font-display text-4xl text-balance text-ink sm:text-5xl">
-            Choose a pathway. We handle the{" "}
-            <span className="font-script text-[1.3em] font-normal italic leading-none text-accent-peach">
-              choreography
-            </span>
-            .
+Find the care that fits your goals.
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted">
-            Every service line shares the same promise: medical credibility, feminine calm, and copy
-            you can understand without a dictionary.
+            Explore our services below. Not sure where to start? A consultation can help you
+            understand your options and the next step.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href={`tel:${site.phoneTel}`} size="lg">
-              Call {site.phoneDisplay}
+            <Button href={site.bookingUrl} size="lg">
+              Book a free consultation
             </Button>
-            <Button href="/faq" variant="secondary" size="lg">
-              Read FAQs
+            <Button href="/programs/packages" variant="secondary" size="lg">
+              Packages &amp; pricing
             </Button>
           </div>
         </Container>
@@ -118,6 +115,31 @@ export default function ServicesPage() {
           </section>
         );
       })}
+
+      <section className="border-t border-line bg-surface py-12">
+        <Container>
+          <h2 className="font-display text-2xl text-ink">Galleri screening</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/75">
+            Learn about multi-cancer early detection screening and discuss suitability with a provider.
+          </p>
+          <Link href="/services/galleri" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-ink underline underline-offset-4">Explore Galleri screening →</Link>
+        </Container>
+      </section>
+
+      <section className="border-t border-line bg-surface-warm py-12">
+        <Container>
+          <h2 className="font-display text-2xl text-ink">Looking for ongoing care?</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/75">
+            Programs organize care around a goal. Memberships offer recurring benefits.
+            Explore either when you’re ready, or use our quiz for a starting point.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm font-semibold text-ink">
+            <Link className="inline-flex min-h-11 items-center underline underline-offset-4" href="/programs">Explore programs →</Link>
+            <Link className="inline-flex min-h-11 items-center underline underline-offset-4" href="/memberships">View memberships →</Link>
+            <Link className="inline-flex min-h-11 items-center underline underline-offset-4" href="/quiz">Help me choose →</Link>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

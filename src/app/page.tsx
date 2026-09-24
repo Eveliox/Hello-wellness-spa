@@ -1,53 +1,19 @@
 import { HeroSection } from "@/components/home/hero-section";
-import { ServicesMarquee } from "@/components/home/services-marquee";
-import { TrustSection } from "@/components/home/trust-section";
-import { AboutPreview } from "@/components/home/about-preview";
-import { TestimonialsHome } from "@/components/home/testimonials-home";
-import { FaqPreview } from "@/components/home/faq-preview";
-import { MapEmbed } from "@/components/location/map-embed";
 import { ServicesPreview } from "@/components/home/services-preview";
 import { PackagesPreview } from "@/components/home/packages-preview";
 import { HowItWorks } from "@/components/home/how-it-works";
-import { MembershipUpsell } from "@/components/memberships/membership-upsell";
-import { Reveal } from "@/components/ui/reveal";
+import { FaqPreview } from "@/components/home/faq-preview";
+import { VisitSection } from "@/components/home/visit-section";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <ServicesMarquee />
-      {/*
-        Packages sits directly under the hero — it's the only purchasable page
-        on the site, so it comes before the trust/services storytelling rather
-        than after it.
-      */}
-      <Reveal>
-        <PackagesPreview />
-      </Reveal>
-      <Reveal delayMs={40}>
-        <TrustSection />
-      </Reveal>
-      <Reveal delayMs={60}>
-        <ServicesPreview />
-      </Reveal>
-      <Reveal delayMs={60}>
-        <HowItWorks />
-      </Reveal>
-      <Reveal delayMs={80}>
-        <MembershipUpsell />
-      </Reveal>
-      <Reveal delayMs={100}>
-        <AboutPreview />
-      </Reveal>
-      <Reveal delayMs={140}>
-        <TestimonialsHome />
-      </Reveal>
-      <Reveal delayMs={180}>
-        <FaqPreview />
-      </Reveal>
-      <Reveal delayMs={220}>
-        <MapEmbed />
-      </Reveal>
+      <ServicesPreview />
+      <PackagesPreview />
+      <HowItWorks />
+      <FaqPreview />
+      <VisitSection />
     </>
   );
 }
