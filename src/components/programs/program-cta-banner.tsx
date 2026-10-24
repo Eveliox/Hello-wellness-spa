@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { ClinicianSignature } from "@/components/programs/clinician-signature";
@@ -10,8 +9,6 @@ export type ProgramCTABannerProps = {
   body: string;
   primaryCta: ProgramCTACtaProp;
   secondaryCta?: ProgramCTACtaProp;
-  /** Optional low-emphasis text link rendered under the buttons (e.g. "See packages & pricing"). */
-  tertiaryLink?: ProgramCTACtaProp;
   locale?: "en" | "es";
   /** Set false to hide the clinician signature (e.g. if placeholder isn't yet real). Defaults true. */
   showSignature?: boolean;
@@ -28,7 +25,6 @@ export function ProgramCTABanner({
   body,
   primaryCta,
   secondaryCta,
-  tertiaryLink,
   locale = "en",
   showSignature = true,
 }: ProgramCTABannerProps) {
@@ -63,16 +59,6 @@ export function ProgramCTABanner({
               </Button>
             ) : null}
           </div>
-          {tertiaryLink ? (
-            <p className="mt-5 text-sm">
-              <Link
-                href={tertiaryLink.href}
-                className="font-semibold text-accent-clinical underline-offset-4 hover:underline"
-              >
-                {tertiaryLink.label}
-              </Link>
-            </p>
-          ) : null}
         </div>
 
         {showSignature ? (

@@ -108,11 +108,6 @@ export default async function ProgramPage({ params }: Props) {
           label: `Call ${site.phoneDisplay}`,
           href: `tel:${site.phoneTel}`,
         }}
-        tertiaryLink={
-          program.slug === "weight-management"
-            ? { label: "See packages & pricing →", href: "/programs/packages" }
-            : undefined
-        }
         locale="en"
       />
     </>
